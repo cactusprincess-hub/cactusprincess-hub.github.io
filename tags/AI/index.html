@@ -256,7 +256,7 @@
 <h2 id="2-1-7-小结"><a href="#2-1-7-小结" class="headerlink" title="2.1.7. 小结"></a>2.1.7. 小结</h2><ul>
 <li>深度学习存储和操作数据的主要接口是张量（维数组）。它提供了各种功能，包括基本数学运算、广播、索引、切片、内存节省和转换其他Python对象。</li>
 </ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-06T15:47:07.703Z" title="3/6/2026, 11:47:07 PM">2026-03-06</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">5 分钟读完 (大约785个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-03/">深度学习笔记（三）：数据预处理</a></p><div class="content"><h1 id="一、为什么要做数据预处理"><a href="#一、为什么要做数据预处理" class="headerlink" title="一、为什么要做数据预处理"></a>一、为什么要做数据预处理</h1><p>现实数据通常不是模型能直接用的格式，比如：</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-07T07:39:04.653Z" title="3/7/2026, 3:39:04 PM">2026-03-07</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">5 分钟读完 (大约785个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-03/">深度学习笔记（三）：数据预处理</a></p><div class="content"><h1 id="一、为什么要做数据预处理"><a href="#一、为什么要做数据预处理" class="headerlink" title="一、为什么要做数据预处理"></a>一、为什么要做数据预处理</h1><p>现实数据通常不是模型能直接用的格式，比如：</p>
 <table>
 <thead>
 <tr>
@@ -438,8 +438,7 @@
 <p>常用：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fillna()</span><br></pre></td></tr></table></figure>
 
-<p><strong>4️⃣ 类别变量编码</strong><br>字符串 → 数值</p>
-<p>方法：</p>
+<p><strong>4️⃣ 类别变量编码</strong><br>字符串 → 数值<br>方法：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.get_dummies()</span><br></pre></td></tr></table></figure>
 <p>原理：<br><strong>One-hot encoding</strong><br><strong>5️⃣ 转换为张量</strong><br>流程：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pandas → numpy → tensor</span><br></pre></td></tr></table></figure>
