@@ -29,7 +29,263 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">cpp</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-24T04:00:00.000Z" title="3/24/2026, 12:00:00 PM">2026-03-24</time>发表</span><span class="level-item"><time dateTime="2026-03-25T13:08:36.108Z" title="3/25/2026, 9:08:36 PM">2026-03-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">9 分钟读完 (大约1334个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/24/7--Initialization%20Cleanup/">oop7</a></p><div class="content"><h1 id="第一部分：知识点（普通文本）"><a href="#第一部分：知识点（普通文本）" class="headerlink" title="第一部分：知识点（普通文本）"></a>第一部分：知识点（普通文本）</h1><h2 id="一、构造函数（Constructor）"><a href="#一、构造函数（Constructor）" class="headerlink" title="一、构造函数（Constructor）"></a>一、构造函数（Constructor）</h2><h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h3><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">cpp</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-25T14:00:00.000Z" title="3/25/2026, 10:00:00 PM">2026-03-25</time>发表</span><span class="level-item"><time dateTime="2026-03-25T14:03:24.584Z" title="3/25/2026, 10:03:24 PM">2026-03-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">7 分钟读完 (大约987个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/25/8--Constants/">oop8</a></p><div class="content"><h1 id="第一部分：知识点整理（普通文本）"><a href="#第一部分：知识点整理（普通文本）" class="headerlink" title="第一部分：知识点整理（普通文本）"></a>第一部分：知识点整理（普通文本）</h1><h2 id="1-const-的核心作用"><a href="#1-const-的核心作用" class="headerlink" title="1. const 的核心作用"></a>1. const 的核心作用</h2><ul>
+<li>const 用于区分“可变”和“不可变”</li>
+<li>提供：<ul>
+<li>类型安全（比 #define 更强）</li>
+<li>编译期检查</li>
+<li>程序稳定性</li>
+</ul>
+</li>
+</ul>
+<h3 id="与-define-的区别"><a href="#与-define-的区别" class="headerlink" title="与 #define 的区别"></a>与 #define 的区别</h3><ul>
+<li>#define：纯文本替换，无类型检查</li>
+<li>const：<ul>
+<li>有类型</li>
+<li>编译器可检查错误</li>
+<li>更安全</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-const-基本规则"><a href="#2-const-基本规则" class="headerlink" title="2. const 基本规则"></a>2. const 基本规则</h2><ul>
+<li>const 变量必须初始化</li>
+<li>一旦初始化，不能修改</li>
+</ul>
+<p>示例：</p>
+<ul>
+<li>const int x &#x3D; 10; ✔</li>
+<li>const int x; ✘（未初始化）</li>
+<li>x &#x3D; 20; ✘（不可修改）</li>
+</ul>
+<p>数组：</p>
+<ul>
+<li>const int a[] &#x3D; {1,2,3}<ul>
+<li>每个元素都不可修改</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3-const-与指针（重点）"><a href="#3-const-与指针（重点）" class="headerlink" title="3. const 与指针（重点）"></a>3. const 与指针（重点）</h2><h3 id="判定原则"><a href="#判定原则" class="headerlink" title="判定原则"></a>判定原则</h3><p>👉 const 修饰“离它最近的对象”</p>
+<hr>
+<h3 id="3-1-指向常量的指针（pointer-to-const）"><a href="#3-1-指向常量的指针（pointer-to-const）" class="headerlink" title="3.1 指向常量的指针（pointer to const）"></a>3.1 指向常量的指针（pointer to const）</h3><p>定义：</p>
+<ul>
+<li>const int* p</li>
+<li>int const* p</li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>可以改指针指向</li>
+<li>不能改指针指向的值</li>
+</ul>
+<p>示例：</p>
+<ul>
+<li>p &#x3D; &amp;x ✔</li>
+<li>*p &#x3D; 10 ✘</li>
+</ul>
+<hr>
+<h3 id="3-2-常量指针（const-pointer）"><a href="#3-2-常量指针（const-pointer）" class="headerlink" title="3.2 常量指针（const pointer）"></a>3.2 常量指针（const pointer）</h3><p>定义：</p>
+<ul>
+<li>int* const p</li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>不能改变指针指向</li>
+<li>可以修改值</li>
+</ul>
+<p>示例：</p>
+<ul>
+<li>p &#x3D; &amp;y ✘</li>
+<li>*p &#x3D; 10 ✔</li>
+</ul>
+<hr>
+<h3 id="3-3-指向常量的常量指针"><a href="#3-3-指向常量的常量指针" class="headerlink" title="3.3 指向常量的常量指针"></a>3.3 指向常量的常量指针</h3><p>定义：</p>
+<ul>
+<li>const int* const p</li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>不能改指向</li>
+<li>不能改值</li>
+</ul>
+<hr>
+<h2 id="4-const-与函数"><a href="#4-const-与函数" class="headerlink" title="4. const 与函数"></a>4. const 与函数</h2><h3 id="4-1-参数中的-const"><a href="#4-1-参数中的-const" class="headerlink" title="4.1 参数中的 const"></a>4.1 参数中的 const</h3><p>目的：<br>👉 防止函数修改外部数据</p>
+<p>示例：</p>
+<ul>
+<li>void f(const int* p)<ul>
+<li>*p 不可修改</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-2-返回值中的-const"><a href="#4-2-返回值中的-const" class="headerlink" title="4.2 返回值中的 const"></a>4.2 返回值中的 const</h3><p>目的：<br>👉 防止调用者修改返回对象</p>
+<p>示例：</p>
+<ul>
+<li>const char* func()</li>
+</ul>
+<hr>
+<h3 id="4-3-规则总结"><a href="#4-3-规则总结" class="headerlink" title="4.3 规则总结"></a>4.3 规则总结</h3><ul>
+<li>const 参数：保护输入</li>
+<li>const 返回：保护输出</li>
+</ul>
+<hr>
+<h2 id="5-临时对象（Temporaries）"><a href="#5-临时对象（Temporaries）" class="headerlink" title="5. 临时对象（Temporaries）"></a>5. 临时对象（Temporaries）</h2><ul>
+<li>编译器生成的临时对象默认是 const</li>
+</ul>
+<p>意义：</p>
+<ul>
+<li>防止对临时对象进行非法修改</li>
+<li>提高安全性</li>
+</ul>
+<hr>
+<h2 id="6-类中的-const（重点大题区）"><a href="#6-类中的-const（重点大题区）" class="headerlink" title="6. 类中的 const（重点大题区）"></a>6. 类中的 const（重点大题区）</h2><hr>
+<h3 id="6-1-static-成员变量"><a href="#6-1-static-成员变量" class="headerlink" title="6.1 static 成员变量"></a>6.1 static 成员变量</h3><p>特点：</p>
+<ul>
+<li>所有对象共享</li>
+<li>必须在类外初始化</li>
+</ul>
+<p>格式：</p>
+<ul>
+<li>int Class::var &#x3D; value;</li>
+</ul>
+<hr>
+<h3 id="6-2-const-成员变量"><a href="#6-2-const-成员变量" class="headerlink" title="6.2 const 成员变量"></a>6.2 const 成员变量</h3><p>特点：</p>
+<ul>
+<li>必须初始化</li>
+<li>只能在构造函数初始化列表中初始化</li>
+</ul>
+<p>原因：</p>
+<ul>
+<li>const 不能先声明再赋值</li>
+</ul>
+<hr>
+<h3 id="6-3-初始化列表"><a href="#6-3-初始化列表" class="headerlink" title="6.3 初始化列表"></a>6.3 初始化列表</h3><p>作用：</p>
+<ul>
+<li>初始化 const 成员</li>
+<li>初始化引用成员</li>
+</ul>
+<p>示例：</p>
+<ul>
+<li>A::A(int i) : a(i) {}</li>
+</ul>
+<hr>
+<h3 id="6-4-初始化顺序（超级重要）"><a href="#6-4-初始化顺序（超级重要）" class="headerlink" title="6.4 初始化顺序（超级重要）"></a>6.4 初始化顺序（超级重要）</h3><p>👉 按“声明顺序”，不是初始化列表顺序</p>
+<p>错误来源：</p>
+<ul>
+<li>写顺序 ≠ 执行顺序</li>
+</ul>
+<hr>
+<h3 id="6-5-const-成员函数"><a href="#6-5-const-成员函数" class="headerlink" title="6.5 const 成员函数"></a>6.5 const 成员函数</h3><p>定义：</p>
+<ul>
+<li>函数后加 const</li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>不能修改成员变量</li>
+</ul>
+<p>示例：</p>
+<ul>
+<li>int get() const</li>
+</ul>
+<p>错误：</p>
+<ul>
+<li>return x++ ✘</li>
+</ul>
+<hr>
+<h3 id="6-6-const-对象"><a href="#6-6-const-对象" class="headerlink" title="6.6 const 对象"></a>6.6 const 对象</h3><p>规则：</p>
+<table>
+<thead>
+<tr>
+<th>对象类型</th>
+<th>可调用函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>const对象</td>
+<td>只能调用 const函数</td>
+</tr>
+<tr>
+<td>非const对象</td>
+<td>可调用所有函数</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="6-7-mutable（非常重要考点）"><a href="#6-7-mutable（非常重要考点）" class="headerlink" title="6.7 mutable（非常重要考点）"></a>6.7 mutable（非常重要考点）</h3><p>作用：<br>👉 允许在 const 函数中修改变量</p>
+<p>示例：</p>
+<ul>
+<li>mutable int x;</li>
+</ul>
+<p>意义：</p>
+<ul>
+<li>逻辑常量 vs 物理常量</li>
+</ul>
+<hr>
+<h2 id="7-总结核心思想"><a href="#7-总结核心思想" class="headerlink" title="7. 总结核心思想"></a>7. 总结核心思想</h2><ul>
+<li>const 是“类型系统的一部分”</li>
+<li>用于：<ul>
+<li>限制修改</li>
+<li>提高安全</li>
+<li>强化接口设计</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="第二部分：易错点总结（普通文本）"><a href="#第二部分：易错点总结（普通文本）" class="headerlink" title="第二部分：易错点总结（普通文本）"></a>第二部分：易错点总结（普通文本）</h1><h2 id="1-const-未初始化"><a href="#1-const-未初始化" class="headerlink" title="1. const 未初始化"></a>1. const 未初始化</h2><ul>
+<li>const int x; ✘<br>  👉 必须初始化</li>
+</ul>
+<hr>
+<h2 id="2-const-指针混淆（最常错）"><a href="#2-const-指针混淆（最常错）" class="headerlink" title="2. const 指针混淆（最常错）"></a>2. const 指针混淆（最常错）</h2><p>常见误解：</p>
+<ul>
+<li>const int* p ≠ int* const p</li>
+</ul>
+<p>记忆方法：<br>👉 “看 const 靠谁近”</p>
+<hr>
+<h2 id="3-函数参数错误"><a href="#3-函数参数错误" class="headerlink" title="3. 函数参数错误"></a>3. 函数参数错误</h2><ul>
+<li>不能把 const 指针传给非 const 参数</li>
+</ul>
+<p>示例：</p>
+<ul>
+<li>void f(int* p)</li>
+<li>const int* cp</li>
+<li>f(cp) ✘</li>
+</ul>
+<hr>
+<h2 id="4-返回值错误"><a href="#4-返回值错误" class="headerlink" title="4. 返回值错误"></a>4. 返回值错误</h2><ul>
+<li>const 返回值不能赋给非 const 指针</li>
+</ul>
+<hr>
+<h2 id="5-const-成员变量初始化错误"><a href="#5-const-成员变量初始化错误" class="headerlink" title="5. const 成员变量初始化错误"></a>5. const 成员变量初始化错误</h2><p>错误写法：</p>
+<ul>
+<li>在构造函数体内赋值</li>
+</ul>
+<p>正确：</p>
+<ul>
+<li>用初始化列表</li>
+</ul>
+<hr>
+<h2 id="6-初始化顺序错误（高频考点）"><a href="#6-初始化顺序错误（高频考点）" class="headerlink" title="6. 初始化顺序错误（高频考点）"></a>6. 初始化顺序错误（高频考点）</h2><ul>
+<li>顺序由“声明顺序”决定</li>
+<li>与初始化列表顺序无关</li>
+</ul>
+<hr>
+<h2 id="7-const-成员函数违规修改数据"><a href="#7-const-成员函数违规修改数据" class="headerlink" title="7. const 成员函数违规修改数据"></a>7. const 成员函数违规修改数据</h2><ul>
+<li>修改成员变量会报错</li>
+</ul>
+<hr>
+<h2 id="8-const-对象调用非-const-函数"><a href="#8-const-对象调用非-const-函数" class="headerlink" title="8. const 对象调用非 const 函数"></a>8. const 对象调用非 const 函数</h2><ul>
+<li>会编译错误</li>
+</ul>
+<hr>
+<h2 id="9-mutable-误用"><a href="#9-mutable-误用" class="headerlink" title="9. mutable 误用"></a>9. mutable 误用</h2><ul>
+<li>只用于“逻辑不变但需要修改”的变量</li>
+<li>不要滥用</li>
+</ul>
+<hr>
+<h2 id="10-临时对象修改错误"><a href="#10-临时对象修改错误" class="headerlink" title="10. 临时对象修改错误"></a>10. 临时对象修改错误</h2><ul>
+<li>临时对象是 const</li>
+<li>不能修改</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-24T04:00:00.000Z" title="3/24/2026, 12:00:00 PM">2026-03-24</time>发表</span><span class="level-item"><time dateTime="2026-03-25T13:55:18.668Z" title="3/25/2026, 9:55:18 PM">2026-03-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">9 分钟读完 (大约1387个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/24/7--Initialization%20Cleanup/">oop7</a></p><div class="content"><h1 id="第一部分：知识点（普通文本）"><a href="#第一部分：知识点（普通文本）" class="headerlink" title="第一部分：知识点（普通文本）"></a>第一部分：知识点（普通文本）</h1><h2 id="一、构造函数（Constructor）"><a href="#一、构造函数（Constructor）" class="headerlink" title="一、构造函数（Constructor）"></a>一、构造函数（Constructor）</h2><h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h3><ul>
 <li>构造函数是在对象创建时自动调用的函数，用于初始化对象。</li>
 <li>特点：<ul>
 <li>函数名与类名相同</li>
@@ -162,6 +418,7 @@
 <h3 id="2-默认构造函数的重要性"><a href="#2-默认构造函数的重要性" class="headerlink" title="2. 默认构造函数的重要性"></a>2. 默认构造函数的重要性</h3><ul>
 <li>如果数组未完全初始化：<ul>
 <li>剩余元素调用默认构造函数</li>
+<li>因为数组初始化 &#x3D; 对每个元素逐个构造，有没有“初始化值” → 决定是否需要默认构造</li>
 </ul>
 </li>
 </ul>
@@ -198,7 +455,7 @@
 </ol>
 <hr>
 <h2 id="四、对象生命周期错误"><a href="#四、对象生命周期错误" class="headerlink" title="四、对象生命周期错误"></a>四、对象生命周期错误</h2><ol>
-<li>误以为函数结束对象还存在<br> → 实际已析构</li>
+<li>误以为函数结束对象还存在  但注意是函数先结束然后再释放对象<br> → 实际已析构</li>
 <li>临时对象生命周期极短<br> → 容易产生悬空引用</li>
 </ol>
 <hr>
@@ -531,7 +788,7 @@
 <li>friend 可以访问</li>
 <li>成员函数可以访问</li>
 </ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-23T02:00:00.000Z" title="3/23/2026, 10:00:00 AM">2026-03-23</time>发表</span><span class="level-item"><time dateTime="2026-03-24T04:10:15.607Z" title="3/24/2026, 12:10:15 PM">2026-03-24</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">2 分钟读完 (大约372个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/23/5--data%20abstraction/">oop5</a></p><div class="content"><ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-23T02:00:00.000Z" title="3/23/2026, 10:00:00 AM">2026-03-23</time>发表</span><span class="level-item"><time dateTime="2026-03-25T14:03:05.739Z" title="3/25/2026, 10:03:05 PM">2026-03-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">2 分钟读完 (大约372个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/23/5--data%20abstraction/">oop5</a></p><div class="content"><ul>
 <li>Procedural paradigm<br>  → 程序 &#x3D; 算法 + 数据结构</li>
 <li>Object-Oriented paradigm<br>  → 程序 &#x3D; 对象集合<br>  → 对象 &#x3D; 数据 + 方法</li>
 <li>抽象的发展过程（核心思想：封装）</li>
@@ -617,7 +874,7 @@
 <li>实例（instance）</li>
 <li>发送消息（调用成员函数）</li>
 </ul>
-</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">13</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">16</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-24T04:00:00.000Z">2026-03-24</time></p><p class="title"><a href="/2026/03/24/7--Initialization%20Cleanup/">oop7</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-24T03:00:00.000Z">2026-03-24</time></p><p class="title"><a href="/2026/03/24/6--hiding%20the%20implementation/">oop6</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-23T02:00:00.000Z">2026-03-23</time></p><p class="title"><a href="/2026/03/23/5--data%20abstraction/">oop5</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-10T13:04:00.000Z">2026-03-10</time></p><p class="title"><a href="/2026/03/10/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库阶段性学习指南索引</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-03T13:50:00.000Z">2026-03-03</time></p><p class="title"><a href="/2026/03/03/ML-01/">深度学习笔记（一）：走进机器学习</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a> / <a href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">14</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">16</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-25T14:00:00.000Z">2026-03-25</time></p><p class="title"><a href="/2026/03/25/8--Constants/">oop8</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-24T04:00:00.000Z">2026-03-24</time></p><p class="title"><a href="/2026/03/24/7--Initialization%20Cleanup/">oop7</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-24T03:00:00.000Z">2026-03-24</time></p><p class="title"><a href="/2026/03/24/6--hiding%20the%20implementation/">oop6</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-23T02:00:00.000Z">2026-03-23</time></p><p class="title"><a href="/2026/03/23/5--data%20abstraction/">oop5</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-10T13:04:00.000Z">2026-03-10</time></p><p class="title"><a href="/2026/03/10/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库阶段性学习指南索引</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
