@@ -80,7 +80,7 @@
 <li><strong>GitHub</strong>: <a target="_blank" rel="noopener" href="https://github.com/cactusprincess-hub">cactusprincess-hub</a></li>
 <li><strong>Email</strong>: (点击侧边栏邮件图标)</li>
 </ul>
-<p><em>Stay Hungry, Stay Foolish.</em></p></div><a class="article-more button is-small is-size-7" href="/2026/01/28/hello-world/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-24T04:00:00.000Z" title="3/24/2026, 12:00:00 PM">2026-03-24</time>发表</span><span class="level-item"><time dateTime="2026-03-24T04:11:13.133Z" title="3/24/2026, 12:11:13 PM">2026-03-24</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">8 分钟读完 (大约1149个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/24/7--Initialization%20Cleanup/">oop7</a></p><div class="content"><h1 id="第一部分：知识点（普通文本）"><a href="#第一部分：知识点（普通文本）" class="headerlink" title="第一部分：知识点（普通文本）"></a>第一部分：知识点（普通文本）</h1><h2 id="一、构造函数（Constructor）"><a href="#一、构造函数（Constructor）" class="headerlink" title="一、构造函数（Constructor）"></a>一、构造函数（Constructor）</h2><h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h3><ul>
+<p><em>Stay Hungry, Stay Foolish.</em></p></div><a class="article-more button is-small is-size-7" href="/2026/01/28/hello-world/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-24T04:00:00.000Z" title="3/24/2026, 12:00:00 PM">2026-03-24</time>发表</span><span class="level-item"><time dateTime="2026-03-25T13:08:36.108Z" title="3/25/2026, 9:08:36 PM">2026-03-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">9 分钟读完 (大约1334个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/24/7--Initialization%20Cleanup/">oop7</a></p><div class="content"><h1 id="第一部分：知识点（普通文本）"><a href="#第一部分：知识点（普通文本）" class="headerlink" title="第一部分：知识点（普通文本）"></a>第一部分：知识点（普通文本）</h1><h2 id="一、构造函数（Constructor）"><a href="#一、构造函数（Constructor）" class="headerlink" title="一、构造函数（Constructor）"></a>一、构造函数（Constructor）</h2><h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h3><ul>
 <li>构造函数是在对象创建时自动调用的函数，用于初始化对象。</li>
 <li>特点：<ul>
 <li>函数名与类名相同</li>
@@ -117,7 +117,7 @@
 </ul>
 <h3 id="2-形式"><a href="#2-形式" class="headerlink" title="2. 形式"></a>2. 形式</h3><ul>
 <li>显式定义：A() {}</li>
-<li>或使用默认参数实现：A(int x &#x3D; 0)</li>
+<li>或使用默认参数实现：A(int x &#x3D; 0)   就可以实现额外传几个就改几个。其余的仍为默认值</li>
 </ul>
 <h3 id="3-注意事项"><a href="#3-注意事项" class="headerlink" title="3. 注意事项"></a>3. 注意事项</h3><ul>
 <li>如果定义了带参数构造函数，而没有默认构造函数：<ul>
@@ -151,6 +151,7 @@
 <h3 id="4-调用顺序"><a href="#4-调用顺序" class="headerlink" title="4. 调用顺序"></a>4. 调用顺序</h3><ul>
 <li>构造：先成员 → 后自身</li>
 <li>析构：先自身 → 后成员（逆序）</li>
+<li></li>
 </ul>
 <hr>
 <h2 id="四、构造与析构的执行过程"><a href="#四、构造与析构的执行过程" class="headerlink" title="四、构造与析构的执行过程"></a>四、构造与析构的执行过程</h2><h3 id="1-局部对象"><a href="#1-局部对象" class="headerlink" title="1. 局部对象"></a>1. 局部对象</h3><ul>
@@ -167,8 +168,20 @@
 <li>对象按栈顺序创建</li>
 <li>按逆序销毁（类似栈）</li>
 </ul>
-<hr>
-<h2 id="五、资源管理思想（重要）"><a href="#五、资源管理思想（重要）" class="headerlink" title="五、资源管理思想（重要）"></a>五、资源管理思想（重要）</h2><h3 id="1-初始化与清理"><a href="#1-初始化与清理" class="headerlink" title="1. 初始化与清理"></a>1. 初始化与清理</h3><ul>
+<ol>
+<li><p>有没有 new？<br>有 → 堆对象</p>
+</li>
+<li><p>在不在函数里？<br>在 → 局部对象（栈）。作用域与函数的生命周期绑定</p>
+</li>
+<li><p>在类里面？<br>是 → 成员对象。 和这个类的周期绑定。</p>
+</li>
+<li><p>在函数外？<br>是 → 全局对象。和程序的运行周期绑定</p>
+</li>
+<li><p>有 static？<br>是 → 静态对象<br>对象什么时候死，不看它写在哪个文件，<br>只看它在哪个作用域里被“创建”。</p>
+</li>
+</ol>
+<h3 id="对于局部对象"><a href="#对于局部对象" class="headerlink" title="对于局部对象"></a>对于局部对象</h3><p>真的是栈（物理结构）</p>
+<h3 id="对于其他对象"><a href="#对于其他对象" class="headerlink" title="对于其他对象"></a>对于其他对象</h3><h2 id="不是栈，但遵循“栈式规则”"><a href="#不是栈，但遵循“栈式规则”" class="headerlink" title=" 不是栈，但遵循“栈式规则”"></a> <strong>不是栈，但遵循“栈式规则”</strong></h2><h2 id="五、资源管理思想（重要）"><a href="#五、资源管理思想（重要）" class="headerlink" title="五、资源管理思想（重要）"></a>五、资源管理思想（重要）</h2><h3 id="1-初始化与清理"><a href="#1-初始化与清理" class="headerlink" title="1. 初始化与清理"></a>1. 初始化与清理</h3><ul>
 <li>构造函数：负责资源申请</li>
 <li>析构函数：负责资源释放</li>
 </ul>
@@ -957,68 +970,6 @@
 <blockquote>
 <p>拟合长期行为收益</p>
 </blockquote>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-06T14:30:14.063Z" title="3/6/2026, 10:30:14 PM">2026-03-06</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">18 分钟读完 (大约2745个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-02/">深度学习笔记（二）：数据基本操作</a></p><div class="content"><h1 id="2-1-数据操作"><a href="#2-1-数据操作" class="headerlink" title="2.1. 数据操作"></a>2.1. 数据操作</h1><p>为了能够完成各种数据操作，我们需要某种方法来存储和操作数据。 通常，我们需要做两件重要的事：<br>（1）存储获取数据；（2）将数据读入计算机后对其进行处理。 </p>
-<p>首先，我们介绍维数组，也称为<strong>张量</strong>（tensor）。 深度学习里所有的输入都会变成张量，使用过Python中NumPy计算包的读者会对本部分很熟悉。 无论使用哪个深度学习框架，它的<strong>张量类</strong>（在MXNet中为<code>ndarray</code>， 在PyTorch和TensorFlow中为<code>Tensor</code>）都与Numpy的<code>ndarray</code>类似。 但深度学习框架又比Numpy的<code>ndarray</code>多一些重要功能：可以加速计算和自动微分。</p>
-<h2 id="2-1-1-入门"><a href="#2-1-1-入门" class="headerlink" title="2.1.1. 入门"></a>2.1.1. 入门</h2><p>首先，我们导入<code>torch</code>。<br><code>import torch</code></p>
-<h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h3><p>张量表示一个由数值组成的数组，这个数组可能有多个维度。 具有一个轴的张量对应数学上的<strong>向量</strong>（vector）； 具有两个轴的张量对应数学上的<strong>矩阵</strong>（matrix）； 具有两个轴以上的张量没有特殊的数学名称。</p>
-<h3 id="2-操作"><a href="#2-操作" class="headerlink" title="2.操作"></a>2.操作</h3><h4 id="1-arange-创建一个行向量-x"><a href="#1-arange-创建一个行向量-x" class="headerlink" title="1.arange 创建一个行向量 x"></a>1.<code>arange</code> 创建一个行向量 <code>x</code></h4><p>这个行向量包含以0开始的前12个整数，它们默认创建为整数。也可指定创建类型为浮点数。张量中的每个值都称为张量的 <em>元素</em>（element）。<br>	例如，张量 <code>x</code> 中有 12 个元素。除非额外指定，新的张量将存储在内存中，并采用基于CPU的计算。</p>
-<pre><code>`x = torch.arange(12)`
-`x`
-`tensor([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])`
-</code></pre>
-<h4 id="2-通过张量的shape属性来访问张量（沿每个轴的长度）的形状"><a href="#2-通过张量的shape属性来访问张量（沿每个轴的长度）的形状" class="headerlink" title="2.通过张量的shape属性来访问张量（沿每个轴的长度）的形状"></a>2.通过张量的<code>shape</code>属性来访问张量（沿每个轴的长度）的<strong>形状</strong></h4><pre><code>`x.shape`
-`torch.Size([12])`
-</code></pre>
-<p><strong>shape 顺序 &#x3D; 从整体 → 局部</strong><br>	(每个维度的长度)<br>	例如：<br>		(批次, 通道, 高, 宽)<br>	或者：<br>		(样本数, 特征数)</p>
-<h4 id="3-size检查大小"><a href="#3-size检查大小" class="headerlink" title="3.size检查大小"></a>3.size检查大小</h4><p>张量中元素的总数&#x3D;即形状的所有元素乘积，可以检查它的大小。 因为这里在处理的是一个向量，所以它的<code>shape</code>与它的<code>size</code>相同。<br>	<code>x.numel()</code><br>	<code>12</code></p>
-<h4 id="4-改变一个张量的形状而不改变元素数量和元素值，可以调用reshape函数。"><a href="#4-改变一个张量的形状而不改变元素数量和元素值，可以调用reshape函数。" class="headerlink" title="4.改变一个张量的形状而不改变元素数量和元素值，可以调用reshape函数。"></a>4.改变一个张量的形状而不改变元素数量和元素值，可以调用<code>reshape</code>函数。</h4><p>例如，可以把张量<code>x</code>从形状为（12,）的行向量转换为形状为（3,4）的矩阵。<br>这个新的张量包含与转换前相同的值，但是它被看成一个3行4列的矩阵。 要重点说明一下，虽然张量的形状发生了改变，但其元素值并没有变。<br>	<code>X = x.reshape(3, 4)</code><br>	<code>X</code><br>	<code>tensor([[ 0,  1,  2,  3],</code><br>        <code>[ 4,  5,  6,  7],</code><br>        <code>[ 8,  9, 10, 11]])</code><br>改变形状的简洁写法：<br>	如果我们的目标形状是（高度,宽度）， 那么在知道宽度后，高度会被自动计算得出，不必我们自己做除法。 在上面的例子中，为了获得一个3行的矩阵，我们手动指定了它有3行和4列。 幸运的是，我们可以通过<code>-1</code>来调用此自动计算出维度的功能。 即我们可以用<code>x.reshape(-1,4)</code>或<code>x.reshape(3,-1)</code>来取代<code>x.reshape(3,4)</code>。</p>
-<h4 id="5-初始化张量"><a href="#5-初始化张量" class="headerlink" title="5.初始化张量"></a>5.初始化张量</h4><h5 id="（1）全0、全1"><a href="#（1）全0、全1" class="headerlink" title="（1）全0、全1"></a>（1）全0、全1</h5><p>我们可以创建一个形状为（2,3,4）的张量，其中所有元素都设置为0。<br>	代码如下：<br>	<code>torch.zeros((2, 3, 4))</code><br>	<code>tensor([[[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.]],</code><br>        <code>[[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.]]])</code><br>同样，我们可以创建一个形状为<code>(2,3,4)</code>的张量，其中所有元素都设置为1。<br>	代码如下：<br>	<code>torch.ones((2, 3, 4))</code><br>	<code>tensor([[[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.]],</code><br>        <code>[[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.]]])</code><br>从特定分布中随机采样的数字来初始化矩阵。</p>
-<h5 id="（2）随机采样来得到张量中每个元素的值。"><a href="#（2）随机采样来得到张量中每个元素的值。" class="headerlink" title="（2）随机采样来得到张量中每个元素的值。"></a>（2）随机采样来得到张量中每个元素的值。</h5><pre><code>以下代码创建一个形状为（3,4）的张量。 其中的每个元素都从均值为0、标准差为1的标准高斯分布（正态分布）中随机采样。
-`torch.randn(3, 4)`
-`tensor([[-0.0135,  0.0665,  0.0912,  0.3212],`
-    `[ 1.4653,  0.1843, -1.6995, -0.3036],`
-    `[ 1.7646,  1.0450,  0.2457, -0.7732]])`
-</code></pre>
-<h5 id="（3）特定常量"><a href="#（3）特定常量" class="headerlink" title="（3）特定常量"></a>（3）特定常量</h5><p>我们还可以通过提供包含数值的Python列表（或嵌套列表），来为所需张量中的每个元素赋予确定值。 在这里，最外层的列表对应于轴0，内层的列表对应于轴1。<br>	<code>torch.tensor([[2, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])</code><br>	<code>tensor([[2, 1, 4, 3],</code><br>	        <code>[1, 2, 3, 4],</code><br>	        <code>[4, 3, 2, 1]])</code></p>
-<h2 id="2-1-2-运算符"><a href="#2-1-2-运算符" class="headerlink" title="2.1.2. 运算符"></a>2.1.2. 运算符</h2><h4 id="1-按元素（elementwise）运算。"><a href="#1-按元素（elementwise）运算。" class="headerlink" title="1.按元素（elementwise）运算。"></a>1.按元素（elementwise）运算。</h4><p>对数组里的每个位置分别做同一个运算，其实是把标量函数升级成为向量函数。<br><code>f(x,y) = [f(x1,y1), f(x2,y2), f(x3,y3)]</code><br>	<code>x = torch.tensor([1.0, 2, 4, 8])</code><br>	<code>y = torch.tensor([2, 2, 2, 2])</code><br>	<code>x + y, x - y, x * y, x / y, x ** y  # **运算符是求幂运算</code><br>	<code>(tensor([ 3.,  4.,  6., 10.]),</code><br>	 <code>tensor([-1.,  0.,  2.,  6.]),</code><br>	 <code>tensor([ 2.,  4.,  8., 16.]),</code><br>	 <code>tensor([0.5000, 1.0000, 2.0000, 4.0000]),</code><br>	 <code>tensor([ 1.,  4., 16., 64.]))</code><br>“按元素”方式可以应用更多的计算，包括像求幂这样的一元运算符。<br>	<code>torch.exp(x)</code><br>	<code>tensor([2.7183e+00, 7.3891e+00, 5.4598e+01, 2.9810e+03])</code></p>
-<h4 id="2-张量连结"><a href="#2-张量连结" class="headerlink" title="2.张量连结"></a>2.张量连结</h4><p>我们也可以把多个张量<strong>连结</strong>（concatenate）在一起， 把它们端对端地叠起来形成一个更大的张量。 我们只需要提供张量列表，并给出沿哪个轴连结。<br>	下面的例子分别演示了当我们沿行（轴-0，形状的第一个元素） 和按列（轴-1，形状的第二个元素）连结两个矩阵时，会发生什么情况。 我们可以看到，第一个输出张量的轴-0长度（）是两个输入张量轴-0长度的总和（）； 第二个输出张量的轴-1长度（）是两个输入张量轴-1长度的总和（）。</p>
-<pre><code>`X = torch.arange(12, dtype=torch.float32).reshape((3,4))`
-`Y = torch.tensor([[2.0, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])`
-`torch.cat((X, Y), dim=0), torch.cat((X, Y), dim=1)`
-
-(tensor([[ 0.,  1.,  2.,  3.],
-     [ 4.,  5.,  6.,  7.],
-     [ 8.,  9., 10., 11.],
-     [ 2.,  1.,  4.,  3.],
-     [ 1.,  2.,  3.,  4.],
-     [ 4.,  3.,  2.,  1.]]),
- tensor([[ 0.,  1.,  2.,  3.,  2.,  1.,  4.,  3.],
-     [ 4.,  5.,  6.,  7.,  1.,  2.,  3.,  4.],
-     [ 8.,  9., 10., 11.,  4.,  3.,  2.,  1.]]))
-</code></pre>
-<h4 id="3-逻辑运算（按元素比较）"><a href="#3-逻辑运算（按元素比较）" class="headerlink" title="3.逻辑运算（按元素比较）"></a>3.逻辑运算（按元素比较）</h4><p>可以通过<strong>逻辑运算符</strong>构建二元张量。 以<code>X == Y</code>为例： 对于每个位置，如果<code>X</code>和<code>Y</code>在该位置相等，则新张量中相应项的值为1。 这意味着逻辑语句<code>X == Y</code>在该位置处为真，否则该位置为0。<br>	<code>X == Y</code><br>	<code>tensor([[False,  True, False,  True],</code><br>        <code>[False, False, False, False],</code><br>        <code>[False, False, False, False]])</code></p>
-<h4 id="4-求和"><a href="#4-求和" class="headerlink" title="4.求和"></a>4.求和</h4><p>对张量中的所有元素进行求和，会产生一个单元素张量。<br>	<code>X.sum()</code><br>	<code>tensor(66.)</code></p>
-<h2 id="2-1-3-广播机制"><a href="#2-1-3-广播机制" class="headerlink" title="2.1.3. 广播机制"></a>2.1.3. 广播机制</h2><p>在上面的部分中，我们看到了如何在相同形状的两个张量上执行按元素操作。 在某些情况下，即使形状不同，我们仍然可以通过调用 <strong>广播机制</strong>来执行按元素操作。 这种机制的工作方式如下：</p>
-<ol>
-<li><p>通过适当复制元素来扩展一个或两个数组，以便在转换之后，两个张量具有相同的形状；</p>
-</li>
-<li><p>对生成的数组执行按元素操作。</p>
-</li>
-</ol>
-<p>在大多数情况下，我们将沿着数组中长度为1的轴进行广播，如下例子：<br>	<code>a = torch.arange(3).reshape((3, 1))</code><br>	<code>b = torch.arange(2).reshape((1, 2))</code><br>	<code>a, b</code><br>	<code>(tensor([[0],</code><br>	        <code>[1],</code><br>	        <code>[2]]),</code><br>	 <code>tensor([[0, 1]]))</code><br>由于<code>a</code>和<code>b</code>分别是和矩阵，如果让它们相加，它们的形状不匹配。 我们将两个矩阵_广播_为一个更大的矩阵，如下所示：矩阵<code>a</code>将复制列， 矩阵<code>b</code>将复制行，然后再按元素相加。<br>	<code>a + b</code><br>	<code>tensor([[0, 1],</code><br>	        <code>[1, 2],</code><br>	        <code>[2, 3]])</code></p>
-<h2 id="2-1-4-索引和切片"><a href="#2-1-4-索引和切片" class="headerlink" title="2.1.4. 索引和切片"></a>2.1.4. 索引和切片</h2><h3 id="1-索引"><a href="#1-索引" class="headerlink" title="1.索引"></a>1.索引</h3><p>张量中的元素可以通过索引访问。 与任何Python数组一样：第一个元素的索引是0，最后一个元素索引是-1； 可以指定范围以包含第一个元素和最后一个之前的元素。<br>如下所示，我们可以用<code>[-1]</code>选择最后一个元素，可以用<code>[1:3]</code>选择第二个和第三个元素：<br>	<code>X[-1], X[1:3]</code>左闭右开<br>	<code>(tensor([ 8.,  9., 10., 11.]),</code><br>	 <code>tensor([[ 4.,  5.,  6.,  7.],</code><br>	         <code>[ 8.,  9., 10., 11.]]))</code><br>除读取外，我们还可以通过指定索引来将元素写入矩阵。<br>	<code>X[1, 2] = 9</code>&#x2F;&#x2F;第一行第二列<br>	<code>X</code><br>	<code>tensor([[ 0.,  1.,  2.,  3.],</code><br>	        <code>[ 4.,  5.,  9.,  7.],</code><br>	        <code>[ 8.,  9., 10., 11.]])</code><br>如果我们想为多个元素赋值相同的值，我们只需要索引所有元素，然后为它们赋值。 例如，<code>[0:2, :]</code>访问第1行和第2行，其中“:”代表沿轴1（列）的所有元素。 虽然我们讨论的是矩阵的索引，但这也适用于向量和超过2个维度的张量。<br>	<code>X[0:2, :] = 12</code><br>	<code>X</code><br>	<code>tensor([[12., 12., 12., 12.],</code><br>        <code>[12., 12., 12., 12.],</code><br>        <code>[ 8.,  9., 10., 11.]])</code></p>
-<h2 id="2-1-5-节省内存"><a href="#2-1-5-节省内存" class="headerlink" title="2.1.5. 节省内存"></a>2.1.5. 节省内存</h2><p>运行一些操作可能会导致为新结果分配内存。 例如，如果我们用<code>Y = X + Y</code>，我们将取消引用<code>Y</code>指向的张量，而是指向新分配的内存处的张量。<br>在下面的例子中，我们用Python的<code>id()</code>函数演示了这一点， 它给我们提供了内存中引用对象的确切地址。 运行<code>Y = Y + X</code>后，我们会发现<code>id(Y)</code>指向另一个位置。 这是因为Python首先计算<code>Y + X</code>，为结果分配新的内存，然后使<code>Y</code>指向内存中的这个新位置。<br>	<code>before = id(Y)</code><br>	<code>Y = Y + X</code><br>	<code>id(Y) == before</code><br>	<code>False</code><br>    <em>错误原因是因为其实内存有变</em><br>这可能是不可取的，原因有两个：</p>
-<ol>
-<li><p>首先，我们不想总是不必要地分配内存。在机器学习中，我们可能有数百兆的参数，并且在一秒内多次更新所有参数。通常情况下，我们希望原地执行这些更新；</p>
-</li>
-<li><p>如果我们不原地更新，其他引用仍然会指向旧的内存位置，这样我们的某些代码可能会无意中引用旧的参数。</p>
-</li>
-</ol>
-<p>幸运的是，执行原地操作非常简单。 我们可以使用切片表示法将操作的结果分配给先前分配的数组，例如<code>Y[:] = &lt;expression&gt;</code>。 为了说明这一点，我们首先创建一个新的矩阵<code>Z</code>，其形状与另一个<code>Y</code>相同， 使用<code>zeros_like</code>来分配一个全的块。<br>	<code>Z = torch.zeros_like(Y)</code><br>	<code>print(&#39;id(Z):&#39;, id(Z))</code><br>	<code>Z[:] = X + Y</code><br>	<code>print(&#39;id(Z):&#39;, id(Z))</code><br>	<code>id(Z): 140327634811696</code><br>	<code>id(Z): 140327634811696</code><br>如果在后续计算中没有重复使用<code>X</code>， 我们也可以使用<code>X[:] = X + Y</code>或<code>X += Y</code>来减少操作的内存开销。<br>	<code>before = id(X)</code><br>	<code>X += Y</code><br>	<code>id(X) == before</code><br>	<code>True</code></p>
-<h2 id="2-1-6-转换为其他Python对象"><a href="#2-1-6-转换为其他Python对象" class="headerlink" title="2.1.6. 转换为其他Python对象"></a>2.1.6. 转换为其他Python对象</h2><p>将深度学习框架定义的张量转换为NumPy张量（<code>ndarray</code>）很容易，反之也同样容易。 torch张量和numpy数组将共享它们的底层内存，就地操作更改一个张量也会同时更改另一个张量。<br>	<code>A = X.numpy()</code><br>	<code>B = torch.tensor(A)</code><br>	<code>type(A), type(B)</code><br>	<code>(numpy.ndarray, torch.Tensor)</code><br>要将大小为1的张量转换为Python标量，我们可以调用<code>item</code>函数或Python的内置函数。<br>	<code>a = torch.tensor([3.5])</code><br>	<code>a, a.item(), float(a), int(a)</code><br>	<code>(tensor([3.5000]), 3.5, 3.5, 3)</code></p>
-<h2 id="2-1-7-小结"><a href="#2-1-7-小结" class="headerlink" title="2.1.7. 小结"></a>2.1.7. 小结</h2><ul>
-<li>深度学习存储和操作数据的主要接口是张量（维数组）。它提供了各种功能，包括基本数学运算、广播、索引、切片、内存节省和转换其他Python对象。</li>
-</ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-07T13:36:26.963Z" title="3/7/2026, 9:36:26 PM">2026-03-07</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">13 分钟读完 (大约2007个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-04/">深度学习笔记（四）：数学角度看机器学习</a></p><div class="content"><p>batch 是训练时的数据组织方式，即投喂的样本数，也就是数据的第一个维度。<br>embedding 是一种 <strong>表示方法（representation）</strong>。<br>本质：离散ID → 连续向量<br>attention 是一种 <strong>计算机制（operation &#x2F; layer）</strong>。<br>它的功能：<br>计算序列元素之间的依赖关系<br>核心公式：<br>Attention(Q,K,V)&#x3D;softmax(QKT)<br>所以 attention 是：一种矩阵计算操作<br>几乎所有 Transformer 代码都是：<br>(batch, seq_len, hidden_dim)<br>以及为什么 <strong>Multi-head attention 会变成 4维张量</strong>：<br>(batch, heads, seq_len, head_dim)</p>
 <h1 id="一、自动微分核心知识点"><a href="#一、自动微分核心知识点" class="headerlink" title="一、自动微分核心知识点"></a>一、自动微分核心知识点</h1><h2 id="1-自动微分的目的"><a href="#1-自动微分的目的" class="headerlink" title="1 自动微分的目的"></a>1 自动微分的目的</h2><p>在机器学习中，我们需要优化参数：loss(w)<br>为了更新参数，需要计算：d lossdw<br>自动微分的作用：自动计算梯度</p>
 <h1 id="2-requires-gradD"><a href="#2-requires-gradD" class="headerlink" title="2 requires_gradD"></a>2 requires_gradD</h1><p>代码：<br>	<code>x = torch.arange(4.0)</code><br>	<code>x.requires_grad_(True)</code><br>含义：告诉框架  ，x需要计算梯度，否则不会记录计算过程。</p>
@@ -1282,6 +1233,68 @@ dot
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor()</span><br></pre></td></tr></table></figure>
 <h1 id="九、其实这一节的核心只有一句话"><a href="#九、其实这一节的核心只有一句话" class="headerlink" title="九、其实这一节的核心只有一句话"></a>九、其实这一节的核心只有一句话</h1><p>深度学习数据准备流程：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CSV → pandas → 清洗数据 → 数值化 → tensor</span><br></pre></td></tr></table></figure>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-06T14:30:14.063Z" title="3/6/2026, 10:30:14 PM">2026-03-06</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">18 分钟读完 (大约2745个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-02/">深度学习笔记（二）：数据基本操作</a></p><div class="content"><h1 id="2-1-数据操作"><a href="#2-1-数据操作" class="headerlink" title="2.1. 数据操作"></a>2.1. 数据操作</h1><p>为了能够完成各种数据操作，我们需要某种方法来存储和操作数据。 通常，我们需要做两件重要的事：<br>（1）存储获取数据；（2）将数据读入计算机后对其进行处理。 </p>
+<p>首先，我们介绍维数组，也称为<strong>张量</strong>（tensor）。 深度学习里所有的输入都会变成张量，使用过Python中NumPy计算包的读者会对本部分很熟悉。 无论使用哪个深度学习框架，它的<strong>张量类</strong>（在MXNet中为<code>ndarray</code>， 在PyTorch和TensorFlow中为<code>Tensor</code>）都与Numpy的<code>ndarray</code>类似。 但深度学习框架又比Numpy的<code>ndarray</code>多一些重要功能：可以加速计算和自动微分。</p>
+<h2 id="2-1-1-入门"><a href="#2-1-1-入门" class="headerlink" title="2.1.1. 入门"></a>2.1.1. 入门</h2><p>首先，我们导入<code>torch</code>。<br><code>import torch</code></p>
+<h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h3><p>张量表示一个由数值组成的数组，这个数组可能有多个维度。 具有一个轴的张量对应数学上的<strong>向量</strong>（vector）； 具有两个轴的张量对应数学上的<strong>矩阵</strong>（matrix）； 具有两个轴以上的张量没有特殊的数学名称。</p>
+<h3 id="2-操作"><a href="#2-操作" class="headerlink" title="2.操作"></a>2.操作</h3><h4 id="1-arange-创建一个行向量-x"><a href="#1-arange-创建一个行向量-x" class="headerlink" title="1.arange 创建一个行向量 x"></a>1.<code>arange</code> 创建一个行向量 <code>x</code></h4><p>这个行向量包含以0开始的前12个整数，它们默认创建为整数。也可指定创建类型为浮点数。张量中的每个值都称为张量的 <em>元素</em>（element）。<br>	例如，张量 <code>x</code> 中有 12 个元素。除非额外指定，新的张量将存储在内存中，并采用基于CPU的计算。</p>
+<pre><code>`x = torch.arange(12)`
+`x`
+`tensor([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])`
+</code></pre>
+<h4 id="2-通过张量的shape属性来访问张量（沿每个轴的长度）的形状"><a href="#2-通过张量的shape属性来访问张量（沿每个轴的长度）的形状" class="headerlink" title="2.通过张量的shape属性来访问张量（沿每个轴的长度）的形状"></a>2.通过张量的<code>shape</code>属性来访问张量（沿每个轴的长度）的<strong>形状</strong></h4><pre><code>`x.shape`
+`torch.Size([12])`
+</code></pre>
+<p><strong>shape 顺序 &#x3D; 从整体 → 局部</strong><br>	(每个维度的长度)<br>	例如：<br>		(批次, 通道, 高, 宽)<br>	或者：<br>		(样本数, 特征数)</p>
+<h4 id="3-size检查大小"><a href="#3-size检查大小" class="headerlink" title="3.size检查大小"></a>3.size检查大小</h4><p>张量中元素的总数&#x3D;即形状的所有元素乘积，可以检查它的大小。 因为这里在处理的是一个向量，所以它的<code>shape</code>与它的<code>size</code>相同。<br>	<code>x.numel()</code><br>	<code>12</code></p>
+<h4 id="4-改变一个张量的形状而不改变元素数量和元素值，可以调用reshape函数。"><a href="#4-改变一个张量的形状而不改变元素数量和元素值，可以调用reshape函数。" class="headerlink" title="4.改变一个张量的形状而不改变元素数量和元素值，可以调用reshape函数。"></a>4.改变一个张量的形状而不改变元素数量和元素值，可以调用<code>reshape</code>函数。</h4><p>例如，可以把张量<code>x</code>从形状为（12,）的行向量转换为形状为（3,4）的矩阵。<br>这个新的张量包含与转换前相同的值，但是它被看成一个3行4列的矩阵。 要重点说明一下，虽然张量的形状发生了改变，但其元素值并没有变。<br>	<code>X = x.reshape(3, 4)</code><br>	<code>X</code><br>	<code>tensor([[ 0,  1,  2,  3],</code><br>        <code>[ 4,  5,  6,  7],</code><br>        <code>[ 8,  9, 10, 11]])</code><br>改变形状的简洁写法：<br>	如果我们的目标形状是（高度,宽度）， 那么在知道宽度后，高度会被自动计算得出，不必我们自己做除法。 在上面的例子中，为了获得一个3行的矩阵，我们手动指定了它有3行和4列。 幸运的是，我们可以通过<code>-1</code>来调用此自动计算出维度的功能。 即我们可以用<code>x.reshape(-1,4)</code>或<code>x.reshape(3,-1)</code>来取代<code>x.reshape(3,4)</code>。</p>
+<h4 id="5-初始化张量"><a href="#5-初始化张量" class="headerlink" title="5.初始化张量"></a>5.初始化张量</h4><h5 id="（1）全0、全1"><a href="#（1）全0、全1" class="headerlink" title="（1）全0、全1"></a>（1）全0、全1</h5><p>我们可以创建一个形状为（2,3,4）的张量，其中所有元素都设置为0。<br>	代码如下：<br>	<code>torch.zeros((2, 3, 4))</code><br>	<code>tensor([[[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.]],</code><br>        <code>[[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.]]])</code><br>同样，我们可以创建一个形状为<code>(2,3,4)</code>的张量，其中所有元素都设置为1。<br>	代码如下：<br>	<code>torch.ones((2, 3, 4))</code><br>	<code>tensor([[[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.]],</code><br>        <code>[[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.]]])</code><br>从特定分布中随机采样的数字来初始化矩阵。</p>
+<h5 id="（2）随机采样来得到张量中每个元素的值。"><a href="#（2）随机采样来得到张量中每个元素的值。" class="headerlink" title="（2）随机采样来得到张量中每个元素的值。"></a>（2）随机采样来得到张量中每个元素的值。</h5><pre><code>以下代码创建一个形状为（3,4）的张量。 其中的每个元素都从均值为0、标准差为1的标准高斯分布（正态分布）中随机采样。
+`torch.randn(3, 4)`
+`tensor([[-0.0135,  0.0665,  0.0912,  0.3212],`
+    `[ 1.4653,  0.1843, -1.6995, -0.3036],`
+    `[ 1.7646,  1.0450,  0.2457, -0.7732]])`
+</code></pre>
+<h5 id="（3）特定常量"><a href="#（3）特定常量" class="headerlink" title="（3）特定常量"></a>（3）特定常量</h5><p>我们还可以通过提供包含数值的Python列表（或嵌套列表），来为所需张量中的每个元素赋予确定值。 在这里，最外层的列表对应于轴0，内层的列表对应于轴1。<br>	<code>torch.tensor([[2, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])</code><br>	<code>tensor([[2, 1, 4, 3],</code><br>	        <code>[1, 2, 3, 4],</code><br>	        <code>[4, 3, 2, 1]])</code></p>
+<h2 id="2-1-2-运算符"><a href="#2-1-2-运算符" class="headerlink" title="2.1.2. 运算符"></a>2.1.2. 运算符</h2><h4 id="1-按元素（elementwise）运算。"><a href="#1-按元素（elementwise）运算。" class="headerlink" title="1.按元素（elementwise）运算。"></a>1.按元素（elementwise）运算。</h4><p>对数组里的每个位置分别做同一个运算，其实是把标量函数升级成为向量函数。<br><code>f(x,y) = [f(x1,y1), f(x2,y2), f(x3,y3)]</code><br>	<code>x = torch.tensor([1.0, 2, 4, 8])</code><br>	<code>y = torch.tensor([2, 2, 2, 2])</code><br>	<code>x + y, x - y, x * y, x / y, x ** y  # **运算符是求幂运算</code><br>	<code>(tensor([ 3.,  4.,  6., 10.]),</code><br>	 <code>tensor([-1.,  0.,  2.,  6.]),</code><br>	 <code>tensor([ 2.,  4.,  8., 16.]),</code><br>	 <code>tensor([0.5000, 1.0000, 2.0000, 4.0000]),</code><br>	 <code>tensor([ 1.,  4., 16., 64.]))</code><br>“按元素”方式可以应用更多的计算，包括像求幂这样的一元运算符。<br>	<code>torch.exp(x)</code><br>	<code>tensor([2.7183e+00, 7.3891e+00, 5.4598e+01, 2.9810e+03])</code></p>
+<h4 id="2-张量连结"><a href="#2-张量连结" class="headerlink" title="2.张量连结"></a>2.张量连结</h4><p>我们也可以把多个张量<strong>连结</strong>（concatenate）在一起， 把它们端对端地叠起来形成一个更大的张量。 我们只需要提供张量列表，并给出沿哪个轴连结。<br>	下面的例子分别演示了当我们沿行（轴-0，形状的第一个元素） 和按列（轴-1，形状的第二个元素）连结两个矩阵时，会发生什么情况。 我们可以看到，第一个输出张量的轴-0长度（）是两个输入张量轴-0长度的总和（）； 第二个输出张量的轴-1长度（）是两个输入张量轴-1长度的总和（）。</p>
+<pre><code>`X = torch.arange(12, dtype=torch.float32).reshape((3,4))`
+`Y = torch.tensor([[2.0, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])`
+`torch.cat((X, Y), dim=0), torch.cat((X, Y), dim=1)`
+
+(tensor([[ 0.,  1.,  2.,  3.],
+     [ 4.,  5.,  6.,  7.],
+     [ 8.,  9., 10., 11.],
+     [ 2.,  1.,  4.,  3.],
+     [ 1.,  2.,  3.,  4.],
+     [ 4.,  3.,  2.,  1.]]),
+ tensor([[ 0.,  1.,  2.,  3.,  2.,  1.,  4.,  3.],
+     [ 4.,  5.,  6.,  7.,  1.,  2.,  3.,  4.],
+     [ 8.,  9., 10., 11.,  4.,  3.,  2.,  1.]]))
+</code></pre>
+<h4 id="3-逻辑运算（按元素比较）"><a href="#3-逻辑运算（按元素比较）" class="headerlink" title="3.逻辑运算（按元素比较）"></a>3.逻辑运算（按元素比较）</h4><p>可以通过<strong>逻辑运算符</strong>构建二元张量。 以<code>X == Y</code>为例： 对于每个位置，如果<code>X</code>和<code>Y</code>在该位置相等，则新张量中相应项的值为1。 这意味着逻辑语句<code>X == Y</code>在该位置处为真，否则该位置为0。<br>	<code>X == Y</code><br>	<code>tensor([[False,  True, False,  True],</code><br>        <code>[False, False, False, False],</code><br>        <code>[False, False, False, False]])</code></p>
+<h4 id="4-求和"><a href="#4-求和" class="headerlink" title="4.求和"></a>4.求和</h4><p>对张量中的所有元素进行求和，会产生一个单元素张量。<br>	<code>X.sum()</code><br>	<code>tensor(66.)</code></p>
+<h2 id="2-1-3-广播机制"><a href="#2-1-3-广播机制" class="headerlink" title="2.1.3. 广播机制"></a>2.1.3. 广播机制</h2><p>在上面的部分中，我们看到了如何在相同形状的两个张量上执行按元素操作。 在某些情况下，即使形状不同，我们仍然可以通过调用 <strong>广播机制</strong>来执行按元素操作。 这种机制的工作方式如下：</p>
+<ol>
+<li><p>通过适当复制元素来扩展一个或两个数组，以便在转换之后，两个张量具有相同的形状；</p>
+</li>
+<li><p>对生成的数组执行按元素操作。</p>
+</li>
+</ol>
+<p>在大多数情况下，我们将沿着数组中长度为1的轴进行广播，如下例子：<br>	<code>a = torch.arange(3).reshape((3, 1))</code><br>	<code>b = torch.arange(2).reshape((1, 2))</code><br>	<code>a, b</code><br>	<code>(tensor([[0],</code><br>	        <code>[1],</code><br>	        <code>[2]]),</code><br>	 <code>tensor([[0, 1]]))</code><br>由于<code>a</code>和<code>b</code>分别是和矩阵，如果让它们相加，它们的形状不匹配。 我们将两个矩阵_广播_为一个更大的矩阵，如下所示：矩阵<code>a</code>将复制列， 矩阵<code>b</code>将复制行，然后再按元素相加。<br>	<code>a + b</code><br>	<code>tensor([[0, 1],</code><br>	        <code>[1, 2],</code><br>	        <code>[2, 3]])</code></p>
+<h2 id="2-1-4-索引和切片"><a href="#2-1-4-索引和切片" class="headerlink" title="2.1.4. 索引和切片"></a>2.1.4. 索引和切片</h2><h3 id="1-索引"><a href="#1-索引" class="headerlink" title="1.索引"></a>1.索引</h3><p>张量中的元素可以通过索引访问。 与任何Python数组一样：第一个元素的索引是0，最后一个元素索引是-1； 可以指定范围以包含第一个元素和最后一个之前的元素。<br>如下所示，我们可以用<code>[-1]</code>选择最后一个元素，可以用<code>[1:3]</code>选择第二个和第三个元素：<br>	<code>X[-1], X[1:3]</code>左闭右开<br>	<code>(tensor([ 8.,  9., 10., 11.]),</code><br>	 <code>tensor([[ 4.,  5.,  6.,  7.],</code><br>	         <code>[ 8.,  9., 10., 11.]]))</code><br>除读取外，我们还可以通过指定索引来将元素写入矩阵。<br>	<code>X[1, 2] = 9</code>&#x2F;&#x2F;第一行第二列<br>	<code>X</code><br>	<code>tensor([[ 0.,  1.,  2.,  3.],</code><br>	        <code>[ 4.,  5.,  9.,  7.],</code><br>	        <code>[ 8.,  9., 10., 11.]])</code><br>如果我们想为多个元素赋值相同的值，我们只需要索引所有元素，然后为它们赋值。 例如，<code>[0:2, :]</code>访问第1行和第2行，其中“:”代表沿轴1（列）的所有元素。 虽然我们讨论的是矩阵的索引，但这也适用于向量和超过2个维度的张量。<br>	<code>X[0:2, :] = 12</code><br>	<code>X</code><br>	<code>tensor([[12., 12., 12., 12.],</code><br>        <code>[12., 12., 12., 12.],</code><br>        <code>[ 8.,  9., 10., 11.]])</code></p>
+<h2 id="2-1-5-节省内存"><a href="#2-1-5-节省内存" class="headerlink" title="2.1.5. 节省内存"></a>2.1.5. 节省内存</h2><p>运行一些操作可能会导致为新结果分配内存。 例如，如果我们用<code>Y = X + Y</code>，我们将取消引用<code>Y</code>指向的张量，而是指向新分配的内存处的张量。<br>在下面的例子中，我们用Python的<code>id()</code>函数演示了这一点， 它给我们提供了内存中引用对象的确切地址。 运行<code>Y = Y + X</code>后，我们会发现<code>id(Y)</code>指向另一个位置。 这是因为Python首先计算<code>Y + X</code>，为结果分配新的内存，然后使<code>Y</code>指向内存中的这个新位置。<br>	<code>before = id(Y)</code><br>	<code>Y = Y + X</code><br>	<code>id(Y) == before</code><br>	<code>False</code><br>    <em>错误原因是因为其实内存有变</em><br>这可能是不可取的，原因有两个：</p>
+<ol>
+<li><p>首先，我们不想总是不必要地分配内存。在机器学习中，我们可能有数百兆的参数，并且在一秒内多次更新所有参数。通常情况下，我们希望原地执行这些更新；</p>
+</li>
+<li><p>如果我们不原地更新，其他引用仍然会指向旧的内存位置，这样我们的某些代码可能会无意中引用旧的参数。</p>
+</li>
+</ol>
+<p>幸运的是，执行原地操作非常简单。 我们可以使用切片表示法将操作的结果分配给先前分配的数组，例如<code>Y[:] = &lt;expression&gt;</code>。 为了说明这一点，我们首先创建一个新的矩阵<code>Z</code>，其形状与另一个<code>Y</code>相同， 使用<code>zeros_like</code>来分配一个全的块。<br>	<code>Z = torch.zeros_like(Y)</code><br>	<code>print(&#39;id(Z):&#39;, id(Z))</code><br>	<code>Z[:] = X + Y</code><br>	<code>print(&#39;id(Z):&#39;, id(Z))</code><br>	<code>id(Z): 140327634811696</code><br>	<code>id(Z): 140327634811696</code><br>如果在后续计算中没有重复使用<code>X</code>， 我们也可以使用<code>X[:] = X + Y</code>或<code>X += Y</code>来减少操作的内存开销。<br>	<code>before = id(X)</code><br>	<code>X += Y</code><br>	<code>id(X) == before</code><br>	<code>True</code></p>
+<h2 id="2-1-6-转换为其他Python对象"><a href="#2-1-6-转换为其他Python对象" class="headerlink" title="2.1.6. 转换为其他Python对象"></a>2.1.6. 转换为其他Python对象</h2><p>将深度学习框架定义的张量转换为NumPy张量（<code>ndarray</code>）很容易，反之也同样容易。 torch张量和numpy数组将共享它们的底层内存，就地操作更改一个张量也会同时更改另一个张量。<br>	<code>A = X.numpy()</code><br>	<code>B = torch.tensor(A)</code><br>	<code>type(A), type(B)</code><br>	<code>(numpy.ndarray, torch.Tensor)</code><br>要将大小为1的张量转换为Python标量，我们可以调用<code>item</code>函数或Python的内置函数。<br>	<code>a = torch.tensor([3.5])</code><br>	<code>a, a.item(), float(a), int(a)</code><br>	<code>(tensor([3.5000]), 3.5, 3.5, 3)</code></p>
+<h2 id="2-1-7-小结"><a href="#2-1-7-小结" class="headerlink" title="2.1.7. 小结"></a>2.1.7. 小结</h2><ul>
+<li>深度学习存储和操作数据的主要接口是张量（维数组）。它提供了各种功能，包括基本数学运算、广播、索引、切片、内存节省和转换其他Python对象。</li>
+</ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-10T09:10:17.038Z" title="3/10/2026, 5:10:17 PM">2026-03-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">38 分钟读完 (大约5646个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-05/">深度学习笔记（五）：线性回归及它的朋友们</a></p><div class="content"><h1 id="一、序言"><a href="#一、序言" class="headerlink" title="一、序言"></a>一、序言</h1><p>机器学习模型从本质上来说，是在做一件非常简单的事情：<strong>通过数据找到一个函数，让输入可以尽量准确地预测输出</strong>。比如说，如果我们有很多房子的面积和对应的房价，我们就希望找到一个函数，当输入面积的时候，这个函数可以输出一个接近真实房价的数值。假设我们只有一个特征（面积），最简单的模型就是线性回归。线性回归假设输入和输出之间是一个线性关系，也就是说：<br>							$y &#x3D; wx + b$<br>这里的 (x) 是输入特征，比如房屋面积，(w) 是权重，表示面积对房价的影响程度，而 (b) 是偏置，可以理解为基础价格。这个公式的含义其实非常直观：房价等于面积乘以一个系数，再加上一个基础值。如果我们有多个特征，比如面积、地段、楼层等等，那么公式就会变成：<br>						$y &#x3D; w_1x_1 + w_2x_2 + … + w_dx_d + b$<br>如果用矩阵形式写，会更紧凑：$y &#x3D; Xw + b$<br>这里的 (X) 是输入数据矩阵，每一行是一条数据，每一列是一个特征；(w) 是权重向量；(b) 是偏置。<br>在实际编程时，我们需要把数据先表示成张量。比如有三条数据，每条数据只有一个特征，我们可以写成：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X = torch.tensor([[<span class="number">50</span>],[<span class="number">80</span>],[<span class="number">100</span>]])</span><br><span class="line">y = torch.tensor([[<span class="number">200</span>],[<span class="number">320</span>],[<span class="number">400</span>]])</span><br></pre></td></tr></table></figure>
 <p>这里 (X) 是输入特征，(y) 是真实标签。然后我们定义模型。在 PyTorch 中，一个线性回归模型可以直接用 <code>nn.Linear</code> 表示：</p>
