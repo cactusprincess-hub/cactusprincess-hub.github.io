@@ -80,7 +80,460 @@
 <li><strong>GitHub</strong>: <a target="_blank" rel="noopener" href="https://github.com/cactusprincess-hub">cactusprincess-hub</a></li>
 <li><strong>Email</strong>: (点击侧边栏邮件图标)</li>
 </ul>
-<p><em>Stay Hungry, Stay Foolish.</em></p></div><a class="article-more button is-small is-size-7" href="/2026/01/28/hello-world/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-25T14:00:00.000Z" title="3/25/2026, 10:00:00 PM">2026-03-25</time>发表</span><span class="level-item"><time dateTime="2026-03-26T15:58:51.090Z" title="3/26/2026, 11:58:51 PM">2026-03-26</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">10 分钟读完 (大约1468个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/25/8--Constants/">oop8</a></p><div class="content"><h1 id="第一部分：知识点整理（普通文本）"><a href="#第一部分：知识点整理（普通文本）" class="headerlink" title="第一部分：知识点整理（普通文本）"></a>第一部分：知识点整理（普通文本）</h1><h2 id="1-const-的核心作用"><a href="#1-const-的核心作用" class="headerlink" title="1. const 的核心作用"></a>1. const 的核心作用</h2><ul>
+<p><em>Stay Hungry, Stay Foolish.</em></p></div><a class="article-more button is-small is-size-7" href="/2026/01/28/hello-world/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-30T02:00:00.000Z" title="3/30/2026, 10:00:00 AM">2026-03-30</time>发表</span><span class="level-item"><time dateTime="2026-03-30T02:27:03.547Z" title="3/30/2026, 10:27:03 AM">2026-03-30</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></span><span class="level-item">1 小时读完 (大约7411个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/30/2-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">database2</a></p><div class="content"><h1 id="一、数据模型总论"><a href="#一、数据模型总论" class="headerlink" title="一、数据模型总论"></a>一、数据模型总论</h1><ol>
+<li><p>数据模型的定义<br> 数据模型是用来抽象、表示和处理现实世界中的数据和信息的工具，本质上是对现实世界数据特征的抽象。它是数据库研究中的核心问题之一。</p>
+</li>
+<li><p>数据模型的两层含义<br> 广义上，数据模型是数据库研究的核心；狭义上，每个 DBMS 都建立在某种具体的数据模型之上。PDF 指出，常见的传统数据模型包括层次模型、网状模型和关系模型。</p>
+</li>
+<li><p>数据模型的分类<br> 数据模型按应用目的可分为两类：<br> （1）概念模型，也称信息模型，按用户观点对数据和信息建模，主要用于数据库设计。<br> （2）数据模型，按计算机系统观点对数据逻辑结构建模，主要用于 DBMS 实现。其下又可分为逻辑数据模型和物理数据模型。逻辑数据模型包括层次模型、网状模型、关系模型、面向对象模型、对象关系模型等；物理数据模型描述数据在系统内部的表示方式和存取方法。</p>
+</li>
+<li><p>数据模型的三个要素<br> 数据模型通常由数据结构、数据操作、完整性约束三个要素组成。<br> （1）数据结构：描述数据库的组成对象及对象之间的联系，是刻画数据模型性质最重要的方面。<br> （2）数据操作：描述对数据库对象实例允许执行的操作集合，包括检索、插入、删除、修改等，同时要定义操作的含义、符号、规则及语言。<br> （3）完整性约束条件：一组完整性规则，用于限定符合数据模型的数据库状态及状态变化，保证数据正确、有效、相容。</p>
+</li>
+<li><p>静态与动态特性<br> 数据结构描述系统静态特性；数据操作描述系统动态特性。完整性约束则是保证系统状态合法的规则体系。</p>
+</li>
+</ol>
+<h1 id="二、E-R-概念模型"><a href="#二、E-R-概念模型" class="headerlink" title="二、E-R 概念模型"></a>二、E-R 概念模型</h1><ol>
+<li><p>概念模型的作用<br> 概念模型用于信息世界建模，是现实世界到机器世界之间的中间层次，也是数据库设计的有力工具和数据库设计人员与用户之间交流的语言。它的要求是语义表达能力强，同时简单、清晰、易于理解。E-R 模型是最著名的概念模型。</p>
+</li>
+<li><p>E-R 模型的三大基本概念<br> （1）实体（Entity）：客观存在并可相互区别的事物，可以是具体对象，也可以是抽象概念。<br> （2）属性（Attribute）：实体具有的某一特征，用来刻画实体。属性有“型”和“值”之分，属性名是型，具体内容是值。<br> （3）联系（Relationship）：现实世界中事物内部以及事物之间的联系，在信息世界中抽象为实体内部的联系和实体之间的联系。</p>
+</li>
+<li><p>联系的基本类型<br> （1）一对一联系（1:1）：实体集 A 中一个实体至多对应实体集 B 中一个实体，反之亦然。例子是“班级与班长”，一个班级只有一个正班长，一个班长只在一个班中任职。<br> （2）一对多联系（1:n）：实体集 A 中一个实体对应实体集 B 中的多个实体，反过来一个 B 中实体至多对应一个 A 中实体。例子是“班级与学生”，一个班级中有若干学生，一个学生只在一个班级中学习。<br> （3）多对多联系（m:n）：实体集 A 中一个实体对应实体集 B 中多个实体，反之亦然。例子是“课程与学生”，一门课程有若干学生选修，一个学生也可选修多门课程。</p>
+</li>
+<li><p>多元联系<br> 两个以上实体集之间也可以存在联系，称为多元联系。PDF 以“供应商—零件—工程”为例，说明三者之间存在 m:n:p 的联系，表达的是“某个供应商供应某种零件给某个工程”。</p>
+</li>
+<li><p>三元联系与二元联系的区别<br> 这是本章非常关键的细节。PDF 明确指出，三个实体集两两之间的多对多联系，只能表示“一个工程需要哪些零件”“这些零件可以由哪些供应商供应”，却不能表示“一个工程所用的零件具体由哪个供应商供应”以及“一个供应商具体供应哪种零件给哪个工程”。因此，三元联系不能简单拆成三个二元联系，否则会丢失语义。</p>
+</li>
+<li><p>同一实体集内部的联系<br> PDF 还强调，联系不只存在于不同实体集之间，同一实体集内部也可以有联系。典型例子是职工实体集内部的“领导与被领导”关系：某一职工可以领导若干职工，而一个职工仅被另一个职工直接领导，这是同一实体型内部的一对多联系。PDF 也提到，同一实体集内部还可能存在一对一联系和多对多联系。</p>
+</li>
+<li><p>E-R 图的表示方法<br> E-R 图有三个基本成分：实体、属性和联系。<br> （1）实体用矩形表示，矩形框内写实体名。<br> （2）属性用椭圆表示，并用无向边与对应实体连接。<br> （3）联系用菱形表示，菱形框内写联系名，再用连线把关联实体连接起来，并在连线旁标明联系类型 1:1、1:n 或 m:n。</p>
+</li>
+<li><p>联系的属性<br> 联系本身也可以有属性。PDF 的“选课”例子中，成绩是联系“选课”的属性，而不是学生实体或课程实体的属性，因为成绩描述的是“学生选修某门课程”这个联系。</p>
+</li>
+<li><p>弱实体<br> 弱实体是一类特殊实体，它的存在依赖于其他实体而存在。与弱实体相对应，所依赖的实体称为强实体。弱实体在 E-R 模型中用双框矩形表示，与菱形联系间用双线连接，以表示全部参与。PDF 举例说，在学生管理信息中，家长实体依赖学生实体存在，因此家长可视为弱实体。</p>
+</li>
+<li><p>子类实体<br>扩展 E-R 模型中增加了子类和超类概念，使模型更有语义表达能力。一个实体集中的个体可以根据不同特性划分为多个子集。PDF 的例子是学校一个系的职工可分为教师、实验人员和机关工作人员，它们共享姓名、年龄、性别等共同属性，同时又有各自的特殊属性。</p>
+</li>
+<li><p>E-R 模型的用途与特点<br>E-R 模型广泛用于数据库概念模型设计。它只表示现实世界中的信息结构及信息之间的关系，不涉及信息在计算机中的表示；只要用户需求不变，E-R 模型是稳定的，并且可以方便地转换成具体 DBMS 支持的数据模型。</p>
+</li>
+<li><p>PDF 中的综合建模例子<br>工厂物资管理模型是本章最完整的例子之一。它涉及五类实体：仓库、零件、供应商、项目、职工。<br>（1）仓库：仓库号、面积、电话号码。<br>（2）零件：零件号、名称、规格、单价、描述。<br>（3）供应商：供应商号、姓名、地址、电话号码、账号。<br>（4）项目：项目号、预算、开工日期。<br>（5）职工：职工号、姓名、年龄、职称。<br>这些实体之间的联系包括：仓库和零件是 m:n 联系，联系属性为库存量；仓库和职工是 1:n 联系；职工内部存在领导与被领导的一对多联系；供应商、项目和零件三者之间存在多对多的三元联系。这个例子综合体现了本章几乎所有 E-R 概念。</p>
+</li>
+</ol>
+<h1 id="三、层次数据模型"><a href="#三、层次数据模型" class="headerlink" title="三、层次数据模型"></a>三、层次数据模型</h1><ol>
+<li><p>层次模型的定义<br> 层次模型是数据库系统中最早出现的数据模型，典型代表是 IBM 的 IMS。它用树型结构表示各类实体及实体间联系。现实世界中许多关系具有天然层次性，例如家族关系和行政机构。</p>
+</li>
+<li><p>层次模型的结构条件<br> 满足下面两个条件的基本层次联系集合构成层次模型：<br> （1）有且只有一个结点没有双亲结点，该结点称为根结点。<br> （2）根以外的其他结点有且只有一个双亲结点。</p>
+</li>
+<li><p>层次结构中的术语<br> 根结点位于最上层；其他结点的上一级结点称为双亲结点；同一双亲结点的子女结点称为兄弟结点；没有子女的结点称为叶结点。双亲结点到子女结点之间表示记录间的一对多联系。</p>
+</li>
+<li><p>层次模型的优点<br> 结构简单清晰；查询效率高；提供较好的数据完整性支持。</p>
+</li>
+<li><p>层次模型的缺点<br> 不能直接表示两个以上实体型间的复杂联系和实体型间的多对多联系，通常要通过引入冗余数据或虚拟结点来解决，容易产生不一致性；插入和删除操作限制较多；查询子女结点必须通过双亲结点；由于结构严密，层次命令趋于程序化。</p>
+</li>
+</ol>
+<h1 id="四、网状数据模型"><a href="#四、网状数据模型" class="headerlink" title="四、网状数据模型"></a>四、网状数据模型</h1><ol>
+<li><p>网状模型的定义<br> 网状模型用有向图表示实体及实体间的联系，是对层次模型局限性的突破。现实世界中的许多事物之间是非层次关系，因此网状模型比层次模型更接近实际。</p>
+</li>
+<li><p>网状模型的结构条件<br> 基本网状模型满足两个条件：<br> （1）允许一个以上的结点没有双亲。<br> （2）一个结点可以有多于一个的双亲。</p>
+</li>
+<li><p>网状模型与层次模型的关系<br> PDF 明确指出，层次模型实际上是网状模型的特例。两者从结构上看，层次模型是树，网状模型是图；当多个结点都可以有多个双亲时，有向树就变成了有向图。</p>
+</li>
+<li><p>网状模型的优点<br> 能更直接地描述现实世界，例如一个结点可以有多个双亲；性能较好，存取效率较高。</p>
+</li>
+<li><p>网状模型的缺点<br> 结构复杂，随着应用环境扩大，数据库结构会越来越复杂，不利于最终用户掌握；DDL、DML 语言复杂，用户不容易使用；访问数据时必须自行选择存取路径，增加程序编写负担。</p>
+</li>
+<li><p>网状模型如何表示多对多联系<br> PDF 提到，网状模型可以间接表示多对多联系，方法是将多对多联系分解成一对多联系，并用联结记录来处理。</p>
+</li>
+</ol>
+<h1 id="五、关系数据模型"><a href="#五、关系数据模型" class="headerlink" title="五、关系数据模型"></a>五、关系数据模型</h1><ol>
+<li><p>关系模型的重要地位<br> 关系模型是最重要的数据模型。E.F. Codd 于 1970 年系统而严格地提出关系数据模型，并随后提出关系代数、关系演算以及关系范式理论，奠定了现代数据库的理论基础，1981 年因此获得图灵奖。</p>
+</li>
+<li><p>关系数据库的发展<br> PDF 提到，1977 年 IBM 的 System R 开始运行，后来出现了基于 System R 的 SQL&#x2F;DB。20 世纪 80 年代以来，几乎所有数据库管理系统都支持关系模型，非关系系统也增加了关系接口；当前数据库研究工作也以关系方法为基础，关系数据库成为最广泛应用的数据库系统。</p>
+</li>
+<li><p>关系模型的基本结构<br> 关系模型中，基本数据结构被限制为二维表，一张二维表称为一个关系。一个关系可用于描述一个实体集。</p>
+</li>
+<li><p>关系模型中的基本术语<br> （1）关系（relation）：二维表，由行和列组成。<br> （2）属性（attribute）：关系中的一列。<br> （3）域（domain）：某属性的取值集合，即属性的取值范围。<br> （4）元组（tuple）：关系中的一行，表示实体集中的一个个体。<br> （5）键（key）：一个或多个属性组成，能够唯一标识一个元组。一个关系中可能有多个键，其中选定一个为主键，其余为候选键。</p>
+</li>
+<li><p>关系模式<br> 对关系结构的描述称为关系模式，形式通常写作“关系名(属性名1, 属性名2, …, 属性名n)”。例如学生关系可表示为“学生(学号, 姓名, 出生年月, 性别, 入学年份, 班级)”。关系数据库模式是一组关系模式的集合，而这些关系模式对应的关系集合构成关系数据库。</p>
+</li>
+<li><p>关系模型中实体与联系的表示<br> 关系模型中，基本数据结构是单一的关系，现实世界中的实体以及实体间的联系都用关系表示。E-R 模型中的联系在关系模式中也可以用表表示，例如“选课”联系可用“选课(学号, 课程号, 成绩)”表示，其中成绩是联系自身的描述属性。</p>
+</li>
+<li><p>关系模型的规范化要求<br> 关系必须规范化，最基本的规范条件是：关系的每一个分量必须是一个不可分的数据项。PDF 用“职工工资”表说明，如果一个属性中又包含“基本工资、工龄、职务、房租、水电”等嵌套成分，就不符合关系模型要求。</p>
+</li>
+<li><p>关系模型的数据完整性约束<br> 为维护数据库与现实世界的一致性，需要对数据施加约束条件。关系模型中主要有三类完整性约束：实体完整性、参照完整性、用户自定义完整性。</p>
+</li>
+<li><p>关系模型的数据操纵<br> 关系模型中的数据操作包括查询、插入、删除和修改。关系数据库系统中对数据的全部操作都可以归结为关系运算；关系运算结果形成一个新关系；关系运算分为关系代数和关系演算。</p>
+</li>
+<li><p>关系模型的优点<br>PDF 归纳的关系模型优点包括：数据结构简单；一体化的数据子语言；数据独立性高；面向集合的存取方式；理论基础坚实；有利于开展其他应用。</p>
+</li>
+<li><p>概念模型与关系数据模型的对应<br>PDF 给出了一组非常重要的对应关系：<br>（1）E-R 模型中的实体集对应关系表。<br>（2）实体集属性对应表的列。<br>（3）联系集及其属性也可对应表和列。<br>（4）实体的实例对应表中的各行。<br>（5）主键或候选键对应关系表中的主键或候选键。<br>（6）数据操作在实现层面对应 SQL 语句，在理论层面对应关系代数和关系演算。<br>（7）联系类型约束、键约束、完全参与约束在关系模型中分别对应实体完整性、参照完整性和用户自定义完整性。</p>
+</li>
+</ol>
+<h1 id="六、面向对象数据模型"><a href="#六、面向对象数据模型" class="headerlink" title="六、面向对象数据模型"></a>六、面向对象数据模型</h1><ol>
+<li><p>面向对象数据库系统的两条路线<br> PDF 指出，对象关系数据库系统 ORDBS 是面向对象数据模型和关系数据模型结合的产物。研究路线有两条：一是建立新的面向对象数据库系统 OODB，直接支持 OO 数据模型；二是以关系数据库和 SQL 为基础，把面向对象技术融入数据库系统，形成 ORDBS。</p>
+</li>
+<li><p>对象的定义<br> 对象是由一组数据结构和在这组数据结构上的操作程序代码封装起来的基本单位。对象由属性集合和方法集合构成：属性描述状态、组成和特性，方法描述行为特性。</p>
+</li>
+<li><p>OID<br> OID 是对象标识符，即每个对象都有一个唯一且不变的标识。它具有永久持久性、独立于值、系统全局唯一等特点。</p>
+</li>
+<li><p>封装<br> 封装是对象的外部界面与内部实现之间实行清晰隔离的一种抽象，外部与对象的通信只能通过消息。对象封装后，查询属性值必须通过调用方法。</p>
+</li>
+<li><p>类<br> 类是共享同样属性和方法集的所有对象构成的集合。对象是某一类的实例，在 OODB 中，类是“型”，对象是某一类的“值”。</p>
+</li>
+<li><p>类层次结构<br> PDF 以“教员、行政人员、工人继承教职员工类和人的属性与方法”为例，说明面向对象模型中存在类层次结构；子类在逻辑上继承父类的所有属性和方法，同时还拥有自身特有的属性和方法。</p>
+</li>
+<li><p>关系模型与 OO 模型的比较<br> PDF 从多个角度对比两者：关系模型的基本数据结构是二维表，OO 模型是类；关系模型使用码作为标识，OO 模型使用 OID；关系模型的动态行为用关系操作描述，OO 模型用方法描述；OO 模型支持抽象数据类型和封装，而关系模型没有；关系模型主要依赖主外码联系和数据依赖，OO 模型则强调继承和组合；OO 模型的模式演化能力较强。</p>
+</li>
+<li><p>面向对象数据库研究中的问题<br> PDF 指出，OO 数据库研究中存在缺乏通用数据模型、缺乏理论基础、缺乏友好的用户界面与工具环境、缺乏有力的查询优化、商业上没有建立坚实基础等问题。</p>
+</li>
+</ol>
+<h1 id="七、概念模型与数据库系统支持的数据模型的关系"><a href="#七、概念模型与数据库系统支持的数据模型的关系" class="headerlink" title="七、概念模型与数据库系统支持的数据模型的关系"></a>七、概念模型与数据库系统支持的数据模型的关系</h1><ol>
+<li><p>两类数据模型<br> 一类是概念模型，用于表示信息结构，不涉及信息在计算机中的表示，典型代表是 E-R 模型；另一类是数据库系统支持的数据模型，包括层次数据模型、网状数据模型、关系数据模型、面向对象数据模型等。</p>
+</li>
+<li><p>从概念到实现的路径<br> 数据库设计通常先把现实世界抽象为概念模型，再把概念模型转换为某种具体的数据模型。这说明概念模型是设计起点，而关系模型、层次模型、网状模型等是实现层面的表达方式。</p>
+</li>
+<li><p>本章的核心逻辑<br> 本章实际上是在讲三件事：<br> （1）怎样用 E-R 模型描述现实世界；<br> （2）怎样理解不同逻辑数据模型的结构差异；<br> （3）怎样把概念模型转换成关系模型并用约束保证正确性。</p>
+</li>
+</ol>
+<h1 id="八、小结"><a href="#八、小结" class="headerlink" title="八、小结"></a>八、小结</h1><ol>
+<li><p>本章最重要的结论<br> 数据模型分为概念模型和数据库系统支持的数据模型；概念模型中最重要的是 E-R 模型；数据库系统支持的数据模型中，层次模型、网状模型、关系模型、面向对象模型各有特点，但目前应用最广泛的是关系模型。</p>
+</li>
+<li><p>E-R 模型的核心<br> 关键不是只会画图，而是要能准确识别实体、属性、联系，区分 1:1、1:n、m:n，理解实体内部联系、三元联系、弱实体、子类实体，并能将联系属性正确放到联系上。</p>
+</li>
+<li><p>关系模型的核心<br> 关系模型把现实世界统一映射为二维表，强调原子性、完整性约束和关系运算，是当前数据库系统的主流基础。</p>
+</li>
+<li><p>层次模型、网状模型、关系模型的关系<br> 层次模型是树，网状模型是图，关系模型是表；层次模型结构最简单但表达能力弱，网状模型表达能力更强但复杂，关系模型在表达能力、理论基础和使用便利性之间取得了最好平衡。</p>
+</li>
+</ol>
+<hr>
+<h1 id="一、数据模型总论（-易错点）"><a href="#一、数据模型总论（-易错点）" class="headerlink" title="一、数据模型总论（+ 易错点）"></a>一、数据模型总论（+ 易错点）</h1><h2 id="核心结构回顾"><a href="#核心结构回顾" class="headerlink" title="核心结构回顾"></a>核心结构回顾</h2><ol>
+<li><p>数据模型 &#x3D; 对现实世界数据特征的抽象</p>
+</li>
+<li><p>分类：</p>
+<ul>
+<li><p>概念模型（E-R）</p>
+</li>
+<li><p>逻辑模型（层次 &#x2F; 网状 &#x2F; 关系 &#x2F; OO）</p>
+</li>
+<li><p>物理模型</p>
+</li>
+</ul>
+</li>
+<li><p>三要素：</p>
+<ul>
+<li><p>数据结构（静态）</p>
+</li>
+<li><p>数据操作（动态）</p>
+</li>
+<li><p>完整性约束（规则）</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析"><a href="#易错点与分析" class="headerlink" title="易错点与分析"></a>易错点与分析</h2><h3 id="易错点1：混淆“概念模型”和“数据模型”"><a href="#易错点1：混淆“概念模型”和“数据模型”" class="headerlink" title="易错点1：混淆“概念模型”和“数据模型”"></a>易错点1：混淆“概念模型”和“数据模型”</h3><ul>
+<li><p>错误理解：E-R模型也是DBMS直接使用的模型</p>
+</li>
+<li><p>本质原因：没有区分“设计阶段”和“实现阶段”</p>
+</li>
+</ul>
+<p>✔ 正确理解：</p>
+<ul>
+<li><p>E-R模型 → 用来“画世界”（设计）</p>
+</li>
+<li><p>关系模型 → 用来“落地”（实现）</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点2：三要素记不清-混淆"><a href="#易错点2：三要素记不清-混淆" class="headerlink" title="易错点2：三要素记不清 &#x2F; 混淆"></a>易错点2：三要素记不清 &#x2F; 混淆</h3><ul>
+<li><p>常见错误：</p>
+<ul>
+<li><p>把“完整性约束”当成数据操作</p>
+</li>
+<li><p>忘记“数据结构是核心”</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>✔ 正确记忆：</p>
+<ul>
+<li><p>静态：数据结构</p>
+</li>
+<li><p>动态：数据操作</p>
+</li>
+<li><p>规则：完整性约束</p>
+</li>
+</ul>
+<hr>
+<h1 id="二、E-R-概念模型（-易错点重点）"><a href="#二、E-R-概念模型（-易错点重点）" class="headerlink" title="二、E-R 概念模型（+ 易错点重点）"></a>二、E-R 概念模型（+ 易错点重点）</h1><h2 id="核心结构回顾-1"><a href="#核心结构回顾-1" class="headerlink" title="核心结构回顾"></a>核心结构回顾</h2><ol>
+<li><p>基本概念：</p>
+<ul>
+<li><p>实体</p>
+</li>
+<li><p>属性（型 + 值）</p>
+</li>
+<li><p>联系（实体间 &#x2F; 实体内部）</p>
+</li>
+</ul>
+</li>
+<li><p>联系分类：</p>
+<ul>
+<li><p>按数量：1:1 &#x2F; 1:n &#x2F; m:n</p>
+</li>
+<li><p>按实体数：二元 &#x2F; 多元</p>
+</li>
+<li><p>按范围：实体间 &#x2F; 实体内部</p>
+</li>
+</ul>
+</li>
+<li><p>扩展：</p>
+<ul>
+<li><p>弱实体</p>
+</li>
+<li><p>子类实体</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析（这一章最重要部分）"><a href="#易错点与分析（这一章最重要部分）" class="headerlink" title="易错点与分析（这一章最重要部分）"></a>易错点与分析（这一章最重要部分）</h2><h3 id="易错点1：把“联系属性”放到实体里"><a href="#易错点1：把“联系属性”放到实体里" class="headerlink" title="易错点1：把“联系属性”放到实体里"></a>易错点1：把“联系属性”放到实体里</h3><p>例子：成绩</p>
+<p>❌ 错误：</p>
+<ul>
+<li><p>学生表加“成绩”</p>
+</li>
+<li><p>课程表加“成绩”</p>
+</li>
+</ul>
+<p>✔ 正确：</p>
+<ul>
+<li>成绩属于“选课联系”</li>
+</ul>
+<p>👉 原因分析：<br>成绩依赖两个实体（学生+课程），不是单个实体属性</p>
+<p>👉 判断口诀：<br><strong>“属性是否依赖多个实体？” → 是 → 放联系</strong></p>
+<hr>
+<h3 id="易错点2：m-n-不建表"><a href="#易错点2：m-n-不建表" class="headerlink" title="易错点2：m:n 不建表"></a>易错点2：m:n 不建表</h3><p>❌ 错误：</p>
+<ul>
+<li>直接用外键表示多对多</li>
+</ul>
+<p>✔ 正确：</p>
+<ul>
+<li>必须建中间表（联系表）</li>
+</ul>
+<p>👉 原因：<br>关系模型无法直接表达 m:n</p>
+<hr>
+<h3 id="易错点3：三元联系拆错（高频考点）"><a href="#易错点3：三元联系拆错（高频考点）" class="headerlink" title="易错点3：三元联系拆错（高频考点）"></a>易错点3：三元联系拆错（高频考点）</h3><p>❌ 错误：<br>把“供应商-零件-工程”拆成三个两两关系</p>
+<p>✔ 正确：<br>必须保留三元联系</p>
+<p>👉 本质原因：<br>两两关系只能表达：</p>
+<ul>
+<li>谁和谁有关</li>
+</ul>
+<p>但表达不了：</p>
+<ul>
+<li>谁 给 谁 提供 什么</li>
+</ul>
+<p>👉 关键结论：<br><strong>三元联系 &#x3D; 信息更完整</strong></p>
+<hr>
+<h3 id="易错点4：不会识别“实体内联系”"><a href="#易错点4：不会识别“实体内联系”" class="headerlink" title="易错点4：不会识别“实体内联系”"></a>易错点4：不会识别“实体内联系”</h3><p>❌ 常见忽略：<br>只会画不同实体之间关系</p>
+<p>✔ 正确：<br>同一实体内部也有联系</p>
+<p>例：</p>
+<ul>
+<li>职工 → 领导关系（1:n）</li>
+</ul>
+<hr>
+<h3 id="易错点5：弱实体判断错误"><a href="#易错点5：弱实体判断错误" class="headerlink" title="易错点5：弱实体判断错误"></a>易错点5：弱实体判断错误</h3><p>❌ 错误理解：<br>“有外键就是弱实体”</p>
+<p>✔ 正确判断：<br>弱实体必须满足：</p>
+<ol>
+<li><p>不能独立存在</p>
+</li>
+<li><p>依赖强实体标识</p>
+</li>
+</ol>
+<p>例：</p>
+<ul>
+<li><p>家长依赖学生 ✔</p>
+</li>
+<li><p>订单依赖用户 ✔（典型）</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点6：子类实体理解不清"><a href="#易错点6：子类实体理解不清" class="headerlink" title="易错点6：子类实体理解不清"></a>易错点6：子类实体理解不清</h3><p>❌ 错误：<br>把子类当普通实体</p>
+<p>✔ 正确：<br>子类 &#x3D; 继承结构</p>
+<p>👉 特点：</p>
+<ul>
+<li><p>共享父类属性</p>
+</li>
+<li><p>有自己特有属性</p>
+</li>
+</ul>
+<hr>
+<h1 id="三、层次模型（-易错点）"><a href="#三、层次模型（-易错点）" class="headerlink" title="三、层次模型（+ 易错点）"></a>三、层次模型（+ 易错点）</h1><h2 id="核心回顾"><a href="#核心回顾" class="headerlink" title="核心回顾"></a>核心回顾</h2><ol>
+<li><p>树结构</p>
+</li>
+<li><p>一个根节点</p>
+</li>
+<li><p>每个节点只有一个父节点</p>
+</li>
+<li><p>只能表达 1:n</p>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析-1"><a href="#易错点与分析-1" class="headerlink" title="易错点与分析"></a>易错点与分析</h2><h3 id="易错点1：认为可以表示-m-n"><a href="#易错点1：认为可以表示-m-n" class="headerlink" title="易错点1：认为可以表示 m:n"></a>易错点1：认为可以表示 m:n</h3><p>❌ 错误：<br>觉得树可以扩展表达多对多</p>
+<p>✔ 正确：<br>不能，必须靠冗余或虚拟节点</p>
+<hr>
+<h3 id="易错点2：忽略访问路径限制"><a href="#易错点2：忽略访问路径限制" class="headerlink" title="易错点2：忽略访问路径限制"></a>易错点2：忽略访问路径限制</h3><p>✔ 正确认知：<br>必须从根访问</p>
+<p>👉 本质：<br>不是“表查询”，而是“路径访问”</p>
+<hr>
+<h1 id="四、网状模型（-易错点）"><a href="#四、网状模型（-易错点）" class="headerlink" title="四、网状模型（+ 易错点）"></a>四、网状模型（+ 易错点）</h1><h2 id="核心回顾-1"><a href="#核心回顾-1" class="headerlink" title="核心回顾"></a>核心回顾</h2><ol>
+<li><p>图结构</p>
+</li>
+<li><p>一个节点可以有多个父节点</p>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析-2"><a href="#易错点与分析-2" class="headerlink" title="易错点与分析"></a>易错点与分析</h2><h3 id="易错点1：认为“更高级”"><a href="#易错点1：认为“更高级”" class="headerlink" title="易错点1：认为“更高级”"></a>易错点1：认为“更高级”</h3><p>❌ 错误：<br>网状模型 &gt; 关系模型</p>
+<p>✔ 正确：<br>只是更复杂，不更优</p>
+<hr>
+<h3 id="易错点2：忽略“路径依赖”"><a href="#易错点2：忽略“路径依赖”" class="headerlink" title="易错点2：忽略“路径依赖”"></a>易错点2：忽略“路径依赖”</h3><p>✔ 正确理解：<br>查询需要手动指定路径</p>
+<p>👉 这是它难用的根本原因</p>
+<hr>
+<h1 id="五、关系模型（-易错点重点）"><a href="#五、关系模型（-易错点重点）" class="headerlink" title="五、关系模型（+ 易错点重点）"></a>五、关系模型（+ 易错点重点）</h1><h2 id="核心结构回顾-2"><a href="#核心结构回顾-2" class="headerlink" title="核心结构回顾"></a>核心结构回顾</h2><ol>
+<li><p>关系 &#x3D; 表</p>
+</li>
+<li><p>元组 &#x3D; 行</p>
+</li>
+<li><p>属性 &#x3D; 列</p>
+</li>
+<li><p>域 &#x3D; 取值范围</p>
+</li>
+<li><p>键 &#x3D; 唯一标识</p>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析（考试重点）"><a href="#易错点与分析（考试重点）" class="headerlink" title="易错点与分析（考试重点）"></a>易错点与分析（考试重点）</h2><h3 id="易错点1：属性不原子（最常考）"><a href="#易错点1：属性不原子（最常考）" class="headerlink" title="易错点1：属性不原子（最常考）"></a>易错点1：属性不原子（最常考）</h3><p>❌ 错误：<br>一个字段存多个值</p>
+<p>例：</p>
+<ul>
+<li>工资 &#x3D; (基本+奖金+补贴)</li>
+</ul>
+<p>✔ 正确：<br>必须拆开</p>
+<p>👉 原因：<br>关系模型要求“不可分”</p>
+<hr>
+<h3 id="易错点2：主键理解错误"><a href="#易错点2：主键理解错误" class="headerlink" title="易错点2：主键理解错误"></a>易错点2：主键理解错误</h3><p>❌ 错误：</p>
+<ul>
+<li><p>主键可以重复</p>
+</li>
+<li><p>主键可以为空</p>
+</li>
+</ul>
+<p>✔ 正确：</p>
+<ul>
+<li>唯一 + 非空</li>
+</ul>
+<hr>
+<h3 id="易错点3：候选键-vs-主键"><a href="#易错点3：候选键-vs-主键" class="headerlink" title="易错点3：候选键 vs 主键"></a>易错点3：候选键 vs 主键</h3><p>❌ 混淆：<br>认为只有一个键</p>
+<p>✔ 正确：</p>
+<ul>
+<li><p>候选键：可能的主键</p>
+</li>
+<li><p>主键：选定的一个</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点4：联系不转表"><a href="#易错点4：联系不转表" class="headerlink" title="易错点4：联系不转表"></a>易错点4：联系不转表</h3><p>❌ 错误：<br>E-R 有联系，但关系模型不建表</p>
+<p>✔ 正确：</p>
+<ul>
+<li><p>m:n → 必建表</p>
+</li>
+<li><p>1:n → 可用外键</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点5：完整性约束混乱"><a href="#易错点5：完整性约束混乱" class="headerlink" title="易错点5：完整性约束混乱"></a>易错点5：完整性约束混乱</h3><p>❌ 错误：<br>分不清三种约束</p>
+<p>✔ 正确：</p>
+<ul>
+<li><p>实体完整性：主键</p>
+</li>
+<li><p>参照完整性：外键</p>
+</li>
+<li><p>用户定义：业务规则</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点6：关系运算理解错误"><a href="#易错点6：关系运算理解错误" class="headerlink" title="易错点6：关系运算理解错误"></a>易错点6：关系运算理解错误</h3><p>❌ 错误：<br>SQL &#x3D; 随便写</p>
+<p>✔ 正确：<br>SQL 背后是：</p>
+<ul>
+<li><p>关系代数</p>
+</li>
+<li><p>关系演算</p>
+</li>
+</ul>
+<hr>
+<h1 id="六、面向对象数据模型（-易错点）"><a href="#六、面向对象数据模型（-易错点）" class="headerlink" title="六、面向对象数据模型（+ 易错点）"></a>六、面向对象数据模型（+ 易错点）</h1><h2 id="核心回顾-2"><a href="#核心回顾-2" class="headerlink" title="核心回顾"></a>核心回顾</h2><ol>
+<li><p>对象 &#x3D; 数据 + 方法</p>
+</li>
+<li><p>OID 唯一标识</p>
+</li>
+<li><p>封装</p>
+</li>
+<li><p>类</p>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析-3"><a href="#易错点与分析-3" class="headerlink" title="易错点与分析"></a>易错点与分析</h2><h3 id="易错点1：把-OID-当普通字段"><a href="#易错点1：把-OID-当普通字段" class="headerlink" title="易错点1：把 OID 当普通字段"></a>易错点1：把 OID 当普通字段</h3><p>✔ 正确：<br>OID 是系统级唯一标识，不是用户字段</p>
+<hr>
+<h3 id="易错点2：忽略“方法”"><a href="#易错点2：忽略“方法”" class="headerlink" title="易错点2：忽略“方法”"></a>易错点2：忽略“方法”</h3><p>✔ 正确：<br>对象不仅有数据，还有行为</p>
+<hr>
+<h3 id="易错点3：封装理解错误"><a href="#易错点3：封装理解错误" class="headerlink" title="易错点3：封装理解错误"></a>易错点3：封装理解错误</h3><p>✔ 正确：<br>不能直接访问属性，要通过方法</p>
+<hr>
+<h1 id="七、概念模型-→-关系模型（转换）（-易错点）"><a href="#七、概念模型-→-关系模型（转换）（-易错点）" class="headerlink" title="七、概念模型 → 关系模型（转换）（+ 易错点）"></a>七、概念模型 → 关系模型（转换）（+ 易错点）</h1><h2 id="核心规则"><a href="#核心规则" class="headerlink" title="核心规则"></a>核心规则</h2><ol>
+<li><p>实体 → 表</p>
+</li>
+<li><p>属性 → 列</p>
+</li>
+<li><p>实体实例 → 行</p>
+</li>
+<li><p>联系 → 表或外键</p>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析-4"><a href="#易错点与分析-4" class="headerlink" title="易错点与分析"></a>易错点与分析</h2><h3 id="易错点1：所有联系都建表"><a href="#易错点1：所有联系都建表" class="headerlink" title="易错点1：所有联系都建表"></a>易错点1：所有联系都建表</h3><p>❌ 错误：<br>1:n 也建表</p>
+<p>✔ 正确：</p>
+<ul>
+<li><p>m:n → 建表</p>
+</li>
+<li><p>1:n → 外键即可</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点2：忽略联系属性"><a href="#易错点2：忽略联系属性" class="headerlink" title="易错点2：忽略联系属性"></a>易错点2：忽略联系属性</h3><p>✔ 正确：<br>联系属性必须进入关系表</p>
+<hr>
+<h3 id="易错点3：主键设计错误"><a href="#易错点3：主键设计错误" class="headerlink" title="易错点3：主键设计错误"></a>易错点3：主键设计错误</h3><p>✔ 正确：<br>联系表主键通常是：</p>
+<ul>
+<li>外键组合</li>
+</ul>
+<hr>
+<h1 id="八、小结（-易错点终极总结）"><a href="#八、小结（-易错点终极总结）" class="headerlink" title="八、小结（+ 易错点终极总结）"></a>八、小结（+ 易错点终极总结）</h1><h2 id="本章核心逻辑"><a href="#本章核心逻辑" class="headerlink" title="本章核心逻辑"></a>本章核心逻辑</h2><ol>
+<li><p>用 E-R 模型描述现实世界</p>
+</li>
+<li><p>用关系模型实现</p>
+</li>
+<li><p>用约束保证正确</p>
+</li>
+</ol>
+<hr>
+<h2 id="最容易丢分的-5-个点（强烈建议背）"><a href="#最容易丢分的-5-个点（强烈建议背）" class="headerlink" title="最容易丢分的 5 个点（强烈建议背）"></a>最容易丢分的 5 个点（强烈建议背）</h2><ol>
+<li><p>成绩属于联系，不属于实体</p>
+</li>
+<li><p>m:n 必须建中间表</p>
+</li>
+<li><p>三元联系不能拆</p>
+</li>
+<li><p>属性必须原子化</p>
+</li>
+<li><p>主键必须唯一且非空</p>
+</li>
+</ol>
+<hr>
+<h2 id="一句话总纲（考试用）"><a href="#一句话总纲（考试用）" class="headerlink" title="一句话总纲（考试用）"></a>一句话总纲（考试用）</h2><p>E-R 负责建模语义，关系模型负责结构实现，而完整性约束负责保证数据正确性。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-25T14:00:00.000Z" title="3/25/2026, 10:00:00 PM">2026-03-25</time>发表</span><span class="level-item"><time dateTime="2026-03-26T15:58:51.090Z" title="3/26/2026, 11:58:51 PM">2026-03-26</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">10 分钟读完 (大约1468个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/25/8--Constants/">oop8</a></p><div class="content"><h1 id="第一部分：知识点整理（普通文本）"><a href="#第一部分：知识点整理（普通文本）" class="headerlink" title="第一部分：知识点整理（普通文本）"></a>第一部分：知识点整理（普通文本）</h1><h2 id="1-const-的核心作用"><a href="#1-const-的核心作用" class="headerlink" title="1. const 的核心作用"></a>1. const 的核心作用</h2><ul>
 <li>const 用于区分“可变”和“不可变”</li>
 <li>提供：<ul>
 <li>类型安全（比 #define 更强）</li>
@@ -1241,6 +1694,68 @@
 <blockquote>
 <p>拟合长期行为收益</p>
 </blockquote>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-06T14:30:14.063Z" title="3/6/2026, 10:30:14 PM">2026-03-06</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">18 分钟读完 (大约2745个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-02/">深度学习笔记（二）：数据基本操作</a></p><div class="content"><h1 id="2-1-数据操作"><a href="#2-1-数据操作" class="headerlink" title="2.1. 数据操作"></a>2.1. 数据操作</h1><p>为了能够完成各种数据操作，我们需要某种方法来存储和操作数据。 通常，我们需要做两件重要的事：<br>（1）存储获取数据；（2）将数据读入计算机后对其进行处理。 </p>
+<p>首先，我们介绍维数组，也称为<strong>张量</strong>（tensor）。 深度学习里所有的输入都会变成张量，使用过Python中NumPy计算包的读者会对本部分很熟悉。 无论使用哪个深度学习框架，它的<strong>张量类</strong>（在MXNet中为<code>ndarray</code>， 在PyTorch和TensorFlow中为<code>Tensor</code>）都与Numpy的<code>ndarray</code>类似。 但深度学习框架又比Numpy的<code>ndarray</code>多一些重要功能：可以加速计算和自动微分。</p>
+<h2 id="2-1-1-入门"><a href="#2-1-1-入门" class="headerlink" title="2.1.1. 入门"></a>2.1.1. 入门</h2><p>首先，我们导入<code>torch</code>。<br><code>import torch</code></p>
+<h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h3><p>张量表示一个由数值组成的数组，这个数组可能有多个维度。 具有一个轴的张量对应数学上的<strong>向量</strong>（vector）； 具有两个轴的张量对应数学上的<strong>矩阵</strong>（matrix）； 具有两个轴以上的张量没有特殊的数学名称。</p>
+<h3 id="2-操作"><a href="#2-操作" class="headerlink" title="2.操作"></a>2.操作</h3><h4 id="1-arange-创建一个行向量-x"><a href="#1-arange-创建一个行向量-x" class="headerlink" title="1.arange 创建一个行向量 x"></a>1.<code>arange</code> 创建一个行向量 <code>x</code></h4><p>这个行向量包含以0开始的前12个整数，它们默认创建为整数。也可指定创建类型为浮点数。张量中的每个值都称为张量的 <em>元素</em>（element）。<br>	例如，张量 <code>x</code> 中有 12 个元素。除非额外指定，新的张量将存储在内存中，并采用基于CPU的计算。</p>
+<pre><code>`x = torch.arange(12)`
+`x`
+`tensor([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])`
+</code></pre>
+<h4 id="2-通过张量的shape属性来访问张量（沿每个轴的长度）的形状"><a href="#2-通过张量的shape属性来访问张量（沿每个轴的长度）的形状" class="headerlink" title="2.通过张量的shape属性来访问张量（沿每个轴的长度）的形状"></a>2.通过张量的<code>shape</code>属性来访问张量（沿每个轴的长度）的<strong>形状</strong></h4><pre><code>`x.shape`
+`torch.Size([12])`
+</code></pre>
+<p><strong>shape 顺序 &#x3D; 从整体 → 局部</strong><br>	(每个维度的长度)<br>	例如：<br>		(批次, 通道, 高, 宽)<br>	或者：<br>		(样本数, 特征数)</p>
+<h4 id="3-size检查大小"><a href="#3-size检查大小" class="headerlink" title="3.size检查大小"></a>3.size检查大小</h4><p>张量中元素的总数&#x3D;即形状的所有元素乘积，可以检查它的大小。 因为这里在处理的是一个向量，所以它的<code>shape</code>与它的<code>size</code>相同。<br>	<code>x.numel()</code><br>	<code>12</code></p>
+<h4 id="4-改变一个张量的形状而不改变元素数量和元素值，可以调用reshape函数。"><a href="#4-改变一个张量的形状而不改变元素数量和元素值，可以调用reshape函数。" class="headerlink" title="4.改变一个张量的形状而不改变元素数量和元素值，可以调用reshape函数。"></a>4.改变一个张量的形状而不改变元素数量和元素值，可以调用<code>reshape</code>函数。</h4><p>例如，可以把张量<code>x</code>从形状为（12,）的行向量转换为形状为（3,4）的矩阵。<br>这个新的张量包含与转换前相同的值，但是它被看成一个3行4列的矩阵。 要重点说明一下，虽然张量的形状发生了改变，但其元素值并没有变。<br>	<code>X = x.reshape(3, 4)</code><br>	<code>X</code><br>	<code>tensor([[ 0,  1,  2,  3],</code><br>        <code>[ 4,  5,  6,  7],</code><br>        <code>[ 8,  9, 10, 11]])</code><br>改变形状的简洁写法：<br>	如果我们的目标形状是（高度,宽度）， 那么在知道宽度后，高度会被自动计算得出，不必我们自己做除法。 在上面的例子中，为了获得一个3行的矩阵，我们手动指定了它有3行和4列。 幸运的是，我们可以通过<code>-1</code>来调用此自动计算出维度的功能。 即我们可以用<code>x.reshape(-1,4)</code>或<code>x.reshape(3,-1)</code>来取代<code>x.reshape(3,4)</code>。</p>
+<h4 id="5-初始化张量"><a href="#5-初始化张量" class="headerlink" title="5.初始化张量"></a>5.初始化张量</h4><h5 id="（1）全0、全1"><a href="#（1）全0、全1" class="headerlink" title="（1）全0、全1"></a>（1）全0、全1</h5><p>我们可以创建一个形状为（2,3,4）的张量，其中所有元素都设置为0。<br>	代码如下：<br>	<code>torch.zeros((2, 3, 4))</code><br>	<code>tensor([[[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.]],</code><br>        <code>[[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.]]])</code><br>同样，我们可以创建一个形状为<code>(2,3,4)</code>的张量，其中所有元素都设置为1。<br>	代码如下：<br>	<code>torch.ones((2, 3, 4))</code><br>	<code>tensor([[[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.]],</code><br>        <code>[[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.]]])</code><br>从特定分布中随机采样的数字来初始化矩阵。</p>
+<h5 id="（2）随机采样来得到张量中每个元素的值。"><a href="#（2）随机采样来得到张量中每个元素的值。" class="headerlink" title="（2）随机采样来得到张量中每个元素的值。"></a>（2）随机采样来得到张量中每个元素的值。</h5><pre><code>以下代码创建一个形状为（3,4）的张量。 其中的每个元素都从均值为0、标准差为1的标准高斯分布（正态分布）中随机采样。
+`torch.randn(3, 4)`
+`tensor([[-0.0135,  0.0665,  0.0912,  0.3212],`
+    `[ 1.4653,  0.1843, -1.6995, -0.3036],`
+    `[ 1.7646,  1.0450,  0.2457, -0.7732]])`
+</code></pre>
+<h5 id="（3）特定常量"><a href="#（3）特定常量" class="headerlink" title="（3）特定常量"></a>（3）特定常量</h5><p>我们还可以通过提供包含数值的Python列表（或嵌套列表），来为所需张量中的每个元素赋予确定值。 在这里，最外层的列表对应于轴0，内层的列表对应于轴1。<br>	<code>torch.tensor([[2, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])</code><br>	<code>tensor([[2, 1, 4, 3],</code><br>	        <code>[1, 2, 3, 4],</code><br>	        <code>[4, 3, 2, 1]])</code></p>
+<h2 id="2-1-2-运算符"><a href="#2-1-2-运算符" class="headerlink" title="2.1.2. 运算符"></a>2.1.2. 运算符</h2><h4 id="1-按元素（elementwise）运算。"><a href="#1-按元素（elementwise）运算。" class="headerlink" title="1.按元素（elementwise）运算。"></a>1.按元素（elementwise）运算。</h4><p>对数组里的每个位置分别做同一个运算，其实是把标量函数升级成为向量函数。<br><code>f(x,y) = [f(x1,y1), f(x2,y2), f(x3,y3)]</code><br>	<code>x = torch.tensor([1.0, 2, 4, 8])</code><br>	<code>y = torch.tensor([2, 2, 2, 2])</code><br>	<code>x + y, x - y, x * y, x / y, x ** y  # **运算符是求幂运算</code><br>	<code>(tensor([ 3.,  4.,  6., 10.]),</code><br>	 <code>tensor([-1.,  0.,  2.,  6.]),</code><br>	 <code>tensor([ 2.,  4.,  8., 16.]),</code><br>	 <code>tensor([0.5000, 1.0000, 2.0000, 4.0000]),</code><br>	 <code>tensor([ 1.,  4., 16., 64.]))</code><br>“按元素”方式可以应用更多的计算，包括像求幂这样的一元运算符。<br>	<code>torch.exp(x)</code><br>	<code>tensor([2.7183e+00, 7.3891e+00, 5.4598e+01, 2.9810e+03])</code></p>
+<h4 id="2-张量连结"><a href="#2-张量连结" class="headerlink" title="2.张量连结"></a>2.张量连结</h4><p>我们也可以把多个张量<strong>连结</strong>（concatenate）在一起， 把它们端对端地叠起来形成一个更大的张量。 我们只需要提供张量列表，并给出沿哪个轴连结。<br>	下面的例子分别演示了当我们沿行（轴-0，形状的第一个元素） 和按列（轴-1，形状的第二个元素）连结两个矩阵时，会发生什么情况。 我们可以看到，第一个输出张量的轴-0长度（）是两个输入张量轴-0长度的总和（）； 第二个输出张量的轴-1长度（）是两个输入张量轴-1长度的总和（）。</p>
+<pre><code>`X = torch.arange(12, dtype=torch.float32).reshape((3,4))`
+`Y = torch.tensor([[2.0, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])`
+`torch.cat((X, Y), dim=0), torch.cat((X, Y), dim=1)`
+
+(tensor([[ 0.,  1.,  2.,  3.],
+     [ 4.,  5.,  6.,  7.],
+     [ 8.,  9., 10., 11.],
+     [ 2.,  1.,  4.,  3.],
+     [ 1.,  2.,  3.,  4.],
+     [ 4.,  3.,  2.,  1.]]),
+ tensor([[ 0.,  1.,  2.,  3.,  2.,  1.,  4.,  3.],
+     [ 4.,  5.,  6.,  7.,  1.,  2.,  3.,  4.],
+     [ 8.,  9., 10., 11.,  4.,  3.,  2.,  1.]]))
+</code></pre>
+<h4 id="3-逻辑运算（按元素比较）"><a href="#3-逻辑运算（按元素比较）" class="headerlink" title="3.逻辑运算（按元素比较）"></a>3.逻辑运算（按元素比较）</h4><p>可以通过<strong>逻辑运算符</strong>构建二元张量。 以<code>X == Y</code>为例： 对于每个位置，如果<code>X</code>和<code>Y</code>在该位置相等，则新张量中相应项的值为1。 这意味着逻辑语句<code>X == Y</code>在该位置处为真，否则该位置为0。<br>	<code>X == Y</code><br>	<code>tensor([[False,  True, False,  True],</code><br>        <code>[False, False, False, False],</code><br>        <code>[False, False, False, False]])</code></p>
+<h4 id="4-求和"><a href="#4-求和" class="headerlink" title="4.求和"></a>4.求和</h4><p>对张量中的所有元素进行求和，会产生一个单元素张量。<br>	<code>X.sum()</code><br>	<code>tensor(66.)</code></p>
+<h2 id="2-1-3-广播机制"><a href="#2-1-3-广播机制" class="headerlink" title="2.1.3. 广播机制"></a>2.1.3. 广播机制</h2><p>在上面的部分中，我们看到了如何在相同形状的两个张量上执行按元素操作。 在某些情况下，即使形状不同，我们仍然可以通过调用 <strong>广播机制</strong>来执行按元素操作。 这种机制的工作方式如下：</p>
+<ol>
+<li><p>通过适当复制元素来扩展一个或两个数组，以便在转换之后，两个张量具有相同的形状；</p>
+</li>
+<li><p>对生成的数组执行按元素操作。</p>
+</li>
+</ol>
+<p>在大多数情况下，我们将沿着数组中长度为1的轴进行广播，如下例子：<br>	<code>a = torch.arange(3).reshape((3, 1))</code><br>	<code>b = torch.arange(2).reshape((1, 2))</code><br>	<code>a, b</code><br>	<code>(tensor([[0],</code><br>	        <code>[1],</code><br>	        <code>[2]]),</code><br>	 <code>tensor([[0, 1]]))</code><br>由于<code>a</code>和<code>b</code>分别是和矩阵，如果让它们相加，它们的形状不匹配。 我们将两个矩阵_广播_为一个更大的矩阵，如下所示：矩阵<code>a</code>将复制列， 矩阵<code>b</code>将复制行，然后再按元素相加。<br>	<code>a + b</code><br>	<code>tensor([[0, 1],</code><br>	        <code>[1, 2],</code><br>	        <code>[2, 3]])</code></p>
+<h2 id="2-1-4-索引和切片"><a href="#2-1-4-索引和切片" class="headerlink" title="2.1.4. 索引和切片"></a>2.1.4. 索引和切片</h2><h3 id="1-索引"><a href="#1-索引" class="headerlink" title="1.索引"></a>1.索引</h3><p>张量中的元素可以通过索引访问。 与任何Python数组一样：第一个元素的索引是0，最后一个元素索引是-1； 可以指定范围以包含第一个元素和最后一个之前的元素。<br>如下所示，我们可以用<code>[-1]</code>选择最后一个元素，可以用<code>[1:3]</code>选择第二个和第三个元素：<br>	<code>X[-1], X[1:3]</code>左闭右开<br>	<code>(tensor([ 8.,  9., 10., 11.]),</code><br>	 <code>tensor([[ 4.,  5.,  6.,  7.],</code><br>	         <code>[ 8.,  9., 10., 11.]]))</code><br>除读取外，我们还可以通过指定索引来将元素写入矩阵。<br>	<code>X[1, 2] = 9</code>&#x2F;&#x2F;第一行第二列<br>	<code>X</code><br>	<code>tensor([[ 0.,  1.,  2.,  3.],</code><br>	        <code>[ 4.,  5.,  9.,  7.],</code><br>	        <code>[ 8.,  9., 10., 11.]])</code><br>如果我们想为多个元素赋值相同的值，我们只需要索引所有元素，然后为它们赋值。 例如，<code>[0:2, :]</code>访问第1行和第2行，其中“:”代表沿轴1（列）的所有元素。 虽然我们讨论的是矩阵的索引，但这也适用于向量和超过2个维度的张量。<br>	<code>X[0:2, :] = 12</code><br>	<code>X</code><br>	<code>tensor([[12., 12., 12., 12.],</code><br>        <code>[12., 12., 12., 12.],</code><br>        <code>[ 8.,  9., 10., 11.]])</code></p>
+<h2 id="2-1-5-节省内存"><a href="#2-1-5-节省内存" class="headerlink" title="2.1.5. 节省内存"></a>2.1.5. 节省内存</h2><p>运行一些操作可能会导致为新结果分配内存。 例如，如果我们用<code>Y = X + Y</code>，我们将取消引用<code>Y</code>指向的张量，而是指向新分配的内存处的张量。<br>在下面的例子中，我们用Python的<code>id()</code>函数演示了这一点， 它给我们提供了内存中引用对象的确切地址。 运行<code>Y = Y + X</code>后，我们会发现<code>id(Y)</code>指向另一个位置。 这是因为Python首先计算<code>Y + X</code>，为结果分配新的内存，然后使<code>Y</code>指向内存中的这个新位置。<br>	<code>before = id(Y)</code><br>	<code>Y = Y + X</code><br>	<code>id(Y) == before</code><br>	<code>False</code><br>    <em>错误原因是因为其实内存有变</em><br>这可能是不可取的，原因有两个：</p>
+<ol>
+<li><p>首先，我们不想总是不必要地分配内存。在机器学习中，我们可能有数百兆的参数，并且在一秒内多次更新所有参数。通常情况下，我们希望原地执行这些更新；</p>
+</li>
+<li><p>如果我们不原地更新，其他引用仍然会指向旧的内存位置，这样我们的某些代码可能会无意中引用旧的参数。</p>
+</li>
+</ol>
+<p>幸运的是，执行原地操作非常简单。 我们可以使用切片表示法将操作的结果分配给先前分配的数组，例如<code>Y[:] = &lt;expression&gt;</code>。 为了说明这一点，我们首先创建一个新的矩阵<code>Z</code>，其形状与另一个<code>Y</code>相同， 使用<code>zeros_like</code>来分配一个全的块。<br>	<code>Z = torch.zeros_like(Y)</code><br>	<code>print(&#39;id(Z):&#39;, id(Z))</code><br>	<code>Z[:] = X + Y</code><br>	<code>print(&#39;id(Z):&#39;, id(Z))</code><br>	<code>id(Z): 140327634811696</code><br>	<code>id(Z): 140327634811696</code><br>如果在后续计算中没有重复使用<code>X</code>， 我们也可以使用<code>X[:] = X + Y</code>或<code>X += Y</code>来减少操作的内存开销。<br>	<code>before = id(X)</code><br>	<code>X += Y</code><br>	<code>id(X) == before</code><br>	<code>True</code></p>
+<h2 id="2-1-6-转换为其他Python对象"><a href="#2-1-6-转换为其他Python对象" class="headerlink" title="2.1.6. 转换为其他Python对象"></a>2.1.6. 转换为其他Python对象</h2><p>将深度学习框架定义的张量转换为NumPy张量（<code>ndarray</code>）很容易，反之也同样容易。 torch张量和numpy数组将共享它们的底层内存，就地操作更改一个张量也会同时更改另一个张量。<br>	<code>A = X.numpy()</code><br>	<code>B = torch.tensor(A)</code><br>	<code>type(A), type(B)</code><br>	<code>(numpy.ndarray, torch.Tensor)</code><br>要将大小为1的张量转换为Python标量，我们可以调用<code>item</code>函数或Python的内置函数。<br>	<code>a = torch.tensor([3.5])</code><br>	<code>a, a.item(), float(a), int(a)</code><br>	<code>(tensor([3.5000]), 3.5, 3.5, 3)</code></p>
+<h2 id="2-1-7-小结"><a href="#2-1-7-小结" class="headerlink" title="2.1.7. 小结"></a>2.1.7. 小结</h2><ul>
+<li>深度学习存储和操作数据的主要接口是张量（维数组）。它提供了各种功能，包括基本数学运算、广播、索引、切片、内存节省和转换其他Python对象。</li>
+</ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-07T07:39:04.653Z" title="3/7/2026, 3:39:04 PM">2026-03-07</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">5 分钟读完 (大约785个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-03/">深度学习笔记（三）：数据预处理</a></p><div class="content"><h1 id="一、为什么要做数据预处理"><a href="#一、为什么要做数据预处理" class="headerlink" title="一、为什么要做数据预处理"></a>一、为什么要做数据预处理</h1><p>现实数据通常不是模型能直接用的格式，比如：</p>
 <table>
 <thead>
@@ -1431,142 +1946,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor()</span><br></pre></td></tr></table></figure>
 <h1 id="九、其实这一节的核心只有一句话"><a href="#九、其实这一节的核心只有一句话" class="headerlink" title="九、其实这一节的核心只有一句话"></a>九、其实这一节的核心只有一句话</h1><p>深度学习数据准备流程：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CSV → pandas → 清洗数据 → 数值化 → tensor</span><br></pre></td></tr></table></figure>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-07T13:36:26.963Z" title="3/7/2026, 9:36:26 PM">2026-03-07</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">13 分钟读完 (大约2007个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-04/">深度学习笔记（四）：数学角度看机器学习</a></p><div class="content"><p>batch 是训练时的数据组织方式，即投喂的样本数，也就是数据的第一个维度。<br>embedding 是一种 <strong>表示方法（representation）</strong>。<br>本质：离散ID → 连续向量<br>attention 是一种 <strong>计算机制（operation &#x2F; layer）</strong>。<br>它的功能：<br>计算序列元素之间的依赖关系<br>核心公式：<br>Attention(Q,K,V)&#x3D;softmax(QKT)<br>所以 attention 是：一种矩阵计算操作<br>几乎所有 Transformer 代码都是：<br>(batch, seq_len, hidden_dim)<br>以及为什么 <strong>Multi-head attention 会变成 4维张量</strong>：<br>(batch, heads, seq_len, head_dim)</p>
-<h1 id="一、自动微分核心知识点"><a href="#一、自动微分核心知识点" class="headerlink" title="一、自动微分核心知识点"></a>一、自动微分核心知识点</h1><h2 id="1-自动微分的目的"><a href="#1-自动微分的目的" class="headerlink" title="1 自动微分的目的"></a>1 自动微分的目的</h2><p>在机器学习中，我们需要优化参数：loss(w)<br>为了更新参数，需要计算：d lossdw<br>自动微分的作用：自动计算梯度</p>
-<h1 id="2-requires-gradD"><a href="#2-requires-gradD" class="headerlink" title="2 requires_gradD"></a>2 requires_gradD</h1><p>代码：<br>	<code>x = torch.arange(4.0)</code><br>	<code>x.requires_grad_(True)</code><br>含义：告诉框架  ，x需要计算梯度，否则不会记录计算过程。</p>
-<h1 id="3-计算图（computation-graph）"><a href="#3-计算图（computation-graph）" class="headerlink" title="3 计算图（computation graph）"></a>3 计算图（computation graph）</h1><p>当你写：<code>y = 2 * torch.dot(x, x)</code><br>框架会记录：x → dot → multiply → y<br>这就是：计算图。每个节点是一个计算操作。</p>
-<h1 id="4-backward"><a href="#4-backward" class="headerlink" title="4 backward()"></a>4 backward()</h1><p>代码：<code>y.backward()</code><br>含义：从 y 开始  反向计算梯度<br>得到：x.grad</p>
-<h1 id="5-梯度存在哪里"><a href="#5-梯度存在哪里" class="headerlink" title="5 梯度存在哪里"></a>5 梯度存在哪里</h1><p>每个变量都有：x.grad<br>里面存：dydx\frac{dy}{dx}dxdy​</p>
-<h1 id="6-梯度累加"><a href="#6-梯度累加" class="headerlink" title="6 梯度累加"></a>6 梯度累加</h1><p>如果多次计算：<code>loss.backward()</code><br>     梯度会累加<br>所以训练时通常要：<code>optimizer.zero_grad()</code></p>
-<h1 id="7-向量的-backward"><a href="#7-向量的-backward" class="headerlink" title="7 向量的 backward"></a>7 向量的 backward</h1><p>如果y 是向量<br>框架默认：先 sum  再求导<br>因为训练目标必须是：<br>标量 loss</p>
-<h1 id="8-detach"><a href="#8-detach" class="headerlink" title="8 detach"></a>8 detach</h1><p>代码：<code>u = y.detach()</code><br>作用：切断计算图<br>之后梯度不会继续传播。</p>
-<h1 id="二、计算图"><a href="#二、计算图" class="headerlink" title="二、计算图"></a>二、计算图</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>一句话：计算图 &#x3D; 记录计算步骤<br>例如：y &#x3D; 2 * x * x计算过程是：<br>x → square → multiply → y<br>画出来：</p>
-<pre><code> x  
-/ \  
-x   x  
-\ /  
-dot  
- |  
- *2  
- |  
- y
-</code></pre>
-<p>这就是：一张有向图</p>
-<h2 id="为什么要有计算图"><a href="#为什么要有计算图" class="headerlink" title="为什么要有计算图"></a>为什么要有计算图</h2><p>因为要算导数。<br>例如：y&#x3D;2x2<br>你手算：dydx&#x3D;4x<br>但神经网络不是这么简单。<br>例如：y&#x3D;sin(Wx+b)<br>可能有：几百万个参数<br>手算导数不可能。<br>所以框架必须：记录所有计算步骤<br>这就是：计算图</p>
-<h1 id="三、反向传播"><a href="#三、反向传播" class="headerlink" title="三、反向传播"></a>三、反向传播</h1><h2 id="到底在干嘛"><a href="#到底在干嘛" class="headerlink" title="到底在干嘛"></a>到底在干嘛</h2><p>核心一句话：用链式法则算导数<br>回忆微积分：如果：z&#x3D;f(y)y&#x3D;g(x)，那么：dzdx&#x3D;dzdydydx<br>这就是：链式法则</p>
-<h2 id="为什么要“反向”传播"><a href="#为什么要“反向”传播" class="headerlink" title="为什么要“反向”传播"></a>为什么要“反向”传播</h2><p>假设：y &#x3D; 2(x+3)^2<br>计算步骤：x → +3 → square → ×2 → y<br>正向计算：x → y。但求导：从 y 往回算<br>因为：dydx&#x3D;dydududx，所以必须：从结果往回算<br>这就是：反向传播</p>
-<h1 id="四、线性回归"><a href="#四、线性回归" class="headerlink" title="四、线性回归"></a>四、线性回归</h1><h2 id="1-回归问题与线性模型"><a href="#1-回归问题与线性模型" class="headerlink" title="1. 回归问题与线性模型"></a>1. 回归问题与线性模型</h2><ul>
-<li><strong>回归问题</strong>：目标是预测<strong>连续数值</strong>（如预测房价、股票价格、气温）。与之相对的是预测离散类别的“分类”问题（如识别猫或狗）。</li>
-<li><strong>线性假设</strong>：假设目标值（输出）可以由特征（输入）的<strong>加权和</strong>加上一个偏置量来表示。<ul>
-<li>公式：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y^​=w1​x1​+w2​x2​+...+wn​xn​+b</span><br></pre></td></tr></table></figure></li>
-<li><strong>权重（Weight,</strong> w）**：决定每个输入特征的重要程度。</li>
-<li><strong>偏置（Bias,</strong> <strong><code>b</code>）</strong>：当所有特征都为0时，预测的基础值。</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-损失函数-Loss-Function"><a href="#2-损失函数-Loss-Function" class="headerlink" title="2. 损失函数 (Loss Function)"></a>2. 损失函数 (Loss Function)</h3><ul>
-<li><strong>作用</strong>：衡量模型当前的预测值和真实标签之间的差距。</li>
-<li><strong>平方损失（Squared Error）</strong>：线性回归中最常用的损失函数。<ul>
-<li>单样本公式：l(i)&#x3D;0.5*(y^(i)−y(i))^2<br>（乘以 0.5是为了求导时能与平方项的^2抵消，方便数学计算）。</li>
-</ul>
-</li>
-<li><strong>目标</strong>：寻找一组最优的参数w和b，使得整个训练集上的总损失最小。</li>
-<li><strong>泛化</strong>：更难做到的是找到一组参数，这组参数能够在我们从未见过的数据上实现较低的损失， 这一挑战被称为_泛化_</li>
-</ul>
-<h3 id="3-优化算法"><a href="#3-优化算法" class="headerlink" title="3. 优化算法"></a>3. 优化算法</h3><ul>
-<li><strong>解析解（Analytic Solution）</strong>：线性回归非常简单，是少有的可以直接通过数学公式（矩阵求导）一步算出全局最优解的模型。公式为：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">w∗=(X⊤X)−1X⊤y</span><br></pre></td></tr></table></figure></li>
-<li><strong>小批量随机梯度下降（Minibatch Stochastic Gradient Descent, SGD）</strong>：这是深度学习中<strong>真正使用</strong>的普适方法。因为复杂的深度模型没有解析解，必须通过这种“一步步试错改进”的算法来逼近最优解。<ul>
-<li><strong>步骤</strong>：随机抽取一小批数据计算误差对参数的导数（梯度），顺着梯度的反方向稍微更新一下参数。</li>
-<li><strong>超参数</strong>：<strong>批量大小（Batch Size）和</strong>学习率（Learning Rate）。这些是人为设定的，而不是模型自己学到的。</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-矢量化加速-Vectorization"><a href="#4-矢量化加速-Vectorization" class="headerlink" title="4. 矢量化加速 (Vectorization)"></a>4. 矢量化加速 (Vectorization)</h3><ul>
-<li><strong>核心准则</strong>：在深度学习代码中，计算多个样本的预测值和损失时，<strong>千万不要用 for 循环</strong>。</li>
-<li><strong>原因</strong>：应该利用线性代数，将数据打包成矩阵和向量进行计算。底层硬件（特别是 GPU）对矩阵运算有极强的并行处理能力，速度比 for 循环快成百上千倍。</li>
-</ul>
-<h4 id="5-理论支撑：正态分布与最大似然估计"><a href="#5-理论支撑：正态分布与最大似然估计" class="headerlink" title="5. 理论支撑：正态分布与最大似然估计"></a>5. 理论支撑：正态分布与最大似然估计</h4><ul>
-<li><strong>为什么一定要用平方损失？</strong> 这一节给出了统计学解释。</li>
-<li>假设：真实值y等于模型的完美预测值加上一些无法控制的随机噪声</li>
-<li>如果假设这些<strong>噪声服从正态分布（高斯分布）</strong>，那么根据统计学中的“最大似然估计（MLE）”原理，要让当前数据出现的概率最大，数学推导出的结果<strong>完全等价于</strong>最小化均方误差。</li>
-</ul>
-<h4 id="6-从线性回归到深度网络"><a href="#6-从线性回归到深度网络" class="headerlink" title="6. 从线性回归到深度网络"></a>6. 从线性回归到深度网络</h4><ul>
-<li><p><strong>网络结构</strong>：线性回归可以被看作是一个最简单的<strong>单层神经网络</strong>。</p>
-</li>
-<li><p><strong>全连接层</strong>：在这个网络中，输入层的所有特征节点都通过带权重的连线，直接连接到输出层的唯一一个神经元上。这种所有节点完全相连的结构，就是深度学习中最基础的“全连接层”。<br><img src="/img/2.png" alt=" "><br>如上所示的神经网络中，输入为x1—-xd， 因此输入层中的<strong>输入数</strong>（或称为<strong>特征维度</strong>）为d。 网络的输出为o1，因此输出层中的<strong>输出数</strong>是1。 需要注意的是，输入值都是已经给定的，并且只有一个<strong>计算</strong>神经元。 由于模型重点在发生计算的地方，所以通常我们在计算层数时不考虑输入层。 也就是说，图中神经网络的_层数_为1。 我们可以将线性回归模型视为仅由单个人工神经元组成的神经网络，或称为单层神经网络。<br>对于线性回归，每个输入都与每个输出（在本例中只有一个输出）相连， 我们将这种变换（ 图中的输出层） 称为<strong>全连接层</strong>或称为<strong>稠密层</strong>。 下一章将详细讨论由这些层组成的网络。</p>
-</li>
-<li><p>机器学习模型中的关键要素是训练数据、损失函数、优化算法，还有模型本身。</p>
-</li>
-<li><p>矢量化使数学表达上更简洁，同时运行的更快。</p>
-</li>
-<li><p>最小化目标函数和执行极大似然估计等价。</p>
-</li>
-<li><p>线性回归模型也是一个简单的神经网络</p>
-</li>
-</ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-06T14:30:14.063Z" title="3/6/2026, 10:30:14 PM">2026-03-06</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">18 分钟读完 (大约2745个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-02/">深度学习笔记（二）：数据基本操作</a></p><div class="content"><h1 id="2-1-数据操作"><a href="#2-1-数据操作" class="headerlink" title="2.1. 数据操作"></a>2.1. 数据操作</h1><p>为了能够完成各种数据操作，我们需要某种方法来存储和操作数据。 通常，我们需要做两件重要的事：<br>（1）存储获取数据；（2）将数据读入计算机后对其进行处理。 </p>
-<p>首先，我们介绍维数组，也称为<strong>张量</strong>（tensor）。 深度学习里所有的输入都会变成张量，使用过Python中NumPy计算包的读者会对本部分很熟悉。 无论使用哪个深度学习框架，它的<strong>张量类</strong>（在MXNet中为<code>ndarray</code>， 在PyTorch和TensorFlow中为<code>Tensor</code>）都与Numpy的<code>ndarray</code>类似。 但深度学习框架又比Numpy的<code>ndarray</code>多一些重要功能：可以加速计算和自动微分。</p>
-<h2 id="2-1-1-入门"><a href="#2-1-1-入门" class="headerlink" title="2.1.1. 入门"></a>2.1.1. 入门</h2><p>首先，我们导入<code>torch</code>。<br><code>import torch</code></p>
-<h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h3><p>张量表示一个由数值组成的数组，这个数组可能有多个维度。 具有一个轴的张量对应数学上的<strong>向量</strong>（vector）； 具有两个轴的张量对应数学上的<strong>矩阵</strong>（matrix）； 具有两个轴以上的张量没有特殊的数学名称。</p>
-<h3 id="2-操作"><a href="#2-操作" class="headerlink" title="2.操作"></a>2.操作</h3><h4 id="1-arange-创建一个行向量-x"><a href="#1-arange-创建一个行向量-x" class="headerlink" title="1.arange 创建一个行向量 x"></a>1.<code>arange</code> 创建一个行向量 <code>x</code></h4><p>这个行向量包含以0开始的前12个整数，它们默认创建为整数。也可指定创建类型为浮点数。张量中的每个值都称为张量的 <em>元素</em>（element）。<br>	例如，张量 <code>x</code> 中有 12 个元素。除非额外指定，新的张量将存储在内存中，并采用基于CPU的计算。</p>
-<pre><code>`x = torch.arange(12)`
-`x`
-`tensor([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])`
-</code></pre>
-<h4 id="2-通过张量的shape属性来访问张量（沿每个轴的长度）的形状"><a href="#2-通过张量的shape属性来访问张量（沿每个轴的长度）的形状" class="headerlink" title="2.通过张量的shape属性来访问张量（沿每个轴的长度）的形状"></a>2.通过张量的<code>shape</code>属性来访问张量（沿每个轴的长度）的<strong>形状</strong></h4><pre><code>`x.shape`
-`torch.Size([12])`
-</code></pre>
-<p><strong>shape 顺序 &#x3D; 从整体 → 局部</strong><br>	(每个维度的长度)<br>	例如：<br>		(批次, 通道, 高, 宽)<br>	或者：<br>		(样本数, 特征数)</p>
-<h4 id="3-size检查大小"><a href="#3-size检查大小" class="headerlink" title="3.size检查大小"></a>3.size检查大小</h4><p>张量中元素的总数&#x3D;即形状的所有元素乘积，可以检查它的大小。 因为这里在处理的是一个向量，所以它的<code>shape</code>与它的<code>size</code>相同。<br>	<code>x.numel()</code><br>	<code>12</code></p>
-<h4 id="4-改变一个张量的形状而不改变元素数量和元素值，可以调用reshape函数。"><a href="#4-改变一个张量的形状而不改变元素数量和元素值，可以调用reshape函数。" class="headerlink" title="4.改变一个张量的形状而不改变元素数量和元素值，可以调用reshape函数。"></a>4.改变一个张量的形状而不改变元素数量和元素值，可以调用<code>reshape</code>函数。</h4><p>例如，可以把张量<code>x</code>从形状为（12,）的行向量转换为形状为（3,4）的矩阵。<br>这个新的张量包含与转换前相同的值，但是它被看成一个3行4列的矩阵。 要重点说明一下，虽然张量的形状发生了改变，但其元素值并没有变。<br>	<code>X = x.reshape(3, 4)</code><br>	<code>X</code><br>	<code>tensor([[ 0,  1,  2,  3],</code><br>        <code>[ 4,  5,  6,  7],</code><br>        <code>[ 8,  9, 10, 11]])</code><br>改变形状的简洁写法：<br>	如果我们的目标形状是（高度,宽度）， 那么在知道宽度后，高度会被自动计算得出，不必我们自己做除法。 在上面的例子中，为了获得一个3行的矩阵，我们手动指定了它有3行和4列。 幸运的是，我们可以通过<code>-1</code>来调用此自动计算出维度的功能。 即我们可以用<code>x.reshape(-1,4)</code>或<code>x.reshape(3,-1)</code>来取代<code>x.reshape(3,4)</code>。</p>
-<h4 id="5-初始化张量"><a href="#5-初始化张量" class="headerlink" title="5.初始化张量"></a>5.初始化张量</h4><h5 id="（1）全0、全1"><a href="#（1）全0、全1" class="headerlink" title="（1）全0、全1"></a>（1）全0、全1</h5><p>我们可以创建一个形状为（2,3,4）的张量，其中所有元素都设置为0。<br>	代码如下：<br>	<code>torch.zeros((2, 3, 4))</code><br>	<code>tensor([[[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.]],</code><br>        <code>[[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.]]])</code><br>同样，我们可以创建一个形状为<code>(2,3,4)</code>的张量，其中所有元素都设置为1。<br>	代码如下：<br>	<code>torch.ones((2, 3, 4))</code><br>	<code>tensor([[[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.]],</code><br>        <code>[[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.]]])</code><br>从特定分布中随机采样的数字来初始化矩阵。</p>
-<h5 id="（2）随机采样来得到张量中每个元素的值。"><a href="#（2）随机采样来得到张量中每个元素的值。" class="headerlink" title="（2）随机采样来得到张量中每个元素的值。"></a>（2）随机采样来得到张量中每个元素的值。</h5><pre><code>以下代码创建一个形状为（3,4）的张量。 其中的每个元素都从均值为0、标准差为1的标准高斯分布（正态分布）中随机采样。
-`torch.randn(3, 4)`
-`tensor([[-0.0135,  0.0665,  0.0912,  0.3212],`
-    `[ 1.4653,  0.1843, -1.6995, -0.3036],`
-    `[ 1.7646,  1.0450,  0.2457, -0.7732]])`
-</code></pre>
-<h5 id="（3）特定常量"><a href="#（3）特定常量" class="headerlink" title="（3）特定常量"></a>（3）特定常量</h5><p>我们还可以通过提供包含数值的Python列表（或嵌套列表），来为所需张量中的每个元素赋予确定值。 在这里，最外层的列表对应于轴0，内层的列表对应于轴1。<br>	<code>torch.tensor([[2, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])</code><br>	<code>tensor([[2, 1, 4, 3],</code><br>	        <code>[1, 2, 3, 4],</code><br>	        <code>[4, 3, 2, 1]])</code></p>
-<h2 id="2-1-2-运算符"><a href="#2-1-2-运算符" class="headerlink" title="2.1.2. 运算符"></a>2.1.2. 运算符</h2><h4 id="1-按元素（elementwise）运算。"><a href="#1-按元素（elementwise）运算。" class="headerlink" title="1.按元素（elementwise）运算。"></a>1.按元素（elementwise）运算。</h4><p>对数组里的每个位置分别做同一个运算，其实是把标量函数升级成为向量函数。<br><code>f(x,y) = [f(x1,y1), f(x2,y2), f(x3,y3)]</code><br>	<code>x = torch.tensor([1.0, 2, 4, 8])</code><br>	<code>y = torch.tensor([2, 2, 2, 2])</code><br>	<code>x + y, x - y, x * y, x / y, x ** y  # **运算符是求幂运算</code><br>	<code>(tensor([ 3.,  4.,  6., 10.]),</code><br>	 <code>tensor([-1.,  0.,  2.,  6.]),</code><br>	 <code>tensor([ 2.,  4.,  8., 16.]),</code><br>	 <code>tensor([0.5000, 1.0000, 2.0000, 4.0000]),</code><br>	 <code>tensor([ 1.,  4., 16., 64.]))</code><br>“按元素”方式可以应用更多的计算，包括像求幂这样的一元运算符。<br>	<code>torch.exp(x)</code><br>	<code>tensor([2.7183e+00, 7.3891e+00, 5.4598e+01, 2.9810e+03])</code></p>
-<h4 id="2-张量连结"><a href="#2-张量连结" class="headerlink" title="2.张量连结"></a>2.张量连结</h4><p>我们也可以把多个张量<strong>连结</strong>（concatenate）在一起， 把它们端对端地叠起来形成一个更大的张量。 我们只需要提供张量列表，并给出沿哪个轴连结。<br>	下面的例子分别演示了当我们沿行（轴-0，形状的第一个元素） 和按列（轴-1，形状的第二个元素）连结两个矩阵时，会发生什么情况。 我们可以看到，第一个输出张量的轴-0长度（）是两个输入张量轴-0长度的总和（）； 第二个输出张量的轴-1长度（）是两个输入张量轴-1长度的总和（）。</p>
-<pre><code>`X = torch.arange(12, dtype=torch.float32).reshape((3,4))`
-`Y = torch.tensor([[2.0, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])`
-`torch.cat((X, Y), dim=0), torch.cat((X, Y), dim=1)`
-
-(tensor([[ 0.,  1.,  2.,  3.],
-     [ 4.,  5.,  6.,  7.],
-     [ 8.,  9., 10., 11.],
-     [ 2.,  1.,  4.,  3.],
-     [ 1.,  2.,  3.,  4.],
-     [ 4.,  3.,  2.,  1.]]),
- tensor([[ 0.,  1.,  2.,  3.,  2.,  1.,  4.,  3.],
-     [ 4.,  5.,  6.,  7.,  1.,  2.,  3.,  4.],
-     [ 8.,  9., 10., 11.,  4.,  3.,  2.,  1.]]))
-</code></pre>
-<h4 id="3-逻辑运算（按元素比较）"><a href="#3-逻辑运算（按元素比较）" class="headerlink" title="3.逻辑运算（按元素比较）"></a>3.逻辑运算（按元素比较）</h4><p>可以通过<strong>逻辑运算符</strong>构建二元张量。 以<code>X == Y</code>为例： 对于每个位置，如果<code>X</code>和<code>Y</code>在该位置相等，则新张量中相应项的值为1。 这意味着逻辑语句<code>X == Y</code>在该位置处为真，否则该位置为0。<br>	<code>X == Y</code><br>	<code>tensor([[False,  True, False,  True],</code><br>        <code>[False, False, False, False],</code><br>        <code>[False, False, False, False]])</code></p>
-<h4 id="4-求和"><a href="#4-求和" class="headerlink" title="4.求和"></a>4.求和</h4><p>对张量中的所有元素进行求和，会产生一个单元素张量。<br>	<code>X.sum()</code><br>	<code>tensor(66.)</code></p>
-<h2 id="2-1-3-广播机制"><a href="#2-1-3-广播机制" class="headerlink" title="2.1.3. 广播机制"></a>2.1.3. 广播机制</h2><p>在上面的部分中，我们看到了如何在相同形状的两个张量上执行按元素操作。 在某些情况下，即使形状不同，我们仍然可以通过调用 <strong>广播机制</strong>来执行按元素操作。 这种机制的工作方式如下：</p>
-<ol>
-<li><p>通过适当复制元素来扩展一个或两个数组，以便在转换之后，两个张量具有相同的形状；</p>
-</li>
-<li><p>对生成的数组执行按元素操作。</p>
-</li>
-</ol>
-<p>在大多数情况下，我们将沿着数组中长度为1的轴进行广播，如下例子：<br>	<code>a = torch.arange(3).reshape((3, 1))</code><br>	<code>b = torch.arange(2).reshape((1, 2))</code><br>	<code>a, b</code><br>	<code>(tensor([[0],</code><br>	        <code>[1],</code><br>	        <code>[2]]),</code><br>	 <code>tensor([[0, 1]]))</code><br>由于<code>a</code>和<code>b</code>分别是和矩阵，如果让它们相加，它们的形状不匹配。 我们将两个矩阵_广播_为一个更大的矩阵，如下所示：矩阵<code>a</code>将复制列， 矩阵<code>b</code>将复制行，然后再按元素相加。<br>	<code>a + b</code><br>	<code>tensor([[0, 1],</code><br>	        <code>[1, 2],</code><br>	        <code>[2, 3]])</code></p>
-<h2 id="2-1-4-索引和切片"><a href="#2-1-4-索引和切片" class="headerlink" title="2.1.4. 索引和切片"></a>2.1.4. 索引和切片</h2><h3 id="1-索引"><a href="#1-索引" class="headerlink" title="1.索引"></a>1.索引</h3><p>张量中的元素可以通过索引访问。 与任何Python数组一样：第一个元素的索引是0，最后一个元素索引是-1； 可以指定范围以包含第一个元素和最后一个之前的元素。<br>如下所示，我们可以用<code>[-1]</code>选择最后一个元素，可以用<code>[1:3]</code>选择第二个和第三个元素：<br>	<code>X[-1], X[1:3]</code>左闭右开<br>	<code>(tensor([ 8.,  9., 10., 11.]),</code><br>	 <code>tensor([[ 4.,  5.,  6.,  7.],</code><br>	         <code>[ 8.,  9., 10., 11.]]))</code><br>除读取外，我们还可以通过指定索引来将元素写入矩阵。<br>	<code>X[1, 2] = 9</code>&#x2F;&#x2F;第一行第二列<br>	<code>X</code><br>	<code>tensor([[ 0.,  1.,  2.,  3.],</code><br>	        <code>[ 4.,  5.,  9.,  7.],</code><br>	        <code>[ 8.,  9., 10., 11.]])</code><br>如果我们想为多个元素赋值相同的值，我们只需要索引所有元素，然后为它们赋值。 例如，<code>[0:2, :]</code>访问第1行和第2行，其中“:”代表沿轴1（列）的所有元素。 虽然我们讨论的是矩阵的索引，但这也适用于向量和超过2个维度的张量。<br>	<code>X[0:2, :] = 12</code><br>	<code>X</code><br>	<code>tensor([[12., 12., 12., 12.],</code><br>        <code>[12., 12., 12., 12.],</code><br>        <code>[ 8.,  9., 10., 11.]])</code></p>
-<h2 id="2-1-5-节省内存"><a href="#2-1-5-节省内存" class="headerlink" title="2.1.5. 节省内存"></a>2.1.5. 节省内存</h2><p>运行一些操作可能会导致为新结果分配内存。 例如，如果我们用<code>Y = X + Y</code>，我们将取消引用<code>Y</code>指向的张量，而是指向新分配的内存处的张量。<br>在下面的例子中，我们用Python的<code>id()</code>函数演示了这一点， 它给我们提供了内存中引用对象的确切地址。 运行<code>Y = Y + X</code>后，我们会发现<code>id(Y)</code>指向另一个位置。 这是因为Python首先计算<code>Y + X</code>，为结果分配新的内存，然后使<code>Y</code>指向内存中的这个新位置。<br>	<code>before = id(Y)</code><br>	<code>Y = Y + X</code><br>	<code>id(Y) == before</code><br>	<code>False</code><br>    <em>错误原因是因为其实内存有变</em><br>这可能是不可取的，原因有两个：</p>
-<ol>
-<li><p>首先，我们不想总是不必要地分配内存。在机器学习中，我们可能有数百兆的参数，并且在一秒内多次更新所有参数。通常情况下，我们希望原地执行这些更新；</p>
-</li>
-<li><p>如果我们不原地更新，其他引用仍然会指向旧的内存位置，这样我们的某些代码可能会无意中引用旧的参数。</p>
-</li>
-</ol>
-<p>幸运的是，执行原地操作非常简单。 我们可以使用切片表示法将操作的结果分配给先前分配的数组，例如<code>Y[:] = &lt;expression&gt;</code>。 为了说明这一点，我们首先创建一个新的矩阵<code>Z</code>，其形状与另一个<code>Y</code>相同， 使用<code>zeros_like</code>来分配一个全的块。<br>	<code>Z = torch.zeros_like(Y)</code><br>	<code>print(&#39;id(Z):&#39;, id(Z))</code><br>	<code>Z[:] = X + Y</code><br>	<code>print(&#39;id(Z):&#39;, id(Z))</code><br>	<code>id(Z): 140327634811696</code><br>	<code>id(Z): 140327634811696</code><br>如果在后续计算中没有重复使用<code>X</code>， 我们也可以使用<code>X[:] = X + Y</code>或<code>X += Y</code>来减少操作的内存开销。<br>	<code>before = id(X)</code><br>	<code>X += Y</code><br>	<code>id(X) == before</code><br>	<code>True</code></p>
-<h2 id="2-1-6-转换为其他Python对象"><a href="#2-1-6-转换为其他Python对象" class="headerlink" title="2.1.6. 转换为其他Python对象"></a>2.1.6. 转换为其他Python对象</h2><p>将深度学习框架定义的张量转换为NumPy张量（<code>ndarray</code>）很容易，反之也同样容易。 torch张量和numpy数组将共享它们的底层内存，就地操作更改一个张量也会同时更改另一个张量。<br>	<code>A = X.numpy()</code><br>	<code>B = torch.tensor(A)</code><br>	<code>type(A), type(B)</code><br>	<code>(numpy.ndarray, torch.Tensor)</code><br>要将大小为1的张量转换为Python标量，我们可以调用<code>item</code>函数或Python的内置函数。<br>	<code>a = torch.tensor([3.5])</code><br>	<code>a, a.item(), float(a), int(a)</code><br>	<code>(tensor([3.5000]), 3.5, 3.5, 3)</code></p>
-<h2 id="2-1-7-小结"><a href="#2-1-7-小结" class="headerlink" title="2.1.7. 小结"></a>2.1.7. 小结</h2><ul>
-<li>深度学习存储和操作数据的主要接口是张量（维数组）。它提供了各种功能，包括基本数学运算、广播、索引、切片、内存节省和转换其他Python对象。</li>
-</ul>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">上一页</a></div><div class="pagination-next"><a href="/page/2/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">14</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">16</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-25T14:00:00.000Z">2026-03-25</time></p><p class="title"><a href="/2026/03/25/8--Constants/">oop8</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-24T04:00:00.000Z">2026-03-24</time></p><p class="title"><a href="/2026/03/24/7--Initialization%20Cleanup/">oop7</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-24T03:00:00.000Z">2026-03-24</time></p><p class="title"><a href="/2026/03/24/6--hiding%20the%20implementation/">oop6</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-23T02:00:00.000Z">2026-03-23</time></p><p class="title"><a href="/2026/03/23/5--data%20abstraction/">oop5</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-10T13:04:00.000Z">2026-03-10</time></p><p class="title"><a href="/2026/03/10/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库阶段性学习指南索引</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">上一页</a></div><div class="pagination-next"><a href="/page/2/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">15</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">17</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数据库笔记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-30T02:00:00.000Z">2026-03-30</time></p><p class="title"><a href="/2026/03/30/2-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">database2</a></p><p class="categories"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-25T14:00:00.000Z">2026-03-25</time></p><p class="title"><a href="/2026/03/25/8--Constants/">oop8</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-24T04:00:00.000Z">2026-03-24</time></p><p class="title"><a href="/2026/03/24/7--Initialization%20Cleanup/">oop7</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-24T03:00:00.000Z">2026-03-24</time></p><p class="title"><a href="/2026/03/24/6--hiding%20the%20implementation/">oop6</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-23T02:00:00.000Z">2026-03-23</time></p><p class="title"><a href="/2026/03/23/5--data%20abstraction/">oop5</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/database/"><span class="tag">database</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,

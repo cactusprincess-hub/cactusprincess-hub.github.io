@@ -29,7 +29,460 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">review</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-25T14:00:00.000Z" title="3/25/2026, 10:00:00 PM">2026-03-25</time>发表</span><span class="level-item"><time dateTime="2026-03-26T15:58:51.090Z" title="3/26/2026, 11:58:51 PM">2026-03-26</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">10 分钟读完 (大约1468个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/25/8--Constants/">oop8</a></p><div class="content"><h1 id="第一部分：知识点整理（普通文本）"><a href="#第一部分：知识点整理（普通文本）" class="headerlink" title="第一部分：知识点整理（普通文本）"></a>第一部分：知识点整理（普通文本）</h1><h2 id="1-const-的核心作用"><a href="#1-const-的核心作用" class="headerlink" title="1. const 的核心作用"></a>1. const 的核心作用</h2><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">review</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-30T02:00:00.000Z" title="3/30/2026, 10:00:00 AM">2026-03-30</time>发表</span><span class="level-item"><time dateTime="2026-03-30T02:27:03.547Z" title="3/30/2026, 10:27:03 AM">2026-03-30</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></span><span class="level-item">1 小时读完 (大约7411个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/30/2-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">database2</a></p><div class="content"><h1 id="一、数据模型总论"><a href="#一、数据模型总论" class="headerlink" title="一、数据模型总论"></a>一、数据模型总论</h1><ol>
+<li><p>数据模型的定义<br> 数据模型是用来抽象、表示和处理现实世界中的数据和信息的工具，本质上是对现实世界数据特征的抽象。它是数据库研究中的核心问题之一。</p>
+</li>
+<li><p>数据模型的两层含义<br> 广义上，数据模型是数据库研究的核心；狭义上，每个 DBMS 都建立在某种具体的数据模型之上。PDF 指出，常见的传统数据模型包括层次模型、网状模型和关系模型。</p>
+</li>
+<li><p>数据模型的分类<br> 数据模型按应用目的可分为两类：<br> （1）概念模型，也称信息模型，按用户观点对数据和信息建模，主要用于数据库设计。<br> （2）数据模型，按计算机系统观点对数据逻辑结构建模，主要用于 DBMS 实现。其下又可分为逻辑数据模型和物理数据模型。逻辑数据模型包括层次模型、网状模型、关系模型、面向对象模型、对象关系模型等；物理数据模型描述数据在系统内部的表示方式和存取方法。</p>
+</li>
+<li><p>数据模型的三个要素<br> 数据模型通常由数据结构、数据操作、完整性约束三个要素组成。<br> （1）数据结构：描述数据库的组成对象及对象之间的联系，是刻画数据模型性质最重要的方面。<br> （2）数据操作：描述对数据库对象实例允许执行的操作集合，包括检索、插入、删除、修改等，同时要定义操作的含义、符号、规则及语言。<br> （3）完整性约束条件：一组完整性规则，用于限定符合数据模型的数据库状态及状态变化，保证数据正确、有效、相容。</p>
+</li>
+<li><p>静态与动态特性<br> 数据结构描述系统静态特性；数据操作描述系统动态特性。完整性约束则是保证系统状态合法的规则体系。</p>
+</li>
+</ol>
+<h1 id="二、E-R-概念模型"><a href="#二、E-R-概念模型" class="headerlink" title="二、E-R 概念模型"></a>二、E-R 概念模型</h1><ol>
+<li><p>概念模型的作用<br> 概念模型用于信息世界建模，是现实世界到机器世界之间的中间层次，也是数据库设计的有力工具和数据库设计人员与用户之间交流的语言。它的要求是语义表达能力强，同时简单、清晰、易于理解。E-R 模型是最著名的概念模型。</p>
+</li>
+<li><p>E-R 模型的三大基本概念<br> （1）实体（Entity）：客观存在并可相互区别的事物，可以是具体对象，也可以是抽象概念。<br> （2）属性（Attribute）：实体具有的某一特征，用来刻画实体。属性有“型”和“值”之分，属性名是型，具体内容是值。<br> （3）联系（Relationship）：现实世界中事物内部以及事物之间的联系，在信息世界中抽象为实体内部的联系和实体之间的联系。</p>
+</li>
+<li><p>联系的基本类型<br> （1）一对一联系（1:1）：实体集 A 中一个实体至多对应实体集 B 中一个实体，反之亦然。例子是“班级与班长”，一个班级只有一个正班长，一个班长只在一个班中任职。<br> （2）一对多联系（1:n）：实体集 A 中一个实体对应实体集 B 中的多个实体，反过来一个 B 中实体至多对应一个 A 中实体。例子是“班级与学生”，一个班级中有若干学生，一个学生只在一个班级中学习。<br> （3）多对多联系（m:n）：实体集 A 中一个实体对应实体集 B 中多个实体，反之亦然。例子是“课程与学生”，一门课程有若干学生选修，一个学生也可选修多门课程。</p>
+</li>
+<li><p>多元联系<br> 两个以上实体集之间也可以存在联系，称为多元联系。PDF 以“供应商—零件—工程”为例，说明三者之间存在 m:n:p 的联系，表达的是“某个供应商供应某种零件给某个工程”。</p>
+</li>
+<li><p>三元联系与二元联系的区别<br> 这是本章非常关键的细节。PDF 明确指出，三个实体集两两之间的多对多联系，只能表示“一个工程需要哪些零件”“这些零件可以由哪些供应商供应”，却不能表示“一个工程所用的零件具体由哪个供应商供应”以及“一个供应商具体供应哪种零件给哪个工程”。因此，三元联系不能简单拆成三个二元联系，否则会丢失语义。</p>
+</li>
+<li><p>同一实体集内部的联系<br> PDF 还强调，联系不只存在于不同实体集之间，同一实体集内部也可以有联系。典型例子是职工实体集内部的“领导与被领导”关系：某一职工可以领导若干职工，而一个职工仅被另一个职工直接领导，这是同一实体型内部的一对多联系。PDF 也提到，同一实体集内部还可能存在一对一联系和多对多联系。</p>
+</li>
+<li><p>E-R 图的表示方法<br> E-R 图有三个基本成分：实体、属性和联系。<br> （1）实体用矩形表示，矩形框内写实体名。<br> （2）属性用椭圆表示，并用无向边与对应实体连接。<br> （3）联系用菱形表示，菱形框内写联系名，再用连线把关联实体连接起来，并在连线旁标明联系类型 1:1、1:n 或 m:n。</p>
+</li>
+<li><p>联系的属性<br> 联系本身也可以有属性。PDF 的“选课”例子中，成绩是联系“选课”的属性，而不是学生实体或课程实体的属性，因为成绩描述的是“学生选修某门课程”这个联系。</p>
+</li>
+<li><p>弱实体<br> 弱实体是一类特殊实体，它的存在依赖于其他实体而存在。与弱实体相对应，所依赖的实体称为强实体。弱实体在 E-R 模型中用双框矩形表示，与菱形联系间用双线连接，以表示全部参与。PDF 举例说，在学生管理信息中，家长实体依赖学生实体存在，因此家长可视为弱实体。</p>
+</li>
+<li><p>子类实体<br>扩展 E-R 模型中增加了子类和超类概念，使模型更有语义表达能力。一个实体集中的个体可以根据不同特性划分为多个子集。PDF 的例子是学校一个系的职工可分为教师、实验人员和机关工作人员，它们共享姓名、年龄、性别等共同属性，同时又有各自的特殊属性。</p>
+</li>
+<li><p>E-R 模型的用途与特点<br>E-R 模型广泛用于数据库概念模型设计。它只表示现实世界中的信息结构及信息之间的关系，不涉及信息在计算机中的表示；只要用户需求不变，E-R 模型是稳定的，并且可以方便地转换成具体 DBMS 支持的数据模型。</p>
+</li>
+<li><p>PDF 中的综合建模例子<br>工厂物资管理模型是本章最完整的例子之一。它涉及五类实体：仓库、零件、供应商、项目、职工。<br>（1）仓库：仓库号、面积、电话号码。<br>（2）零件：零件号、名称、规格、单价、描述。<br>（3）供应商：供应商号、姓名、地址、电话号码、账号。<br>（4）项目：项目号、预算、开工日期。<br>（5）职工：职工号、姓名、年龄、职称。<br>这些实体之间的联系包括：仓库和零件是 m:n 联系，联系属性为库存量；仓库和职工是 1:n 联系；职工内部存在领导与被领导的一对多联系；供应商、项目和零件三者之间存在多对多的三元联系。这个例子综合体现了本章几乎所有 E-R 概念。</p>
+</li>
+</ol>
+<h1 id="三、层次数据模型"><a href="#三、层次数据模型" class="headerlink" title="三、层次数据模型"></a>三、层次数据模型</h1><ol>
+<li><p>层次模型的定义<br> 层次模型是数据库系统中最早出现的数据模型，典型代表是 IBM 的 IMS。它用树型结构表示各类实体及实体间联系。现实世界中许多关系具有天然层次性，例如家族关系和行政机构。</p>
+</li>
+<li><p>层次模型的结构条件<br> 满足下面两个条件的基本层次联系集合构成层次模型：<br> （1）有且只有一个结点没有双亲结点，该结点称为根结点。<br> （2）根以外的其他结点有且只有一个双亲结点。</p>
+</li>
+<li><p>层次结构中的术语<br> 根结点位于最上层；其他结点的上一级结点称为双亲结点；同一双亲结点的子女结点称为兄弟结点；没有子女的结点称为叶结点。双亲结点到子女结点之间表示记录间的一对多联系。</p>
+</li>
+<li><p>层次模型的优点<br> 结构简单清晰；查询效率高；提供较好的数据完整性支持。</p>
+</li>
+<li><p>层次模型的缺点<br> 不能直接表示两个以上实体型间的复杂联系和实体型间的多对多联系，通常要通过引入冗余数据或虚拟结点来解决，容易产生不一致性；插入和删除操作限制较多；查询子女结点必须通过双亲结点；由于结构严密，层次命令趋于程序化。</p>
+</li>
+</ol>
+<h1 id="四、网状数据模型"><a href="#四、网状数据模型" class="headerlink" title="四、网状数据模型"></a>四、网状数据模型</h1><ol>
+<li><p>网状模型的定义<br> 网状模型用有向图表示实体及实体间的联系，是对层次模型局限性的突破。现实世界中的许多事物之间是非层次关系，因此网状模型比层次模型更接近实际。</p>
+</li>
+<li><p>网状模型的结构条件<br> 基本网状模型满足两个条件：<br> （1）允许一个以上的结点没有双亲。<br> （2）一个结点可以有多于一个的双亲。</p>
+</li>
+<li><p>网状模型与层次模型的关系<br> PDF 明确指出，层次模型实际上是网状模型的特例。两者从结构上看，层次模型是树，网状模型是图；当多个结点都可以有多个双亲时，有向树就变成了有向图。</p>
+</li>
+<li><p>网状模型的优点<br> 能更直接地描述现实世界，例如一个结点可以有多个双亲；性能较好，存取效率较高。</p>
+</li>
+<li><p>网状模型的缺点<br> 结构复杂，随着应用环境扩大，数据库结构会越来越复杂，不利于最终用户掌握；DDL、DML 语言复杂，用户不容易使用；访问数据时必须自行选择存取路径，增加程序编写负担。</p>
+</li>
+<li><p>网状模型如何表示多对多联系<br> PDF 提到，网状模型可以间接表示多对多联系，方法是将多对多联系分解成一对多联系，并用联结记录来处理。</p>
+</li>
+</ol>
+<h1 id="五、关系数据模型"><a href="#五、关系数据模型" class="headerlink" title="五、关系数据模型"></a>五、关系数据模型</h1><ol>
+<li><p>关系模型的重要地位<br> 关系模型是最重要的数据模型。E.F. Codd 于 1970 年系统而严格地提出关系数据模型，并随后提出关系代数、关系演算以及关系范式理论，奠定了现代数据库的理论基础，1981 年因此获得图灵奖。</p>
+</li>
+<li><p>关系数据库的发展<br> PDF 提到，1977 年 IBM 的 System R 开始运行，后来出现了基于 System R 的 SQL&#x2F;DB。20 世纪 80 年代以来，几乎所有数据库管理系统都支持关系模型，非关系系统也增加了关系接口；当前数据库研究工作也以关系方法为基础，关系数据库成为最广泛应用的数据库系统。</p>
+</li>
+<li><p>关系模型的基本结构<br> 关系模型中，基本数据结构被限制为二维表，一张二维表称为一个关系。一个关系可用于描述一个实体集。</p>
+</li>
+<li><p>关系模型中的基本术语<br> （1）关系（relation）：二维表，由行和列组成。<br> （2）属性（attribute）：关系中的一列。<br> （3）域（domain）：某属性的取值集合，即属性的取值范围。<br> （4）元组（tuple）：关系中的一行，表示实体集中的一个个体。<br> （5）键（key）：一个或多个属性组成，能够唯一标识一个元组。一个关系中可能有多个键，其中选定一个为主键，其余为候选键。</p>
+</li>
+<li><p>关系模式<br> 对关系结构的描述称为关系模式，形式通常写作“关系名(属性名1, 属性名2, …, 属性名n)”。例如学生关系可表示为“学生(学号, 姓名, 出生年月, 性别, 入学年份, 班级)”。关系数据库模式是一组关系模式的集合，而这些关系模式对应的关系集合构成关系数据库。</p>
+</li>
+<li><p>关系模型中实体与联系的表示<br> 关系模型中，基本数据结构是单一的关系，现实世界中的实体以及实体间的联系都用关系表示。E-R 模型中的联系在关系模式中也可以用表表示，例如“选课”联系可用“选课(学号, 课程号, 成绩)”表示，其中成绩是联系自身的描述属性。</p>
+</li>
+<li><p>关系模型的规范化要求<br> 关系必须规范化，最基本的规范条件是：关系的每一个分量必须是一个不可分的数据项。PDF 用“职工工资”表说明，如果一个属性中又包含“基本工资、工龄、职务、房租、水电”等嵌套成分，就不符合关系模型要求。</p>
+</li>
+<li><p>关系模型的数据完整性约束<br> 为维护数据库与现实世界的一致性，需要对数据施加约束条件。关系模型中主要有三类完整性约束：实体完整性、参照完整性、用户自定义完整性。</p>
+</li>
+<li><p>关系模型的数据操纵<br> 关系模型中的数据操作包括查询、插入、删除和修改。关系数据库系统中对数据的全部操作都可以归结为关系运算；关系运算结果形成一个新关系；关系运算分为关系代数和关系演算。</p>
+</li>
+<li><p>关系模型的优点<br>PDF 归纳的关系模型优点包括：数据结构简单；一体化的数据子语言；数据独立性高；面向集合的存取方式；理论基础坚实；有利于开展其他应用。</p>
+</li>
+<li><p>概念模型与关系数据模型的对应<br>PDF 给出了一组非常重要的对应关系：<br>（1）E-R 模型中的实体集对应关系表。<br>（2）实体集属性对应表的列。<br>（3）联系集及其属性也可对应表和列。<br>（4）实体的实例对应表中的各行。<br>（5）主键或候选键对应关系表中的主键或候选键。<br>（6）数据操作在实现层面对应 SQL 语句，在理论层面对应关系代数和关系演算。<br>（7）联系类型约束、键约束、完全参与约束在关系模型中分别对应实体完整性、参照完整性和用户自定义完整性。</p>
+</li>
+</ol>
+<h1 id="六、面向对象数据模型"><a href="#六、面向对象数据模型" class="headerlink" title="六、面向对象数据模型"></a>六、面向对象数据模型</h1><ol>
+<li><p>面向对象数据库系统的两条路线<br> PDF 指出，对象关系数据库系统 ORDBS 是面向对象数据模型和关系数据模型结合的产物。研究路线有两条：一是建立新的面向对象数据库系统 OODB，直接支持 OO 数据模型；二是以关系数据库和 SQL 为基础，把面向对象技术融入数据库系统，形成 ORDBS。</p>
+</li>
+<li><p>对象的定义<br> 对象是由一组数据结构和在这组数据结构上的操作程序代码封装起来的基本单位。对象由属性集合和方法集合构成：属性描述状态、组成和特性，方法描述行为特性。</p>
+</li>
+<li><p>OID<br> OID 是对象标识符，即每个对象都有一个唯一且不变的标识。它具有永久持久性、独立于值、系统全局唯一等特点。</p>
+</li>
+<li><p>封装<br> 封装是对象的外部界面与内部实现之间实行清晰隔离的一种抽象，外部与对象的通信只能通过消息。对象封装后，查询属性值必须通过调用方法。</p>
+</li>
+<li><p>类<br> 类是共享同样属性和方法集的所有对象构成的集合。对象是某一类的实例，在 OODB 中，类是“型”，对象是某一类的“值”。</p>
+</li>
+<li><p>类层次结构<br> PDF 以“教员、行政人员、工人继承教职员工类和人的属性与方法”为例，说明面向对象模型中存在类层次结构；子类在逻辑上继承父类的所有属性和方法，同时还拥有自身特有的属性和方法。</p>
+</li>
+<li><p>关系模型与 OO 模型的比较<br> PDF 从多个角度对比两者：关系模型的基本数据结构是二维表，OO 模型是类；关系模型使用码作为标识，OO 模型使用 OID；关系模型的动态行为用关系操作描述，OO 模型用方法描述；OO 模型支持抽象数据类型和封装，而关系模型没有；关系模型主要依赖主外码联系和数据依赖，OO 模型则强调继承和组合；OO 模型的模式演化能力较强。</p>
+</li>
+<li><p>面向对象数据库研究中的问题<br> PDF 指出，OO 数据库研究中存在缺乏通用数据模型、缺乏理论基础、缺乏友好的用户界面与工具环境、缺乏有力的查询优化、商业上没有建立坚实基础等问题。</p>
+</li>
+</ol>
+<h1 id="七、概念模型与数据库系统支持的数据模型的关系"><a href="#七、概念模型与数据库系统支持的数据模型的关系" class="headerlink" title="七、概念模型与数据库系统支持的数据模型的关系"></a>七、概念模型与数据库系统支持的数据模型的关系</h1><ol>
+<li><p>两类数据模型<br> 一类是概念模型，用于表示信息结构，不涉及信息在计算机中的表示，典型代表是 E-R 模型；另一类是数据库系统支持的数据模型，包括层次数据模型、网状数据模型、关系数据模型、面向对象数据模型等。</p>
+</li>
+<li><p>从概念到实现的路径<br> 数据库设计通常先把现实世界抽象为概念模型，再把概念模型转换为某种具体的数据模型。这说明概念模型是设计起点，而关系模型、层次模型、网状模型等是实现层面的表达方式。</p>
+</li>
+<li><p>本章的核心逻辑<br> 本章实际上是在讲三件事：<br> （1）怎样用 E-R 模型描述现实世界；<br> （2）怎样理解不同逻辑数据模型的结构差异；<br> （3）怎样把概念模型转换成关系模型并用约束保证正确性。</p>
+</li>
+</ol>
+<h1 id="八、小结"><a href="#八、小结" class="headerlink" title="八、小结"></a>八、小结</h1><ol>
+<li><p>本章最重要的结论<br> 数据模型分为概念模型和数据库系统支持的数据模型；概念模型中最重要的是 E-R 模型；数据库系统支持的数据模型中，层次模型、网状模型、关系模型、面向对象模型各有特点，但目前应用最广泛的是关系模型。</p>
+</li>
+<li><p>E-R 模型的核心<br> 关键不是只会画图，而是要能准确识别实体、属性、联系，区分 1:1、1:n、m:n，理解实体内部联系、三元联系、弱实体、子类实体，并能将联系属性正确放到联系上。</p>
+</li>
+<li><p>关系模型的核心<br> 关系模型把现实世界统一映射为二维表，强调原子性、完整性约束和关系运算，是当前数据库系统的主流基础。</p>
+</li>
+<li><p>层次模型、网状模型、关系模型的关系<br> 层次模型是树，网状模型是图，关系模型是表；层次模型结构最简单但表达能力弱，网状模型表达能力更强但复杂，关系模型在表达能力、理论基础和使用便利性之间取得了最好平衡。</p>
+</li>
+</ol>
+<hr>
+<h1 id="一、数据模型总论（-易错点）"><a href="#一、数据模型总论（-易错点）" class="headerlink" title="一、数据模型总论（+ 易错点）"></a>一、数据模型总论（+ 易错点）</h1><h2 id="核心结构回顾"><a href="#核心结构回顾" class="headerlink" title="核心结构回顾"></a>核心结构回顾</h2><ol>
+<li><p>数据模型 &#x3D; 对现实世界数据特征的抽象</p>
+</li>
+<li><p>分类：</p>
+<ul>
+<li><p>概念模型（E-R）</p>
+</li>
+<li><p>逻辑模型（层次 &#x2F; 网状 &#x2F; 关系 &#x2F; OO）</p>
+</li>
+<li><p>物理模型</p>
+</li>
+</ul>
+</li>
+<li><p>三要素：</p>
+<ul>
+<li><p>数据结构（静态）</p>
+</li>
+<li><p>数据操作（动态）</p>
+</li>
+<li><p>完整性约束（规则）</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析"><a href="#易错点与分析" class="headerlink" title="易错点与分析"></a>易错点与分析</h2><h3 id="易错点1：混淆“概念模型”和“数据模型”"><a href="#易错点1：混淆“概念模型”和“数据模型”" class="headerlink" title="易错点1：混淆“概念模型”和“数据模型”"></a>易错点1：混淆“概念模型”和“数据模型”</h3><ul>
+<li><p>错误理解：E-R模型也是DBMS直接使用的模型</p>
+</li>
+<li><p>本质原因：没有区分“设计阶段”和“实现阶段”</p>
+</li>
+</ul>
+<p>✔ 正确理解：</p>
+<ul>
+<li><p>E-R模型 → 用来“画世界”（设计）</p>
+</li>
+<li><p>关系模型 → 用来“落地”（实现）</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点2：三要素记不清-混淆"><a href="#易错点2：三要素记不清-混淆" class="headerlink" title="易错点2：三要素记不清 &#x2F; 混淆"></a>易错点2：三要素记不清 &#x2F; 混淆</h3><ul>
+<li><p>常见错误：</p>
+<ul>
+<li><p>把“完整性约束”当成数据操作</p>
+</li>
+<li><p>忘记“数据结构是核心”</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>✔ 正确记忆：</p>
+<ul>
+<li><p>静态：数据结构</p>
+</li>
+<li><p>动态：数据操作</p>
+</li>
+<li><p>规则：完整性约束</p>
+</li>
+</ul>
+<hr>
+<h1 id="二、E-R-概念模型（-易错点重点）"><a href="#二、E-R-概念模型（-易错点重点）" class="headerlink" title="二、E-R 概念模型（+ 易错点重点）"></a>二、E-R 概念模型（+ 易错点重点）</h1><h2 id="核心结构回顾-1"><a href="#核心结构回顾-1" class="headerlink" title="核心结构回顾"></a>核心结构回顾</h2><ol>
+<li><p>基本概念：</p>
+<ul>
+<li><p>实体</p>
+</li>
+<li><p>属性（型 + 值）</p>
+</li>
+<li><p>联系（实体间 &#x2F; 实体内部）</p>
+</li>
+</ul>
+</li>
+<li><p>联系分类：</p>
+<ul>
+<li><p>按数量：1:1 &#x2F; 1:n &#x2F; m:n</p>
+</li>
+<li><p>按实体数：二元 &#x2F; 多元</p>
+</li>
+<li><p>按范围：实体间 &#x2F; 实体内部</p>
+</li>
+</ul>
+</li>
+<li><p>扩展：</p>
+<ul>
+<li><p>弱实体</p>
+</li>
+<li><p>子类实体</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析（这一章最重要部分）"><a href="#易错点与分析（这一章最重要部分）" class="headerlink" title="易错点与分析（这一章最重要部分）"></a>易错点与分析（这一章最重要部分）</h2><h3 id="易错点1：把“联系属性”放到实体里"><a href="#易错点1：把“联系属性”放到实体里" class="headerlink" title="易错点1：把“联系属性”放到实体里"></a>易错点1：把“联系属性”放到实体里</h3><p>例子：成绩</p>
+<p>❌ 错误：</p>
+<ul>
+<li><p>学生表加“成绩”</p>
+</li>
+<li><p>课程表加“成绩”</p>
+</li>
+</ul>
+<p>✔ 正确：</p>
+<ul>
+<li>成绩属于“选课联系”</li>
+</ul>
+<p>👉 原因分析：<br>成绩依赖两个实体（学生+课程），不是单个实体属性</p>
+<p>👉 判断口诀：<br><strong>“属性是否依赖多个实体？” → 是 → 放联系</strong></p>
+<hr>
+<h3 id="易错点2：m-n-不建表"><a href="#易错点2：m-n-不建表" class="headerlink" title="易错点2：m:n 不建表"></a>易错点2：m:n 不建表</h3><p>❌ 错误：</p>
+<ul>
+<li>直接用外键表示多对多</li>
+</ul>
+<p>✔ 正确：</p>
+<ul>
+<li>必须建中间表（联系表）</li>
+</ul>
+<p>👉 原因：<br>关系模型无法直接表达 m:n</p>
+<hr>
+<h3 id="易错点3：三元联系拆错（高频考点）"><a href="#易错点3：三元联系拆错（高频考点）" class="headerlink" title="易错点3：三元联系拆错（高频考点）"></a>易错点3：三元联系拆错（高频考点）</h3><p>❌ 错误：<br>把“供应商-零件-工程”拆成三个两两关系</p>
+<p>✔ 正确：<br>必须保留三元联系</p>
+<p>👉 本质原因：<br>两两关系只能表达：</p>
+<ul>
+<li>谁和谁有关</li>
+</ul>
+<p>但表达不了：</p>
+<ul>
+<li>谁 给 谁 提供 什么</li>
+</ul>
+<p>👉 关键结论：<br><strong>三元联系 &#x3D; 信息更完整</strong></p>
+<hr>
+<h3 id="易错点4：不会识别“实体内联系”"><a href="#易错点4：不会识别“实体内联系”" class="headerlink" title="易错点4：不会识别“实体内联系”"></a>易错点4：不会识别“实体内联系”</h3><p>❌ 常见忽略：<br>只会画不同实体之间关系</p>
+<p>✔ 正确：<br>同一实体内部也有联系</p>
+<p>例：</p>
+<ul>
+<li>职工 → 领导关系（1:n）</li>
+</ul>
+<hr>
+<h3 id="易错点5：弱实体判断错误"><a href="#易错点5：弱实体判断错误" class="headerlink" title="易错点5：弱实体判断错误"></a>易错点5：弱实体判断错误</h3><p>❌ 错误理解：<br>“有外键就是弱实体”</p>
+<p>✔ 正确判断：<br>弱实体必须满足：</p>
+<ol>
+<li><p>不能独立存在</p>
+</li>
+<li><p>依赖强实体标识</p>
+</li>
+</ol>
+<p>例：</p>
+<ul>
+<li><p>家长依赖学生 ✔</p>
+</li>
+<li><p>订单依赖用户 ✔（典型）</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点6：子类实体理解不清"><a href="#易错点6：子类实体理解不清" class="headerlink" title="易错点6：子类实体理解不清"></a>易错点6：子类实体理解不清</h3><p>❌ 错误：<br>把子类当普通实体</p>
+<p>✔ 正确：<br>子类 &#x3D; 继承结构</p>
+<p>👉 特点：</p>
+<ul>
+<li><p>共享父类属性</p>
+</li>
+<li><p>有自己特有属性</p>
+</li>
+</ul>
+<hr>
+<h1 id="三、层次模型（-易错点）"><a href="#三、层次模型（-易错点）" class="headerlink" title="三、层次模型（+ 易错点）"></a>三、层次模型（+ 易错点）</h1><h2 id="核心回顾"><a href="#核心回顾" class="headerlink" title="核心回顾"></a>核心回顾</h2><ol>
+<li><p>树结构</p>
+</li>
+<li><p>一个根节点</p>
+</li>
+<li><p>每个节点只有一个父节点</p>
+</li>
+<li><p>只能表达 1:n</p>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析-1"><a href="#易错点与分析-1" class="headerlink" title="易错点与分析"></a>易错点与分析</h2><h3 id="易错点1：认为可以表示-m-n"><a href="#易错点1：认为可以表示-m-n" class="headerlink" title="易错点1：认为可以表示 m:n"></a>易错点1：认为可以表示 m:n</h3><p>❌ 错误：<br>觉得树可以扩展表达多对多</p>
+<p>✔ 正确：<br>不能，必须靠冗余或虚拟节点</p>
+<hr>
+<h3 id="易错点2：忽略访问路径限制"><a href="#易错点2：忽略访问路径限制" class="headerlink" title="易错点2：忽略访问路径限制"></a>易错点2：忽略访问路径限制</h3><p>✔ 正确认知：<br>必须从根访问</p>
+<p>👉 本质：<br>不是“表查询”，而是“路径访问”</p>
+<hr>
+<h1 id="四、网状模型（-易错点）"><a href="#四、网状模型（-易错点）" class="headerlink" title="四、网状模型（+ 易错点）"></a>四、网状模型（+ 易错点）</h1><h2 id="核心回顾-1"><a href="#核心回顾-1" class="headerlink" title="核心回顾"></a>核心回顾</h2><ol>
+<li><p>图结构</p>
+</li>
+<li><p>一个节点可以有多个父节点</p>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析-2"><a href="#易错点与分析-2" class="headerlink" title="易错点与分析"></a>易错点与分析</h2><h3 id="易错点1：认为“更高级”"><a href="#易错点1：认为“更高级”" class="headerlink" title="易错点1：认为“更高级”"></a>易错点1：认为“更高级”</h3><p>❌ 错误：<br>网状模型 &gt; 关系模型</p>
+<p>✔ 正确：<br>只是更复杂，不更优</p>
+<hr>
+<h3 id="易错点2：忽略“路径依赖”"><a href="#易错点2：忽略“路径依赖”" class="headerlink" title="易错点2：忽略“路径依赖”"></a>易错点2：忽略“路径依赖”</h3><p>✔ 正确理解：<br>查询需要手动指定路径</p>
+<p>👉 这是它难用的根本原因</p>
+<hr>
+<h1 id="五、关系模型（-易错点重点）"><a href="#五、关系模型（-易错点重点）" class="headerlink" title="五、关系模型（+ 易错点重点）"></a>五、关系模型（+ 易错点重点）</h1><h2 id="核心结构回顾-2"><a href="#核心结构回顾-2" class="headerlink" title="核心结构回顾"></a>核心结构回顾</h2><ol>
+<li><p>关系 &#x3D; 表</p>
+</li>
+<li><p>元组 &#x3D; 行</p>
+</li>
+<li><p>属性 &#x3D; 列</p>
+</li>
+<li><p>域 &#x3D; 取值范围</p>
+</li>
+<li><p>键 &#x3D; 唯一标识</p>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析（考试重点）"><a href="#易错点与分析（考试重点）" class="headerlink" title="易错点与分析（考试重点）"></a>易错点与分析（考试重点）</h2><h3 id="易错点1：属性不原子（最常考）"><a href="#易错点1：属性不原子（最常考）" class="headerlink" title="易错点1：属性不原子（最常考）"></a>易错点1：属性不原子（最常考）</h3><p>❌ 错误：<br>一个字段存多个值</p>
+<p>例：</p>
+<ul>
+<li>工资 &#x3D; (基本+奖金+补贴)</li>
+</ul>
+<p>✔ 正确：<br>必须拆开</p>
+<p>👉 原因：<br>关系模型要求“不可分”</p>
+<hr>
+<h3 id="易错点2：主键理解错误"><a href="#易错点2：主键理解错误" class="headerlink" title="易错点2：主键理解错误"></a>易错点2：主键理解错误</h3><p>❌ 错误：</p>
+<ul>
+<li><p>主键可以重复</p>
+</li>
+<li><p>主键可以为空</p>
+</li>
+</ul>
+<p>✔ 正确：</p>
+<ul>
+<li>唯一 + 非空</li>
+</ul>
+<hr>
+<h3 id="易错点3：候选键-vs-主键"><a href="#易错点3：候选键-vs-主键" class="headerlink" title="易错点3：候选键 vs 主键"></a>易错点3：候选键 vs 主键</h3><p>❌ 混淆：<br>认为只有一个键</p>
+<p>✔ 正确：</p>
+<ul>
+<li><p>候选键：可能的主键</p>
+</li>
+<li><p>主键：选定的一个</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点4：联系不转表"><a href="#易错点4：联系不转表" class="headerlink" title="易错点4：联系不转表"></a>易错点4：联系不转表</h3><p>❌ 错误：<br>E-R 有联系，但关系模型不建表</p>
+<p>✔ 正确：</p>
+<ul>
+<li><p>m:n → 必建表</p>
+</li>
+<li><p>1:n → 可用外键</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点5：完整性约束混乱"><a href="#易错点5：完整性约束混乱" class="headerlink" title="易错点5：完整性约束混乱"></a>易错点5：完整性约束混乱</h3><p>❌ 错误：<br>分不清三种约束</p>
+<p>✔ 正确：</p>
+<ul>
+<li><p>实体完整性：主键</p>
+</li>
+<li><p>参照完整性：外键</p>
+</li>
+<li><p>用户定义：业务规则</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点6：关系运算理解错误"><a href="#易错点6：关系运算理解错误" class="headerlink" title="易错点6：关系运算理解错误"></a>易错点6：关系运算理解错误</h3><p>❌ 错误：<br>SQL &#x3D; 随便写</p>
+<p>✔ 正确：<br>SQL 背后是：</p>
+<ul>
+<li><p>关系代数</p>
+</li>
+<li><p>关系演算</p>
+</li>
+</ul>
+<hr>
+<h1 id="六、面向对象数据模型（-易错点）"><a href="#六、面向对象数据模型（-易错点）" class="headerlink" title="六、面向对象数据模型（+ 易错点）"></a>六、面向对象数据模型（+ 易错点）</h1><h2 id="核心回顾-2"><a href="#核心回顾-2" class="headerlink" title="核心回顾"></a>核心回顾</h2><ol>
+<li><p>对象 &#x3D; 数据 + 方法</p>
+</li>
+<li><p>OID 唯一标识</p>
+</li>
+<li><p>封装</p>
+</li>
+<li><p>类</p>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析-3"><a href="#易错点与分析-3" class="headerlink" title="易错点与分析"></a>易错点与分析</h2><h3 id="易错点1：把-OID-当普通字段"><a href="#易错点1：把-OID-当普通字段" class="headerlink" title="易错点1：把 OID 当普通字段"></a>易错点1：把 OID 当普通字段</h3><p>✔ 正确：<br>OID 是系统级唯一标识，不是用户字段</p>
+<hr>
+<h3 id="易错点2：忽略“方法”"><a href="#易错点2：忽略“方法”" class="headerlink" title="易错点2：忽略“方法”"></a>易错点2：忽略“方法”</h3><p>✔ 正确：<br>对象不仅有数据，还有行为</p>
+<hr>
+<h3 id="易错点3：封装理解错误"><a href="#易错点3：封装理解错误" class="headerlink" title="易错点3：封装理解错误"></a>易错点3：封装理解错误</h3><p>✔ 正确：<br>不能直接访问属性，要通过方法</p>
+<hr>
+<h1 id="七、概念模型-→-关系模型（转换）（-易错点）"><a href="#七、概念模型-→-关系模型（转换）（-易错点）" class="headerlink" title="七、概念模型 → 关系模型（转换）（+ 易错点）"></a>七、概念模型 → 关系模型（转换）（+ 易错点）</h1><h2 id="核心规则"><a href="#核心规则" class="headerlink" title="核心规则"></a>核心规则</h2><ol>
+<li><p>实体 → 表</p>
+</li>
+<li><p>属性 → 列</p>
+</li>
+<li><p>实体实例 → 行</p>
+</li>
+<li><p>联系 → 表或外键</p>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析-4"><a href="#易错点与分析-4" class="headerlink" title="易错点与分析"></a>易错点与分析</h2><h3 id="易错点1：所有联系都建表"><a href="#易错点1：所有联系都建表" class="headerlink" title="易错点1：所有联系都建表"></a>易错点1：所有联系都建表</h3><p>❌ 错误：<br>1:n 也建表</p>
+<p>✔ 正确：</p>
+<ul>
+<li><p>m:n → 建表</p>
+</li>
+<li><p>1:n → 外键即可</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点2：忽略联系属性"><a href="#易错点2：忽略联系属性" class="headerlink" title="易错点2：忽略联系属性"></a>易错点2：忽略联系属性</h3><p>✔ 正确：<br>联系属性必须进入关系表</p>
+<hr>
+<h3 id="易错点3：主键设计错误"><a href="#易错点3：主键设计错误" class="headerlink" title="易错点3：主键设计错误"></a>易错点3：主键设计错误</h3><p>✔ 正确：<br>联系表主键通常是：</p>
+<ul>
+<li>外键组合</li>
+</ul>
+<hr>
+<h1 id="八、小结（-易错点终极总结）"><a href="#八、小结（-易错点终极总结）" class="headerlink" title="八、小结（+ 易错点终极总结）"></a>八、小结（+ 易错点终极总结）</h1><h2 id="本章核心逻辑"><a href="#本章核心逻辑" class="headerlink" title="本章核心逻辑"></a>本章核心逻辑</h2><ol>
+<li><p>用 E-R 模型描述现实世界</p>
+</li>
+<li><p>用关系模型实现</p>
+</li>
+<li><p>用约束保证正确</p>
+</li>
+</ol>
+<hr>
+<h2 id="最容易丢分的-5-个点（强烈建议背）"><a href="#最容易丢分的-5-个点（强烈建议背）" class="headerlink" title="最容易丢分的 5 个点（强烈建议背）"></a>最容易丢分的 5 个点（强烈建议背）</h2><ol>
+<li><p>成绩属于联系，不属于实体</p>
+</li>
+<li><p>m:n 必须建中间表</p>
+</li>
+<li><p>三元联系不能拆</p>
+</li>
+<li><p>属性必须原子化</p>
+</li>
+<li><p>主键必须唯一且非空</p>
+</li>
+</ol>
+<hr>
+<h2 id="一句话总纲（考试用）"><a href="#一句话总纲（考试用）" class="headerlink" title="一句话总纲（考试用）"></a>一句话总纲（考试用）</h2><p>E-R 负责建模语义，关系模型负责结构实现，而完整性约束负责保证数据正确性。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-25T14:00:00.000Z" title="3/25/2026, 10:00:00 PM">2026-03-25</time>发表</span><span class="level-item"><time dateTime="2026-03-26T15:58:51.090Z" title="3/26/2026, 11:58:51 PM">2026-03-26</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">10 分钟读完 (大约1468个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/25/8--Constants/">oop8</a></p><div class="content"><h1 id="第一部分：知识点整理（普通文本）"><a href="#第一部分：知识点整理（普通文本）" class="headerlink" title="第一部分：知识点整理（普通文本）"></a>第一部分：知识点整理（普通文本）</h1><h2 id="1-const-的核心作用"><a href="#1-const-的核心作用" class="headerlink" title="1. const 的核心作用"></a>1. const 的核心作用</h2><ul>
 <li>const 用于区分“可变”和“不可变”</li>
 <li>提供：<ul>
 <li>类型安全（比 #define 更强）</li>
@@ -888,7 +1341,7 @@
 <li>实例（instance）</li>
 <li>发送消息（调用成员函数）</li>
 </ul>
-</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">14</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">16</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-25T14:00:00.000Z">2026-03-25</time></p><p class="title"><a href="/2026/03/25/8--Constants/">oop8</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-24T04:00:00.000Z">2026-03-24</time></p><p class="title"><a href="/2026/03/24/7--Initialization%20Cleanup/">oop7</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-24T03:00:00.000Z">2026-03-24</time></p><p class="title"><a href="/2026/03/24/6--hiding%20the%20implementation/">oop6</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-23T02:00:00.000Z">2026-03-23</time></p><p class="title"><a href="/2026/03/23/5--data%20abstraction/">oop5</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-10T13:04:00.000Z">2026-03-10</time></p><p class="title"><a href="/2026/03/10/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库阶段性学习指南索引</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">15</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">17</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数据库笔记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-30T02:00:00.000Z">2026-03-30</time></p><p class="title"><a href="/2026/03/30/2-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">database2</a></p><p class="categories"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-25T14:00:00.000Z">2026-03-25</time></p><p class="title"><a href="/2026/03/25/8--Constants/">oop8</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-24T04:00:00.000Z">2026-03-24</time></p><p class="title"><a href="/2026/03/24/7--Initialization%20Cleanup/">oop7</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-24T03:00:00.000Z">2026-03-24</time></p><p class="title"><a href="/2026/03/24/6--hiding%20the%20implementation/">oop6</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-23T02:00:00.000Z">2026-03-23</time></p><p class="title"><a href="/2026/03/23/5--data%20abstraction/">oop5</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/database/"><span class="tag">database</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
