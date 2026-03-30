@@ -482,7 +482,7 @@
 </ol>
 <hr>
 <h2 id="一句话总纲（考试用）"><a href="#一句话总纲（考试用）" class="headerlink" title="一句话总纲（考试用）"></a>一句话总纲（考试用）</h2><p>E-R 负责建模语义，关系模型负责结构实现，而完整性约束负责保证数据正确性。</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-25T14:00:00.000Z" title="3/25/2026, 10:00:00 PM">2026-03-25</time>发表</span><span class="level-item"><time dateTime="2026-03-26T15:58:51.090Z" title="3/26/2026, 11:58:51 PM">2026-03-26</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">10 分钟读完 (大约1468个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/25/8--Constants/">oop8</a></p><div class="content"><h1 id="第一部分：知识点整理（普通文本）"><a href="#第一部分：知识点整理（普通文本）" class="headerlink" title="第一部分：知识点整理（普通文本）"></a>第一部分：知识点整理（普通文本）</h1><h2 id="1-const-的核心作用"><a href="#1-const-的核心作用" class="headerlink" title="1. const 的核心作用"></a>1. const 的核心作用</h2><ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-25T14:00:00.000Z" title="3/25/2026, 10:00:00 PM">2026-03-25</time>发表</span><span class="level-item"><time dateTime="2026-03-30T03:45:14.999Z" title="3/30/2026, 11:45:14 AM">2026-03-30</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">10 分钟读完 (大约1518个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/25/8--Constants/">oop8</a></p><div class="content"><h1 id="第一部分：知识点整理（普通文本）"><a href="#第一部分：知识点整理（普通文本）" class="headerlink" title="第一部分：知识点整理（普通文本）"></a>第一部分：知识点整理（普通文本）</h1><h2 id="1-const-的核心作用"><a href="#1-const-的核心作用" class="headerlink" title="1. const 的核心作用"></a>1. const 的核心作用</h2><ul>
 <li>const 用于区分“可变”和“不可变”</li>
 <li>提供：<ul>
 <li>类型安全（比 #define 更强）</li>
@@ -597,12 +597,14 @@
 </ul>
 <hr>
 <h2 id="5-临时对象（Temporaries）"><a href="#5-临时对象（Temporaries）" class="headerlink" title="5. 临时对象（Temporaries）"></a>5. 临时对象（Temporaries）</h2><ul>
-<li>编译器生成的临时对象默认是 const</li>
-</ul>
-<p>意义：</p>
-<ul>
-<li>防止对临时对象进行非法修改</li>
-<li>提高安全性</li>
+<li><p>编译器生成的临时对象默认是 const<br>因为临时对象生命周期很短，C++不希望你去修改一个马上就要消失的东西<br>意义：</p>
+</li>
+<li><p>防止对临时对象进行非法修改</p>
+</li>
+<li><p>提高安全性</p>
+</li>
+<li><p>临时对象 &#x3D; 没有变量名接收的对象表达式结果</p>
+</li>
 </ul>
 <hr>
 <h2 id="6-类中的-const（重点大题区）"><a href="#6-类中的-const（重点大题区）" class="headerlink" title="6. 类中的 const（重点大题区）"></a>6. 类中的 const（重点大题区）</h2><hr>
@@ -742,7 +744,7 @@
 <h2 id="8-const-对象调用非-const-函数"><a href="#8-const-对象调用非-const-函数" class="headerlink" title="8. const 对象调用非 const 函数"></a>8. const 对象调用非 const 函数</h2><ul>
 <li>会编译错误</li>
 </ul>
-<p>—DDDDDDDD</p>
+<hr>
 <h2 id="9-mutable-误用"><a href="#9-mutable-误用" class="headerlink" title="9. mutable 误用"></a>9. mutable 误用</h2><ul>
 <li>只用于“逻辑不变但需要修改”的变量</li>
 <li>不要滥用</li>
