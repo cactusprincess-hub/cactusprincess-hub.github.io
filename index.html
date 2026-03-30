@@ -1138,244 +1138,6 @@
 <h2 id="2-1-7-小结"><a href="#2-1-7-小结" class="headerlink" title="2.1.7. 小结"></a>2.1.7. 小结</h2><ul>
 <li>深度学习存储和操作数据的主要接口是张量（维数组）。它提供了各种功能，包括基本数学运算、广播、索引、切片、内存节省和转换其他Python对象。</li>
 </ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-05T02:17:03.313Z" title="3/5/2026, 10:17:03 AM">2026-03-05</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">22 分钟读完 (大约3229个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-01/">深度学习笔记（一）：走进机器学习</a></p><div class="content"><h2 id="1-机器学习中的关键组件"><a href="#1-机器学习中的关键组件" class="headerlink" title="1. 机器学习中的关键组件"></a>1. 机器学习中的关键组件</h2><p>首先介绍一些核心组件。无论什么类型的机器学习问题，都会遇到这些组件：</p>
-<ol>
-<li><p>可以用来学习的_数据_（data）；</p>
-</li>
-<li><p>如何转换数据的_模型_（model）；</p>
-</li>
-<li><p>一个_目标函数_（objective function），用来量化模型的有效性；</p>
-<ul>
-<li>定义模型的优劣程度且可优化的度量，这被称之为<strong>目标函数</strong>， 我们通常定义一个目标函数，并希望优化它到最低点。 因为越低越好，所以这些函数有时被称为<strong>损失函数</strong>（loss function，或cost function）。也可取反。</li>
-<li>当任务在试图预测数值时，最常见的损失函数是<strong>平方误差</strong>（squared error），即预测值与实际值之差的平方。 当试图解决分类问题时，最常见的目标函数是最小化错误率，即预测与实际情况不符的样本比例。 有些目标函数（如平方误差）很容易被优化，有些目标（如错误率）由于不可微性或其他复杂性难以直接优化。 在这些情况下，通常会优化<strong>替代目标</strong>。</li>
-<li>通常，损失函数是根据模型参数定义的，并取决于数据集。 在一个数据集上，我们可以通过最小化总损失来学习模型参数的最佳值。 </li>
-<li>该数据集由一些为训练而收集的样本组成，称为_训练数据集_（training dataset，或称为_训练集_（training set））。 然而，在训练数据上表现良好的模型，并不一定在“新数据集”上有同样的性能，这里的“新数据集”通常称为_测试数据集_（test dataset，或称为_测试集_（test set））。</li>
-<li>综上所述，可用数据集通常可以分成两部分：训练数据集用于拟合模型参数，测试数据集用于评估拟合的模型。 然后我们观察模型在这两部分数据集的性能。 “一个模型在训练数据集上的性能”可以被想象成“一个学生在模拟考试中的分数”。 这个分数用来为一些真正的期末考试做参考，即使成绩令人鼓舞，也不能保证期末考试成功。 换言之，测试性能可能会显著偏离训练性能。 当一个模型在训练集上表现良好，但不能推广到测试集时，这个模型被称为<strong>过拟合</strong>（overfitting）的。 就像在现实生活中，尽管模拟考试考得很好，真正的考试不一定百发百中。</li>
-</ul>
-</li>
-<li><p>调整模型参数以优化目标函数的<strong>算法</strong>（algorithm）。<br>  大多流行的优化算法通常基于一种基本方法–<strong>梯度下降</strong>（gradient descent）。 简而言之，在每个步骤中，梯度下降法都会检查每个参数，看看如果仅对该参数进行少量变动，训练集损失会朝哪个方向移动。 然后，它在可以减少损失的方向上优化参数。</p>
-</li>
-</ol>
-<h1 id="2-常见机器学习种类"><a href="#2-常见机器学习种类" class="headerlink" title="2.常见机器学习种类"></a>2.常见机器学习种类</h1><h2 id="1-监督学习"><a href="#1-监督学习" class="headerlink" title="1. 监督学习"></a>1. 监督学习<a target="_blank" rel="noopener" href="https://zh.d2l.ai/chapter_introduction/index.html#id9" title="Permalink to this heading"></a></h2><h3 id="何为监督学习"><a href="#何为监督学习" class="headerlink" title="何为监督学习"></a>何为监督学习</h3><p><strong>监督学习</strong>（supervised learning）擅长在“给定输入特征”的情况下预测标签。 每个“特征-标签”对都称为一个<strong>样本</strong>。 有时，即使标签是未知的，样本也可以指代输入特征。 我们的目标是生成一个模型，能够将任何输入特征映射到标签（即预测）。<br>    举一个具体的例子： 假设我们需要预测患者的心脏病是否会发作，那么观察结果“心脏病发作”或“心脏病没有发作”将是样本的标签。 输入特征可能是生命体征，如心率、舒张压和收缩压等。<br>监督学习之所以能发挥作用，是因为在训练参数时，我们为模型提供了一个数据集，其中每个样本都有真实的标签。 用概率论术语来说，我们希望预测“估计给定输入特征的标签”的条件概率。 虽然监督学习只是几大类机器学习问题之一，但是在工业中，大部分机器学习的成功应用都使用了监督学习。 这是因为在一定程度上，许多重要的任务可以清晰地描述为，在给定一组特定的可用数据的情况下，估计未知事物的概率。比如：</p>
-<ul>
-<li>根据计算机断层扫描（Computed Tomography，CT）肿瘤图像，预测是否为癌症；</li>
-<li>给出一个英语句子，预测正确的法语翻译；</li>
-<li>根据本月的财务报告数据，预测下个月股票的价格；<br>监督学习的学习过程一般可以分为三大步骤：</li>
-</ul>
-<ol>
-<li>从已知大量数据样本中随机选取一个子集，为每个样本获取真实标签。有时，这些样本已有标签（例如，患者是否在下一年内康复？）；有时，这些样本可能需要被人工标记（例如，图像分类）。这些输入和相应的标签一起构成了训练数据集；</li>
-<li>选择有监督的学习算法，它将训练数据集作为输入，并输出一个“已完成学习的模型”；</li>
-<li>将之前没有见过的样本特征放到这个“已完成学习的模型”中，使用模型的输出作为相应标签的预测。<br> <img src="/img/1.png" alt=" "><br>即使使用简单的描述给定输入特征的预测标签，监督学习也可以采取多种形式的模型，并且需要大量不同的建模决策，这取决于输入和输出的类型、大小和数量。 例如，我们使用不同的模型来处理“任意长度的序列”或“固定长度的序列”。</li>
-</ol>
-<h3 id="监督学习细分"><a href="#监督学习细分" class="headerlink" title="监督学习细分"></a>监督学习细分</h3><p>其实可以根据输出标签的不同分成几个类别：</p>
-<table>
-<thead>
-<tr>
-<th>小类</th>
-<th>输出标签 y是什么</th>
-<th>示例</th>
-<th>本质任务</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>分类（Classification）</td>
-<td>离散类别</td>
-<td>猫 &#x2F; 狗 &#x2F; 其他</td>
-<td>判断属于哪类</td>
-</tr>
-<tr>
-<td>回归（Regression）</td>
-<td>连续数值</td>
-<td>房价预测</td>
-<td>预测一个数值</td>
-</tr>
-<tr>
-<td>序列标注（Structured Outputs）</td>
-<td>序列结构</td>
-<td>分词 &#x2F; 词性标注</td>
-<td>对序列中每个位置预测</td>
-</tr>
-<tr>
-<td>目标检测（Object Detection）</td>
-<td>集合结构</td>
-<td>图像中多物体位置和类别</td>
-<td>同时定位 + 分类</td>
-</tr>
-</tbody></table>
-<ul>
-<li>学习预测不相互排斥的类别的问题称为_多标签分类_（multi-label classification）</li>
-<li>人们宁愿错误地分入一个相关的类别，也不愿错误地分入一个遥远的类别，这通常被称为_层次分类_</li>
-<li>序列学习：输入是连续的，模型需要有记忆功能。</li>
-</ul>
-<h2 id="2-无监督学习"><a href="#2-无监督学习" class="headerlink" title="2.无监督学习"></a>2.无监督学习</h2><ul>
-<li><em>聚类</em>（clustering）问题：没有标签的情况下，我们是否能给数据分类呢？<ul>
-<li>比如，给定一组照片，我们能把它们分成风景照片、狗、婴儿、猫和山峰的照片吗？同样，给定一组用户的网页浏览记录，我们能否将具有相似行为的用户聚类呢？</li>
-</ul>
-</li>
-<li><em>主成分分析</em>（principal component analysis）问题：我们能否找到少量的参数来准确地捕捉数据的线性相关属性？<ul>
-<li>比如，一个球的运动轨迹可以用球的速度、直径和质量来描述。再比如，裁缝们已经开发出了一小部分参数，这些参数相当准确地描述了人体的形状，以适应衣服的需要。另一个例子：在欧几里得空间中是否存在一种（任意结构的）对象的表示，使其符号属性能够很好地匹配?这可以用来描述实体及其关系，例如“罗马”  “意大利”  “法国”  “巴黎”。</li>
-</ul>
-</li>
-<li><em>因果关系</em>（causality）和<em>概率图模型</em>（probabilistic graphical models）问题：我们能否描述观察到的许多数据的根本原因？<ul>
-<li>例如，如果我们有关于房价、污染、犯罪、地理位置、教育和工资的人口统计数据，我们能否简单地根据经验数据发现它们之间的关系？</li>
-</ul>
-</li>
-<li><em>生成对抗性网络</em>（generative adversarial networks）：为我们提供一种合成数据的方法，甚至像图像和音频这样复杂的非结构化数据。潜在的统计机制是检查真实和虚假数据是否相同的测试，它是无监督学习的另一个重要而令人兴奋的领域。</li>
-<li>训练和测试数据不同时，就是<strong>分布偏移</strong>（distribution shift）的问题</li>
-<li>先获取大量数据，然后启动模型，不再与环境交互。 这里所有学习都是在算法与环境断开后进行的，被称为_离线学习_（offline learning）</li>
-</ul>
-<h2 id="3-强化学习"><a href="#3-强化学习" class="headerlink" title="3.强化学习"></a>3.强化学习</h2><h3 id="何为强化学习"><a href="#何为强化学习" class="headerlink" title="何为强化学习"></a>何为强化学习</h3><p>强化学习问题中，智能体（agent）在一系列的时间步骤上与环境交互。 在每个特定时间点，智能体从环境接收一些<strong>观察</strong>（observation），并且必须选择一个<strong>动作</strong>（action），然后通过某种机制（有时称为执行器）将其传输回环境，最后智能体从环境中获得<strong>奖励</strong>（reward）。<br>可以将任何监督学习问题转化为强化学习问题。 假设我们有一个分类问题，可以创建一个强化学习智能体，每个分类对应一个“动作”。 然后，我们可以创建一个环境，该环境给予智能体的奖励。 这个奖励与原始监督学习问题的损失函数是一致的。</p>
-<h3 id="强化学习细分"><a href="#强化学习细分" class="headerlink" title="强化学习细分"></a>强化学习细分</h3><p>当环境可被完全观察到时，强化学习问题被称为_马尔可夫决策过程_（markov decision process）。<br>当状态不依赖于之前的操作时，我们称该问题为_上下文赌博机_（contextual bandit problem）。<br>当没有状态，只有一组最初未知回报的可用动作时，这个问题就是经典的_多臂赌博机_（multi-armed bandit problem）。</p>
-<h2 id="神经网络（Learning-Paradigm）"><a href="#神经网络（Learning-Paradigm）" class="headerlink" title="神经网络（Learning Paradigm）"></a>神经网络（Learning Paradigm）</h2><h3 id="学习范式"><a href="#学习范式" class="headerlink" title="学习范式"></a>学习范式</h3><ul>
-<li><p>监督学习</p>
-</li>
-<li><p>无监督学习</p>
-</li>
-<li><p>强化学习</p>
-</li>
-</ul>
-<p>这是：</p>
-<blockquote>
-<p>目标函数从哪里来</p>
-</blockquote>
-<h3 id="模型结构（Model-Class）"><a href="#模型结构（Model-Class）" class="headerlink" title="模型结构（Model Class）"></a>模型结构（Model Class）</h3><ul>
-<li><p>线性模型</p>
-</li>
-<li><p>SVM</p>
-</li>
-<li><p>决策树</p>
-</li>
-<li><p>神经网络</p>
-</li>
-<li><p>高斯过程</p>
-</li>
-</ul>
-<p>这是：</p>
-<blockquote>
-<p>你用什么函数族 fθ</p>
-</blockquote>
-<p>神经网络是：</p>
-<p>fθ(x)&#x3D;WLσ(WL−1…σ(W1x))</p>
-<p>它是一个：</p>
-<blockquote>
-<p>复合函数族</p>
-</blockquote>
-<p>本质是：</p>
-<blockquote>
-<p>高维非线性函数逼近器</p>
-</blockquote>
-<h2 id="深度学习网络优势来自："><a href="#深度学习网络优势来自：" class="headerlink" title="深度学习网络优势来自："></a>深度学习网络优势来自：</h2><p>其实就是巨大函数族</p>
-<ul>
-<li><p>组合结构带来的指数表达效率</p>
-</li>
-<li><p>高维空间线性可分性</p>
-</li>
-<li><p>隐式正则化</p>
-</li>
-<li><p>参数过度冗余带来的优化稳定性</p>
-</li>
-</ul>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>监督学习假设：</p>
-<blockquote>
-<p>存在函数 f(x)&#x3D;y，目标函数来自标签的误差，比如最小二乘拟合之类的，主要是为了减少误差（算法）在一定的模型建立下</p>
-</blockquote>
-<p>无监督假设：</p>
-<blockquote>
-<p>数据具有结构（簇、低维流形、生成机制），不考虑y，目标函数来自于数据分布结构，为了优化类内的对数据分布的一种假设。</p>
-</blockquote>
-<p>强化学习</p>
-<blockquote>
-<p>数据具无标签 但是有奖励信号，目标函数来自于长期积累回报</p>
-</blockquote>
-<p><em><strong>&#x3D;&#x3D;关键差异在&#x3D;&#x3D;</strong></em>：</p>
-<blockquote>
-<p>损失函数的物理意义不同</p>
-</blockquote>
-<p>监督：建模p(y∣x)</p>
-<blockquote>
-<p>拟合真实世界给出的答案</p>
-</blockquote>
-<p>无监督：建模p(x)</p>
-<blockquote>
-<p>拟合我们对数据结构的假设</p>
-</blockquote>
-<p>强化：建模马尔可夫决策过程</p>
-<blockquote>
-<p>拟合长期行为收益</p>
-</blockquote>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-07T13:36:26.963Z" title="3/7/2026, 9:36:26 PM">2026-03-07</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">13 分钟读完 (大约2007个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-04/">深度学习笔记（四）：数学角度看机器学习</a></p><div class="content"><p>batch 是训练时的数据组织方式，即投喂的样本数，也就是数据的第一个维度。<br>embedding 是一种 <strong>表示方法（representation）</strong>。<br>本质：离散ID → 连续向量<br>attention 是一种 <strong>计算机制（operation &#x2F; layer）</strong>。<br>它的功能：<br>计算序列元素之间的依赖关系<br>核心公式：<br>Attention(Q,K,V)&#x3D;softmax(QKT)<br>所以 attention 是：一种矩阵计算操作<br>几乎所有 Transformer 代码都是：<br>(batch, seq_len, hidden_dim)<br>以及为什么 <strong>Multi-head attention 会变成 4维张量</strong>：<br>(batch, heads, seq_len, head_dim)</p>
-<h1 id="一、自动微分核心知识点"><a href="#一、自动微分核心知识点" class="headerlink" title="一、自动微分核心知识点"></a>一、自动微分核心知识点</h1><h2 id="1-自动微分的目的"><a href="#1-自动微分的目的" class="headerlink" title="1 自动微分的目的"></a>1 自动微分的目的</h2><p>在机器学习中，我们需要优化参数：loss(w)<br>为了更新参数，需要计算：d lossdw<br>自动微分的作用：自动计算梯度</p>
-<h1 id="2-requires-gradD"><a href="#2-requires-gradD" class="headerlink" title="2 requires_gradD"></a>2 requires_gradD</h1><p>代码：<br>	<code>x = torch.arange(4.0)</code><br>	<code>x.requires_grad_(True)</code><br>含义：告诉框架  ，x需要计算梯度，否则不会记录计算过程。</p>
-<h1 id="3-计算图（computation-graph）"><a href="#3-计算图（computation-graph）" class="headerlink" title="3 计算图（computation graph）"></a>3 计算图（computation graph）</h1><p>当你写：<code>y = 2 * torch.dot(x, x)</code><br>框架会记录：x → dot → multiply → y<br>这就是：计算图。每个节点是一个计算操作。</p>
-<h1 id="4-backward"><a href="#4-backward" class="headerlink" title="4 backward()"></a>4 backward()</h1><p>代码：<code>y.backward()</code><br>含义：从 y 开始  反向计算梯度<br>得到：x.grad</p>
-<h1 id="5-梯度存在哪里"><a href="#5-梯度存在哪里" class="headerlink" title="5 梯度存在哪里"></a>5 梯度存在哪里</h1><p>每个变量都有：x.grad<br>里面存：dydx\frac{dy}{dx}dxdy​</p>
-<h1 id="6-梯度累加"><a href="#6-梯度累加" class="headerlink" title="6 梯度累加"></a>6 梯度累加</h1><p>如果多次计算：<code>loss.backward()</code><br>     梯度会累加<br>所以训练时通常要：<code>optimizer.zero_grad()</code></p>
-<h1 id="7-向量的-backward"><a href="#7-向量的-backward" class="headerlink" title="7 向量的 backward"></a>7 向量的 backward</h1><p>如果y 是向量<br>框架默认：先 sum  再求导<br>因为训练目标必须是：<br>标量 loss</p>
-<h1 id="8-detach"><a href="#8-detach" class="headerlink" title="8 detach"></a>8 detach</h1><p>代码：<code>u = y.detach()</code><br>作用：切断计算图<br>之后梯度不会继续传播。</p>
-<h1 id="二、计算图"><a href="#二、计算图" class="headerlink" title="二、计算图"></a>二、计算图</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>一句话：计算图 &#x3D; 记录计算步骤<br>例如：y &#x3D; 2 * x * x计算过程是：<br>x → square → multiply → y<br>画出来：</p>
-<pre><code> x  
-/ \  
-x   x  
-\ /  
-dot  
- |  
- *2  
- |  
- y
-</code></pre>
-<p>这就是：一张有向图</p>
-<h2 id="为什么要有计算图"><a href="#为什么要有计算图" class="headerlink" title="为什么要有计算图"></a>为什么要有计算图</h2><p>因为要算导数。<br>例如：y&#x3D;2x2<br>你手算：dydx&#x3D;4x<br>但神经网络不是这么简单。<br>例如：y&#x3D;sin(Wx+b)<br>可能有：几百万个参数<br>手算导数不可能。<br>所以框架必须：记录所有计算步骤<br>这就是：计算图</p>
-<h1 id="三、反向传播"><a href="#三、反向传播" class="headerlink" title="三、反向传播"></a>三、反向传播</h1><h2 id="到底在干嘛"><a href="#到底在干嘛" class="headerlink" title="到底在干嘛"></a>到底在干嘛</h2><p>核心一句话：用链式法则算导数<br>回忆微积分：如果：z&#x3D;f(y)y&#x3D;g(x)，那么：dzdx&#x3D;dzdydydx<br>这就是：链式法则</p>
-<h2 id="为什么要“反向”传播"><a href="#为什么要“反向”传播" class="headerlink" title="为什么要“反向”传播"></a>为什么要“反向”传播</h2><p>假设：y &#x3D; 2(x+3)^2<br>计算步骤：x → +3 → square → ×2 → y<br>正向计算：x → y。但求导：从 y 往回算<br>因为：dydx&#x3D;dydududx，所以必须：从结果往回算<br>这就是：反向传播</p>
-<h1 id="四、线性回归"><a href="#四、线性回归" class="headerlink" title="四、线性回归"></a>四、线性回归</h1><h2 id="1-回归问题与线性模型"><a href="#1-回归问题与线性模型" class="headerlink" title="1. 回归问题与线性模型"></a>1. 回归问题与线性模型</h2><ul>
-<li><strong>回归问题</strong>：目标是预测<strong>连续数值</strong>（如预测房价、股票价格、气温）。与之相对的是预测离散类别的“分类”问题（如识别猫或狗）。</li>
-<li><strong>线性假设</strong>：假设目标值（输出）可以由特征（输入）的<strong>加权和</strong>加上一个偏置量来表示。<ul>
-<li>公式：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y^​=w1​x1​+w2​x2​+...+wn​xn​+b</span><br></pre></td></tr></table></figure></li>
-<li><strong>权重（Weight,</strong> w）**：决定每个输入特征的重要程度。</li>
-<li><strong>偏置（Bias,</strong> <strong><code>b</code>）</strong>：当所有特征都为0时，预测的基础值。</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-损失函数-Loss-Function"><a href="#2-损失函数-Loss-Function" class="headerlink" title="2. 损失函数 (Loss Function)"></a>2. 损失函数 (Loss Function)</h3><ul>
-<li><strong>作用</strong>：衡量模型当前的预测值和真实标签之间的差距。</li>
-<li><strong>平方损失（Squared Error）</strong>：线性回归中最常用的损失函数。<ul>
-<li>单样本公式：l(i)&#x3D;0.5*(y^(i)−y(i))^2<br>（乘以 0.5是为了求导时能与平方项的^2抵消，方便数学计算）。</li>
-</ul>
-</li>
-<li><strong>目标</strong>：寻找一组最优的参数w和b，使得整个训练集上的总损失最小。</li>
-<li><strong>泛化</strong>：更难做到的是找到一组参数，这组参数能够在我们从未见过的数据上实现较低的损失， 这一挑战被称为_泛化_</li>
-</ul>
-<h3 id="3-优化算法"><a href="#3-优化算法" class="headerlink" title="3. 优化算法"></a>3. 优化算法</h3><ul>
-<li><strong>解析解（Analytic Solution）</strong>：线性回归非常简单，是少有的可以直接通过数学公式（矩阵求导）一步算出全局最优解的模型。公式为：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">w∗=(X⊤X)−1X⊤y</span><br></pre></td></tr></table></figure></li>
-<li><strong>小批量随机梯度下降（Minibatch Stochastic Gradient Descent, SGD）</strong>：这是深度学习中<strong>真正使用</strong>的普适方法。因为复杂的深度模型没有解析解，必须通过这种“一步步试错改进”的算法来逼近最优解。<ul>
-<li><strong>步骤</strong>：随机抽取一小批数据计算误差对参数的导数（梯度），顺着梯度的反方向稍微更新一下参数。</li>
-<li><strong>超参数</strong>：<strong>批量大小（Batch Size）和</strong>学习率（Learning Rate）。这些是人为设定的，而不是模型自己学到的。</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-矢量化加速-Vectorization"><a href="#4-矢量化加速-Vectorization" class="headerlink" title="4. 矢量化加速 (Vectorization)"></a>4. 矢量化加速 (Vectorization)</h3><ul>
-<li><strong>核心准则</strong>：在深度学习代码中，计算多个样本的预测值和损失时，<strong>千万不要用 for 循环</strong>。</li>
-<li><strong>原因</strong>：应该利用线性代数，将数据打包成矩阵和向量进行计算。底层硬件（特别是 GPU）对矩阵运算有极强的并行处理能力，速度比 for 循环快成百上千倍。</li>
-</ul>
-<h4 id="5-理论支撑：正态分布与最大似然估计"><a href="#5-理论支撑：正态分布与最大似然估计" class="headerlink" title="5. 理论支撑：正态分布与最大似然估计"></a>5. 理论支撑：正态分布与最大似然估计</h4><ul>
-<li><strong>为什么一定要用平方损失？</strong> 这一节给出了统计学解释。</li>
-<li>假设：真实值y等于模型的完美预测值加上一些无法控制的随机噪声</li>
-<li>如果假设这些<strong>噪声服从正态分布（高斯分布）</strong>，那么根据统计学中的“最大似然估计（MLE）”原理，要让当前数据出现的概率最大，数学推导出的结果<strong>完全等价于</strong>最小化均方误差。</li>
-</ul>
-<h4 id="6-从线性回归到深度网络"><a href="#6-从线性回归到深度网络" class="headerlink" title="6. 从线性回归到深度网络"></a>6. 从线性回归到深度网络</h4><ul>
-<li><p><strong>网络结构</strong>：线性回归可以被看作是一个最简单的<strong>单层神经网络</strong>。</p>
-</li>
-<li><p><strong>全连接层</strong>：在这个网络中，输入层的所有特征节点都通过带权重的连线，直接连接到输出层的唯一一个神经元上。这种所有节点完全相连的结构，就是深度学习中最基础的“全连接层”。<br><img src="/img/2.png" alt=" "><br>如上所示的神经网络中，输入为x1—-xd， 因此输入层中的<strong>输入数</strong>（或称为<strong>特征维度</strong>）为d。 网络的输出为o1，因此输出层中的<strong>输出数</strong>是1。 需要注意的是，输入值都是已经给定的，并且只有一个<strong>计算</strong>神经元。 由于模型重点在发生计算的地方，所以通常我们在计算层数时不考虑输入层。 也就是说，图中神经网络的_层数_为1。 我们可以将线性回归模型视为仅由单个人工神经元组成的神经网络，或称为单层神经网络。<br>对于线性回归，每个输入都与每个输出（在本例中只有一个输出）相连， 我们将这种变换（ 图中的输出层） 称为<strong>全连接层</strong>或称为<strong>稠密层</strong>。 下一章将详细讨论由这些层组成的网络。</p>
-</li>
-<li><p>机器学习模型中的关键要素是训练数据、损失函数、优化算法，还有模型本身。</p>
-</li>
-<li><p>矢量化使数学表达上更简洁，同时运行的更快。</p>
-</li>
-<li><p>最小化目标函数和执行极大似然估计等价。</p>
-</li>
-<li><p>线性回归模型也是一个简单的神经网络</p>
-</li>
-</ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-07T07:39:04.653Z" title="3/7/2026, 3:39:04 PM">2026-03-07</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">5 分钟读完 (大约785个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-03/">深度学习笔记（三）：数据预处理</a></p><div class="content"><h1 id="一、为什么要做数据预处理"><a href="#一、为什么要做数据预处理" class="headerlink" title="一、为什么要做数据预处理"></a>一、为什么要做数据预处理</h1><p>现实数据通常不是模型能直接用的格式，比如：</p>
 <table>
 <thead>
@@ -1566,6 +1328,212 @@ dot
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor()</span><br></pre></td></tr></table></figure>
 <h1 id="九、其实这一节的核心只有一句话"><a href="#九、其实这一节的核心只有一句话" class="headerlink" title="九、其实这一节的核心只有一句话"></a>九、其实这一节的核心只有一句话</h1><p>深度学习数据准备流程：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CSV → pandas → 清洗数据 → 数值化 → tensor</span><br></pre></td></tr></table></figure>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-10T09:10:17.038Z" title="3/10/2026, 5:10:17 PM">2026-03-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">38 分钟读完 (大约5646个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-05/">深度学习笔记（五）：线性回归及它的朋友们</a></p><div class="content"><h1 id="一、序言"><a href="#一、序言" class="headerlink" title="一、序言"></a>一、序言</h1><p>机器学习模型从本质上来说，是在做一件非常简单的事情：<strong>通过数据找到一个函数，让输入可以尽量准确地预测输出</strong>。比如说，如果我们有很多房子的面积和对应的房价，我们就希望找到一个函数，当输入面积的时候，这个函数可以输出一个接近真实房价的数值。假设我们只有一个特征（面积），最简单的模型就是线性回归。线性回归假设输入和输出之间是一个线性关系，也就是说：<br>							$y &#x3D; wx + b$<br>这里的 (x) 是输入特征，比如房屋面积，(w) 是权重，表示面积对房价的影响程度，而 (b) 是偏置，可以理解为基础价格。这个公式的含义其实非常直观：房价等于面积乘以一个系数，再加上一个基础值。如果我们有多个特征，比如面积、地段、楼层等等，那么公式就会变成：<br>						$y &#x3D; w_1x_1 + w_2x_2 + … + w_dx_d + b$<br>如果用矩阵形式写，会更紧凑：$y &#x3D; Xw + b$<br>这里的 (X) 是输入数据矩阵，每一行是一条数据，每一列是一个特征；(w) 是权重向量；(b) 是偏置。<br>在实际编程时，我们需要把数据先表示成张量。比如有三条数据，每条数据只有一个特征，我们可以写成：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X = torch.tensor([[<span class="number">50</span>],[<span class="number">80</span>],[<span class="number">100</span>]])</span><br><span class="line">y = torch.tensor([[<span class="number">200</span>],[<span class="number">320</span>],[<span class="number">400</span>]])</span><br></pre></td></tr></table></figure>
+<p>这里 (X) 是输入特征，(y) 是真实标签。然后我们定义模型。在 PyTorch 中，一个线性回归模型可以直接用 <code>nn.Linear</code> 表示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model = nn.Linear(<span class="number">1</span>,<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>这句话的意思是创建一个线性层，输入维度是1，输出维度是1。内部实际上就对应着公式 (y &#x3D; wx + b)。PyTorch 会自动帮我们创建参数 <code>weight</code> 和 <code>bias</code>，也就是 (w) 和 (b)。<br>当我们把数据输入模型的时候，就会得到预测值。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y_hat = model(X)</span><br></pre></td></tr></table></figure>
+<p>这一步发生的事情就是把输入 (X) 和参数 (w)、(b) 带入线性公式中，得到预测结果 ($\hat{y}$)。但是模型刚初始化的时候，权重通常是随机的，所以预测值和真实值之间往往差距很大。为了衡量这种差距，我们需要定义一个损失函数。在线性回归中最常见的损失函数是均方误差（MSE），它的公式是：$L &#x3D; \frac{1}{n}\sum(\hat y - y)^2$<br>这个公式的意思是计算预测值和真实值之间的差，然后把这个差平方，最后取平均。平方的原因是为了让误差始终为正，同时也让大的误差被更强烈地惩罚。在 PyTorch 中我们可以这样写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">loss_fn = nn.MSELoss()</span><br><span class="line">loss = loss_fn(y_hat,y)</span><br></pre></td></tr></table></figure>
+<p>这样就可以得到当前模型预测的误差。接下来最关键的问题是：我们怎样调整参数，让这个误差变小？这就是优化问题。数学上我们希望找到一组参数 (w,b)，让损失函数最小，也就是$\min_{w,b} L(w,b)$<br>为了知道应该怎么修改参数，我们需要计算损失函数对参数的导数，也就是梯度。例如：$\frac{\partial L}{\partial w}$<br>这个导数告诉我们，当 (w) 变化一点点的时候，损失函数会如何变化。如果导数是正的，说明增加 (w) 会让损失变大，因此我们应该减小 (w)；如果导数是负的，说明增加 (w) 会让损失变小，因此我们应该增加 (w)。换句话说，导数告诉我们<strong>最陡的上升方向</strong>，而我们为了让损失变小，需要往相反方向走，这就叫做梯度下降。<br>梯度下降的更新公式是：$w &#x3D; w - \eta \frac{\partial L}{\partial w}$<br>这里的 ($\eta$) 是学习率，表示每一步走多远。直观地说，可以把损失函数想象成一座山，而我们的目标是走到山谷的最低点。梯度表示山坡的斜率，而我们每次都会朝着下降最快的方向走一小步。<br>在实际编程时，我们不需要手动去计算这些导数，因为 PyTorch 提供了自动求导系统（autograd）。只要调用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loss.backward()</span><br></pre></td></tr></table></figure>
+<p>PyTorch 就会自动根据计算图求出所有参数的梯度，并把结果存到 <code>parameter.grad</code> 中。接下来我们需要根据这些梯度更新参数，这一步通常由优化器完成。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">optimizer = torch.optim.SGD(model.parameters(), lr=<span class="number">0.03</span>)</span><br></pre></td></tr></table></figure>
+<p>这里使用的是随机梯度下降（SGD）。当我们调用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">optimizer.step()</span><br></pre></td></tr></table></figure>
+<p>时，优化器就会根据刚刚计算出来的梯度更新模型参数，相当于执行了公式 ($w &#x3D; w - \eta \nabla L$)。在更新完参数之后，还需要调用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">optimizer.zero_grad()</span><br></pre></td></tr></table></figure>
+
+<p>这是因为 PyTorch 默认会把梯度累加，如果不清零，下一轮训练时梯度就会叠加在一起，导致参数更新错误。</p>
+<p>把这些步骤放在一起，就形成了一个完整的训练循环：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs):</span><br><span class="line">    y_hat = model(X)</span><br><span class="line">    loss = loss_fn(y_hat,y)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br></pre></td></tr></table></figure>
+<p>在每一轮循环中，模型都会先根据当前参数进行一次预测，然后计算预测误差，再通过反向传播计算梯度，最后利用优化器更新参数。随着训练轮数增加，D模型参数会不断调整，损失函数通常会逐渐下降，模型预测也会越来越接近真实值。<br>到这里我们解决的是回归问题，也就是预测一个连续数值。但是在很多任务中，我们并不是要预测一个具体的数，而是要预测类别，比如识别图片中的动物是猫、狗还是鸟。对于这种多分类问题，通常会在线性层后面加一个 softmax 函数。线性层会先计算每个类别的“得分”，例如：$o &#x3D; Wx + b$<br>这里的 (o) 是一个向量，每个元素对应一个类别的分数。然后 softmax 会把这些分数转换成概率：                                                                              $P_i &#x3D; \frac{e^{o_i}}{\sum_j e^{o_j}}$<br>这样得到的每个 ($P_i$) 都在 0 到 1 之间，并且所有概率加起来等于 1。为了训练这样的模型，我们通常使用交叉熵损失（cross entropy loss），它会鼓励模型给真实类别分配更高的概率。实际上，softmax 回归可以理解为在线性回归基础上增加了概率归一化和分类损失函数，而更复杂的神经网络模型也只是把线性层堆叠起来，中间加入非线性激活函数，但训练的基本流程仍然是：前向计算得到预测值，计算损失函数，通过反向传播求梯度，再利用优化器更新参数。<br>从更宏观的角度来看，几乎所有深度学习模型都遵循同样的基本结构：输入数据经过一系列函数变换得到预测结果，然后通过损失函数衡量预测与真实值之间的差距，再利用梯度下降不断调整模型参数，使得损失越来越小。因此，无论是简单的线性回归，还是复杂的深度神经网络，本质上都是在寻找一个函数，使得输入数据能够被映射到正确的输出，而梯度下降和反向传播则是实现这一目标的核心算法。<br>大概发展历程<br>Linear Regression<br>        ↓<br>Logistic Regression<br>        ↓<br>Softmax Regression<br>        ↓<br>Neural Network</p>
+<h1 id="二、线性回归和逻辑回归"><a href="#二、线性回归和逻辑回归" class="headerlink" title="二、线性回归和逻辑回归"></a>二、线性回归和逻辑回归</h1><p>在机器学习中，<strong>线性回归（Linear Regression）和逻辑回归（Logistic Regression）其实是同一条思路逐渐发展的结果</strong>。理解它们最好的方式不是把它们当成两个完全不同的模型，而是把它们看作同一个基本框架在不同任务下的变化。整个逻辑仍然是：输入数据，通过一个函数得到预测值，然后通过损失函数衡量预测误差，再通过梯度下降不断调整参数，使模型预测越来越准确。</p>
+<h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><p>线性回归解决的是<strong>回归问题</strong>，也就是预测一个连续数值。例如房价预测、温度预测、销售额预测等等。线性回归的核心假设是：输入特征和输出之间存在一个线性关系。假设每个数据点有 (d) 个特征，我们用向量 ($x&#x3D;(x_1,x_2,…,x_d)$) 表示输入，那么模型会假设输出 (y) 可以写成                                                                           $y &#x3D; w_1x_1 + w_2x_2 + … + w_dx_d + b$<br>其中 ($w_1,w_2,…,w_d$) 是每个特征对应的权重，表示这个特征对预测结果的影响程度，而 (b) 是偏置，可以理解为基础值。如果用向量形式写得更紧凑一些，这个公式可以写成：$y &#x3D; w^Tx + b$<br>这里 ($w^Tx$) 表示权重向量和输入向量的点积。在数据集中，如果我们有很多条数据，就可以把所有输入特征写成一个矩阵 (X)，于是整个模型可以写成：<br>                            $\hat y &#x3D; Xw + b$&#96;<br>这里的 ($\hat y$) 表示模型预测值。线性回归训练的目标是找到一组参数 (w) 和 (b)，使得预测值和真实值尽量接近。为了衡量这种差距，我们通常使用均方误差（MSE）作为损失函数：$L &#x3D; \frac{1}{n}\sum(\hat y - y)^2$<br>这个公式表示对每个样本计算预测误差，然后平方，再求平均。平方的作用是避免正负误差相互抵消，同时让较大的误差被更强烈地惩罚。接下来就可以通过梯度下降来优化参数。我们计算损失函数对参数的导数，例如 ($\partial L &#x2F; \partial w$)，然后按照<br>                             $w &#x3D; w - \eta \nabla L$<br>这样的规则不断更新参数，其中 ($\eta$) 是学习率。随着训练迭代次数增加，模型会逐渐找到一组参数，使得预测结果与真实值之间的误差尽量小。<br>然而，线性回归有一个很明显的限制：<strong>它的输出是任意实数</strong>。例如模型可能输出 -3、5.2、100 等等。这对于预测数值没有问题，但如果我们的任务是分类，比如判断一封邮件是不是垃圾邮件，就会遇到困难。分类问题的输出通常是概率或者类别，而不是任意实数。例如在二分类问题中，我们希望模型输出一个在 0 和 1 之间的概率，表示某个样本属于某个类别的可能性。</p>
+<h2 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h2><p>为了解决这个问题，人们在<strong>线性回归的基础上增加了一个非线性函数</strong>，这就是逻辑回归（Logistic Regression）。逻辑回归的第一步仍然是计算一个线性得分：$z &#x3D; w^Tx + b$<br>这一步和线性回归完全一样，模型仍然是在计算输入特征的加权和。但接下来，我们不会直接把这个值作为预测结果，而是把它送入一个叫做 <strong>sigmoid函数</strong> 的函数中：<br>                          $\sigma(z) &#x3D; \frac{1}{1 + e^{-z}}$<br>这个函数的作用是把任意实数映射到 0 到 1 之间。无论输入是多大的正数或负数，输出都会落在这个范围内。例如，如果 (z) 很大，sigmoid 的输出会接近 1；如果 (z) 很小，输出会接近 0；如果 (z&#x3D;0)，输出就是 0.5。因此，逻辑回归的完整模型其实是：$p &#x3D; \sigma(w^Tx + b)$<br>这里的 (p) 就可以被解释为某个样本属于正类别的概率。例如在垃圾邮件检测中，(p) 可以表示邮件是垃圾邮件的概率。如果这个概率大于 0.5，我们就预测为垃圾邮件，否则预测为正常邮件。</p>
+<p>逻辑回归的训练方式和线性回归也类似，但损失函数会换成更适合概率预测的形式，通常是<strong>交叉熵损失（cross entropy loss）</strong>。交叉熵的思想是：如果模型给真实类别分配的概率越高，那么损失就越小；如果模型把概率分给错误类别，损失就会变大。对于二分类问题，交叉熵损失可以写成：<br>                        $L &#x3D; -[y \log(p) + (1-y)\log(1-p)]$<br>这里 (y) 是真实标签（0或1），(p) 是模型预测的概率。如果真实标签是 1，那么损失主要取决于 ($-\log(p)$)，这意味着模型只有在 (p) 接近 1 时损失才会很小。如果真实标签是 0，那么损失主要取决于 ($-\log(1-p)$)，也就是说模型必须给这个类别很小的概率才会得到较小的损失。</p>
+<p>训练逻辑回归的过程仍然和线性回归完全一样：先通过模型计算预测概率，然后用损失函数计算误差，再通过反向传播计算梯度，最后利用梯度下降更新参数。随着训练进行，模型会逐渐学会给正确类别分配更高的概率。</p>
+<p>从整体来看，<strong>逻辑回归其实只是在线性回归基础上的一个小变化</strong>。它仍然使用线性函数来计算特征的加权和，只是把输出通过一个 sigmoid 函数压缩到 0 到 1 的区间，并且使用适合概率预测的损失函数来训练模型。因此，从结构上来说，逻辑回归仍然可以看作是一个线性模型，它学习到的决策边界仍然是线性的。例如在二维空间中，逻辑回归学到的分类边界是一条直线；在更高维空间中，这个边界是一个超平面。</p>
+<p>理解了线性回归和逻辑回归之后，就可以很自然地理解后续的模型，例如 softmax 回归和神经网络。softmax 回归实际上是逻辑回归在多分类问题上的推广，而深度神经网络则是在这些线性模型之间加入更多的非线性变换，从而让模型能够表示更复杂的函数关系。但无论模型多么复杂，它们训练时依然遵循同样的基本流程：通过前向计算得到预测结果，利用损失函数衡量预测误差，再通过反向传播计算梯度，最后用梯度下降更新参数。</p>
+<h1 id="三、softmax-regression"><a href="#三、softmax-regression" class="headerlink" title="三、softmax regression"></a>三、softmax regression</h1><p>先说一个核心事实：<br><strong>softmax regression 本质是在学“分类边界”。</strong><br>假设只有两个类别：猫和狗。模型做的事情其实非常简单，就是给两个类别各算一个分数。比如模型看到一张图片以后，算出来两个值：<br>	猫的分数 &#x3D; 3.2<br>	狗的分数 &#x3D; 1.1<br>那我们就说这张图是猫，因为猫的分数更高。<br>注意这里<strong>还没有概率</strong>，只有“分数”。</p>
+<h2 id="线性方程"><a href="#线性方程" class="headerlink" title="线性方程"></a>线性方程</h2><p>这个分数是怎么来的？其实就是一个线性函数：<br>	$猫的分数 &#x3D;(w_1^Tx + b_1)$<br>	$狗的分数 &#x3D; (w_2^Tx + b_2)$</p>
+<p>其中 (x) 是输入特征，比如图像的像素、或者神经网络前面层输出的向量。<br>所以模型其实是在做这件事：<br>	输入特征 → 用不同参数算每个类别的分数 → 分数最高的类别就是预测结果。</p>
+<p>接下来关键问题来了：<strong>什么时候猫和狗的分数一样？</strong><br>当                        $w_1^Tx + b_1 &#x3D; w_2^Tx + b_2$<br>整理一下：$(w_1 - w_2)^T x + (b_1 - b_2) &#x3D; 0$<br>这就是一个<strong>线性方程</strong>。<br>在二维空间它是一条线，在三维空间是一个平面，在高维空间就是一个<strong>超平面</strong>。<br>这条线（或平面）就是：<strong>分类边界。</strong><br>	边界一边是猫，一边是狗。<br>所以 softmax regression 真正做的事情是：<br><strong>通过学习参数 (W) 和 (b)，找到最好的分类边界。</strong><br>这就是为什么很多机器学习算法本质一样，比如：<br>	logistic regression<br>	softmax regression<br>	SVM<br>它们其实都在学:    <strong>用一个超平面把类别分开。</strong><br>只不过它们的训练方式不同。</p>
+<h2 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h2><p>接下来我们再看 softmax 的作用。<br>刚刚我们说模型算出来的是分数，比如：<br>	猫 &#x3D; 3.2<br>	狗 &#x3D; 1.1<br>但是机器学习很多时候希望输出的是概率，比如：<br>	P(猫 | x) &#x3D; 0.88<br>	P(狗 | x) &#x3D; 0.12<br>概率必须满足两件事：<br>	第一，不能是负数<br>	第二，加起来必须等于1</p>
+<p>而线性函数算出来的分数完全不满足这些条件。可能是负数，也可能非常大，而且总和也不等于1。<br>所以我们需要一个函数，把“任意分数”变成“概率分布”。  这个函数就是 <strong>softmax</strong>。</p>
+<p>softmax 做的事情其实很简单：先把所有分数做指数运算，然后再除以总和。<br>比如原始分数：<br>	2<br>	1<br>	0<br>做指数以后变成：<br>	7.39<br>	2.72<br>	1<br>再除以总和 11.11：<br>	0.66<br>	0.24<br>	0.09<br>这样我们就得到了一个概率分布。<br>这里指数函数有一个很重要的性质：<br><strong>大的分数会被放大，小的分数会被压缩。</strong><br>比如：<br>	原始分数差距 2 和 1<br>	指数以后差距变成 7.39 和 2.72<br>所以 softmax 会让模型更“自信”。<br>分数差距越大，概率差距也越大。<br>但是你要注意一个非常关键的事实：<strong>softmax 不改变哪个类别最大。</strong><br>因为指数函数是单调的。  最大分数经过指数以后还是最大。<br>所以在很多实际系统里，预测的时候甚至<strong>不计算 softmax</strong>，直接选最大分数。<br>softmax真正的作用不是帮助预测，而是<strong>帮助训练概率模型</strong>。<br>接下来是 cross entropy。<br>我们现在已经有了概率，比如：<br>模型预测：<br>	猫 0.66<br>	狗 0.24<br>	鸡 0.10<br>真实标签假设是猫。</p>
+<h2 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h2><p>那问题来了：我们怎么判断模型预测得好不好？<br>这时候就需要一个“误差函数”，也叫 <strong>loss function</strong>。<br>很多初学者会想到用均方误差（MSE），但概率模型里更合理的是 <strong>交叉熵</strong>。<br>交叉熵其实来自信息论，它的直觉非常简单：<br><strong>如果真实类别概率很大，loss 就小；如果真实类别概率很小，loss 就大。</strong><br>公式是:    $L &#x3D; -\sum y_i \log(\hat y_i)$<br>但在分类问题里其实更简单，因为真实标签是 one-hot。<br>比如真实标签：<br>	猫 &#x3D; 1<br>	狗 &#x3D; 0<br>	鸡 &#x3D; 0<br>那 loss 就变成:     $L &#x3D; -\log(P(猫))$<br>所以训练目标就是:     <strong>让真实类别的概率尽可能大。</strong></p>
+<p>举几个直觉例子。<br>	如果模型预测：猫 0.9<br>	loss：(-$\log 0.9$ ≈ 0.1)非常小，说明模型很好。<br>	如果预测：猫 0.5<br>	loss：0.69更大，说明模型不太确定。<br>	如果预测：<br>	猫 0.01<br>	loss：4.6. 非常大，因为模型非常自信但却错得离谱。</p>
+<p>所以交叉熵会<strong>严重惩罚自信但错误的预测</strong>。  这让模型更稳定。<br>还有一个非常重要但教材很少强调的数学性质：softmax + cross entropy 的梯度非常简单。<br>结果是    预测概率 − 真实概率<br>也就是 :   $\hat y - y$  。这和线性回归的误差形式非常像，所以梯度下降非常稳定。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这也是为什么深度学习几乎所有分类模型都用.  <strong>softmax + cross entropy</strong><br>比如：<br>	CNN 分类<br>	BERT 分类<br>	GPT 预测下一个词</p>
+<p>最后一层几乎都是这个结构。<br>现在我们把整章逻辑串起来总结一下（这是需要真正记住的部分）。<br>整个 softmax regression 模型其实只有三步。<br>第一步：线性打分<br>输入特征 (x)，用线性模型计算每个类别的分数：$o &#x3D; Wx + b$<br>每个类别都会有一个分数。<br>第二步：softmax<br>把分数变成概率分布:   P(y|x)<br>这样所有概率加起来等于1。<br>第三步：cross entropy<br>用交叉熵衡量预测概率和真实标签的差距。</p>
+<p>训练目标就是：<br>让真实类别的概率尽量接近1。最后用梯度下降更新参数 (W) 和 (b)。<br>从几何角度看，模型其实是在做一件更直观的事情：<strong>学习一组超平面，把不同类别的数据分开。</strong><br>每两个类别之间都会形成一个分类边界。<br>所以 softmax regression 可以理解为：<br>用线性函数给每个类别打分 → 用 softmax 变成概率 → 用交叉熵训练参数 → 学到最好的分类边界。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-05T02:17:03.313Z" title="3/5/2026, 10:17:03 AM">2026-03-05</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">22 分钟读完 (大约3229个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-01/">深度学习笔记（一）：走进机器学习</a></p><div class="content"><h2 id="1-机器学习中的关键组件"><a href="#1-机器学习中的关键组件" class="headerlink" title="1. 机器学习中的关键组件"></a>1. 机器学习中的关键组件</h2><p>首先介绍一些核心组件。无论什么类型的机器学习问题，都会遇到这些组件：</p>
+<ol>
+<li><p>可以用来学习的_数据_（data）；</p>
+</li>
+<li><p>如何转换数据的_模型_（model）；</p>
+</li>
+<li><p>一个_目标函数_（objective function），用来量化模型的有效性；</p>
+<ul>
+<li>定义模型的优劣程度且可优化的度量，这被称之为<strong>目标函数</strong>， 我们通常定义一个目标函数，并希望优化它到最低点。 因为越低越好，所以这些函数有时被称为<strong>损失函数</strong>（loss function，或cost function）。也可取反。</li>
+<li>当任务在试图预测数值时，最常见的损失函数是<strong>平方误差</strong>（squared error），即预测值与实际值之差的平方。 当试图解决分类问题时，最常见的目标函数是最小化错误率，即预测与实际情况不符的样本比例。 有些目标函数（如平方误差）很容易被优化，有些目标（如错误率）由于不可微性或其他复杂性难以直接优化。 在这些情况下，通常会优化<strong>替代目标</strong>。</li>
+<li>通常，损失函数是根据模型参数定义的，并取决于数据集。 在一个数据集上，我们可以通过最小化总损失来学习模型参数的最佳值。 </li>
+<li>该数据集由一些为训练而收集的样本组成，称为_训练数据集_（training dataset，或称为_训练集_（training set））。 然而，在训练数据上表现良好的模型，并不一定在“新数据集”上有同样的性能，这里的“新数据集”通常称为_测试数据集_（test dataset，或称为_测试集_（test set））。</li>
+<li>综上所述，可用数据集通常可以分成两部分：训练数据集用于拟合模型参数，测试数据集用于评估拟合的模型。 然后我们观察模型在这两部分数据集的性能。 “一个模型在训练数据集上的性能”可以被想象成“一个学生在模拟考试中的分数”。 这个分数用来为一些真正的期末考试做参考，即使成绩令人鼓舞，也不能保证期末考试成功。 换言之，测试性能可能会显著偏离训练性能。 当一个模型在训练集上表现良好，但不能推广到测试集时，这个模型被称为<strong>过拟合</strong>（overfitting）的。 就像在现实生活中，尽管模拟考试考得很好，真正的考试不一定百发百中。</li>
+</ul>
+</li>
+<li><p>调整模型参数以优化目标函数的<strong>算法</strong>（algorithm）。<br>  大多流行的优化算法通常基于一种基本方法–<strong>梯度下降</strong>（gradient descent）。 简而言之，在每个步骤中，梯度下降法都会检查每个参数，看看如果仅对该参数进行少量变动，训练集损失会朝哪个方向移动。 然后，它在可以减少损失的方向上优化参数。</p>
+</li>
+</ol>
+<h1 id="2-常见机器学习种类"><a href="#2-常见机器学习种类" class="headerlink" title="2.常见机器学习种类"></a>2.常见机器学习种类</h1><h2 id="1-监督学习"><a href="#1-监督学习" class="headerlink" title="1. 监督学习"></a>1. 监督学习<a target="_blank" rel="noopener" href="https://zh.d2l.ai/chapter_introduction/index.html#id9" title="Permalink to this heading"></a></h2><h3 id="何为监督学习"><a href="#何为监督学习" class="headerlink" title="何为监督学习"></a>何为监督学习</h3><p><strong>监督学习</strong>（supervised learning）擅长在“给定输入特征”的情况下预测标签。 每个“特征-标签”对都称为一个<strong>样本</strong>。 有时，即使标签是未知的，样本也可以指代输入特征。 我们的目标是生成一个模型，能够将任何输入特征映射到标签（即预测）。<br>    举一个具体的例子： 假设我们需要预测患者的心脏病是否会发作，那么观察结果“心脏病发作”或“心脏病没有发作”将是样本的标签。 输入特征可能是生命体征，如心率、舒张压和收缩压等。<br>监督学习之所以能发挥作用，是因为在训练参数时，我们为模型提供了一个数据集，其中每个样本都有真实的标签。 用概率论术语来说，我们希望预测“估计给定输入特征的标签”的条件概率。 虽然监督学习只是几大类机器学习问题之一，但是在工业中，大部分机器学习的成功应用都使用了监督学习。 这是因为在一定程度上，许多重要的任务可以清晰地描述为，在给定一组特定的可用数据的情况下，估计未知事物的概率。比如：</p>
+<ul>
+<li>根据计算机断层扫描（Computed Tomography，CT）肿瘤图像，预测是否为癌症；</li>
+<li>给出一个英语句子，预测正确的法语翻译；</li>
+<li>根据本月的财务报告数据，预测下个月股票的价格；<br>监督学习的学习过程一般可以分为三大步骤：</li>
+</ul>
+<ol>
+<li>从已知大量数据样本中随机选取一个子集，为每个样本获取真实标签。有时，这些样本已有标签（例如，患者是否在下一年内康复？）；有时，这些样本可能需要被人工标记（例如，图像分类）。这些输入和相应的标签一起构成了训练数据集；</li>
+<li>选择有监督的学习算法，它将训练数据集作为输入，并输出一个“已完成学习的模型”；</li>
+<li>将之前没有见过的样本特征放到这个“已完成学习的模型”中，使用模型的输出作为相应标签的预测。<br> <img src="/img/1.png" alt=" "><br>即使使用简单的描述给定输入特征的预测标签，监督学习也可以采取多种形式的模型，并且需要大量不同的建模决策，这取决于输入和输出的类型、大小和数量。 例如，我们使用不同的模型来处理“任意长度的序列”或“固定长度的序列”。</li>
+</ol>
+<h3 id="监督学习细分"><a href="#监督学习细分" class="headerlink" title="监督学习细分"></a>监督学习细分</h3><p>其实可以根据输出标签的不同分成几个类别：</p>
+<table>
+<thead>
+<tr>
+<th>小类</th>
+<th>输出标签 y是什么</th>
+<th>示例</th>
+<th>本质任务</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分类（Classification）</td>
+<td>离散类别</td>
+<td>猫 &#x2F; 狗 &#x2F; 其他</td>
+<td>判断属于哪类</td>
+</tr>
+<tr>
+<td>回归（Regression）</td>
+<td>连续数值</td>
+<td>房价预测</td>
+<td>预测一个数值</td>
+</tr>
+<tr>
+<td>序列标注（Structured Outputs）</td>
+<td>序列结构</td>
+<td>分词 &#x2F; 词性标注</td>
+<td>对序列中每个位置预测</td>
+</tr>
+<tr>
+<td>目标检测（Object Detection）</td>
+<td>集合结构</td>
+<td>图像中多物体位置和类别</td>
+<td>同时定位 + 分类</td>
+</tr>
+</tbody></table>
+<ul>
+<li>学习预测不相互排斥的类别的问题称为_多标签分类_（multi-label classification）</li>
+<li>人们宁愿错误地分入一个相关的类别，也不愿错误地分入一个遥远的类别，这通常被称为_层次分类_</li>
+<li>序列学习：输入是连续的，模型需要有记忆功能。</li>
+</ul>
+<h2 id="2-无监督学习"><a href="#2-无监督学习" class="headerlink" title="2.无监督学习"></a>2.无监督学习</h2><ul>
+<li><em>聚类</em>（clustering）问题：没有标签的情况下，我们是否能给数据分类呢？<ul>
+<li>比如，给定一组照片，我们能把它们分成风景照片、狗、婴儿、猫和山峰的照片吗？同样，给定一组用户的网页浏览记录，我们能否将具有相似行为的用户聚类呢？</li>
+</ul>
+</li>
+<li><em>主成分分析</em>（principal component analysis）问题：我们能否找到少量的参数来准确地捕捉数据的线性相关属性？<ul>
+<li>比如，一个球的运动轨迹可以用球的速度、直径和质量来描述。再比如，裁缝们已经开发出了一小部分参数，这些参数相当准确地描述了人体的形状，以适应衣服的需要。另一个例子：在欧几里得空间中是否存在一种（任意结构的）对象的表示，使其符号属性能够很好地匹配?这可以用来描述实体及其关系，例如“罗马”  “意大利”  “法国”  “巴黎”。</li>
+</ul>
+</li>
+<li><em>因果关系</em>（causality）和<em>概率图模型</em>（probabilistic graphical models）问题：我们能否描述观察到的许多数据的根本原因？<ul>
+<li>例如，如果我们有关于房价、污染、犯罪、地理位置、教育和工资的人口统计数据，我们能否简单地根据经验数据发现它们之间的关系？</li>
+</ul>
+</li>
+<li><em>生成对抗性网络</em>（generative adversarial networks）：为我们提供一种合成数据的方法，甚至像图像和音频这样复杂的非结构化数据。潜在的统计机制是检查真实和虚假数据是否相同的测试，它是无监督学习的另一个重要而令人兴奋的领域。</li>
+<li>训练和测试数据不同时，就是<strong>分布偏移</strong>（distribution shift）的问题</li>
+<li>先获取大量数据，然后启动模型，不再与环境交互。 这里所有学习都是在算法与环境断开后进行的，被称为_离线学习_（offline learning）</li>
+</ul>
+<h2 id="3-强化学习"><a href="#3-强化学习" class="headerlink" title="3.强化学习"></a>3.强化学习</h2><h3 id="何为强化学习"><a href="#何为强化学习" class="headerlink" title="何为强化学习"></a>何为强化学习</h3><p>强化学习问题中，智能体（agent）在一系列的时间步骤上与环境交互。 在每个特定时间点，智能体从环境接收一些<strong>观察</strong>（observation），并且必须选择一个<strong>动作</strong>（action），然后通过某种机制（有时称为执行器）将其传输回环境，最后智能体从环境中获得<strong>奖励</strong>（reward）。<br>可以将任何监督学习问题转化为强化学习问题。 假设我们有一个分类问题，可以创建一个强化学习智能体，每个分类对应一个“动作”。 然后，我们可以创建一个环境，该环境给予智能体的奖励。 这个奖励与原始监督学习问题的损失函数是一致的。</p>
+<h3 id="强化学习细分"><a href="#强化学习细分" class="headerlink" title="强化学习细分"></a>强化学习细分</h3><p>当环境可被完全观察到时，强化学习问题被称为_马尔可夫决策过程_（markov decision process）。<br>当状态不依赖于之前的操作时，我们称该问题为_上下文赌博机_（contextual bandit problem）。<br>当没有状态，只有一组最初未知回报的可用动作时，这个问题就是经典的_多臂赌博机_（multi-armed bandit problem）。</p>
+<h2 id="神经网络（Learning-Paradigm）"><a href="#神经网络（Learning-Paradigm）" class="headerlink" title="神经网络（Learning Paradigm）"></a>神经网络（Learning Paradigm）</h2><h3 id="学习范式"><a href="#学习范式" class="headerlink" title="学习范式"></a>学习范式</h3><ul>
+<li><p>监督学习</p>
+</li>
+<li><p>无监督学习</p>
+</li>
+<li><p>强化学习</p>
+</li>
+</ul>
+<p>这是：</p>
+<blockquote>
+<p>目标函数从哪里来</p>
+</blockquote>
+<h3 id="模型结构（Model-Class）"><a href="#模型结构（Model-Class）" class="headerlink" title="模型结构（Model Class）"></a>模型结构（Model Class）</h3><ul>
+<li><p>线性模型</p>
+</li>
+<li><p>SVM</p>
+</li>
+<li><p>决策树</p>
+</li>
+<li><p>神经网络</p>
+</li>
+<li><p>高斯过程</p>
+</li>
+</ul>
+<p>这是：</p>
+<blockquote>
+<p>你用什么函数族 fθ</p>
+</blockquote>
+<p>神经网络是：</p>
+<p>fθ(x)&#x3D;WLσ(WL−1…σ(W1x))</p>
+<p>它是一个：</p>
+<blockquote>
+<p>复合函数族</p>
+</blockquote>
+<p>本质是：</p>
+<blockquote>
+<p>高维非线性函数逼近器</p>
+</blockquote>
+<h2 id="深度学习网络优势来自："><a href="#深度学习网络优势来自：" class="headerlink" title="深度学习网络优势来自："></a>深度学习网络优势来自：</h2><p>其实就是巨大函数族</p>
+<ul>
+<li><p>组合结构带来的指数表达效率</p>
+</li>
+<li><p>高维空间线性可分性</p>
+</li>
+<li><p>隐式正则化</p>
+</li>
+<li><p>参数过度冗余带来的优化稳定性</p>
+</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>监督学习假设：</p>
+<blockquote>
+<p>存在函数 f(x)&#x3D;y，目标函数来自标签的误差，比如最小二乘拟合之类的，主要是为了减少误差（算法）在一定的模型建立下</p>
+</blockquote>
+<p>无监督假设：</p>
+<blockquote>
+<p>数据具有结构（簇、低维流形、生成机制），不考虑y，目标函数来自于数据分布结构，为了优化类内的对数据分布的一种假设。</p>
+</blockquote>
+<p>强化学习</p>
+<blockquote>
+<p>数据具无标签 但是有奖励信号，目标函数来自于长期积累回报</p>
+</blockquote>
+<p><em><strong>&#x3D;&#x3D;关键差异在&#x3D;&#x3D;</strong></em>：</p>
+<blockquote>
+<p>损失函数的物理意义不同</p>
+</blockquote>
+<p>监督：建模p(y∣x)</p>
+<blockquote>
+<p>拟合真实世界给出的答案</p>
+</blockquote>
+<p>无监督：建模p(x)</p>
+<blockquote>
+<p>拟合我们对数据结构的假设</p>
+</blockquote>
+<p>强化：建模马尔可夫决策过程</p>
+<blockquote>
+<p>拟合长期行为收益</p>
+</blockquote>
 </div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">上一页</a></div><div class="pagination-next"><a href="/page/2/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">14</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">16</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-25T14:00:00.000Z">2026-03-25</time></p><p class="title"><a href="/2026/03/25/8--Constants/">oop8</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-24T04:00:00.000Z">2026-03-24</time></p><p class="title"><a href="/2026/03/24/7--Initialization%20Cleanup/">oop7</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-24T03:00:00.000Z">2026-03-24</time></p><p class="title"><a href="/2026/03/24/6--hiding%20the%20implementation/">oop6</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-23T02:00:00.000Z">2026-03-23</time></p><p class="title"><a href="/2026/03/23/5--data%20abstraction/">oop5</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-10T13:04:00.000Z">2026-03-10</time></p><p class="title"><a href="/2026/03/10/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库阶段性学习指南索引</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
