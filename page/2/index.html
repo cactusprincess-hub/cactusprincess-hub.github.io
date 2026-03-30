@@ -29,79 +29,196 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-07T13:36:26.963Z" title="3/7/2026, 9:36:26 PM">2026-03-07</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">13 分钟读完 (大约2007个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-04/">深度学习笔记（四）：数学角度看机器学习</a></p><div class="content"><p>batch 是训练时的数据组织方式，即投喂的样本数，也就是数据的第一个维度。<br>embedding 是一种 <strong>表示方法（representation）</strong>。<br>本质：离散ID → 连续向量<br>attention 是一种 <strong>计算机制（operation &#x2F; layer）</strong>。<br>它的功能：<br>计算序列元素之间的依赖关系<br>核心公式：<br>Attention(Q,K,V)&#x3D;softmax(QKT)<br>所以 attention 是：一种矩阵计算操作<br>几乎所有 Transformer 代码都是：<br>(batch, seq_len, hidden_dim)<br>以及为什么 <strong>Multi-head attention 会变成 4维张量</strong>：<br>(batch, heads, seq_len, head_dim)</p>
-<h1 id="一、自动微分核心知识点"><a href="#一、自动微分核心知识点" class="headerlink" title="一、自动微分核心知识点"></a>一、自动微分核心知识点</h1><h2 id="1-自动微分的目的"><a href="#1-自动微分的目的" class="headerlink" title="1 自动微分的目的"></a>1 自动微分的目的</h2><p>在机器学习中，我们需要优化参数：loss(w)<br>为了更新参数，需要计算：d lossdw<br>自动微分的作用：自动计算梯度</p>
-<h1 id="2-requires-gradD"><a href="#2-requires-gradD" class="headerlink" title="2 requires_gradD"></a>2 requires_gradD</h1><p>代码：<br>	<code>x = torch.arange(4.0)</code><br>	<code>x.requires_grad_(True)</code><br>含义：告诉框架  ，x需要计算梯度，否则不会记录计算过程。</p>
-<h1 id="3-计算图（computation-graph）"><a href="#3-计算图（computation-graph）" class="headerlink" title="3 计算图（computation graph）"></a>3 计算图（computation graph）</h1><p>当你写：<code>y = 2 * torch.dot(x, x)</code><br>框架会记录：x → dot → multiply → y<br>这就是：计算图。每个节点是一个计算操作。</p>
-<h1 id="4-backward"><a href="#4-backward" class="headerlink" title="4 backward()"></a>4 backward()</h1><p>代码：<code>y.backward()</code><br>含义：从 y 开始  反向计算梯度<br>得到：x.grad</p>
-<h1 id="5-梯度存在哪里"><a href="#5-梯度存在哪里" class="headerlink" title="5 梯度存在哪里"></a>5 梯度存在哪里</h1><p>每个变量都有：x.grad<br>里面存：dydx\frac{dy}{dx}dxdy​</p>
-<h1 id="6-梯度累加"><a href="#6-梯度累加" class="headerlink" title="6 梯度累加"></a>6 梯度累加</h1><p>如果多次计算：<code>loss.backward()</code><br>     梯度会累加<br>所以训练时通常要：<code>optimizer.zero_grad()</code></p>
-<h1 id="7-向量的-backward"><a href="#7-向量的-backward" class="headerlink" title="7 向量的 backward"></a>7 向量的 backward</h1><p>如果y 是向量<br>框架默认：先 sum  再求导<br>因为训练目标必须是：<br>标量 loss</p>
-<h1 id="8-detach"><a href="#8-detach" class="headerlink" title="8 detach"></a>8 detach</h1><p>代码：<code>u = y.detach()</code><br>作用：切断计算图<br>之后梯度不会继续传播。</p>
-<h1 id="二、计算图"><a href="#二、计算图" class="headerlink" title="二、计算图"></a>二、计算图</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>一句话：计算图 &#x3D; 记录计算步骤<br>例如：y &#x3D; 2 * x * x计算过程是：<br>x → square → multiply → y<br>画出来：</p>
-<pre><code> x  
-/ \  
-x   x  
-\ /  
-dot  
- |  
- *2  
- |  
- y
-</code></pre>
-<p>这就是：一张有向图</p>
-<h2 id="为什么要有计算图"><a href="#为什么要有计算图" class="headerlink" title="为什么要有计算图"></a>为什么要有计算图</h2><p>因为要算导数。<br>例如：y&#x3D;2x2<br>你手算：dydx&#x3D;4x<br>但神经网络不是这么简单。<br>例如：y&#x3D;sin(Wx+b)<br>可能有：几百万个参数<br>手算导数不可能。<br>所以框架必须：记录所有计算步骤<br>这就是：计算图</p>
-<h1 id="三、反向传播"><a href="#三、反向传播" class="headerlink" title="三、反向传播"></a>三、反向传播</h1><h2 id="到底在干嘛"><a href="#到底在干嘛" class="headerlink" title="到底在干嘛"></a>到底在干嘛</h2><p>核心一句话：用链式法则算导数<br>回忆微积分：如果：z&#x3D;f(y)y&#x3D;g(x)，那么：dzdx&#x3D;dzdydydx<br>这就是：链式法则</p>
-<h2 id="为什么要“反向”传播"><a href="#为什么要“反向”传播" class="headerlink" title="为什么要“反向”传播"></a>为什么要“反向”传播</h2><p>假设：y &#x3D; 2(x+3)^2<br>计算步骤：x → +3 → square → ×2 → y<br>正向计算：x → y。但求导：从 y 往回算<br>因为：dydx&#x3D;dydududx，所以必须：从结果往回算<br>这就是：反向传播</p>
-<h1 id="四、线性回归"><a href="#四、线性回归" class="headerlink" title="四、线性回归"></a>四、线性回归</h1><h2 id="1-回归问题与线性模型"><a href="#1-回归问题与线性模型" class="headerlink" title="1. 回归问题与线性模型"></a>1. 回归问题与线性模型</h2><ul>
-<li><strong>回归问题</strong>：目标是预测<strong>连续数值</strong>（如预测房价、股票价格、气温）。与之相对的是预测离散类别的“分类”问题（如识别猫或狗）。</li>
-<li><strong>线性假设</strong>：假设目标值（输出）可以由特征（输入）的<strong>加权和</strong>加上一个偏置量来表示。<ul>
-<li>公式：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y^​=w1​x1​+w2​x2​+...+wn​xn​+b</span><br></pre></td></tr></table></figure></li>
-<li><strong>权重（Weight,</strong> w）**：决定每个输入特征的重要程度。</li>
-<li><strong>偏置（Bias,</strong> <strong><code>b</code>）</strong>：当所有特征都为0时，预测的基础值。</li>
-</ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-07T07:39:04.653Z" title="3/7/2026, 3:39:04 PM">2026-03-07</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">5 分钟读完 (大约785个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-03/">深度学习笔记（三）：数据预处理</a></p><div class="content"><h1 id="一、为什么要做数据预处理"><a href="#一、为什么要做数据预处理" class="headerlink" title="一、为什么要做数据预处理"></a>一、为什么要做数据预处理</h1><p>现实数据通常不是模型能直接用的格式，比如：</p>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>缺失值</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td>字符串类别</td>
+<td>Pave &#x2F; Dirt</td>
+</tr>
+<tr>
+<td>格式不是张量</td>
+<td>CSV、Excel</td>
+</tr>
+</tbody></table>
+<p>所以流程是：</p>
+<p><strong>原始数据 → pandas处理 → 数值化 → 转张量</strong></p>
+<p>整体流程：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CSV文件</span><br><span class="line">   ↓</span><br><span class="line">pandas读取</span><br><span class="line">   ↓</span><br><span class="line">处理缺失值</span><br><span class="line">   ↓</span><br><span class="line">类别变量编码</span><br><span class="line">   ↓</span><br><span class="line">转为Tensor</span><br></pre></td></tr></table></figure>
+<h1 id="二、读取数据集"><a href="#二、读取数据集" class="headerlink" title="二、读取数据集"></a>二、读取数据集</h1><p>用 <strong>pandas</strong> 读取 CSV。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_csv(<span class="string">&quot;house_tiny.csv&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>数据长这样：</p>
+<table>
+<thead>
+<tr>
+<th>NumRooms</th>
+<th>Alley</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NaN</td>
+<td>Pave</td>
+<td>127500</td>
+</tr>
+<tr>
+<td>2</td>
+<td>NaN</td>
+<td>106000</td>
+</tr>
+<tr>
+<td>4</td>
+<td>NaN</td>
+<td>178100</td>
+</tr>
+<tr>
+<td>NaN</td>
+<td>NaN</td>
+<td>140000</td>
+</tr>
+</tbody></table>
+<p>一共：</p>
+<ul>
+<li><p>4 行（样本）</p>
+</li>
+<li><p>3 列（特征+标签）</p>
 </li>
 </ul>
-<h3 id="2-损失函数-Loss-Function"><a href="#2-损失函数-Loss-Function" class="headerlink" title="2. 损失函数 (Loss Function)"></a>2. 损失函数 (Loss Function)</h3><ul>
-<li><strong>作用</strong>：衡量模型当前的预测值和真实标签之间的差距。</li>
-<li><strong>平方损失（Squared Error）</strong>：线性回归中最常用的损失函数。<ul>
-<li>单样本公式：l(i)&#x3D;0.5*(y^(i)−y(i))^2<br>（乘以 0.5是为了求导时能与平方项的^2抵消，方便数学计算）。</li>
+<h1 id="三、划分输入和输出"><a href="#三、划分输入和输出" class="headerlink" title="三、划分输入和输出"></a>三、划分输入和输出</h1><p>机器学习一般：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 X → 预测 → 输出 y</span><br></pre></td></tr></table></figure>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inputs, outputs = data.iloc[:, <span class="number">0</span>:<span class="number">2</span>], data.iloc[:, <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+<p>解释：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.iloc[行,列]</span><br></pre></td></tr></table></figure>
+<p>这里：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0:2 → 前两列</span><br><span class="line">2 → 第三列</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inputs:</span><br><span class="line">NumRooms   Alley</span><br><span class="line"></span><br><span class="line">outputs:</span><br><span class="line">Price</span><br></pre></td></tr></table></figure>
+<h1 id="四、处理缺失值（NaN）"><a href="#四、处理缺失值（NaN）" class="headerlink" title="四、处理缺失值（NaN）"></a>四、处理缺失值（NaN）</h1><p>缺失值常见处理方法：</p>
+<h3 id="方法1-插值（最常用）"><a href="#方法1-插值（最常用）" class="headerlink" title="方法1 插值（最常用）"></a>方法1 插值（最常用）</h3><p>用平均值填充。<br>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inputs = inputs.fillna(inputs.mean())</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NumRooms:</span><br><span class="line">NaN</span><br><span class="line">2</span><br><span class="line">4</span><br><span class="line">NaN</span><br></pre></td></tr></table></figure>
+<p>平均：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(2+4)/2 = 3</span><br></pre></td></tr></table></figure>
+<p>填充后：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">2</span><br><span class="line">4</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<h3 id="方法2-删除"><a href="#方法2-删除" class="headerlink" title="方法2 删除"></a>方法2 删除</h3><p>直接删掉含 NaN 的行&#x2F;列。<br>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dropna()</span><br></pre></td></tr></table></figure>
+<p>但容易损失数据。</p>
+<h1 id="五、处理类别变量（字符串）"><a href="#五、处理类别变量（字符串）" class="headerlink" title="五、处理类别变量（字符串）"></a>五、处理类别变量（字符串）</h1><p>机器学习模型 <strong>不能直接处理字符串</strong>。<br>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Alley:</span><br><span class="line">Pave</span><br><span class="line">NaN</span><br><span class="line">NaN</span><br><span class="line">NaN</span><br></pre></td></tr></table></figure>
+<p>要变成 <strong>数值向量</strong>。<br>使用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.get_dummies()</span><br></pre></td></tr></table></figure>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inputs = pd.get_dummies(inputs, dummy_na=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<p>转换结果：</p>
+<table>
+<thead>
+<tr>
+<th>NumRooms</th>
+<th>Alley_Pave</th>
+<th>Alley_nan</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>解释：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Pave → [1,0]</span><br><span class="line">NaN  → [0,1]</span><br></pre></td></tr></table></figure>
+
+<p>这种叫：<br><strong>One-Hot Encoding（独热编码）把一个类别变量变成一个只有0和1的向量。</strong></p>
+<p>规则：</p>
+<ul>
+<li><p>这个类别所在位置 &#x3D; <strong>1</strong></p>
+</li>
+<li><p>其他类别位置 &#x3D; <strong>0</strong></p>
+</li>
 </ul>
+<p> 例子1：水果类别<br>假设有三种水果：<br>Apple<br>Banana<br>Orange<br>给每个类别一个位置：<br>Apple   → [1,0,0]<br>Banana  → [0,1,0]<br>Orange  → [0,0,1]<br>特点：</p>
+<ul>
+<li><p>只有 <strong>一个1</strong></p>
 </li>
-<li><strong>目标</strong>：寻找一组最优的参数w和b，使得整个训练集上的总损失最小。</li>
-<li><strong>泛化</strong>：更难做到的是找到一组参数，这组参数能够在我们从未见过的数据上实现较低的损失， 这一挑战被称为_泛化_</li>
-</ul>
-<h3 id="3-优化算法"><a href="#3-优化算法" class="headerlink" title="3. 优化算法"></a>3. 优化算法</h3><ul>
-<li><strong>解析解（Analytic Solution）</strong>：线性回归非常简单，是少有的可以直接通过数学公式（矩阵求导）一步算出全局最优解的模型。公式为：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">w∗=(X⊤X)−1X⊤y</span><br></pre></td></tr></table></figure></li>
-<li><strong>小批量随机梯度下降（Minibatch Stochastic Gradient Descent, SGD）</strong>：这是深度学习中<strong>真正使用</strong>的普适方法。因为复杂的深度模型没有解析解，必须通过这种“一步步试错改进”的算法来逼近最优解。<ul>
-<li><strong>步骤</strong>：随机抽取一小批数据计算误差对参数的导数（梯度），顺着梯度的反方向稍微更新一下参数。</li>
-<li><strong>超参数</strong>：<strong>批量大小（Batch Size）和</strong>学习率（Learning Rate）。这些是人为设定的，而不是模型自己学到的。</li>
-</ul>
+<li><p>其他都是 <strong>0</strong></p>
 </li>
 </ul>
-<h3 id="4-矢量化加速-Vectorization"><a href="#4-矢量化加速-Vectorization" class="headerlink" title="4. 矢量化加速 (Vectorization)"></a>4. 矢量化加速 (Vectorization)</h3><ul>
-<li><strong>核心准则</strong>：在深度学习代码中，计算多个样本的预测值和损失时，<strong>千万不要用 for 循环</strong>。</li>
-<li><strong>原因</strong>：应该利用线性代数，将数据打包成矩阵和向量进行计算。底层硬件（特别是 GPU）对矩阵运算有极强的并行处理能力，速度比 for 循环快成百上千倍。</li>
-</ul>
-<h4 id="5-理论支撑：正态分布与最大似然估计"><a href="#5-理论支撑：正态分布与最大似然估计" class="headerlink" title="5. 理论支撑：正态分布与最大似然估计"></a>5. 理论支撑：正态分布与最大似然估计</h4><ul>
-<li><strong>为什么一定要用平方损失？</strong> 这一节给出了统计学解释。</li>
-<li>假设：真实值y等于模型的完美预测值加上一些无法控制的随机噪声</li>
-<li>如果假设这些<strong>噪声服从正态分布（高斯分布）</strong>，那么根据统计学中的“最大似然估计（MLE）”原理，要让当前数据出现的概率最大，数学推导出的结果<strong>完全等价于</strong>最小化均方误差。</li>
-</ul>
-<h4 id="6-从线性回归到深度网络"><a href="#6-从线性回归到深度网络" class="headerlink" title="6. 从线性回归到深度网络"></a>6. 从线性回归到深度网络</h4><ul>
-<li><p><strong>网络结构</strong>：线性回归可以被看作是一个最简单的<strong>单层神经网络</strong>。</p>
-</li>
-<li><p><strong>全连接层</strong>：在这个网络中，输入层的所有特征节点都通过带权重的连线，直接连接到输出层的唯一一个神经元上。这种所有节点完全相连的结构，就是深度学习中最基础的“全连接层”。<br><img src="/img/2.png" alt=" "><br>如上所示的神经网络中，输入为x1—-xd， 因此输入层中的<strong>输入数</strong>（或称为<strong>特征维度</strong>）为d。 网络的输出为o1，因此输出层中的<strong>输出数</strong>是1。 需要注意的是，输入值都是已经给定的，并且只有一个<strong>计算</strong>神经元。 由于模型重点在发生计算的地方，所以通常我们在计算层数时不考虑输入层。 也就是说，图中神经网络的_层数_为1。 我们可以将线性回归模型视为仅由单个人工神经元组成的神经网络，或称为单层神经网络。<br>对于线性回归，每个输入都与每个输出（在本例中只有一个输出）相连， 我们将这种变换（ 图中的输出层） 称为<strong>全连接层</strong>或称为<strong>稠密层</strong>。 下一章将详细讨论由这些层组成的网络。</p>
-</li>
-<li><p>机器学习模型中的关键要素是训练数据、损失函数、优化算法，还有模型本身。</p>
-</li>
-<li><p>矢量化使数学表达上更简洁，同时运行的更快。</p>
-</li>
-<li><p>最小化目标函数和执行极大似然估计等价。</p>
-</li>
-<li><p>线性回归模型也是一个简单的神经网络</p>
-</li>
-</ul>
+<p>所以叫 <strong>one-hot</strong>：</p>
+<h1 id="六、转换为张量"><a href="#六、转换为张量" class="headerlink" title="六、转换为张量"></a>六、转换为张量</h1><p>深度学习框架只接受 <strong>tensor</strong>。</p>
+<p>步骤：</p>
+<h3 id="1-先变-numpy"><a href="#1-先变-numpy" class="headerlink" title="1 先变 numpy"></a>1 先变 numpy</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inputs.to_numpy()</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-再变-tensor"><a href="#2-再变-tensor" class="headerlink" title="2 再变 tensor"></a>2 再变 tensor</h3><p>例如 PyTorch：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">X = torch.tensor(inputs.to_numpy(dtype=<span class="built_in">float</span>))</span><br><span class="line">y = torch.tensor(outputs.to_numpy(dtype=<span class="built_in">float</span>))</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">X =</span><br><span class="line">[[3.,1.,0.]</span><br><span class="line"> [2.,0.,1.]</span><br><span class="line"> [4.,0.,1.]</span><br><span class="line"> [3.,0.,1.]]</span><br><span class="line"></span><br><span class="line">y =</span><br><span class="line">[127500.,106000.,178100.,140000.]</span><br></pre></td></tr></table></figure>
+
+<h1 id="七、完整数据处理流程（重点记）"><a href="#七、完整数据处理流程（重点记）" class="headerlink" title="七、完整数据处理流程（重点记）"></a>七、完整数据处理流程（重点记）</h1><p>机器学习常见流程：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">原始数据(CSV)</span><br><span class="line">      ↓</span><br><span class="line">pandas读取</span><br><span class="line">      ↓</span><br><span class="line">处理缺失值</span><br><span class="line">      ↓</span><br><span class="line">类别变量编码</span><br><span class="line">      ↓</span><br><span class="line">转numpy</span><br><span class="line">      ↓</span><br><span class="line">转tensor</span><br><span class="line">      ↓</span><br><span class="line">输入神经网络</span><br></pre></td></tr></table></figure>
+<h1 id="八、本节核心知识点（考试-面试版）"><a href="#八、本节核心知识点（考试-面试版）" class="headerlink" title="八、本节核心知识点（考试&#x2F;面试版）"></a>八、本节核心知识点（考试&#x2F;面试版）</h1><p><strong>1️⃣ pandas</strong><br>Python最常用数据分析库。</p>
+<p>常见函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv()</span><br></pre></td></tr></table></figure>
+<p><strong>2️⃣ iloc</strong></p>
+<p>按位置取数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.iloc[行,列]</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.iloc[:,0:2]</span><br></pre></td></tr></table></figure>
+
+<p><strong>3️⃣ 缺失值处理</strong><br>两种方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>插值</td>
+<td>用平均值填充</td>
+</tr>
+<tr>
+<td>删除</td>
+<td>删掉缺失数据</td>
+</tr>
+</tbody></table>
+<p>常用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fillna()</span><br></pre></td></tr></table></figure>
+
+<p><strong>4️⃣ 类别变量编码</strong><br>字符串 → 数值<br>方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.get_dummies()</span><br></pre></td></tr></table></figure>
+<p>原理：<br><strong>One-hot encoding</strong><br><strong>5️⃣ 转换为张量</strong><br>流程：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pandas → numpy → tensor</span><br></pre></td></tr></table></figure>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor()</span><br></pre></td></tr></table></figure>
+<h1 id="九、其实这一节的核心只有一句话"><a href="#九、其实这一节的核心只有一句话" class="headerlink" title="九、其实这一节的核心只有一句话"></a>九、其实这一节的核心只有一句话</h1><p>深度学习数据准备流程：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CSV → pandas → 清洗数据 → 数值化 → tensor</span><br></pre></td></tr></table></figure>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-10T09:10:17.038Z" title="3/10/2026, 5:10:17 PM">2026-03-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">38 分钟读完 (大约5646个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-05/">深度学习笔记（五）：线性回归及它的朋友们</a></p><div class="content"><h1 id="一、序言"><a href="#一、序言" class="headerlink" title="一、序言"></a>一、序言</h1><p>机器学习模型从本质上来说，是在做一件非常简单的事情：<strong>通过数据找到一个函数，让输入可以尽量准确地预测输出</strong>。比如说，如果我们有很多房子的面积和对应的房价，我们就希望找到一个函数，当输入面积的时候，这个函数可以输出一个接近真实房价的数值。假设我们只有一个特征（面积），最简单的模型就是线性回归。线性回归假设输入和输出之间是一个线性关系，也就是说：<br>							$y &#x3D; wx + b$<br>这里的 (x) 是输入特征，比如房屋面积，(w) 是权重，表示面积对房价的影响程度，而 (b) 是偏置，可以理解为基础价格。这个公式的含义其实非常直观：房价等于面积乘以一个系数，再加上一个基础值。如果我们有多个特征，比如面积、地段、楼层等等，那么公式就会变成：<br>						$y &#x3D; w_1x_1 + w_2x_2 + … + w_dx_d + b$<br>如果用矩阵形式写，会更紧凑：$y &#x3D; Xw + b$<br>这里的 (X) 是输入数据矩阵，每一行是一条数据，每一列是一个特征；(w) 是权重向量；(b) 是偏置。<br>在实际编程时，我们需要把数据先表示成张量。比如有三条数据，每条数据只有一个特征，我们可以写成：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X = torch.tensor([[<span class="number">50</span>],[<span class="number">80</span>],[<span class="number">100</span>]])</span><br><span class="line">y = torch.tensor([[<span class="number">200</span>],[<span class="number">320</span>],[<span class="number">400</span>]])</span><br></pre></td></tr></table></figure>
 <p>这里 (X) 是输入特征，(y) 是真实标签。然后我们定义模型。在 PyTorch 中，一个线性回归模型可以直接用 <code>nn.Linear</code> 表示：</p>
