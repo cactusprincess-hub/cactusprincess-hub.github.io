@@ -29,7 +29,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">review</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-01T04:00:00.000Z" title="4/1/2026, 12:00:00 PM">2026-04-01</time>发表</span><span class="level-item"><time dateTime="2026-04-01T01:54:21.795Z" title="4/1/2026, 9:54:21 AM">2026-04-01</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">7 分钟读完 (大约986个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/01/11--References%20&amp;%20the%20%20Copy-Constructor/">oop11</a></p><div class="content"><h1 id="第一部分：知识点（普通文本）"><a href="#第一部分：知识点（普通文本）" class="headerlink" title="第一部分：知识点（普通文本）"></a>第一部分：知识点（普通文本）</h1><h2 id="1-指针（Pointer）回顾"><a href="#1-指针（Pointer）回顾" class="headerlink" title="1. 指针（Pointer）回顾"></a>1. 指针（Pointer）回顾</h2><p>指针本质是<strong>存储地址的变量</strong>。定义时必须指定类型，并建议初始化。</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">review</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-01T04:00:00.000Z" title="4/1/2026, 12:00:00 PM">2026-04-01</time>发表</span><span class="level-item"><time dateTime="2026-04-02T05:36:12.205Z" title="4/2/2026, 1:36:12 PM">2026-04-02</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">12 分钟读完 (大约1769个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/01/11--References%20&amp;%20the%20%20Copy-Constructor/">oop11</a></p><div class="content"><h1 id="第一部分：知识点（普通文本）"><a href="#第一部分：知识点（普通文本）" class="headerlink" title="第一部分：知识点（普通文本）"></a>第一部分：知识点（普通文本）</h1><h2 id="1-指针（Pointer）回顾"><a href="#1-指针（Pointer）回顾" class="headerlink" title="1. 指针（Pointer）回顾"></a>1. 指针（Pointer）回顾</h2><p>指针本质是<strong>存储地址的变量</strong>。定义时必须指定类型，并建议初始化。</p>
 <p>例如：</p>
 <p>int a &#x3D; 0;<br>int* p &#x3D; &a;</p>
 <p>核心能力：</p>
@@ -184,6 +184,118 @@
 <p>obj.*ptr</p>
 <hr>
 <h2 id="9-void-直接转类型"><a href="#9-void-直接转类型" class="headerlink" title="9. void* 直接转类型"></a>9. void* 直接转类型</h2><p>int* p &#x3D; vp; &#x2F;&#x2F; ❌</p>
+<h1 id="第三部分：关于返回值和传参"><a href="#第三部分：关于返回值和传参" class="headerlink" title="第三部分：关于返回值和传参"></a>第三部分：关于返回值和传参</h1><h2 id="一、核心结论（先给你定心丸）"><a href="#一、核心结论（先给你定心丸）" class="headerlink" title="一、核心结论（先给你定心丸）"></a>一、核心结论（先给你定心丸）</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>返回值</th>
+<th>是否必须一致</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>值</td>
+<td>值</td>
+<td>✔ 正常</td>
+</tr>
+<tr>
+<td>引用</td>
+<td>值</td>
+<td>✔ 正常</td>
+</tr>
+<tr>
+<td>值</td>
+<td>引用</td>
+<td>⚠️ 很危险</td>
+</tr>
+<tr>
+<td>引用</td>
+<td>引用</td>
+<td>✔ 常见</td>
+</tr>
+</tbody></table>
+<p>👉 <strong>没有“必须同时用”的规则</strong></p>
+<hr>
+<h2 id="二、为什么你会有这个疑问？"><a href="#二、为什么你会有这个疑问？" class="headerlink" title="二、为什么你会有这个疑问？"></a>二、为什么你会有这个疑问？</h2><p>因为你刚看到这个函数👇</p>
+<p>double&amp; returnmax(double&amp; x, double&amp; y)</p>
+<p>👉 这里：</p>
+<ul>
+<li>参数是引用</li>
+<li>返回值也是引用</li>
+</ul>
+<p>👉 看起来像“必须搭配”</p>
+<hr>
+<p>👉 但其实不是“必须”，而是：</p>
+<p>👉 <strong>这个场景刚好需要这样设计</strong></p>
+<hr>
+<h2 id="三、逐种情况帮你讲透（重点）"><a href="#三、逐种情况帮你讲透（重点）" class="headerlink" title="三、逐种情况帮你讲透（重点）"></a>三、逐种情况帮你讲透（重点）</h2><hr>
+<h3 id="✅-情况1：参数用引用，返回用值（很常见）"><a href="#✅-情况1：参数用引用，返回用值（很常见）" class="headerlink" title="✅ 情况1：参数用引用，返回用值（很常见）"></a>✅ 情况1：参数用引用，返回用值（很常见）</h3><p>int add(const int&amp; a, const int&amp; b) {<br>    return a + b;<br>}</p>
+<p>👉 为什么这样？</p>
+<ul>
+<li>参数用引用：避免拷贝 ✔</li>
+<li>返回值：是新结果 → 用值 ✔</li>
+</ul>
+<p>👉 非常合理 👍</p>
+<hr>
+<h3 id="⚠️-情况2：参数用值，返回引用（危险！）"><a href="#⚠️-情况2：参数用值，返回引用（危险！）" class="headerlink" title="⚠️ 情况2：参数用值，返回引用（危险！）"></a>⚠️ 情况2：参数用值，返回引用（危险！）</h3><p>int&amp; f(int x) {<br>    return x;  &#x2F;&#x2F; ❌<br>}</p>
+<p>👉 问题：</p>
+<ul>
+<li><code>x</code> 是函数内部的局部变量</li>
+<li>函数结束就销毁</li>
+</ul>
+<p>👉 返回引用 → <strong>悬空引用（野引用）💥</strong></p>
+<hr>
+<p>👉 所以：</p>
+<p>👉 ❗这种写法基本一定错</p>
+<hr>
+<h3 id="✅-情况3：参数引用-返回引用（你这个例子）"><a href="#✅-情况3：参数引用-返回引用（你这个例子）" class="headerlink" title="✅ 情况3：参数引用 + 返回引用（你这个例子）"></a>✅ 情况3：参数引用 + 返回引用（你这个例子）</h3><p>double&amp; returnmax(double&amp; x, double&amp; y)</p>
+<p>👉 为什么这样设计？</p>
+<p>因为：</p>
+<p>👉 <strong>要返回原变量本身</strong></p>
+<p>这样才可以：</p>
+<p>returnmax(a, b) &#x3D; 3.3;</p>
+<p>👉 修改的是 <code>a</code> 或 <code>b</code></p>
+<hr>
+<h3 id="✅-情况4：参数值-返回值（最普通）"><a href="#✅-情况4：参数值-返回值（最普通）" class="headerlink" title="✅ 情况4：参数值 + 返回值（最普通）"></a>✅ 情况4：参数值 + 返回值（最普通）</h3><p>int square(int x) {<br>    return x * x;<br>}</p>
+<p>👉 没问题</p>
+<hr>
+<h2 id="四、真正的设计原则（重点！！！）"><a href="#四、真正的设计原则（重点！！！）" class="headerlink" title="四、真正的设计原则（重点！！！）"></a>四、真正的设计原则（重点！！！）</h2><p>👉 不要记“必须同时用”</p>
+<p>👉 要记这个👇</p>
+<hr>
+<h3 id="🔥-设计原则"><a href="#🔥-设计原则" class="headerlink" title="🔥 设计原则"></a>🔥 设计原则</h3><h4 id="1️⃣-参数用不用引用？"><a href="#1️⃣-参数用不用引用？" class="headerlink" title="1️⃣ 参数用不用引用？"></a>1️⃣ 参数用不用引用？</h4><p>👉 看：<strong>要不要避免拷贝 &#x2F; 要不要修改原数据</strong></p>
+<hr>
+<h4 id="2️⃣-返回值用不用引用？"><a href="#2️⃣-返回值用不用引用？" class="headerlink" title="2️⃣ 返回值用不用引用？"></a>2️⃣ 返回值用不用引用？</h4><p>👉 看：<strong>返回的是不是“已有对象”</strong></p>
+<hr>
+<h2 id="五、套回你这个函数（彻底理解）"><a href="#五、套回你这个函数（彻底理解）" class="headerlink" title="五、套回你这个函数（彻底理解）"></a>五、套回你这个函数（彻底理解）</h2><p>double&amp; returnmax(double&amp; x, double&amp; y)</p>
+<hr>
+<p>👉 为什么：</p>
+<h3 id="✔-参数用引用"><a href="#✔-参数用引用" class="headerlink" title="✔ 参数用引用"></a>✔ 参数用引用</h3><ul>
+<li>不拷贝</li>
+<li>直接操作 a、b</li>
+</ul>
+<hr>
+<h3 id="✔-返回引用"><a href="#✔-返回引用" class="headerlink" title="✔ 返回引用"></a>✔ 返回引用</h3><ul>
+<li>返回的是 x 或 y 本身</li>
+<li>不是新值</li>
+</ul>
+<hr>
+<p>👉 所以才能：</p>
+<p>returnmax(a, b) &#x3D; 3.3;</p>
+<hr>
+<h2 id="六、一个反例帮你彻底醒悟"><a href="#六、一个反例帮你彻底醒悟" class="headerlink" title="六、一个反例帮你彻底醒悟"></a>六、一个反例帮你彻底醒悟</h2><hr>
+<h3 id="❌-错误写法"><a href="#❌-错误写法" class="headerlink" title="❌ 错误写法"></a>❌ 错误写法</h3><p>double&amp; returnmax(double x, double y)</p>
+<p>👉 参数是值 → x、y 是副本</p>
+<p>👉 返回：</p>
+<p>return x;  &#x2F;&#x2F; ❌ 返回局部变量</p>
+<p>👉 💥 悬空引用</p>
+<hr>
+<h2 id="七、终极一句话总结"><a href="#七、终极一句话总结" class="headerlink" title="七、终极一句话总结"></a>七、终极一句话总结</h2><p>👉 <strong>参数是否用引用，取决于是否需要避免拷贝或修改实参；返回值是否用引用，取决于是否要返回已有对象本身。两者没有必须绑定关系。</strong></p>
+<hr>
+<h2 id="八、给你一个记忆口诀（很有用）"><a href="#八、给你一个记忆口诀（很有用）" class="headerlink" title="八、给你一个记忆口诀（很有用）"></a>八、给你一个记忆口诀（很有用）</h2><p>👉 <strong>“参数看输入，返回看来源”</strong></p>
+<ul>
+<li>输入要省拷贝 → 用引用</li>
+<li>返回已有对象 → 用引用</li>
+<li>返回新结果 → 用值</li>
+</ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-01T01:00:00.000Z" title="4/1/2026, 9:00:00 AM">2026-04-01</time>发表</span><span class="level-item"><time dateTime="2026-04-01T01:42:34.804Z" title="4/1/2026, 9:42:34 AM">2026-04-01</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">14 分钟读完 (大约2131个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/01/10--Name%20Control/">oop10</a></p><div class="content"><h1 id="第一部分：知识点（普通文本）"><a href="#第一部分：知识点（普通文本）" class="headerlink" title="第一部分：知识点（普通文本）"></a>第一部分：知识点（普通文本）</h1><h2 id="1-Name-Control-的核心目标"><a href="#1-Name-Control-的核心目标" class="headerlink" title="1. Name Control 的核心目标"></a>1. Name Control 的核心目标</h2><p>这一章讲的是如何控制“名字”的创建、可见性、存储位置和链接属性。课件把重点放在两类机制上：<code>static</code> 和 <code>namespace</code>。前者用于限制名字可见范围、改变存储方式，后者用于把全局名字拆分到更可管理的命名空间中。</p>
 <h2 id="2-static-的两个基本含义"><a href="#2-static-的两个基本含义" class="headerlink" title="2. static 的两个基本含义"></a>2. static 的两个基本含义</h2><p><code>static</code> 有两个核心作用。第一，它可以控制名字的可见性，使该名字不能在翻译单元外或类外被看到；第二，它表示对象存储在静态数据区，而不是每次函数调用时都在栈上重新创建。也就是说，<code>static</code> 同时涉及“作用域&#x2F;链接”与“存储期”两个层面。</p>
 <h2 id="3-函数内-static-变量"><a href="#3-函数内-static-变量" class="headerlink" title="3. 函数内 static 变量"></a>3. 函数内 static 变量</h2><p>函数内部的 <code>static</code> 局部变量会在多次函数调用之间保留值。它只在第一次执行到定义处时初始化一次，之后不会再次初始化。若是内置类型且没有写初值，编译器会保证它被初始化为 0。普通局部变量则每次调用都会重新创建并销毁。</p>
