@@ -29,7 +29,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">review</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-01T04:00:00.000Z" title="4/1/2026, 12:00:00 PM">2026-04-01</time>发表</span><span class="level-item"><time dateTime="2026-04-02T05:40:51.571Z" title="4/2/2026, 1:40:51 PM">2026-04-02</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">13 分钟读完 (大约1943个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/01/11--References%20&amp;%20the%20%20Copy-Constructor/">oop11</a></p><div class="content"><h1 id="第一部分：知识点（普通文本）"><a href="#第一部分：知识点（普通文本）" class="headerlink" title="第一部分：知识点（普通文本）"></a>第一部分：知识点（普通文本）</h1><h2 id="1-指针（Pointer）回顾"><a href="#1-指针（Pointer）回顾" class="headerlink" title="1. 指针（Pointer）回顾"></a>1. 指针（Pointer）回顾</h2><p>指针本质是<strong>存储地址的变量</strong>。定义时必须指定类型，并建议初始化。</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">review</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-01T04:00:00.000Z" title="4/1/2026, 12:00:00 PM">2026-04-01</time>发表</span><span class="level-item"><time dateTime="2026-04-02T07:19:07.874Z" title="4/2/2026, 3:19:07 PM">2026-04-02</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">14 分钟读完 (大约2164个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/01/11--References%20&amp;%20the%20%20Copy-Constructor/">oop11</a></p><div class="content"><h1 id="第一部分：知识点（普通文本）"><a href="#第一部分：知识点（普通文本）" class="headerlink" title="第一部分：知识点（普通文本）"></a>第一部分：知识点（普通文本）</h1><h2 id="1-指针（Pointer）回顾"><a href="#1-指针（Pointer）回顾" class="headerlink" title="1. 指针（Pointer）回顾"></a>1. 指针（Pointer）回顾</h2><p>指针本质是<strong>存储地址的变量</strong>。定义时必须指定类型，并建议初始化。</p>
 <p>例如：</p>
 <p>int a &#x3D; 0;<br>int* p &#x3D; &a;</p>
 <p>核心能力：</p>
@@ -160,6 +160,80 @@
 <p>调用：</p>
 <p>(obj.*pf)(x);</p>
 <p>👉 注意语法复杂，是考试重点</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>写法是否正确？</th>
+<th>核心规则</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>普通数据</td>
+<td><code>int* p = x;</code> ❌<br><br><code>int* p = &amp;x;</code> ✅</td>
+<td>必须显式<code>&amp;</code></td>
+</tr>
+<tr>
+<td>成员数据</td>
+<td><code>int Data::*pm = Data::a;</code> ❌<br><br><code>int Data::*pm = &amp;Data::a;</code> ✅</td>
+<td>必须显式<code>&amp;</code></td>
+</tr>
+<tr>
+<td>普通全局函数</td>
+<td><code>int(*fp)(float) = f;</code> ✅<br><br><code>int(*fp)(float) = &amp;f;</code> ✅</td>
+<td>唯一可省略<code>&amp;</code>的场景（兼容 C）</td>
+</tr>
+<tr>
+<td>非静态成员函数</td>
+<td><code>void(Widget::*pmem)(int)const = Widget::h;</code> ❌<br><br><code>void(Widget::*pmem)(int)const = &amp;Widget::h;</code> ✅</td>
+<td>必须显式<code>&amp;</code></td>
+</tr>
+<tr>
+<td>静态成员函数</td>
+<td><code>void(*fp)(int) = Widget::s;</code> ✅<br><br><code>void(*fp)(int) = &amp;Widget::s;</code> ✅</td>
+<td>可省略<code>&amp;</code>（本质是普通函数）</td>
+</tr>
+<tr>
+<td>项目</td>
+<td>非静态成员函数</td>
+<td>静态成员函数</td>
+</tr>
+<tr>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>属于谁</td>
+<td>对象</td>
+<td>类</td>
+</tr>
+<tr>
+<td>有没有 this 指针</td>
+<td>有</td>
+<td>无</td>
+</tr>
+<tr>
+<td>能访问普通成员变量</td>
+<td>能</td>
+<td>不能</td>
+</tr>
+<tr>
+<td>调用方式</td>
+<td>对象 &#x2F; 指针</td>
+<td>类名：：即可</td>
+</tr>
+<tr>
+<td>函数指针类型</td>
+<td>成员函数指针</td>
+<td>普通函数指针</td>
+</tr>
+<tr>
+<td>取地址是否必须加 &amp;</td>
+<td>必须</td>
+<td>可省略</td>
+</tr>
+</tbody></table>
 <hr>
 <h1 id="第二部分：易错点（普通文本）"><a href="#第二部分：易错点（普通文本）" class="headerlink" title="第二部分：易错点（普通文本）"></a>第二部分：易错点（普通文本）</h1><h2 id="1-引用可以重新绑定（错误❌）"><a href="#1-引用可以重新绑定（错误❌）" class="headerlink" title="1. 引用可以重新绑定（错误❌）"></a>1. 引用可以重新绑定（错误❌）</h2><p>int&amp; r &#x3D; a;<br>r &#x3D; b; &#x2F;&#x2F; 不是改指向，而是赋值</p>
 <hr>
