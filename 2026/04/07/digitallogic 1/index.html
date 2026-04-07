@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>digitallogic1 - CactusPrincess&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="CactusPrincess&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="CactusPrincess&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="一、数字系统 定义 数字系统是离散信息处理系统，以一组离散信息为输入，以离散内部信息为系统状态，最终输出离散形式的结果。 分类   组合逻辑系统：无状态记忆功能，输出值仅由当前输入决定，公式：output &amp;#x3D; f (input) 时序逻辑系统：具备状态记忆功能，输出值由当前输入 + 系统状态共同决定，公式：output &amp;#x3D; f (state, input) 同步时序系统：在离散"><meta property="og:type" content="blog"><meta property="og:title" content="digitallogic1"><meta property="og:url" content="https://cactusprincess-hub.github.io/2026/04/07/digitallogic%201/"><meta property="og:site_name" content="CactusPrincess&#039;s Blog"><meta property="og:description" content="一、数字系统 定义 数字系统是离散信息处理系统，以一组离散信息为输入，以离散内部信息为系统状态，最终输出离散形式的结果。 分类   组合逻辑系统：无状态记忆功能，输出值仅由当前输入决定，公式：output &amp;#x3D; f (input) 时序逻辑系统：具备状态记忆功能，输出值由当前输入 + 系统状态共同决定，公式：output &amp;#x3D; f (state, input) 同步时序系统：在离散"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://cactusprincess-hub.github.io/img/og_image.png"><meta property="article:published_time" content="2026-04-07T02:00:00.000Z"><meta property="article:modified_time" content="2026-04-07T15:55:21.172Z"><meta property="article:author" content="cactusprincess"><meta property="article:tag" content="review"><meta property="article:tag" content="note"><meta property="article:tag" content="digitallogic"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://cactusprincess-hub.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://cactusprincess-hub.github.io/2026/04/07/digitallogic%201/"},"headline":"digitallogic1","image":["https://cactusprincess-hub.github.io/img/og_image.png"],"datePublished":"2026-04-07T02:00:00.000Z","dateModified":"2026-04-07T15:55:21.172Z","author":{"@type":"Person","name":"cactusprincess"},"publisher":{"@type":"Organization","name":"CactusPrincess's Blog","logo":{"@type":"ImageObject","url":"https://cactusprincess-hub.github.io/img/logo.svg"}},"description":"一、数字系统 定义 数字系统是离散信息处理系统，以一组离散信息为输入，以离散内部信息为系统状态，最终输出离散形式的结果。 分类   组合逻辑系统：无状态记忆功能，输出值仅由当前输入决定，公式：output &#x3D; f (input) 时序逻辑系统：具备状态记忆功能，输出值由当前输入 + 系统状态共同决定，公式：output &#x3D; f (state, input) 同步时序系统：在离散"}</script><link rel="canonical" href="https://cactusprincess-hub.github.io/2026/04/07/digitallogic%201/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-07T02:00:00.000Z" title="4/7/2026, 10:00:00 AM">2026-04-07</time>发表</span><span class="level-item"><time dateTime="2026-04-07T15:55:21.172Z" title="4/7/2026, 11:55:21 PM">2026-04-07</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/">数字逻辑笔记</a></span><span class="level-item">10 分钟读完 (大约1551个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">digitallogic1</h1><div class="content"><h2 id="一、数字系统"><a href="#一、数字系统" class="headerlink" title="一、数字系统"></a>一、数字系统</h2><ol>
+<li><strong>定义</strong><br> 数字系统是<strong>离散信息处理系统</strong>，以一组离散信息为输入，以离散内部信息为系统状态，最终输出离散形式的结果。</li>
+<li><strong>分类</strong></li>
+</ol>
+<ul>
+<li>组合逻辑系统：无状态记忆功能，输出值仅由<strong>当前输入</strong>决定，公式：output &#x3D; f (input)</li>
+<li>时序逻辑系统：具备状态记忆功能，输出值由<strong>当前输入 + 系统状态</strong>共同决定，公式：output &#x3D; f (state, input)<ul>
+<li>同步时序系统：在<strong>离散时间点</strong>更新状态</li>
+<li>异步时序系统：在<strong>任意时间点</strong>更新状态</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><strong>典型系统</strong><br> 数字计数器、数字计算机、嵌入式系统、手机、相机、汽车电子、GPS、复印机、洗碗机等。</li>
+</ol>
+<h2 id="二、信息表示"><a href="#二、信息表示" class="headerlink" title="二、信息表示"></a>二、信息表示</h2><ol>
+<li><strong>核心概念</strong></li>
+</ol>
+<ul>
+<li>信息：对物质世界与人类社会现象的表示，可消除不确定性，用信息熵衡量。</li>
+<li>信号：信息的物理载体，分为<strong>模拟信号（连续物理量）<strong>和</strong>数字信号（离散物理量）</strong>。</li>
+</ul>
+<ol start="2">
+<li><p><strong>二进制表示</strong></p>
+<p> 数字系统广泛采用二进制，用 0 和 1 表示，也可对应真 &#x2F; 假、高 &#x2F; 低、开 &#x2F; 关；可通过电压、磁场方向、电荷量等物理量实现二进制。</p>
+</li>
+</ol>
+<h2 id="三、数制"><a href="#三、数制" class="headerlink" title="三、数制"></a>三、数制</h2><ol>
+<li><strong>基础定义</strong></li>
+</ol>
+<ul>
+<li>数制：数的表示规则。</li>
+<li>基底 r：数制包含的数字符号个数。</li>
+<li>权 r^i：数字符号位置对应的值，数值 &#x3D; 各位数字值 × 对应权值之和。</li>
+</ul>
+<ol start="2">
+<li><strong>常用数制</strong></li>
+</ol>
+<ul>
+<li>二进制（B&#x2F;2）：0、1</li>
+<li>八进制（O&#x2F;8）：0~7</li>
+<li>十进制（D&#x2F;10）：0~9</li>
+<li>十六进制（H&#x2F;16）：0<del>9、A</del>F</li>
+</ul>
+<ol start="3">
+<li><p><strong>二进制单位</strong></p>
+<p> 2^10&#x3D;1K、2^20&#x3D;1M、2^30&#x3D;1G、2^40&#x3D;1T</p>
+</li>
+<li><p><strong>数制运算</strong></p>
+<p> 二进制、八进制、十六进制加减乘规则同十进制，按位计算，逢基底 r 进 1。</p>
+</li>
+<li><p><strong>数制转换</strong></p>
+</li>
+</ol>
+<ul>
+<li>非十进制→十进制：<strong>按权展开求和</strong></li>
+<li>十进制→非十进制：整数部分<strong>除 r 取余</strong>（余数倒序），小数部分<strong>乘 r 取整</strong>（整数正序）</li>
+<li>二 &#x2F; 八 &#x2F; 十六互转：1 位八进制 &#x3D; 3 位二进制，1 位十六进制 &#x3D; 4 位二进制，以小数点为界分组转换</li>
+</ul>
+<h2 id="四、编码"><a href="#四、编码" class="headerlink" title="四、编码"></a>四、编码</h2><ol>
+<li><p><strong>二进制编码</strong></p>
+<p> n 位二进制编码可表示 2^n 个数据；表达 M 个数据需要⌈log₂(M)⌉位；分数值型（可算术运算）、非数值型（无需算术运算）。</p>
+</li>
+<li><p><strong>BCD 码</strong></p>
+<p> 用 4 位二进制表示 0<del>9 的十进制编码，8421 码最常用（加权码，权值 8、4、2、1），1010</del>1111 为无效码；<strong>进制转换≠编码</strong>，如十进制 13，二进制是 1101，BCD 码是 0001 0011。</p>
+</li>
+<li><p><strong>格雷码</strong></p>
+</li>
+</ol>
+<ul>
+<li>核心特点：计数时相邻编码<strong>仅 1 位不同</strong>，位翻转少、功耗低、抗干扰，可避免编码错误。</li>
+<li>编制方法：(n+1) 位格雷码 &#x3D; n 位格雷码（顺序 + 前缀 0）+ n 位格雷码（逆序 + 前缀 1）。</li>
+</ul>
+<ol start="4">
+<li><strong>字符编码</strong></li>
+</ol>
+<ul>
+<li>ASCII 码：7 位二进制，共 128 个字符（94 个可打印 + 34 个控制符）；数字 0<del>9、大写 A</del>Z、小写 a~z 编码连续，大小写转换翻转 B6 位即可。</li>
+<li>Unicode：统一码，覆盖全球语言字符；UTF-8 兼容 ASCII，1~4 字节可变长编码。</li>
+</ul>
+<ol start="5">
+<li><strong>校验位</strong></li>
+</ol>
+<ul>
+<li>作用：检测数据传输错误，增加 1 位校验码。</li>
+<li>偶校验：编码中 1 的个数为偶数，校验位填 0。</li>
+<li>奇校验：编码中 1 的个数为奇数，校验位填 0。</li>
+<li>局限：无法定位错误位，无法检测偶数个位出错。</li>
+</ul>
+<h1 id="数字逻辑-第一章-数字系统-完整易错点总结"><a href="#数字逻辑-第一章-数字系统-完整易错点总结" class="headerlink" title="数字逻辑 第一章 数字系统 完整易错点总结"></a>数字逻辑 第一章 数字系统 完整易错点总结</h1><ol>
+<li>组合逻辑与时序逻辑混淆：组合逻辑无状态、输出只看当前输入；时序逻辑有记忆、输出依赖输入 + 历史状态，二者判断易出错。</li>
+<li>十进制转非十进制顺序错误：整数部分除 r 取余需<strong>倒序排列</strong>，小数部分乘 r 取整需<strong>正序排列</strong>，极易写反。</li>
+<li>二 &#x2F; 八 &#x2F; 十六进制转换补零错误：以小数点为界分组时，整数左侧、小数右侧易漏补 0，导致转换结果错误。</li>
+<li>BCD 码与二进制转换混淆：将十进制数直接转为二进制当作 BCD 码，忽略 BCD 码按十进制位拆分编码的规则。</li>
+<li>格雷码核心特性误解：误以为格雷码是二进制逐位加 1，忽略<strong>相邻仅 1 位变化</strong>的关键特点。</li>
+<li>校验位功能认知错误：认为奇偶校验能纠正错误、检测所有错误，忽略其无法定位错误、无法检测偶数位错误的局限。</li>
+<li>进制后缀标识错误：B（二）、O（八）、D（十）、H（十六）混用，导致数制识别错误。</li>
+<li>二进制单位计算错误：混淆二进制 1K&#x3D;1024 与十进制 1K&#x3D;1000，单位换算出错。</li>
+<li>数制按权展开计算错误：小数点左右侧权值符号搞反（左侧正次幂、右侧负次幂），求和结果错误。</li>
+<li>ASCII 码大小写转换错误：记错翻转位，或混淆数字、字母的编码区间。</li>
+<li><table>
+<thead>
+<tr>
+<th>编码</th>
+<th>长度</th>
+<th>存储方式</th>
+<th>兼容 ASCII</th>
+<th>常用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UTF-32</td>
+<td>固定 4 字节</td>
+<td>直接填码点</td>
+<td>不兼容</td>
+<td>极少用</td>
+</tr>
+<tr>
+<td>UTF-16</td>
+<td>2&#x2F;4 字节</td>
+<td>常用字 2 字节，生僻字 4 字节</td>
+<td>不兼容</td>
+<td>Windows 内部</td>
+</tr>
+<tr>
+<td>UTF-8</td>
+<td>1~4 字节</td>
+<td>按码点大小自动选长度</td>
+<td><strong>完全兼容</strong></td>
+<td>网页 &#x2F; 文件 &#x2F; 全球通用</td>
+</tr>
+<tr>
+<td>Unicode &#x3D; 字符的身份证号（数字）</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>UTF-8&#x2F;16&#x2F;32 &#x3D; 把身份证号存进电脑的三种打包方式</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>能存进来的原因：数字可以用任意二进制格式打包</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>日常只用记：UTF-8 是通用标准，中文占 3 字节，英文占 1 字节</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+</div><div class="article-licensing box"><div class="licensing-title"><p>digitallogic1</p><p><a href="https://cactusprincess-hub.github.io/2026/04/07/digitallogic 1/">https://cactusprincess-hub.github.io/2026/04/07/digitallogic 1/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>cactusprincess</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2026-04-07</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2026-04-07</p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/review/">review</a><a class="link-muted mr-2" rel="tag" href="/tags/note/">note</a><a class="link-muted mr-2" rel="tag" href="/tags/digitallogic/">digitallogic</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2026/04/04/12--Operator%20Overloading/"><span class="level-item">oop12</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><script src="https://giscus.app/client.js" repo="cactusprincess-hub/cactusprincess-hub.github.io" data-repo="cactusprincess-hub/cactusprincess-hub.github.io" data-repo-id="R_kgDORDU9CA" data-category-id="DIC_kwDORDU9CM4C1i3p" data-category="Announcements" data-mapping="pathnamehexo g" data-strict="1" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="zh-CN" crossorigin="anonymous" async></script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">22</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">7</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">18</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数字逻辑笔记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数据库笔记</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-07T02:00:00.000Z">2026-04-07</time></p><p class="title"><a href="/2026/04/07/digitallogic%201/">digitallogic1</a></p><p class="categories"><a href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/">数字逻辑笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-04T01:00:00.000Z">2026-04-04</time></p><p class="title"><a href="/2026/04/04/12--Operator%20Overloading/">oop12</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-03T02:00:00.000Z">2026-04-03</time></p><p class="title"><a href="/2026/04/03/4-SQL-1/">database4</a></p><p class="categories"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-02T11:00:00.000Z">2026-04-02</time></p><p class="title"><a href="/2026/04/02/3-%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93/">database3</a></p><p class="categories"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-01T04:00:00.000Z">2026-04-01</time></p><p class="title"><a href="/2026/04/01/11--References%20&amp;%20the%20%20Copy-Constructor/">oop11</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/database/"><span class="tag">database</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/digitallogic/"><span class="tag">digitallogic</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
