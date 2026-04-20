@@ -1646,6 +1646,68 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SQL</span><br><span class="line">↓</span><br><span class="line">Parser</span><br><span class="line">↓</span><br><span class="line">Query Optimizer</span><br><span class="line">↓</span><br><span class="line">Execution Engine</span><br><span class="line">↓</span><br><span class="line">Storage Engine</span><br><span class="line">↓</span><br><span class="line">Disk</span><br></pre></td></tr></table></figure>
 
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-06T14:30:14.063Z" title="3/6/2026, 10:30:14 PM">2026-03-06</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">18 分钟读完 (大约2745个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-02/">深度学习笔记（二）：数据基本操作</a></p><div class="content"><h1 id="2-1-数据操作"><a href="#2-1-数据操作" class="headerlink" title="2.1. 数据操作"></a>2.1. 数据操作</h1><p>为了能够完成各种数据操作，我们需要某种方法来存储和操作数据。 通常，我们需要做两件重要的事：<br>（1）存储获取数据；（2）将数据读入计算机后对其进行处理。 </p>
+<p>首先，我们介绍维数组，也称为<strong>张量</strong>（tensor）。 深度学习里所有的输入都会变成张量，使用过Python中NumPy计算包的读者会对本部分很熟悉。 无论使用哪个深度学习框架，它的<strong>张量类</strong>（在MXNet中为<code>ndarray</code>， 在PyTorch和TensorFlow中为<code>Tensor</code>）都与Numpy的<code>ndarray</code>类似。 但深度学习框架又比Numpy的<code>ndarray</code>多一些重要功能：可以加速计算和自动微分。</p>
+<h2 id="2-1-1-入门"><a href="#2-1-1-入门" class="headerlink" title="2.1.1. 入门"></a>2.1.1. 入门</h2><p>首先，我们导入<code>torch</code>。<br><code>import torch</code></p>
+<h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h3><p>张量表示一个由数值组成的数组，这个数组可能有多个维度。 具有一个轴的张量对应数学上的<strong>向量</strong>（vector）； 具有两个轴的张量对应数学上的<strong>矩阵</strong>（matrix）； 具有两个轴以上的张量没有特殊的数学名称。</p>
+<h3 id="2-操作"><a href="#2-操作" class="headerlink" title="2.操作"></a>2.操作</h3><h4 id="1-arange-创建一个行向量-x"><a href="#1-arange-创建一个行向量-x" class="headerlink" title="1.arange 创建一个行向量 x"></a>1.<code>arange</code> 创建一个行向量 <code>x</code></h4><p>这个行向量包含以0开始的前12个整数，它们默认创建为整数。也可指定创建类型为浮点数。张量中的每个值都称为张量的 <em>元素</em>（element）。<br>	例如，张量 <code>x</code> 中有 12 个元素。除非额外指定，新的张量将存储在内存中，并采用基于CPU的计算。</p>
+<pre><code>`x = torch.arange(12)`
+`x`
+`tensor([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])`
+</code></pre>
+<h4 id="2-通过张量的shape属性来访问张量（沿每个轴的长度）的形状"><a href="#2-通过张量的shape属性来访问张量（沿每个轴的长度）的形状" class="headerlink" title="2.通过张量的shape属性来访问张量（沿每个轴的长度）的形状"></a>2.通过张量的<code>shape</code>属性来访问张量（沿每个轴的长度）的<strong>形状</strong></h4><pre><code>`x.shape`
+`torch.Size([12])`
+</code></pre>
+<p><strong>shape 顺序 &#x3D; 从整体 → 局部</strong><br>	(每个维度的长度)<br>	例如：<br>		(批次, 通道, 高, 宽)<br>	或者：<br>		(样本数, 特征数)</p>
+<h4 id="3-size检查大小"><a href="#3-size检查大小" class="headerlink" title="3.size检查大小"></a>3.size检查大小</h4><p>张量中元素的总数&#x3D;即形状的所有元素乘积，可以检查它的大小。 因为这里在处理的是一个向量，所以它的<code>shape</code>与它的<code>size</code>相同。<br>	<code>x.numel()</code><br>	<code>12</code></p>
+<h4 id="4-改变一个张量的形状而不改变元素数量和元素值，可以调用reshape函数。"><a href="#4-改变一个张量的形状而不改变元素数量和元素值，可以调用reshape函数。" class="headerlink" title="4.改变一个张量的形状而不改变元素数量和元素值，可以调用reshape函数。"></a>4.改变一个张量的形状而不改变元素数量和元素值，可以调用<code>reshape</code>函数。</h4><p>例如，可以把张量<code>x</code>从形状为（12,）的行向量转换为形状为（3,4）的矩阵。<br>这个新的张量包含与转换前相同的值，但是它被看成一个3行4列的矩阵。 要重点说明一下，虽然张量的形状发生了改变，但其元素值并没有变。<br>	<code>X = x.reshape(3, 4)</code><br>	<code>X</code><br>	<code>tensor([[ 0,  1,  2,  3],</code><br>        <code>[ 4,  5,  6,  7],</code><br>        <code>[ 8,  9, 10, 11]])</code><br>改变形状的简洁写法：<br>	如果我们的目标形状是（高度,宽度）， 那么在知道宽度后，高度会被自动计算得出，不必我们自己做除法。 在上面的例子中，为了获得一个3行的矩阵，我们手动指定了它有3行和4列。 幸运的是，我们可以通过<code>-1</code>来调用此自动计算出维度的功能。 即我们可以用<code>x.reshape(-1,4)</code>或<code>x.reshape(3,-1)</code>来取代<code>x.reshape(3,4)</code>。</p>
+<h4 id="5-初始化张量"><a href="#5-初始化张量" class="headerlink" title="5.初始化张量"></a>5.初始化张量</h4><h5 id="（1）全0、全1"><a href="#（1）全0、全1" class="headerlink" title="（1）全0、全1"></a>（1）全0、全1</h5><p>我们可以创建一个形状为（2,3,4）的张量，其中所有元素都设置为0。<br>	代码如下：<br>	<code>torch.zeros((2, 3, 4))</code><br>	<code>tensor([[[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.]],</code><br>        <code>[[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.],</code><br>         <code>[0., 0., 0., 0.]]])</code><br>同样，我们可以创建一个形状为<code>(2,3,4)</code>的张量，其中所有元素都设置为1。<br>	代码如下：<br>	<code>torch.ones((2, 3, 4))</code><br>	<code>tensor([[[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.]],</code><br>        <code>[[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.],</code><br>         <code>[1., 1., 1., 1.]]])</code><br>从特定分布中随机采样的数字来初始化矩阵。</p>
+<h5 id="（2）随机采样来得到张量中每个元素的值。"><a href="#（2）随机采样来得到张量中每个元素的值。" class="headerlink" title="（2）随机采样来得到张量中每个元素的值。"></a>（2）随机采样来得到张量中每个元素的值。</h5><pre><code>以下代码创建一个形状为（3,4）的张量。 其中的每个元素都从均值为0、标准差为1的标准高斯分布（正态分布）中随机采样。
+`torch.randn(3, 4)`
+`tensor([[-0.0135,  0.0665,  0.0912,  0.3212],`
+    `[ 1.4653,  0.1843, -1.6995, -0.3036],`
+    `[ 1.7646,  1.0450,  0.2457, -0.7732]])`
+</code></pre>
+<h5 id="（3）特定常量"><a href="#（3）特定常量" class="headerlink" title="（3）特定常量"></a>（3）特定常量</h5><p>我们还可以通过提供包含数值的Python列表（或嵌套列表），来为所需张量中的每个元素赋予确定值。 在这里，最外层的列表对应于轴0，内层的列表对应于轴1。<br>	<code>torch.tensor([[2, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])</code><br>	<code>tensor([[2, 1, 4, 3],</code><br>	        <code>[1, 2, 3, 4],</code><br>	        <code>[4, 3, 2, 1]])</code></p>
+<h2 id="2-1-2-运算符"><a href="#2-1-2-运算符" class="headerlink" title="2.1.2. 运算符"></a>2.1.2. 运算符</h2><h4 id="1-按元素（elementwise）运算。"><a href="#1-按元素（elementwise）运算。" class="headerlink" title="1.按元素（elementwise）运算。"></a>1.按元素（elementwise）运算。</h4><p>对数组里的每个位置分别做同一个运算，其实是把标量函数升级成为向量函数。<br><code>f(x,y) = [f(x1,y1), f(x2,y2), f(x3,y3)]</code><br>	<code>x = torch.tensor([1.0, 2, 4, 8])</code><br>	<code>y = torch.tensor([2, 2, 2, 2])</code><br>	<code>x + y, x - y, x * y, x / y, x ** y  # **运算符是求幂运算</code><br>	<code>(tensor([ 3.,  4.,  6., 10.]),</code><br>	 <code>tensor([-1.,  0.,  2.,  6.]),</code><br>	 <code>tensor([ 2.,  4.,  8., 16.]),</code><br>	 <code>tensor([0.5000, 1.0000, 2.0000, 4.0000]),</code><br>	 <code>tensor([ 1.,  4., 16., 64.]))</code><br>“按元素”方式可以应用更多的计算，包括像求幂这样的一元运算符。<br>	<code>torch.exp(x)</code><br>	<code>tensor([2.7183e+00, 7.3891e+00, 5.4598e+01, 2.9810e+03])</code></p>
+<h4 id="2-张量连结"><a href="#2-张量连结" class="headerlink" title="2.张量连结"></a>2.张量连结</h4><p>我们也可以把多个张量<strong>连结</strong>（concatenate）在一起， 把它们端对端地叠起来形成一个更大的张量。 我们只需要提供张量列表，并给出沿哪个轴连结。<br>	下面的例子分别演示了当我们沿行（轴-0，形状的第一个元素） 和按列（轴-1，形状的第二个元素）连结两个矩阵时，会发生什么情况。 我们可以看到，第一个输出张量的轴-0长度（）是两个输入张量轴-0长度的总和（）； 第二个输出张量的轴-1长度（）是两个输入张量轴-1长度的总和（）。</p>
+<pre><code>`X = torch.arange(12, dtype=torch.float32).reshape((3,4))`
+`Y = torch.tensor([[2.0, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])`
+`torch.cat((X, Y), dim=0), torch.cat((X, Y), dim=1)`
+
+(tensor([[ 0.,  1.,  2.,  3.],
+     [ 4.,  5.,  6.,  7.],
+     [ 8.,  9., 10., 11.],
+     [ 2.,  1.,  4.,  3.],
+     [ 1.,  2.,  3.,  4.],
+     [ 4.,  3.,  2.,  1.]]),
+ tensor([[ 0.,  1.,  2.,  3.,  2.,  1.,  4.,  3.],
+     [ 4.,  5.,  6.,  7.,  1.,  2.,  3.,  4.],
+     [ 8.,  9., 10., 11.,  4.,  3.,  2.,  1.]]))
+</code></pre>
+<h4 id="3-逻辑运算（按元素比较）"><a href="#3-逻辑运算（按元素比较）" class="headerlink" title="3.逻辑运算（按元素比较）"></a>3.逻辑运算（按元素比较）</h4><p>可以通过<strong>逻辑运算符</strong>构建二元张量。 以<code>X == Y</code>为例： 对于每个位置，如果<code>X</code>和<code>Y</code>在该位置相等，则新张量中相应项的值为1。 这意味着逻辑语句<code>X == Y</code>在该位置处为真，否则该位置为0。<br>	<code>X == Y</code><br>	<code>tensor([[False,  True, False,  True],</code><br>        <code>[False, False, False, False],</code><br>        <code>[False, False, False, False]])</code></p>
+<h4 id="4-求和"><a href="#4-求和" class="headerlink" title="4.求和"></a>4.求和</h4><p>对张量中的所有元素进行求和，会产生一个单元素张量。<br>	<code>X.sum()</code><br>	<code>tensor(66.)</code></p>
+<h2 id="2-1-3-广播机制"><a href="#2-1-3-广播机制" class="headerlink" title="2.1.3. 广播机制"></a>2.1.3. 广播机制</h2><p>在上面的部分中，我们看到了如何在相同形状的两个张量上执行按元素操作。 在某些情况下，即使形状不同，我们仍然可以通过调用 <strong>广播机制</strong>来执行按元素操作。 这种机制的工作方式如下：</p>
+<ol>
+<li><p>通过适当复制元素来扩展一个或两个数组，以便在转换之后，两个张量具有相同的形状；</p>
+</li>
+<li><p>对生成的数组执行按元素操作。</p>
+</li>
+</ol>
+<p>在大多数情况下，我们将沿着数组中长度为1的轴进行广播，如下例子：<br>	<code>a = torch.arange(3).reshape((3, 1))</code><br>	<code>b = torch.arange(2).reshape((1, 2))</code><br>	<code>a, b</code><br>	<code>(tensor([[0],</code><br>	        <code>[1],</code><br>	        <code>[2]]),</code><br>	 <code>tensor([[0, 1]]))</code><br>由于<code>a</code>和<code>b</code>分别是和矩阵，如果让它们相加，它们的形状不匹配。 我们将两个矩阵_广播_为一个更大的矩阵，如下所示：矩阵<code>a</code>将复制列， 矩阵<code>b</code>将复制行，然后再按元素相加。<br>	<code>a + b</code><br>	<code>tensor([[0, 1],</code><br>	        <code>[1, 2],</code><br>	        <code>[2, 3]])</code></p>
+<h2 id="2-1-4-索引和切片"><a href="#2-1-4-索引和切片" class="headerlink" title="2.1.4. 索引和切片"></a>2.1.4. 索引和切片</h2><h3 id="1-索引"><a href="#1-索引" class="headerlink" title="1.索引"></a>1.索引</h3><p>张量中的元素可以通过索引访问。 与任何Python数组一样：第一个元素的索引是0，最后一个元素索引是-1； 可以指定范围以包含第一个元素和最后一个之前的元素。<br>如下所示，我们可以用<code>[-1]</code>选择最后一个元素，可以用<code>[1:3]</code>选择第二个和第三个元素：<br>	<code>X[-1], X[1:3]</code>左闭右开<br>	<code>(tensor([ 8.,  9., 10., 11.]),</code><br>	 <code>tensor([[ 4.,  5.,  6.,  7.],</code><br>	         <code>[ 8.,  9., 10., 11.]]))</code><br>除读取外，我们还可以通过指定索引来将元素写入矩阵。<br>	<code>X[1, 2] = 9</code>&#x2F;&#x2F;第一行第二列<br>	<code>X</code><br>	<code>tensor([[ 0.,  1.,  2.,  3.],</code><br>	        <code>[ 4.,  5.,  9.,  7.],</code><br>	        <code>[ 8.,  9., 10., 11.]])</code><br>如果我们想为多个元素赋值相同的值，我们只需要索引所有元素，然后为它们赋值。 例如，<code>[0:2, :]</code>访问第1行和第2行，其中“:”代表沿轴1（列）的所有元素。 虽然我们讨论的是矩阵的索引，但这也适用于向量和超过2个维度的张量。<br>	<code>X[0:2, :] = 12</code><br>	<code>X</code><br>	<code>tensor([[12., 12., 12., 12.],</code><br>        <code>[12., 12., 12., 12.],</code><br>        <code>[ 8.,  9., 10., 11.]])</code></p>
+<h2 id="2-1-5-节省内存"><a href="#2-1-5-节省内存" class="headerlink" title="2.1.5. 节省内存"></a>2.1.5. 节省内存</h2><p>运行一些操作可能会导致为新结果分配内存。 例如，如果我们用<code>Y = X + Y</code>，我们将取消引用<code>Y</code>指向的张量，而是指向新分配的内存处的张量。<br>在下面的例子中，我们用Python的<code>id()</code>函数演示了这一点， 它给我们提供了内存中引用对象的确切地址。 运行<code>Y = Y + X</code>后，我们会发现<code>id(Y)</code>指向另一个位置。 这是因为Python首先计算<code>Y + X</code>，为结果分配新的内存，然后使<code>Y</code>指向内存中的这个新位置。<br>	<code>before = id(Y)</code><br>	<code>Y = Y + X</code><br>	<code>id(Y) == before</code><br>	<code>False</code><br>    <em>错误原因是因为其实内存有变</em><br>这可能是不可取的，原因有两个：</p>
+<ol>
+<li><p>首先，我们不想总是不必要地分配内存。在机器学习中，我们可能有数百兆的参数，并且在一秒内多次更新所有参数。通常情况下，我们希望原地执行这些更新；</p>
+</li>
+<li><p>如果我们不原地更新，其他引用仍然会指向旧的内存位置，这样我们的某些代码可能会无意中引用旧的参数。</p>
+</li>
+</ol>
+<p>幸运的是，执行原地操作非常简单。 我们可以使用切片表示法将操作的结果分配给先前分配的数组，例如<code>Y[:] = &lt;expression&gt;</code>。 为了说明这一点，我们首先创建一个新的矩阵<code>Z</code>，其形状与另一个<code>Y</code>相同， 使用<code>zeros_like</code>来分配一个全的块。<br>	<code>Z = torch.zeros_like(Y)</code><br>	<code>print(&#39;id(Z):&#39;, id(Z))</code><br>	<code>Z[:] = X + Y</code><br>	<code>print(&#39;id(Z):&#39;, id(Z))</code><br>	<code>id(Z): 140327634811696</code><br>	<code>id(Z): 140327634811696</code><br>如果在后续计算中没有重复使用<code>X</code>， 我们也可以使用<code>X[:] = X + Y</code>或<code>X += Y</code>来减少操作的内存开销。<br>	<code>before = id(X)</code><br>	<code>X += Y</code><br>	<code>id(X) == before</code><br>	<code>True</code></p>
+<h2 id="2-1-6-转换为其他Python对象"><a href="#2-1-6-转换为其他Python对象" class="headerlink" title="2.1.6. 转换为其他Python对象"></a>2.1.6. 转换为其他Python对象</h2><p>将深度学习框架定义的张量转换为NumPy张量（<code>ndarray</code>）很容易，反之也同样容易。 torch张量和numpy数组将共享它们的底层内存，就地操作更改一个张量也会同时更改另一个张量。<br>	<code>A = X.numpy()</code><br>	<code>B = torch.tensor(A)</code><br>	<code>type(A), type(B)</code><br>	<code>(numpy.ndarray, torch.Tensor)</code><br>要将大小为1的张量转换为Python标量，我们可以调用<code>item</code>函数或Python的内置函数。<br>	<code>a = torch.tensor([3.5])</code><br>	<code>a, a.item(), float(a), int(a)</code><br>	<code>(tensor([3.5000]), 3.5, 3.5, 3)</code></p>
+<h2 id="2-1-7-小结"><a href="#2-1-7-小结" class="headerlink" title="2.1.7. 小结"></a>2.1.7. 小结</h2><ul>
+<li>深度学习存储和操作数据的主要接口是张量（维数组）。它提供了各种功能，包括基本数学运算、广播、索引、切片、内存节省和转换其他Python对象。</li>
+</ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-05T02:17:03.313Z" title="3/5/2026, 10:17:03 AM">2026-03-05</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">22 分钟读完 (大约3229个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-01/">深度学习笔记（一）：走进机器学习</a></p><div class="content"><h2 id="1-机器学习中的关键组件"><a href="#1-机器学习中的关键组件" class="headerlink" title="1. 机器学习中的关键组件"></a>1. 机器学习中的关键组件</h2><p>首先介绍一些核心组件。无论什么类型的机器学习问题，都会遇到这些组件：</p>
 <ol>
 <li><p>可以用来学习的_数据_（data）；</p>
@@ -1811,196 +1873,6 @@
 <blockquote>
 <p>拟合长期行为收益</p>
 </blockquote>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-03T13:50:00.000Z" title="3/3/2026, 9:50:00 PM">2026-03-03</time>发表</span><span class="level-item"><time dateTime="2026-03-07T07:39:04.653Z" title="3/7/2026, 3:39:04 PM">2026-03-07</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span> / </span><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">5 分钟读完 (大约785个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/03/ML-03/">深度学习笔记（三）：数据预处理</a></p><div class="content"><h1 id="一、为什么要做数据预处理"><a href="#一、为什么要做数据预处理" class="headerlink" title="一、为什么要做数据预处理"></a>一、为什么要做数据预处理</h1><p>现实数据通常不是模型能直接用的格式，比如：</p>
-<table>
-<thead>
-<tr>
-<th>问题</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>缺失值</td>
-<td>NaN</td>
-</tr>
-<tr>
-<td>字符串类别</td>
-<td>Pave &#x2F; Dirt</td>
-</tr>
-<tr>
-<td>格式不是张量</td>
-<td>CSV、Excel</td>
-</tr>
-</tbody></table>
-<p>所以流程是：</p>
-<p><strong>原始数据 → pandas处理 → 数值化 → 转张量</strong></p>
-<p>整体流程：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CSV文件</span><br><span class="line">   ↓</span><br><span class="line">pandas读取</span><br><span class="line">   ↓</span><br><span class="line">处理缺失值</span><br><span class="line">   ↓</span><br><span class="line">类别变量编码</span><br><span class="line">   ↓</span><br><span class="line">转为Tensor</span><br></pre></td></tr></table></figure>
-<h1 id="二、读取数据集"><a href="#二、读取数据集" class="headerlink" title="二、读取数据集"></a>二、读取数据集</h1><p>用 <strong>pandas</strong> 读取 CSV。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_csv(<span class="string">&quot;house_tiny.csv&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>数据长这样：</p>
-<table>
-<thead>
-<tr>
-<th>NumRooms</th>
-<th>Alley</th>
-<th>Price</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>NaN</td>
-<td>Pave</td>
-<td>127500</td>
-</tr>
-<tr>
-<td>2</td>
-<td>NaN</td>
-<td>106000</td>
-</tr>
-<tr>
-<td>4</td>
-<td>NaN</td>
-<td>178100</td>
-</tr>
-<tr>
-<td>NaN</td>
-<td>NaN</td>
-<td>140000</td>
-</tr>
-</tbody></table>
-<p>一共：</p>
-<ul>
-<li><p>4 行（样本）</p>
-</li>
-<li><p>3 列（特征+标签）</p>
-</li>
-</ul>
-<h1 id="三、划分输入和输出"><a href="#三、划分输入和输出" class="headerlink" title="三、划分输入和输出"></a>三、划分输入和输出</h1><p>机器学习一般：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 X → 预测 → 输出 y</span><br></pre></td></tr></table></figure>
-<p>代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inputs, outputs = data.iloc[:, <span class="number">0</span>:<span class="number">2</span>], data.iloc[:, <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
-<p>解释：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.iloc[行,列]</span><br></pre></td></tr></table></figure>
-<p>这里：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0:2 → 前两列</span><br><span class="line">2 → 第三列</span><br></pre></td></tr></table></figure>
-<p>结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inputs:</span><br><span class="line">NumRooms   Alley</span><br><span class="line"></span><br><span class="line">outputs:</span><br><span class="line">Price</span><br></pre></td></tr></table></figure>
-<h1 id="四、处理缺失值（NaN）"><a href="#四、处理缺失值（NaN）" class="headerlink" title="四、处理缺失值（NaN）"></a>四、处理缺失值（NaN）</h1><p>缺失值常见处理方法：</p>
-<h3 id="方法1-插值（最常用）"><a href="#方法1-插值（最常用）" class="headerlink" title="方法1 插值（最常用）"></a>方法1 插值（最常用）</h3><p>用平均值填充。<br>代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inputs = inputs.fillna(inputs.mean())</span><br></pre></td></tr></table></figure>
-<p>例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NumRooms:</span><br><span class="line">NaN</span><br><span class="line">2</span><br><span class="line">4</span><br><span class="line">NaN</span><br></pre></td></tr></table></figure>
-<p>平均：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(2+4)/2 = 3</span><br></pre></td></tr></table></figure>
-<p>填充后：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">2</span><br><span class="line">4</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
-<h3 id="方法2-删除"><a href="#方法2-删除" class="headerlink" title="方法2 删除"></a>方法2 删除</h3><p>直接删掉含 NaN 的行&#x2F;列。<br>例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dropna()</span><br></pre></td></tr></table></figure>
-<p>但容易损失数据。</p>
-<h1 id="五、处理类别变量（字符串）"><a href="#五、处理类别变量（字符串）" class="headerlink" title="五、处理类别变量（字符串）"></a>五、处理类别变量（字符串）</h1><p>机器学习模型 <strong>不能直接处理字符串</strong>。<br>例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Alley:</span><br><span class="line">Pave</span><br><span class="line">NaN</span><br><span class="line">NaN</span><br><span class="line">NaN</span><br></pre></td></tr></table></figure>
-<p>要变成 <strong>数值向量</strong>。<br>使用：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.get_dummies()</span><br></pre></td></tr></table></figure>
-<p>代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inputs = pd.get_dummies(inputs, dummy_na=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-<p>转换结果：</p>
-<table>
-<thead>
-<tr>
-<th>NumRooms</th>
-<th>Alley_Pave</th>
-<th>Alley_nan</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>3</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<td>2</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>4</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>3</td>
-<td>0</td>
-<td>1</td>
-</tr>
-</tbody></table>
-<p>解释：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Pave → [1,0]</span><br><span class="line">NaN  → [0,1]</span><br></pre></td></tr></table></figure>
-
-<p>这种叫：<br><strong>One-Hot Encoding（独热编码）把一个类别变量变成一个只有0和1的向量。</strong></p>
-<p>规则：</p>
-<ul>
-<li><p>这个类别所在位置 &#x3D; <strong>1</strong></p>
-</li>
-<li><p>其他类别位置 &#x3D; <strong>0</strong></p>
-</li>
-</ul>
-<p> 例子1：水果类别<br>假设有三种水果：<br>Apple<br>Banana<br>Orange<br>给每个类别一个位置：<br>Apple   → [1,0,0]<br>Banana  → [0,1,0]<br>Orange  → [0,0,1]<br>特点：</p>
-<ul>
-<li><p>只有 <strong>一个1</strong></p>
-</li>
-<li><p>其他都是 <strong>0</strong></p>
-</li>
-</ul>
-<p>所以叫 <strong>one-hot</strong>：</p>
-<h1 id="六、转换为张量"><a href="#六、转换为张量" class="headerlink" title="六、转换为张量"></a>六、转换为张量</h1><p>深度学习框架只接受 <strong>tensor</strong>。</p>
-<p>步骤：</p>
-<h3 id="1-先变-numpy"><a href="#1-先变-numpy" class="headerlink" title="1 先变 numpy"></a>1 先变 numpy</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inputs.to_numpy()</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-再变-tensor"><a href="#2-再变-tensor" class="headerlink" title="2 再变 tensor"></a>2 再变 tensor</h3><p>例如 PyTorch：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">X = torch.tensor(inputs.to_numpy(dtype=<span class="built_in">float</span>))</span><br><span class="line">y = torch.tensor(outputs.to_numpy(dtype=<span class="built_in">float</span>))</span><br></pre></td></tr></table></figure>
-
-<p>结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">X =</span><br><span class="line">[[3.,1.,0.]</span><br><span class="line"> [2.,0.,1.]</span><br><span class="line"> [4.,0.,1.]</span><br><span class="line"> [3.,0.,1.]]</span><br><span class="line"></span><br><span class="line">y =</span><br><span class="line">[127500.,106000.,178100.,140000.]</span><br></pre></td></tr></table></figure>
-
-<h1 id="七、完整数据处理流程（重点记）"><a href="#七、完整数据处理流程（重点记）" class="headerlink" title="七、完整数据处理流程（重点记）"></a>七、完整数据处理流程（重点记）</h1><p>机器学习常见流程：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">原始数据(CSV)</span><br><span class="line">      ↓</span><br><span class="line">pandas读取</span><br><span class="line">      ↓</span><br><span class="line">处理缺失值</span><br><span class="line">      ↓</span><br><span class="line">类别变量编码</span><br><span class="line">      ↓</span><br><span class="line">转numpy</span><br><span class="line">      ↓</span><br><span class="line">转tensor</span><br><span class="line">      ↓</span><br><span class="line">输入神经网络</span><br></pre></td></tr></table></figure>
-<h1 id="八、本节核心知识点（考试-面试版）"><a href="#八、本节核心知识点（考试-面试版）" class="headerlink" title="八、本节核心知识点（考试&#x2F;面试版）"></a>八、本节核心知识点（考试&#x2F;面试版）</h1><p><strong>1️⃣ pandas</strong><br>Python最常用数据分析库。</p>
-<p>常见函数：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv()</span><br></pre></td></tr></table></figure>
-<p><strong>2️⃣ iloc</strong></p>
-<p>按位置取数据。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.iloc[行,列]</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.iloc[:,0:2]</span><br></pre></td></tr></table></figure>
-
-<p><strong>3️⃣ 缺失值处理</strong><br>两种方法：</p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>插值</td>
-<td>用平均值填充</td>
-</tr>
-<tr>
-<td>删除</td>
-<td>删掉缺失数据</td>
-</tr>
-</tbody></table>
-<p>常用：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fillna()</span><br></pre></td></tr></table></figure>
-
-<p><strong>4️⃣ 类别变量编码</strong><br>字符串 → 数值<br>方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.get_dummies()</span><br></pre></td></tr></table></figure>
-<p>原理：<br><strong>One-hot encoding</strong><br><strong>5️⃣ 转换为张量</strong><br>流程：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pandas → numpy → tensor</span><br></pre></td></tr></table></figure>
-<p>代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor()</span><br></pre></td></tr></table></figure>
-<h1 id="九、其实这一节的核心只有一句话"><a href="#九、其实这一节的核心只有一句话" class="headerlink" title="九、其实这一节的核心只有一句话"></a>九、其实这一节的核心只有一句话</h1><p>深度学习数据准备流程：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CSV → pandas → 清洗数据 → 数值化 → tensor</span><br></pre></td></tr></table></figure>
 </div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/">上一页</a></div><div class="pagination-next"><a href="/page/3/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link is-current" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">26</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">8</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">20</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/mmkg-note/"><span class="level-start"><span class="level-item">mmkg note</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数字逻辑笔记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数据库笔记</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-20T11:00:00.000Z">2026-04-20</time></p><p class="title"><a href="/2026/04/20/oopnote/15--Polymorphism%20&amp;%20%20Virtual%20Functions/">oop15</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-15T14:00:00.000Z">2026-04-15</time></p><p class="title"><a href="/2026/04/15/oopnote/14--Inheritance%20&amp;%20Composition/">oop14</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-15T12:00:00.000Z">2026-04-15</time></p><p class="title"><a href="/2026/04/15/oopnote/13--Dynamic%20Object%20Creation/">oop13</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-07T02:00:00.000Z">2026-04-07</time></p><p class="title"><a href="/2026/04/07/digitallogic%201/">digitallogic1</a></p><p class="categories"><a href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/">数字逻辑笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-04T01:00:00.000Z">2026-04-04</time></p><p class="title"><a href="/2026/04/04/oopnote/12--Operator%20Overloading/">oop12</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/database/"><span class="tag">database</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/digitallogic/"><span class="tag">digitallogic</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mmkg/"><span class="tag">mmkg</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">15</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {

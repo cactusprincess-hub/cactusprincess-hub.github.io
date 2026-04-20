@@ -531,7 +531,27 @@
 <li>多继承容易歧义，必要时用作用域限定或虚基类。</li>
 <li>向上转型：派生类对象可当基类引用&#x2F;指针用。</li>
 </ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-15T12:00:00.000Z" title="4/15/2026, 8:00:00 PM">2026-04-15</time>发表</span><span class="level-item"><time dateTime="2026-04-15T13:44:16.450Z" title="4/15/2026, 9:44:16 PM">2026-04-15</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">10 分钟读完 (大约1462个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/15/oopnote/13--Dynamic%20Object%20Creation/">oop13</a></p><div class="content"><h1 id="第13章-Dynamic-Object-Creation-复习笔记"><a href="#第13章-Dynamic-Object-Creation-复习笔记" class="headerlink" title="第13章 Dynamic Object Creation 复习笔记"></a>第13章 Dynamic Object Creation 复习笔记</h1><h2 id="一、本章知识框架"><a href="#一、本章知识框架" class="headerlink" title="一、本章知识框架"></a>一、本章知识框架</h2><ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-15T12:00:00.000Z" title="4/15/2026, 8:00:00 PM">2026-04-15</time>发表</span><span class="level-item"><time dateTime="2026-04-20T12:05:32.329Z" title="4/20/2026, 8:05:32 PM">2026-04-20</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">12 分钟读完 (大约1842个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/15/oopnote/13--Dynamic%20Object%20Creation/">oop13</a></p><div class="content"><ul>
+<li>[[#一、本章知识框架|一、本章知识框架]]</li>
+<li>[[#二、本章核心规则|二、本章核心规则]]</li>
+<li>[[#三、本章常考题型|三、本章常考题型]]<ul>
+<li>[[#三、本章常考题型#1. 单个对象创建与销毁|1. 单个对象创建与销毁]]</li>
+<li>[[#三、本章常考题型#2. 数组对象创建与销毁|2. 数组对象创建与销毁]]</li>
+<li>[[#三、本章常考题型#3. 构造函数调用次数|3. 构造函数调用次数]]</li>
+<li>[[#三、本章常考题型#4. <code>delete</code> 和 <code>delete[]</code> 混用|4. <code>delete</code> 和 <code>delete[]</code> 混用]]</li>
+</ul>
+</li>
+<li>[[#四、逐块整理（含代码、错误代码、经验句）|四、逐块整理（含代码、错误代码、经验句）]]<ul>
+<li>[[#四、逐块整理（含代码、错误代码、经验句）#1. 对象创建时发生什么|1. 对象创建时发生什么]]</li>
+<li>[[#四、逐块整理（含代码、错误代码、经验句）#2. 单个对象的 <code>new/delete</code>|2. 单个对象的 <code>new/delete</code>]]</li>
+<li>[[#四、逐块整理（含代码、错误代码、经验句）#3. 数组对象的 <code>new[]/delete[]</code>|3. 数组对象的 <code>new[]/delete[]</code>]]</li>
+<li>[[#四、逐块整理（含代码、错误代码、经验句）#4. <code>new</code> &#x2F; <code>new[]</code> 返回什么|4. <code>new</code> &#x2F; <code>new[]</code> 返回什么]]</li>
+<li>[[#四、逐块整理（含代码、错误代码、经验句）#5. 一个对象只能释放一次|5. 一个对象只能释放一次]]</li>
+</ul>
+</li>
+<li>[[#五、本章重点记忆总结|五、本章重点记忆总结]]</li>
+</ul>
+<h1 id="第13章-Dynamic-Object-Creation-复习笔记"><a href="#第13章-Dynamic-Object-Creation-复习笔记" class="headerlink" title="第13章 Dynamic Object Creation 复习笔记"></a>第13章 Dynamic Object Creation 复习笔记</h1><h2 id="一、本章知识框架"><a href="#一、本章知识框架" class="headerlink" title="一、本章知识框架"></a>一、本章知识框架</h2><ol>
 <li><p>动态对象创建的概念</p>
 </li>
 <li><p>对象创建时发生的两件事</p>
