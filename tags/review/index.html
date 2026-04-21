@@ -29,7 +29,44 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">review</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-20T11:00:00.000Z" title="4/20/2026, 7:00:00 PM">2026-04-20</time>发表</span><span class="level-item"><time dateTime="2026-04-20T11:40:01.325Z" title="4/20/2026, 7:40:01 PM">2026-04-20</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">22 分钟读完 (大约3353个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/20/oopnote/15--Polymorphism%20&amp;%20%20Virtual%20Functions/">oop15</a></p><div class="content"><h2 id="一、本章知识框架"><a href="#一、本章知识框架" class="headerlink" title="一、本章知识框架"></a>一、本章知识框架</h2><ol>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">review</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-20T11:00:00.000Z" title="4/20/2026, 7:00:00 PM">2026-04-20</time>发表</span><span class="level-item"><time dateTime="2026-04-21T04:25:32.707Z" title="4/21/2026, 12:25:32 PM">2026-04-21</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">38 分钟读完 (大约5625个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/20/oopnote/15--Polymorphism%20&amp;%20%20Virtual%20Functions/">oop15</a></p><div class="content"><ul>
+<li>[[#一、本章知识框架|一、本章知识框架]]</li>
+<li>[[#二、本章核心规则|二、本章核心规则]]</li>
+<li>[[#三、本章常考题型|三、本章常考题型]]<ul>
+<li>[[#三、本章常考题型#1. 这是早绑定还是晚绑定|1. 这是早绑定还是晚绑定]]</li>
+<li>[[#三、本章常考题型#2. 虚函数是否真正被覆盖|2. 虚函数是否真正被覆盖]]</li>
+<li>[[#三、本章常考题型#3. 作用域解析后会不会还走虚函数|3. 作用域解析后会不会还走虚函数]]</li>
+<li>[[#三、本章常考题型#4. 抽象类能不能实例化|4. 抽象类能不能实例化]]</li>
+<li>[[#三、本章常考题型#5. 基类指针 delete 派生类对象时会发生什么|5. 基类指针 delete 派生类对象时会发生什么]]</li>
+<li>[[#三、本章常考题型#6. 是否发生对象切片|6. 是否发生对象切片]]</li>
+</ul>
+</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）|四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）]]<ul>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#1. 多态的引入：为什么要虚函数|1. 多态的引入：为什么要虚函数]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#2. Upcasting：向上转型|2. Upcasting：向上转型]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#3. 只有继承还不够：早绑定的问题|3. 只有继承还不够：早绑定的问题]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#4. virtual functions：格式与重写|4. virtual functions：格式与重写]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#5. overloading &#x2F; redefining &#x2F; overriding|5. overloading &#x2F; redefining &#x2F; overriding]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#6. 多层继承下的虚函数分派|6. 多层继承下的虚函数分派]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#7. 作用域解析会绕开虚机制|7. 作用域解析会绕开虚机制]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#8. 虚函数的必要条件|8. 虚函数的必要条件]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#9. 直接对象调用为什么不是多态|9. 直接对象调用为什么不是多态]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#10. 虚函数签名必须匹配|10. 虚函数签名必须匹配]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#11. VTABLE &#x2F; VPTR：虚函数是怎么实现的|11. VTABLE &#x2F; VPTR：虚函数是怎么实现的]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#12. 早绑定 vs 晚绑定|12. 早绑定 vs 晚绑定]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#13. virtual 的价值：扩展性|13. virtual 的价值：扩展性]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#14. 抽象基类和纯虚函数|14. 抽象基类和纯虚函数]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#15. 抽象类继承后必须实现纯虚函数|15. 抽象类继承后必须实现纯虚函数]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#16. 对象切片（Object Slicing）|16. 对象切片（Object Slicing）]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#17. 虚函数与构造函数|17. 虚函数与构造函数]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#18. 虚析构函数|18. 虚析构函数]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#19. 析构顺序要和构造顺序配套记|19. 析构顺序要和构造顺序配套记]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#20. 虚函数与运算符重载|20. 虚函数与运算符重载]]</li>
+</ul>
+</li>
+<li>[[#五、本章重点回忆版|五、本章重点回忆版]]</li>
+</ul>
+<h2 id="一、本章知识框架"><a href="#一、本章知识框架" class="headerlink" title="一、本章知识框架"></a>一、本章知识框架</h2><ol>
 <li>OOP 三大特征与多态引入</li>
 <li>Upcasting（向上转型）</li>
 <li>Virtual functions（虚函数）</li>
@@ -83,13 +120,10 @@
 <h3 id="5-基类指针-delete-派生类对象时会发生什么"><a href="#5-基类指针-delete-派生类对象时会发生什么" class="headerlink" title="5. 基类指针 delete 派生类对象时会发生什么"></a>5. 基类指针 delete 派生类对象时会发生什么</h3><p>如果析构函数不是 virtual，派生类资源可能不会被正确释放。</p>
 <h3 id="6-是否发生对象切片"><a href="#6-是否发生对象切片" class="headerlink" title="6. 是否发生对象切片"></a>6. 是否发生对象切片</h3><p>看函数参数是不是按值传递。按值传递非常容易切片。</p>
 <hr>
-<h2 id="四、逐块整理（含正确代码-错误代码-经验句）"><a href="#四、逐块整理（含正确代码-错误代码-经验句）" class="headerlink" title="四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）"></a>四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）</h2><h3 id="1-多态的引入：为什么要虚函数"><a href="#1-多态的引入：为什么要虚函数" class="headerlink" title="1. 多态的引入：为什么要虚函数"></a>1. 多态的引入：为什么要虚函数</h3><p>PDF 一开始就把多态和虚函数绑在一起说：OOP 的关键特征之一就是多态，而动态多态是通过虚函数实现的。也就是说，虚函数是“真正进入 OOP”的核心开关。</p>
-<p><strong>正确理解：</strong></p>
+<h2 id="四、逐块整理（含正确代码-错误代码-经验句）"><a href="#四、逐块整理（含正确代码-错误代码-经验句）" class="headerlink" title="四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）"></a>四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）</h2><h3 id="1-多态的引入：为什么要虚函数"><a href="#1-多态的引入：为什么要虚函数" class="headerlink" title="1. 多态的引入：为什么要虚函数"></a>1. 多态的引入：为什么要虚函数</h3><p>PDF 一开始就把多态和虚函数绑在一起说：OOP 的关键特征之一就是多态，而动态多态是通过虚函数实现的。也就是说，虚函数是“真正进入 OOP”的核心开关。<br>✔ 向上转型 &#x3D; 多态的前提<br>✔ 虚函数重写 &#x3D; 多态的实现  override &#x3D; 替换虚表中的函数地址+调用<br>✔ 两个加一起 &#x3D; 完整多态<br>向上转型 &#x3D; 父类指针 &#x2F; 引用指向子类对象（多态的第一步）<br>虚函数 + 重写 &#x3D; 让这一步能调用子类（多态的核心动作）<br><strong>正确理解：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 多态不是“同名函数很多”这么简单</span></span><br><span class="line"><span class="comment">// 真正的动态多态，要靠 virtual</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>错误理解：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以为只要有继承就自动多态</span></span><br><span class="line"><span class="comment">// 错，很多时候还要 virtual</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>经验句：</strong><br><strong>继承只是搭结构，virtual 才让它活起来。</strong></p>
 <hr>
 <h3 id="2-Upcasting：向上转型"><a href="#2-Upcasting：向上转型" class="headerlink" title="2. Upcasting：向上转型"></a>2. Upcasting：向上转型</h3><p>PDF 说明：派生类对象可以被当成基类对象来处理，前提是通过指针或引用。把对象地址当成基类地址来用，就是 upcasting。</p>
@@ -110,25 +144,24 @@
 
 <p><strong>经验句：</strong><br><strong>不加 virtual，名字变了，行为未必变。</strong></p>
 <hr>
-<h3 id="4-virtual-functions：格式与重写"><a href="#4-virtual-functions：格式与重写" class="headerlink" title="4. virtual functions：格式与重写"></a>4. virtual functions：格式与重写</h3><p>PDF 的格式是：<code>virtual type function-name(arguments);</code><br>如果基类里是 virtual，那么派生类里同名函数也自动保留虚函数属性；派生类里对它的重新定义通常叫 overriding。</p>
+<h3 id="4-virtual-functions：格式与重写"><a href="#4-virtual-functions：格式与重写" class="headerlink" title="4. virtual functions：格式与重写"></a>4. virtual functions：格式与重写</h3><p>PDF 的格式是：<code>virtual type function-name(arguments);</code><br>如果基类里是 virtual，那么派生类里同名函数也自动保留虚函数属性；派生类里对它的重新定义通常叫 overriding。虚函数允许我们通过引用或者指针来更新所指对象 防止upcasting</p>
 <p><strong>正确代码：</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Instrument</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">play</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Instrument::play&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Wind</span> : <span class="keyword">public</span> Instrument &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">play</span><span class="params">()</span> <span class="type">const</span> </span>&#123;   <span class="comment">// 这里写不写 virtual 都行</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Wind::play&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Instrument</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">play</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Instrument::play&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Wind</span> : <span class="keyword">public</span> Instrument &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">play</span><span class="params">()</span> <span class="type">const</span> </span>&#123;   </span><br><span class="line">    <span class="comment">// 这里写不写 virtual 都行</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Wind::play&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p><strong>经验句：</strong><br><strong>基类一旦 virtual，派生类就接着 virtual。</strong></p>
 <hr>
 <h3 id="5-overloading-redefining-overriding"><a href="#5-overloading-redefining-overriding" class="headerlink" title="5. overloading &#x2F; redefining &#x2F; overriding"></a>5. overloading &#x2F; redefining &#x2F; overriding</h3><p>PDF 明确区分了三件事：</p>
 <ul>
-<li><p><strong>Overloading</strong>：同一作用域内同名不同参</p>
-</li>
-<li><p><strong>Redefining</strong>：继承中普通成员函数的重新定义</p>
-</li>
-<li><p><strong>Overriding</strong>：继承中虚成员函数的重写。</p>
+<li><strong>Overloading</strong>：同一作用域内同名不同参</li>
+<li><strong>Redefining</strong>：继承中普通成员函数的重新定义,会屏蔽基类的接口。</li>
+<li><strong>Overriding</strong>：继承中虚成员函数的重写，本身派生类对象可以被当成基类对象来处理，前提是通过指针或引用，这个时候只能调用父类接口<ul>
+<li>但是加入virtual可以调用子类，父类引用指向谁，就调用谁的函数，此时upcating仍然存在只不过<br>   情况 1：普通函数（无 virtual）<br>  → 看指针 &#x2F; 引用的类型，不看真实对象<br>  父类指针 &#x2F; 引用 → 永远调父类的函数<br>   情况 2：虚函数（有 virtual）<br>  → 看真实对象是谁，传入谁就调谁<br>  传子类对象 → 调子类函数<br>  传父类对象 → 调父类函数</li>
+</ul>
 </li>
 </ul>
-<p><strong>经验句：</strong><br><strong>同作用域叫重载，继承里普通函数叫重定义，继承里虚函数叫重写。</strong></p>
+<p><strong>经验句：</strong><br><strong>同作用域叫重载，继承里普通函数叫重定义，继承里虚函数叫重写。指针和引用是多态的条件</strong><br>      目的<br>基类定义统一接口（play() 虚函数）<br>所有子类重写这个接口<br>通用函数（tune()）只通过基类接口调用<br>用向上转型 + 指针 &#x2F; 引用传入任意子类<br>虚函数自动匹配子类实现 → 多态<br>这就是：<br>一套代码，兼容所有子类，加新功能不改老代码</p>
 <hr>
-<h3 id="6-多层继承下的虚函数分派"><a href="#6-多层继承下的虚函数分派" class="headerlink" title="6. 多层继承下的虚函数分派"></a>6. 多层继承下的虚函数分派</h3><p>PDF 里 <code>Brass</code> 继承自 <code>Wind</code>，而 <code>adjust()</code> 只在 <code>Wind</code> 里定义。<code>Brass</code> 没有重写它时，调用会自动使用“最近”的定义，也就是 <code>Wind::adjust</code>。</p>
-<p><strong>正确代码：</strong></p>
+<h3 id="6-多层继承下的虚函数分派"><a href="#6-多层继承下的虚函数分派" class="headerlink" title="6. 多层继承下的虚函数分派"></a>6. 多层继承下的虚函数分派</h3><p>PDF 里 <code>Brass</code> 继承自 <code>Wind</code>，而 <code>adjust()</code> 只在 <code>Wind</code> 里定义。<code>Brass</code> 没有重写它时，调用会自动使用“最近”的定义，也就是 <code>Wind::adjust</code>。<br>多态会根据对象的真实类型自动查找虚函数，找不到就沿着继承链向上找最近的那个实现，这里就是用 Brass 继承自 Wind 的 adjust()。<br><strong>正确代码：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Wind</span> : <span class="keyword">public</span> Instrument &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">adjust</span><span class="params">(<span class="type">int</span>)</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Wind::adjust&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Brass</span> : <span class="keyword">public</span> Wind &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">play</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Brass::play&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p><strong>调用结果：</strong></p>
@@ -142,18 +175,39 @@
 
 <p><strong>经验句：</strong><br><strong>加了 <code>::</code>，就等于告诉编译器：别动态分派了，直接用这个版本。</strong></p>
 <hr>
-<h3 id="8-虚函数的必要条件"><a href="#8-虚函数的必要条件" class="headerlink" title="8. 虚函数的必要条件"></a>8. 虚函数的必要条件</h3><p>PDF 的 Notes 里说得很清楚：要得到多态行为，必须满足三件事：</p>
-<ol>
-<li><p>派生类是 public 继承</p>
-</li>
-<li><p>被调用的成员函数必须是 virtual</p>
-</li>
-<li><p>必须通过指针或引用操作对象。</p>
-</li>
-</ol>
-<p><strong>错误写法：</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Wind flute;</span><br><span class="line">flute.<span class="built_in">play</span>();   <span class="comment">// 直接对象调用，不是多态调用</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-Virtual-Functions-的-Notes-七条整合版"><a href="#8-Virtual-Functions-的-Notes-七条整合版" class="headerlink" title="8. Virtual Functions 的 Notes 七条整合版"></a>8. Virtual Functions 的 Notes 七条整合版</h3><h4 id="Note-1：虚函数一定是非静态成员函数"><a href="#Note-1：虚函数一定是非静态成员函数" class="headerlink" title="Note 1：虚函数一定是非静态成员函数"></a>Note 1：虚函数一定是非静态成员函数</h4><p>虚函数必须是 <strong>non-static member function</strong>，不能是普通全局函数，也不能是 static 成员函数。<br><strong>记忆句：</strong><br><strong>virtual 需要 this，static 没有 this，所以 static 不能 virtual。</strong></p>
+<hr>
+<h4 id="Note-2：类外定义时，virtual-只写在声明处"><a href="#Note-2：类外定义时，virtual-只写在声明处" class="headerlink" title="Note 2：类外定义时，virtual 只写在声明处"></a>Note 2：类外定义时，virtual 只写在声明处</h4><p>如果虚函数在类外实现，<code>virtual</code> 只需要写在类内声明时，类外定义时不必重复写。<br><strong>正确写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Instrument</span> &#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">play</span><span class="params">()</span> <span class="type">const</span></span>;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Instrument::play</span><span class="params">()</span> <span class="type">const</span> </span>&#123;  </span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Instrument::play&quot;</span> &lt;&lt; endl;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>记忆句：</strong><br><strong>virtual 是“函数身份标记”，声明时标一次就够。</strong></p>
+<hr>
+<h4 id="Note-3：作用域解析-会绕过虚机制"><a href="#Note-3：作用域解析-会绕过虚机制" class="headerlink" title="Note 3：作用域解析 :: 会绕过虚机制"></a>Note 3：作用域解析 <code>::</code> 会绕过虚机制</h4><p>如果你显式写成 <code>i.Instrument::play()</code>，那就不会再走动态绑定，而是直接调用 <code>Instrument::play()</code>。<br><strong>错误理解：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">tune</span><span class="params">(Instrument&amp; i)</span> </span>&#123;  </span><br><span class="line">    i.Instrument::<span class="built_in">play</span>();   <span class="comment">// 这里强制用基类版本  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>记忆句：</strong><br><strong><code>::</code> 一出现，虚调用就被你手动关掉了。</strong></p>
+<hr>
+<h4 id="Note-4：派生类对应函数必须“类型一致”才算重写"><a href="#Note-4：派生类对应函数必须“类型一致”才算重写" class="headerlink" title="Note 4：派生类对应函数必须“类型一致”才算重写"></a>Note 4：派生类对应函数必须“类型一致”才算重写</h4><p>派生类里对应的函数，必须在<strong>函数名、参数列表、返回类型、限定符</strong>等方面和基类虚函数匹配，才能构成真正的 overriding。<br><strong>容易错的地方：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">int</span> <span class="title">f</span><span class="params">()</span> <span class="type">const</span></span>;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> : <span class="keyword">public</span> A &#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">f</span><span class="params">()</span> <span class="type">const</span></span>;   <span class="comment">// 错：返回类型变了  </span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>记忆句：</strong><br><strong>想重写，签名要对得上。</strong></p>
+<hr>
+<h4 id="Note-5：不匹配时，它只是“新函数”，不是重写"><a href="#Note-5：不匹配时，它只是“新函数”，不是重写" class="headerlink" title="Note 5：不匹配时，它只是“新函数”，不是重写"></a>Note 5：不匹配时，它只是“新函数”，不是重写</h4><p>如果派生类函数和基类虚函数不一致，那它不是 overriding，而只是一个<strong>新的同名函数</strong>；基类里的虚函数版本仍然存在。<br><strong>典型情况：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">f</span><span class="params">()</span> <span class="type">const</span></span>;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> : <span class="keyword">public</span> A &#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span>)</span> <span class="type">const</span></span>;   <span class="comment">// 这不是重写 A::f()  </span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>记忆句：</strong><br><strong>参数一变，很多时候就从“重写”变成“新函数”了。</strong></p>
+<hr>
+<h4 id="Note-6：基类指针-引用是多态的前提"><a href="#Note-6：基类指针-引用是多态的前提" class="headerlink" title="Note 6：基类指针&#x2F;引用是多态的前提"></a>Note 6：基类指针&#x2F;引用是多态的前提</h4><p>要得到真正的多态行为，必须通过<strong>基类指针或基类引用</strong>来操作对象。直接按对象本身调用时，编译器通常在编译期就知道精确类型，不需要运行时多态。<br><strong>正确写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Instrument* p = &amp;flute;  </span><br><span class="line">Instrument&amp; r = flute;</span><br></pre></td></tr></table></figure>
+<p><strong>不适合多态：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Wind flute;  </span><br><span class="line">flute.<span class="built_in">play</span>();   <span class="comment">// 这是直接对象调用，不是典型多态调用</span></span><br></pre></td></tr></table></figure>
+<p><strong>记忆句：</strong><br><strong>虚函数不是给“对象本体”看的，是给“指针和引用”看的。</strong></p>
+<hr>
+<h4 id="Note-7：多态调用的三条件"><a href="#Note-7：多态调用的三条件" class="headerlink" title="Note 7：多态调用的三条件"></a>Note 7：多态调用的三条件</h4><p>要得到 polymorphic behavior，必须同时满足：</p>
+<ol>
+<li>派生类是 <strong>public 继承</strong> 基类（protected&#x2F;private 继承 → 直接禁止了【外部代码（main &#x2F; 通用函数）的隐式向上转型】<br> 连「父类指针 &#x2F; 引用指向子类」这一步都做不到，多态直接从根源被掐死）</li>
+<li>被调用函数是 <strong>virtual</strong></li>
+<li>对象通过 <strong>指针或引用</strong> 来操作。<br><strong>一条总记忆：</strong><br><strong>public 继承 + virtual + 指针&#x2F;引用 &#x3D; 真多态。</strong><br><strong>错误写法：</strong></li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Wind flute;</span><br><span class="line">flute.<span class="built_in">play</span>();   <span class="comment">// 直接对象调用，不是多态调用</span></span><br></pre></td></tr></table></figure>
 <p><strong>经验句：</strong><br><strong>虚函数要靠“基类指针&#x2F;引用”才真正生效。</strong></p>
 <hr>
 <h3 id="9-直接对象调用为什么不是多态"><a href="#9-直接对象调用为什么不是多态" class="headerlink" title="9. 直接对象调用为什么不是多态"></a>9. 直接对象调用为什么不是多态</h3><p>PDF 解释：如果直接用对象本身调用，编译器在编译期已经知道确切类型，所以不需要运行时多态。</p>
@@ -166,7 +220,7 @@
 <p><strong>错误代码：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> : <span class="keyword">public</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">f2</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;&#125;   <span class="comment">// 不是重写 A::f2()</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p><strong>经验句：</strong><br><strong>参数一变，很多时候就不是 override，而是新函数。</strong></p>
+<p><strong>经验句：</strong><br><strong>参数一变，很多时候就不是 override，而是新函数。</strong><br>向上转型（找对象）→ override（换门牌号）→ 虚函数调用（按号找人）&#x3D; 多态</p>
 <hr>
 <h3 id="11-VTABLE-VPTR：虚函数是怎么实现的"><a href="#11-VTABLE-VPTR：虚函数是怎么实现的" class="headerlink" title="11. VTABLE &#x2F; VPTR：虚函数是怎么实现的"></a>11. VTABLE &#x2F; VPTR：虚函数是怎么实现的</h3><p>PDF 解释了编译器内部机制：<br>每个含虚函数的类会有一个 VTABLE，里面放虚函数地址；每个对象里还会偷偷放一个 VPTR，指向对应的 VTABLE。对象构造时会设置好 VPTR，因此虚调用可以在运行时决定到底调用哪个版本。</p>
 <p><strong>经验句：</strong><br><strong>虚函数能晚绑定，是因为对象里藏了一个“指向函数表的指针”。</strong></p>
@@ -243,7 +297,7 @@
 <li><p>虚函数背后是 VTABLE&#x2F;VPTR 机制。</p>
 </li>
 </ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-15T14:00:00.000Z" title="4/15/2026, 10:00:00 PM">2026-04-15</time>发表</span><span class="level-item"><time dateTime="2026-04-20T12:03:05.931Z" title="4/20/2026, 8:03:05 PM">2026-04-20</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">1 小时读完 (大约6676个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/15/oopnote/14--Inheritance%20&amp;%20Composition/">oop14</a></p><div class="content"><ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-15T14:00:00.000Z" title="4/15/2026, 10:00:00 PM">2026-04-15</time>发表</span><span class="level-item"><time dateTime="2026-04-20T12:31:31.974Z" title="4/20/2026, 8:31:31 PM">2026-04-20</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">1 小时读完 (大约6676个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/15/oopnote/14--Inheritance%20&amp;%20Composition/">oop14</a></p><div class="content"><ul>
 <li>[[#一、本章知识框架|一、本章知识框架]]</li>
 <li>[[#二、本章核心规则|二、本章核心规则]]</li>
 <li>[[#三、本章常考题型|三、本章常考题型]]<ul>
@@ -514,7 +568,7 @@
 <h3 id="21-解决虚继承时构造参数传递"><a href="#21-解决虚继承时构造参数传递" class="headerlink" title="21. 解决虚继承时构造参数传递"></a>21. 解决虚继承时构造参数传递</h3><p>PDF 的例子里，<code>D</code> 作为最派生类，会负责虚基类 <code>A</code> 的构造；<code>B</code> 和 <code>C</code> 里写了 <code>A(s1)</code>，但真正生效的是 <code>D</code> 初始化列表中的 <code>A(s1)</code>。这正是虚基类“只构造一次”的体现。</p>
 <p><strong>经验句：</strong><br><strong>虚基类的初始化权，最终落在最派生类手里。</strong></p>
 <hr>
-<h3 id="22-向上转型（Upcasting）"><a href="#22-向上转型（Upcasting）" class="headerlink" title="22. 向上转型（Upcasting）"></a>22. 向上转型（Upcasting）</h3><p>PDF 说，继承最重要的不只是“新类拿到了父类函数”，而是“新类和基类之间形成了类型关系”。因此，派生类对象可以通过指针或引用当成基类对象使用，这叫向上转型。</p>
+<h3 id="22-向上转型（Upcasting）"><a href="#22-向上转型（Upcasting）" class="headerlink" title="22. 向上转型（Upcasting）"></a>22. 向上转型（Upcasting）</h3><p>PDF 说，继承最重要的不只是“新类拿到了父类函数”，而是“新类和基类之间形成了类型关系”。因此，派生类对象可以通过&#x3D;&#x3D;指针或引用&#x3D;&#x3D;当成基类对象使用，这叫向上转型。</p>
 <p>1.父类引用 &#x2F; 父类指针，只能 “看到” 子类里的父类部分，本身应该接受父类对象，但是接受子类的<br>2.同一个函数，可以接收所有子类对象<br><strong>正确代码：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Instrument</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">play</span><span class="params">()</span> <span class="type">const</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Wind</span> : <span class="keyword">public</span> Instrument &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tune</span><span class="params">(Instrument&amp; i)</span> </span>&#123;</span><br><span class="line">    i.<span class="built_in">play</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Wind flute;</span><br><span class="line">    <span class="built_in">tune</span>(flute);          <span class="comment">// 向上转型</span></span><br><span class="line">    Instrument* p = &amp;flute;</span><br><span class="line">    Instrument&amp; r = flute;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>传 flute 进去，flute 还是子类对象，没变<br>Instrument&amp; i 只是给它套了个父类视角<br>这个视角下，只能调用父类的 public 成员（比如 play）<br>父类 private 完全碰不到，子类新增的东西也看不到,子类同名函数也看不到<br>这个 “把子类当父类用” 的动作，就叫向上转型<br><strong>经验句：</strong><br><strong>向上转型本质是：派生类对象可以按基类接口来用。</strong></p>
