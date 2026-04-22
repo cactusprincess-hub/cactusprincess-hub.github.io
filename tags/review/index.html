@@ -29,7 +29,222 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">review</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-20T11:00:00.000Z" title="4/20/2026, 7:00:00 PM">2026-04-20</time>发表</span><span class="level-item"><time dateTime="2026-04-21T04:25:32.707Z" title="4/21/2026, 12:25:32 PM">2026-04-21</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">38 分钟读完 (大约5625个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/20/oopnote/15--Polymorphism%20&amp;%20%20Virtual%20Functions/">oop15</a></p><div class="content"><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">review</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-22T11:00:00.000Z" title="4/22/2026, 7:00:00 PM">2026-04-22</time>发表</span><span class="level-item"><time dateTime="2026-04-22T16:16:50.534Z" title="4/23/2026, 12:16:50 AM">2026-04-23</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">20 分钟读完 (大约2934个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/22/oopnote/16---Introduction%20to%20%20Templates/">oop16</a></p><div class="content"><ul>
+<li>[[#二、本章核心规则|二、本章核心规则]]</li>
+<li>[[#三、本章常考题型|三、本章常考题型]]<ul>
+<li>[[#三、本章常考题型#1. 函数模板语法|1. 函数模板语法]]</li>
+<li>[[#三、本章常考题型#2. 模板实例化|2. 模板实例化]]</li>
+<li>[[#三、本章常考题型#3. 函数模板与重载|3. 函数模板与重载]]</li>
+<li>[[#三、本章常考题型#4. 类模板语法|4. 类模板语法]]</li>
+<li>[[#三、本章常考题型#5. 类模板成员函数类外定义|5. 类模板成员函数类外定义]]</li>
+<li>[[#三、本章常考题型#6. 用模板改造容器|6. 用模板改造容器]]</li>
+<li>[[#三、本章常考题型#7. 模板类与继承|7. 模板类与继承]]</li>
+</ul>
+</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）|四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）]]<ul>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#1. 为什么需要模板|1. 为什么需要模板]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#2. 容器问题：为什么 IntStack 不够通用|2. 容器问题：为什么 IntStack 不够通用]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#3. 函数模板语法|3. 函数模板语法]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#4. 函数模板实例化|4. 函数模板实例化]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#5. 函数模板的类型推导限制|5. 函数模板的类型推导限制]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#6. 函数模板和数组参数|6. 函数模板和数组参数]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#7. 类模板语法|7. 类模板语法]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#8. 类模板成员函数的类外定义|8. 类模板成员函数的类外定义]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#9. 模板类实例化|9. 模板类实例化]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#10. 用模板改造 IntStack|10. 用模板改造 IntStack]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#11. 模板类与继承结合|11. 模板类与继承结合]]<ul>
+<li>[[#11. 模板类与继承结合#写法 1：非模板基类 + 模板派生类|写法 1：非模板基类 + 模板派生类]]</li>
+<li>[[#11. 模板类与继承结合#写法 2：模板基类 + 非模板派生类|写法 2：模板基类 + 非模板派生类]]</li>
+<li>[[#11. 模板类与继承结合#写法 3：模板基类 + 模板派生类|写法 3：模板基类 + 模板派生类]]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>[[#五、本章重点回忆版|五、本章重点回忆版]]</li>
+</ul>
+<h2 id="一、本章知识框架"><a href="#一、本章知识框架" class="headerlink" title="一、本章知识框架"></a>一、本章知识框架</h2><ol>
+<li><p>为什么需要模板</p>
+</li>
+<li><p>模板与继承&#x2F;组合的区别</p>
+</li>
+<li><p>函数模板</p>
+</li>
+<li><p>模板参数与模板实例化</p>
+</li>
+<li><p>函数模板的重载与匹配</p>
+</li>
+<li><p>类模板</p>
+</li>
+<li><p>类模板成员函数的类外定义</p>
+</li>
+<li><p>用模板改造容器类</p>
+</li>
+<li><p>模板类与继承结合</p>
+</li>
+<li><p>模板类的几种常见写法</p>
+</li>
+<li><p>本章总结。</p>
+</li>
+</ol>
+<hr>
+<h2 id="二、本章核心规则"><a href="#二、本章核心规则" class="headerlink" title="二、本章核心规则"></a>二、本章核心规则</h2><ul>
+<li><p>继承和组合复用的是<strong>对象代码</strong>，模板复用的是<strong>源代码</strong>。</p>
+</li>
+<li><p>模板提供的是一种把“类型”当成参数来用的泛型编程方式。</p>
+</li>
+<li><p>模板分为两类：<strong>函数模板</strong> 和 <strong>类模板</strong>。</p>
+</li>
+<li><p>模板被具体类型替换、生成可用函数&#x2F;类的过程叫 <strong>template instantiation</strong>。</p>
+</li>
+<li><p>函数模板的类型参数通常写成 <code>typename T</code> 或 <code>class T</code>。</p>
+</li>
+<li><p>类模板的成员函数如果放到类外定义，必须写成模板函数形式。</p>
+</li>
+<li><p>模板不是“自动万能”，它仍然依赖具体类型能满足模板里使用的操作，比如 <code>&gt;</code>、拷贝、赋值等。这个点从 <code>getmax</code> 和 <code>StackTemplate</code> 例子里都能看出来。</p>
+</li>
+</ul>
+<p><strong>经验句：</strong><br><strong>模板的本质是：先写一份通用代码，再让具体类型来“套模板”。</strong></p>
+<hr>
+<h2 id="三、本章常考题型"><a href="#三、本章常考题型" class="headerlink" title="三、本章常考题型"></a>三、本章常考题型</h2><h3 id="1-函数模板语法"><a href="#1-函数模板语法" class="headerlink" title="1. 函数模板语法"></a>1. 函数模板语法</h3><p>考你能不能写出 <code>template &lt;typename T&gt; T getmax(T x, T y)</code> 这种形式。</p>
+<h3 id="2-模板实例化"><a href="#2-模板实例化" class="headerlink" title="2. 模板实例化"></a>2. 模板实例化</h3><p>考你 <code>getmax(1,2)</code>、<code>getmax(3.4,5.6)</code>、<code>getmax(&#39;a&#39;,&#39;b&#39;)</code> 分别推导出什么类型。</p>
+<h3 id="3-函数模板与重载"><a href="#3-函数模板与重载" class="headerlink" title="3. 函数模板与重载"></a>3. 函数模板与重载</h3><p>考你同名模板和普通函数如何共同存在，编译器如何选。</p>
+<h3 id="4-类模板语法"><a href="#4-类模板语法" class="headerlink" title="4. 类模板语法"></a>4. 类模板语法</h3><p>考你 <code>template &lt;typename T1, typename T2&gt; class Test</code> 这种定义怎么写。</p>
+<h3 id="5-类模板成员函数类外定义"><a href="#5-类模板成员函数类外定义" class="headerlink" title="5. 类模板成员函数类外定义"></a>5. 类模板成员函数类外定义</h3><p>考你 <code>void Test&lt;T1, T2&gt;::Print()</code> 这种写法。</p>
+<h3 id="6-用模板改造容器"><a href="#6-用模板改造容器" class="headerlink" title="6. 用模板改造容器"></a>6. 用模板改造容器</h3><p>考你怎样把 <code>IntStack</code> 改成 <code>StackTemplate&lt;T&gt;</code>。</p>
+<h3 id="7-模板类与继承"><a href="#7-模板类与继承" class="headerlink" title="7. 模板类与继承"></a>7. 模板类与继承</h3><p>考你模板类能不能继承、继承模板类时怎么写基类类型。</p>
+<hr>
+<h2 id="四、逐块整理（含正确代码-错误代码-经验句）"><a href="#四、逐块整理（含正确代码-错误代码-经验句）" class="headerlink" title="四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）"></a>四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）</h2><h3 id="1-为什么需要模板"><a href="#1-为什么需要模板" class="headerlink" title="1. 为什么需要模板"></a>1. 为什么需要模板</h3><p>PDF 一开始先对比了两种复用：</p>
+<ul>
+<li><p>继承&#x2F;组合：复用的是对象代码</p>
+</li>
+<li><p>模板：复用的是源代码。</p>
+</li>
+</ul>
+<p>这意味着，模板更适合“同一逻辑、不同类型”的场景。<br><strong>正确理解：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 组合/继承：解决“对象层面的复用”</span></span><br><span class="line"><span class="comment">// 模板：解决“代码层面的复用”</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>错误理解：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以为模板只是“换个写法的类继承”</span></span><br><span class="line"><span class="comment">// 错，模板是编译期生成代码的机制</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>继承复用对象，模板复用代码。</strong></p>
+<hr>
+<h3 id="2-容器问题：为什么-IntStack-不够通用"><a href="#2-容器问题：为什么-IntStack-不够通用" class="headerlink" title="2. 容器问题：为什么 IntStack 不够通用"></a>2. 容器问题：为什么 IntStack 不够通用</h3><p>PDF 用 <code>IntStack</code> 举例：它只能存 <code>int</code>，但我们常常希望同一个栈还能存 <code>double</code>、<code>char</code>、自定义对象。模板就是为这个问题准备的。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">IntStack</span> &#123;</span><br><span class="line">    <span class="keyword">enum</span> &#123; ssize = <span class="number">100</span> &#125;;</span><br><span class="line">    <span class="type">int</span> stack[ssize];</span><br><span class="line">    <span class="type">int</span> top;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">IntStack</span>() : <span class="built_in">top</span>(<span class="number">0</span>) &#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">push</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123; <span class="comment">/*...*/</span> &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123; <span class="comment">/*...*/</span> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误思路：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只写死 int</span></span><br><span class="line"><span class="comment">// 结果同样逻辑不能复用到 double、char 等类型</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>只存一种类型的容器，往往说明代码还不够通用。</strong></p>
+<hr>
+<h3 id="3-函数模板语法"><a href="#3-函数模板语法" class="headerlink" title="3. 函数模板语法"></a>3. 函数模板语法</h3><p>PDF 给出的基本形式是：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">getmax</span><span class="params">(T x, T y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x &gt; y) ? x : y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这就是最经典的函数模板：把类型 <code>T</code> 当成参数传进来。</p>
+<p><strong>正确写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">getmax</span><span class="params">(T x, T y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x &gt; y) ? x : y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">T <span class="title">getmax</span><span class="params">(T x, T y)</span> </span>&#123;   <span class="comment">// 错：没写 template&lt;typename T&gt;</span></span><br><span class="line">    <span class="keyword">return</span> (x &gt; y) ? x : y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>模板函数不是普通函数，前面一定要有 <code>template&lt;...&gt;</code>。</strong></p>
+<hr>
+<h3 id="4-函数模板实例化"><a href="#4-函数模板实例化" class="headerlink" title="4. 函数模板实例化"></a>4. 函数模板实例化</h3><p>PDF 给了 <code>int</code>、<code>double</code>、<code>char</code> 三种调用，说明同一份模板会按实参类型生成不同版本。</p>
+<p><strong>正确调用：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="built_in">getmax</span>(<span class="number">1</span>, <span class="number">2</span>) &lt;&lt; endl;       <span class="comment">// T -&gt; int</span></span><br><span class="line">cout &lt;&lt; <span class="built_in">getmax</span>(<span class="number">3.4</span>, <span class="number">5.6</span>) &lt;&lt; endl;   <span class="comment">// T -&gt; double</span></span><br><span class="line">cout &lt;&lt; <span class="built_in">getmax</span>(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>) &lt;&lt; endl;    <span class="comment">// T -&gt; char</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>错误理解：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以为模板函数“运行时才决定类型”</span></span><br><span class="line"><span class="comment">// 错，模板主要是编译期实例化</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>模板不是运行时猜类型，是编译时拿具体类型去生成代码。</strong></p>
+<hr>
+<h3 id="5-函数模板的类型推导限制"><a href="#5-函数模板的类型推导限制" class="headerlink" title="5. 函数模板的类型推导限制"></a>5. 函数模板的类型推导限制</h3><p>PDF 里有一个很关键的例子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2&gt;</span><br><span class="line"><span class="function">T1 <span class="title">getmax</span><span class="params">(T1 x, T2 y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x &gt; <span class="built_in">T1</span>(y)) ? x : <span class="built_in">T1</span>(y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里说明：两个参数类型可以不同，但你要主动处理类型转换。否则编译器不一定知道该怎么比。</p>
+<p><strong>正确调用：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="built_in">getmax</span>(<span class="number">3</span>, <span class="number">5.6</span>) &lt;&lt; endl; <span class="number">5</span></span><br><span class="line">cout &lt;&lt; <span class="built_in">getmax</span>(<span class="number">5.6</span>, <span class="number">3</span>) &lt;&lt; endl; <span class="number">5.6</span></span><br><span class="line">cout &lt;&lt; <span class="built_in">getmax</span>(<span class="string">&#x27;a&#x27;</span>, <span class="number">3</span>) &lt;&lt; endl; a</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误理解：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以为模板会自动把一切类型都无脑兼容</span></span><br><span class="line"><span class="comment">// 错，模板仍然要看类型是否能比较、能转换</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>模板不是魔法，类型之间该转还是得自己转。</strong></p>
+<hr>
+<h3 id="6-函数模板和数组参数"><a href="#6-函数模板和数组参数" class="headerlink" title="6. 函数模板和数组参数"></a>6. 函数模板和数组参数</h3><p>PDF 还给了一个 <code>T getmax(T* s, int n)</code> 的版本，说明模板也可以处理数组，只要元素类型满足比较关系。<br><strong>正确写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">getmax</span><span class="params">(T* s, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    T max = s[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        <span class="keyword">if</span> (s[i] &gt; max) max = s[i];</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>正确调用：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> a[] = &#123;<span class="number">1.1</span>, <span class="number">4.4</span>, <span class="number">2.2</span>, <span class="number">8.8</span>&#125;;</span><br><span class="line">cout &lt;&lt; <span class="built_in">getmax</span>(a, <span class="number">4</span>) &lt;&lt; endl;   <span class="comment">// 8.8</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>模板能处理数组，但前提是数组元素本身能比较。</strong></p>
+<hr>
+<h3 id="7-类模板语法"><a href="#7-类模板语法" class="headerlink" title="7. 类模板语法"></a>7. 类模板语法</h3><p>PDF 给出了类模板的标准格式：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2&gt;<span class="comment">//要加这句</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Test</span>(T1 x, T2 y) : <span class="built_in">a</span>(x), <span class="built_in">b</span>(y) &#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">Print</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    T1 a;</span><br><span class="line">    T2 b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这表示一个类可以同时接收多个类型参数。</p>
+<p><strong>错误写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把 T1, T2 当普通类型用，但忘了 template 声明</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>类模板就是“类名后面挂类型参数”。</strong></p>
+<hr>
+<h3 id="8-类模板成员函数的类外定义"><a href="#8-类模板成员函数的类外定义" class="headerlink" title="8. 类模板成员函数的类外定义"></a>8. 类模板成员函数的类外定义</h3><p>PDF 特别强调：类模板的成员函数若放在类外定义，必须写成模板函数，并且类名后面要带上模板参数。</p>
+<p><strong>正确写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2&gt;</span><br><span class="line"><span class="type">void</span> Test&lt;T1, T2&gt;::<span class="built_in">Print</span>() &#123;</span><br><span class="line">    cout &lt;&lt; a &lt;&lt; <span class="string">&quot;, &quot;</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Test::Print</span><span class="params">()</span> </span>&#123;   <span class="comment">// 错：类模板外定义不能这么写</span></span><br><span class="line">    cout &lt;&lt; a &lt;&lt; <span class="string">&quot;, &quot;</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>模板类的成员函数出类外，仍然得带模板参数。</strong><br>template &lt;typename T1, typename T2&gt;&#x2F;&#x2F;要加这句<br>Test&lt;T1, T2&gt;:</p>
+<hr>
+<h3 id="9-模板类实例化"><a href="#9-模板类实例化" class="headerlink" title="9. 模板类实例化"></a>9. 模板类实例化</h3><p>PDF 的 <code>User.cpp</code> 里展示了：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Test&lt;<span class="type">int</span>, <span class="type">double</span>&gt; <span class="title">obj1</span><span class="params">(<span class="number">10</span>, <span class="number">1.2</span>)</span></span>;</span><br><span class="line"><span class="function">Test&lt;<span class="type">char</span>, <span class="type">int</span>&gt; <span class="title">obj2</span><span class="params">(<span class="string">&#x27;A&#x27;</span>, <span class="number">2</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>说明类模板在使用时要明确写出具体类型。</p>
+<p><strong>经验句：</strong><br><strong>类模板一用就要落地成具体类型。</strong></p>
+<hr>
+<h3 id="10-用模板改造-IntStack"><a href="#10-用模板改造-IntStack" class="headerlink" title="10. 用模板改造 IntStack"></a>10. 用模板改造 IntStack</h3><p>PDF 把 <code>IntStack</code> 改成了 <code>StackTemplate&lt;T&gt;</code>，这是整章最重要的“从专用到通用”的例子。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">StackTemplate</span> &#123;</span><br><span class="line">    <span class="keyword">enum</span> &#123; ssize = <span class="number">100</span> &#125;;</span><br><span class="line">    T stack[ssize];</span><br><span class="line">    <span class="type">int</span> top;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">StackTemplate</span>() : <span class="built_in">top</span>(<span class="number">0</span>) &#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">push</span><span class="params">(<span class="type">const</span> T&amp; i)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (top &lt; ssize) stack[top++] = i;</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">T <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (top &gt; <span class="number">0</span>) <span class="keyword">return</span> stack[--top];</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">StackTemplate&lt;<span class="type">int</span>&gt; is;</span><br><span class="line">StackTemplate&lt;<span class="type">double</span>&gt; iss;</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误理解：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以为模板类只能做语法练习</span></span><br><span class="line"><span class="comment">// 错，模板类最常见用途就是容器、算法、通用工具类</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>模板类最常见的用途，就是把“只会装一种东西”的容器改成“什么都能装”的容器。</strong></p>
+<hr>
+<h3 id="11-模板类与继承结合"><a href="#11-模板类与继承结合" class="headerlink" title="11. 模板类与继承结合"></a>11. 模板类与继承结合</h3><p>PDF 里给了三种写法，核心思想都是：模板类也可以参与继承。</p>
+<h4 id="写法-1：非模板基类-模板派生类"><a href="#写法-1：非模板基类-模板派生类" class="headerlink" title="写法 1：非模板基类 + 模板派生类"></a>写法 1：非模板基类 + 模板派生类</h4><p>注意+T 参数替代</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CPoint</span> &#123;</span><br><span class="line">    <span class="type">int</span> X, Y;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">CPoint</span>(<span class="type">int</span> x, <span class="type">int</span> y) &#123; X = x; Y = y; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Circle</span> : <span class="keyword">public</span> CPoint &#123;</span><br><span class="line">    T radius;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Circle</span>(<span class="type">int</span> x, <span class="type">int</span> y, T r) : <span class="built_in">CPoint</span>(x, y) &#123; radius = r; &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="写法-2：模板基类-非模板派生类"><a href="#写法-2：模板基类-非模板派生类" class="headerlink" title="写法 2：模板基类 + 非模板派生类"></a>写法 2：模板基类 + 非模板派生类</h4><p>在每个CPoint<double>都要加具体类型</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CPoint</span> &#123;</span><br><span class="line">    T X, Y;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">CPoint</span>(T x, T y) &#123; X = x; Y = y; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Circle</span> : <span class="keyword">public</span> CPoint&lt;<span class="type">double</span>&gt; &#123;</span><br><span class="line">    <span class="type">int</span> radius;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Circle</span>(<span class="type">double</span> x, <span class="type">double</span> y, <span class="type">int</span> r) : <span class="built_in">CPoint</span>&lt;<span class="type">double</span>&gt;(x, y) &#123; radius = r; &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="写法-3：模板基类-模板派生类"><a href="#写法-3：模板基类-模板派生类" class="headerlink" title="写法 3：模板基类 + 模板派生类"></a>写法 3：模板基类 + 模板派生类</h4><p>注意自己写的也用T 用CPoint<T></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CPoint</span> &#123;</span><br><span class="line">    T X, Y;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">CPoint</span>(T x, T y) &#123; X = x; Y = y; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Circle</span> : <span class="keyword">public</span> CPoint&lt;T&gt; &#123;</span><br><span class="line">    T radius;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Circle</span>(T x, T y, T r) : <span class="built_in">CPoint</span>&lt;T&gt;(x, y) &#123; radius = r; &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>模板和继承不是对立的，模板类照样可以当基类。</strong></p>
+<hr>
+<h2 id="五、本章重点回忆版"><a href="#五、本章重点回忆版" class="headerlink" title="五、本章重点回忆版"></a>五、本章重点回忆版</h2><ul>
+<li><p>模板复用的是源代码，不是对象代码。</p>
+</li>
+<li><p>函数模板和类模板是两大类。</p>
+</li>
+<li><p>模板实例化就是用具体类型替换模板参数。</p>
+</li>
+<li><p>函数模板常见写法：<code>template &lt;typename T&gt; T f(T x, T y)</code>。</p>
+</li>
+<li><p>类模板成员函数出类外定义时，要写成模板函数。</p>
+</li>
+<li><p><code>StackTemplate&lt;T&gt;</code> 是容器模板的典型例子。</p>
+</li>
+<li><p>模板类可以继承，也可以作为基类。</p>
+</li>
+<li><p>模板不是万能，类型之间仍要满足所需运算。</p>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-20T11:00:00.000Z" title="4/20/2026, 7:00:00 PM">2026-04-20</time>发表</span><span class="level-item"><time dateTime="2026-04-22T10:25:23.003Z" title="4/22/2026, 6:25:23 PM">2026-04-22</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">42 分钟读完 (大约6365个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/20/oopnote/15--Polymorphism%20&amp;%20%20Virtual%20Functions/">oop15</a></p><div class="content"><ul>
 <li>[[#一、本章知识框架|一、本章知识框架]]</li>
 <li>[[#二、本章核心规则|二、本章核心规则]]</li>
 <li>[[#三、本章常考题型|三、本章常考题型]]<ul>
@@ -205,29 +420,24 @@
 <ol>
 <li>派生类是 <strong>public 继承</strong> 基类（protected&#x2F;private 继承 → 直接禁止了【外部代码（main &#x2F; 通用函数）的隐式向上转型】<br> 连「父类指针 &#x2F; 引用指向子类」这一步都做不到，多态直接从根源被掐死）</li>
 <li>被调用函数是 <strong>virtual</strong></li>
-<li>对象通过 <strong>指针或引用</strong> 来操作。<br><strong>一条总记忆：</strong><br><strong>public 继承 + virtual + 指针&#x2F;引用 &#x3D; 真多态。</strong><br><strong>错误写法：</strong></li>
+<li>对象通过 <strong>指针或引用</strong> 来操作。</li>
+<li>vittual只需要在父类里写，这样之后只要后面继承的子类有此函数，就也自动被贴上虚函数，如果没写，就继承原有父类的。<br><strong>一条总记忆：</strong><br><strong>public 继承 + virtual + 指针&#x2F;引用 &#x3D; 真多态。</strong></li>
 </ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Wind flute;</span><br><span class="line">flute.<span class="built_in">play</span>();   <span class="comment">// 直接对象调用，不是多态调用</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误写法</span></span><br><span class="line">Wind flute;</span><br><span class="line">flute.<span class="built_in">play</span>();   <span class="comment">// 直接对象调用，不是多态调用</span></span><br><span class="line"><span class="comment">//正确写法</span></span><br><span class="line"><span class="comment">// 基类 </span></span><br><span class="line"><span class="keyword">class</span> 基类 &#123; <span class="keyword">virtual</span> <span class="type">void</span> 函数() &#123;&#125; &#125;; </span><br><span class="line"><span class="comment">// 子类（public继承） </span></span><br><span class="line"><span class="keyword">class</span> 子类 : <span class="keyword">public</span> 基类 &#123; <span class="type">void</span> 函数() &#123;&#125; &#125;; </span><br><span class="line"><span class="comment">// 调用：引用写法 </span></span><br><span class="line"><span class="type">void</span> 调用(基类&amp; obj) &#123; obj.函数(); &#125; </span><br><span class="line"><span class="comment">// 调用：指针写法 </span></span><br><span class="line"><span class="type">void</span> 调用(基类* obj) &#123; obj-&gt;函数(); &#125;</span><br><span class="line"><span class="comment">//主函数里用法</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123; </span><br><span class="line">子类 对象; <span class="comment">// 1. 引用用法 </span></span><br><span class="line">调用(对象); </span><br><span class="line"><span class="comment">// 2. 指针用法（向上转型 + 多态） </span></span><br><span class="line">基类* ptr = <span class="keyword">new</span> 子类; </span><br><span class="line">调用(ptr); </span><br><span class="line"><span class="keyword">delete</span> ptr; &#125;</span><br></pre></td></tr></table></figure>
 <p><strong>经验句：</strong><br><strong>虚函数要靠“基类指针&#x2F;引用”才真正生效。</strong></p>
 <hr>
-<h3 id="9-直接对象调用为什么不是多态"><a href="#9-直接对象调用为什么不是多态" class="headerlink" title="9. 直接对象调用为什么不是多态"></a>9. 直接对象调用为什么不是多态</h3><p>PDF 解释：如果直接用对象本身调用，编译器在编译期已经知道确切类型，所以不需要运行时多态。</p>
-<p><strong>正确对比：</strong></p>
+<h3 id="9-直接对象调用为什么不是多态"><a href="#9-直接对象调用为什么不是多态" class="headerlink" title="9. 直接对象调用为什么不是多态"></a>9. 直接对象调用为什么不是多态</h3><p>PDF 解释：如果直接用对象本身调用，编译器在编译期已经知道确切类型，所以不需要运行时多态。<br><strong>正确对比：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">B b;</span><br><span class="line">A* p = &amp;b;   <span class="comment">// 晚绑定有机会发生</span></span><br><span class="line">A a = b;     <span class="comment">// 按值拷贝，通常不是多态</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>经验句：</strong><br><strong>对象一旦按值拿到手，动态身份就容易丢。</strong></p>
 <hr>
-<h3 id="10-虚函数签名必须匹配"><a href="#10-虚函数签名必须匹配" class="headerlink" title="10. 虚函数签名必须匹配"></a>10. 虚函数签名必须匹配</h3><p>PDF 说明：派生类里的对应函数，必须在名字、限定符、参数、返回类型上与基类虚函数一致；否则它只是一个新函数，不是重写。PDF 还提到一个特殊情况：如果基类虚函数返回基类指针或引用，派生类可返回更具体的派生类指针或引用。</p>
-<p><strong>错误代码：</strong></p>
+<h3 id="10-虚函数签名必须匹配"><a href="#10-虚函数签名必须匹配" class="headerlink" title="10. 虚函数签名必须匹配"></a>10. 虚函数签名必须匹配</h3><p>PDF 说明：派生类里的对应函数，必须在名字、限定符、参数、返回类型上与基类虚函数一致；否则它只是一个新函数，不是重写。PDF 还提到一个特殊情况：如果基类虚函数返回基类指针或引用，派生类可返回更具体的派生类指针或引用。<br><strong>错误代码：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> : <span class="keyword">public</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">f2</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;&#125;   <span class="comment">// 不是重写 A::f2()</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <p><strong>经验句：</strong><br><strong>参数一变，很多时候就不是 override，而是新函数。</strong><br>向上转型（找对象）→ override（换门牌号）→ 虚函数调用（按号找人）&#x3D; 多态</p>
 <hr>
-<h3 id="11-VTABLE-VPTR：虚函数是怎么实现的"><a href="#11-VTABLE-VPTR：虚函数是怎么实现的" class="headerlink" title="11. VTABLE &#x2F; VPTR：虚函数是怎么实现的"></a>11. VTABLE &#x2F; VPTR：虚函数是怎么实现的</h3><p>PDF 解释了编译器内部机制：<br>每个含虚函数的类会有一个 VTABLE，里面放虚函数地址；每个对象里还会偷偷放一个 VPTR，指向对应的 VTABLE。对象构造时会设置好 VPTR，因此虚调用可以在运行时决定到底调用哪个版本。</p>
-<p><strong>经验句：</strong><br><strong>虚函数能晚绑定，是因为对象里藏了一个“指向函数表的指针”。</strong></p>
+<h3 id="11-VTABLE-VPTR：虚函数是怎么实现的"><a href="#11-VTABLE-VPTR：虚函数是怎么实现的" class="headerlink" title="11. VTABLE &#x2F; VPTR：虚函数是怎么实现的"></a>11. VTABLE &#x2F; VPTR：虚函数是怎么实现的</h3><p>PDF 解释了编译器内部机制：<br>每个含虚函数的类会有一个 VTABLE，里面放虚函数地址；每个对象里还会偷偷放一个 VPTR，指向对应的 VTABLE。对象构造时会设置好 VPTR，因此虚调用可以在运行时决定到底调用哪个版本。<br><strong>经验句：</strong><br><strong>虚函数能晚绑定，是因为对象里藏了一个“指向函数表的指针”。</strong></p>
 <hr>
 <h3 id="12-早绑定-vs-晚绑定"><a href="#12-早绑定-vs-晚绑定" class="headerlink" title="12. 早绑定 vs 晚绑定"></a>12. 早绑定 vs 晚绑定</h3><p>PDF 的 <code>Pet</code> &#x2F; <code>Dog</code> 例子非常典型：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Pet* p1 = &amp;ralph;   <span class="comment">// 晚绑定</span></span><br><span class="line">Pet&amp; p2 = ralph;    <span class="comment">// 晚绑定</span></span><br><span class="line">Pet  p3 = ralph;    <span class="comment">// 早绑定</span></span><br></pre></td></tr></table></figure>
-
 <p>结果是：</p>
 <ul>
 <li><p><code>p1-&gt;speak()</code> 和 <code>p2.speak()</code> 走 <code>Dog::speak</code></p>
@@ -235,31 +445,59 @@
 <li><p><code>p3.speak()</code> 走 <code>Pet::speak</code>。</p>
 </li>
 </ul>
-<p><strong>经验句：</strong><br><strong>指针&#x2F;引用看晚绑定，按值看早绑定。</strong></p>
+<p><strong>经验句：</strong><br><strong>指针&#x2F;引用看晚绑定，按值看早绑定，没多态。</strong></p>
 <hr>
-<h3 id="13-virtual-的价值：扩展性"><a href="#13-virtual-的价值：扩展性" class="headerlink" title="13. virtual 的价值：扩展性"></a>13. virtual 的价值：扩展性</h3><p>PDF 说得很直接：把基类函数设为 virtual 后，你可以继续往继承体系里加很多新类型，而不必改 <code>tune()</code> 之类的上层函数。好设计的 OOP 程序，尽量只和基类接口打交道。</p>
-<p><strong>经验句：</strong><br><strong>virtual 的真正价值不是“会变”，而是“以后还能继续加”。</strong></p>
+<h3 id="13-virtual-的价值：扩展性"><a href="#13-virtual-的价值：扩展性" class="headerlink" title="13. virtual 的价值：扩展性"></a>13. virtual 的价值：扩展性</h3><p>PDF 说得很直接：把基类函数设为 virtual 后，你可以继续往继承体系里加很多新类型，而不必改 <code>tune()</code> 之类的上层函数。好设计的 OOP 程序，尽量只和基类接口打交道。<br><strong>经验句：</strong><br><strong>virtual 的真正价值不是“会变”，而是“以后还能继续加”。</strong></p>
 <hr>
-<h3 id="14-抽象基类和纯虚函数"><a href="#14-抽象基类和纯虚函数" class="headerlink" title="14. 抽象基类和纯虚函数"></a>14. 抽象基类和纯虚函数</h3><p>PDF 说明：如果一个类只想提供接口，不想被实例化，就可以把它做成抽象类。抽象类至少含一个纯虚函数；纯虚函数写成 <code>= 0</code>。纯抽象类则只有纯虚函数。</p>
-<p><strong>正确代码：</strong></p>
+<h3 id="14-抽象基类和纯虚函数"><a href="#14-抽象基类和纯虚函数" class="headerlink" title="14. 抽象基类和纯虚函数"></a>14. 抽象基类和纯虚函数</h3><p>PDF 说明：如果一个类只想提供接口，不想被实例化，就可以把它做成抽象类。抽象类至少含一个纯虚函数；纯虚函数写成 <code>= 0</code>。纯抽象类则只有纯虚函数。适合一些笼统的场景。<br><strong>正确代码：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Point</span>(<span class="type">int</span> i = <span class="number">0</span>, <span class="type">int</span> j = <span class="number">0</span>) : <span class="built_in">x0</span>(i), <span class="built_in">y0</span>(j) &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">Set</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">Draw</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="type">int</span> x0, y0;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p><strong>错误代码：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Point p;   // 错：抽象类不能实例化</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>经验句：</strong><br><strong>纯虚函数就是在说：这个类只负责“规定格式”，不负责“自己上场”。</strong></p>
+<p>抽象类：不能创建对象<br>抽象类：完全可以有指针、引用<br>抽象类的引用 &#x2F; 指针：专门指向子类对象，支撑多态<br><strong>经验句：</strong><br><strong>纯虚函数就是在说：这个类只负责“规定格式”，不负责“自己上场”。</strong></p>
 <hr>
-<h3 id="15-抽象类继承后必须实现纯虚函数"><a href="#15-抽象类继承后必须实现纯虚函数" class="headerlink" title="15. 抽象类继承后必须实现纯虚函数"></a>15. 抽象类继承后必须实现纯虚函数</h3><p>PDF 里 <code>Line</code> 实现了 <code>Set()</code> 和 <code>Draw()</code>，所以可以实例化；<code>Ellipse</code> 没实现纯虚函数，所以仍然是抽象类，不能直接创建对象。</p>
-<p><strong>经验句：</strong><br><strong>只要还有一个纯虚函数没补完，子类还是抽象类。</strong></p>
+<h3 id="15-抽象类继承后必须实现纯虚函数"><a href="#15-抽象类继承后必须实现纯虚函数" class="headerlink" title="15. 抽象类继承后必须实现纯虚函数"></a>15. 抽象类继承后必须实现纯虚函数</h3><p>PDF 里 <code>Line</code> 实现了 <code>Set()</code> 和 <code>Draw()</code>，所以可以实例化；<code>Ellipse</code> 没实现纯虚函数，所以仍然是抽象类，不能直接创建对象。<br>编译器会为您的继承类创建一个新的 VTABLE ，并使用基类中未被覆盖的虚拟函数的函数地址来插入您的新函数地址<br><strong>经验句：</strong><br><strong>只要还有一个纯虚函数没补完，子类还是抽象类。</strong></p>
 <hr>
-<h3 id="16-对象切片（Object-Slicing）"><a href="#16-对象切片（Object-Slicing）" class="headerlink" title="16. 对象切片（Object Slicing）"></a>16. 对象切片（Object Slicing）</h3><p>PDF 重点提醒：按值传递基类参数时，派生类对象可能被“切掉一部分”，只保留基类那部分。它的例子里 <code>describe(Pet a)</code> 会把 <code>Dog</code> 切片成 <code>Pet</code>，因此行为丢失；改成 <code>describe(Pet&amp; p)</code> 后就能保留完整动态类型。</p>
-<p><strong>错误代码：</strong></p>
+<h3 id="16-对象切片（Object-Slicing）"><a href="#16-对象切片（Object-Slicing）" class="headerlink" title="16. 对象切片（Object Slicing）"></a>16. 对象切片（Object Slicing）</h3><p>PDF 重点提醒：按值传递基类参数时，派生类对象可能被“切掉一部分”，只保留基类那部分。它的例子里 <code>describe(Pet a)</code> 会把 <code>Dog</code> 切片成 <code>Pet</code>，因此行为丢失；改成 <code>describe(Pet&amp; p)</code> 后就能保留完整动态类型。<br>✅ 子类新加的东西 → 全部丢掉<br>✅ 子类重写的函数 → 全部失效<br>✅ 子类的 vptr → 被替换成父类 vptr<br><strong>错误代码：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">describe</span><span class="params">(Pet a)</span> </span>&#123;   <span class="comment">// 按值传递，切片</span></span><br><span class="line">    cout &lt;&lt; a.<span class="built_in">description</span>() &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>正确代码：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">describe</span><span class="params">(Pet&amp; p)</span> </span>&#123;   <span class="comment">// 引用传递，不切片</span></span><br><span class="line">    cout &lt;&lt; p.<span class="built_in">description</span>() &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>经验句：</strong><br><strong>按值传参，最容易把派生类“切没了”。</strong></p>
+<p><strong>经验句：</strong><br><strong>按值传参，最容易把派生类“切没了”。</strong><br>重载（Overload）：<br>同类里同名不同参，返回值随便改，不影响。<br>重写（Override）：<br>父子间签名完全一致，返回值必须相同（或协变）。<br>重定义（Name Hiding）：<br>父子同名但参数不同，返回值随便写，但会隐藏父类函数</p>
+<h1 id="万能做题四步法（按顺序，一步都别跳）"><a href="#万能做题四步法（按顺序，一步都别跳）" class="headerlink" title="万能做题四步法（按顺序，一步都别跳）"></a>万能做题四步法（按顺序，一步都别跳）</h1><h2 id="步骤-1：先看「调用方式」（决定上限）"><a href="#步骤-1：先看「调用方式」（决定上限）" class="headerlink" title="步骤 1：先看「调用方式」（决定上限）"></a>步骤 1：先看「调用方式」（决定上限）</h2><p>先看你是用什么调用函数的，3 种情况：</p>
+<ol>
+<li><p><strong>子类普通对象</strong> <code>Derived d; d.f();</code></p>
+<p> → 只看子类本身 + 继承规则（重点看隐藏）</p>
+</li>
+<li><p><strong>父类指针 &#x2F; 父类引用</strong> <code>Base* p = &amp;d; Base&amp; r = d;</code></p>
+<p> → <strong>只认父类的接口</strong>，子类新增的函数永远看不见</p>
+<p> → 重写的虚函数会多态调子类</p>
+</li>
+<li><p><strong>按值传递</strong> <code>Base b = d;</code></p>
+<p> → <strong>对象切片</strong>，彻底变成父类，只调用父类</p>
+</li>
+</ol>
+<h2 id="步骤-2：看函数「在哪同名」"><a href="#步骤-2：看函数「在哪同名」" class="headerlink" title="步骤 2：看函数「在哪同名」"></a>步骤 2：看函数「在哪同名」</h2><ul>
+<li>都在<strong>同一个类</strong> → 直接判定：<strong>重载</strong></li>
+<li>一个父类、一个子类 → 进入步骤 3</li>
+</ul>
+<h2 id="步骤-3：对「函数签名」判重写-重定义"><a href="#步骤-3：对「函数签名」判重写-重定义" class="headerlink" title="步骤 3：对「函数签名」判重写 &#x2F; 重定义"></a>步骤 3：对「函数签名」判重写 &#x2F; 重定义</h2><p>父类和子类都有同名函数：</p>
+<ol>
+<li><p><strong>签名完全一样</strong> + 父类 <code>virtual</code></p>
+<p> → <strong>重写 (Override)</strong></p>
+</li>
+<li><p><strong>签名不一样</strong>（参数不同 &#x2F;const 不同）</p>
+<p> → <strong>重定义 &#x2F; 名字隐藏</strong></p>
+</li>
+</ol>
+<h2 id="步骤-4：定最终调用结果"><a href="#步骤-4：定最终调用结果" class="headerlink" title="步骤 4：定最终调用结果"></a>步骤 4：定最终调用结果</h2><ol>
+<li>子类对象 + 重写 → 调子类</li>
+<li>子类对象 + 重定义 → 父类同名全隐藏，只能调子类自己的</li>
+<li>父类指针 &#x2F; 引用 + 重写 → 多态，运行时调子类</li>
+<li>父类指针 &#x2F; 引用 + 子类新增函数 → <strong>报错</strong>（父类没有）</li>
+<li>按值传递 → 永远调父类</li>
+</ol>
 <hr>
 <h3 id="17-虚函数与构造函数"><a href="#17-虚函数与构造函数" class="headerlink" title="17. 虚函数与构造函数"></a>17. 虚函数与构造函数</h3><p>PDF 说明：对象创建时需要初始化 VPTR，所以构造函数会负责把 VPTR 设到正确的 VTABLE 上；但构造函数本身不能是 virtual。</p>
 <p><strong>经验句：</strong><br><strong>构造阶段对象还没“活完整”，所以构造函数不能虚。</strong></p>
@@ -2098,150 +2336,7 @@
 <h2 id="8-把-namespace-当成类"><a href="#8-把-namespace-当成类" class="headerlink" title="8. 把 namespace 当成类"></a>8. 把 namespace 当成类</h2><p>namespace 不能实例化，也不能像类那样有对象。它只是一个“名字容器”。很多同学会把“namespace 里能放类”误解成“namespace 本身也是一种类”，这是不对的。</p>
 <h2 id="9-using-directive-和-using-declaration-混用"><a href="#9-using-directive-和-using-declaration-混用" class="headerlink" title="9. using directive 和 using declaration 混用"></a>9. using directive 和 using declaration 混用</h2><p><code>using namespace calculator;</code> 会把整个命名空间的名字都引入，可能导致重名和二义性；<code>using calculator::Add;</code> 只引入某个名字，更稳妥。课件还演示了引入整个命名空间后，调用 <code>Print</code> 可能和外部同名函数冲突。</p>
 <h2 id="10-在头文件里写全局-using-directive"><a href="#10-在头文件里写全局-using-directive" class="headerlink" title="10. 在头文件里写全局 using directive"></a>10. 在头文件里写全局 using directive</h2><p>课件明确提醒：不要在头文件里使用全局 <code>using directive</code>。因为头文件会被多个源文件包含，这会把命名空间里的名字无控制地扩散到全局作用域，造成命名冲突。</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-30T04:00:00.000Z" title="3/30/2026, 12:00:00 PM">2026-03-30</time>发表</span><span class="level-item"><time dateTime="2026-03-31T05:58:22.547Z" title="3/31/2026, 1:58:22 PM">2026-03-31</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">8 分钟读完 (大约1169个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/30/oopnote/9--Inline%20Functions/">oop9</a></p><div class="content"><h1 id="第一部分：知识点"><a href="#第一部分：知识点" class="headerlink" title="第一部分：知识点"></a>第一部分：知识点</h1><h2 id="1-Inline-Function-的核心思想"><a href="#1-Inline-Function-的核心思想" class="headerlink" title="1. Inline Function 的核心思想"></a>1. Inline Function 的核心思想</h2><p>Inline function（内联函数）的本质是：<strong>用函数的方式写代码，但在编译阶段像宏一样直接展开</strong>。</p>
-<p>作用：</p>
-<ul>
-<li>消除函数调用开销（不需要压栈、跳转、返回）</li>
-<li>提高运行效率（尤其是小函数被频繁调用时）</li>
-</ul>
-<p>例如：</p>
-<p>inline int max(int a, int b) {<br>    return a &gt; b ? a : b;<br>}</p>
-<p>调用：</p>
-<p>max(a, b)</p>
-<p>在编译时会被替换为：</p>
-<p>(a &gt; b ? a : b)</p>
-<hr>
-<h2 id="2-Inline-vs-宏（-define）"><a href="#2-Inline-vs-宏（-define）" class="headerlink" title="2. Inline vs 宏（#define）"></a>2. Inline vs 宏（#define）</h2><h3 id="（1）宏的本质"><a href="#（1）宏的本质" class="headerlink" title="（1）宏的本质"></a>（1）宏的本质</h3><p>宏是<strong>纯文本替换（预处理阶段）</strong>，没有语法检查。</p>
-<p>#define MAX(a, b) a &gt; b ? a : b</p>
-<p>问题示例：</p>
-<p>int c &#x3D; MAX(a, b) + 2;</p>
-<p>实际展开为：</p>
-<p>a &gt; b ? a : b + 2</p>
-<p>优先级错误，导致结果不符合预期。</p>
-<hr>
-<h3 id="（2）宏的缺点"><a href="#（2）宏的缺点" class="headerlink" title="（2）宏的缺点"></a>（2）宏的缺点</h3><ol>
-<li><strong>容易产生隐藏 Bug（优先级问题）</strong></li>
-<li><strong>没有类型检查</strong></li>
-<li><strong>不能作为类成员函数</strong></li>
-<li><strong>调试困难</strong></li>
-</ol>
-<hr>
-<h3 id="（3）Inline-的优势"><a href="#（3）Inline-的优势" class="headerlink" title="（3）Inline 的优势"></a>（3）Inline 的优势</h3><p>Inline 函数：</p>
-<ul>
-<li>有类型检查</li>
-<li>符合函数语义</li>
-<li>可以作为类成员函数</li>
-<li>编译器可优化</li>
-</ul>
-<p>👉 结论：<strong>C++ 中应优先使用 inline，避免使用宏</strong></p>
-<hr>
-<h2 id="3-Inline-的工作机制"><a href="#3-Inline-的工作机制" class="headerlink" title="3. Inline 的工作机制"></a>3. Inline 的工作机制</h2><p>编译器处理 inline 函数时：</p>
-<ul>
-<li>保存函数类型（函数签名）</li>
-<li>同时保存函数体</li>
-<li>在调用处尝试展开</li>
-</ul>
-<p>但注意：<br>👉 <strong>inline 只是建议（hint），编译器可以拒绝</strong></p>
-<blockquote>
-<p>当函数很短但调用很多次时，用 inline 可以减少函数调用开销，提高效率。<br>inline 函数会在编译时像宏一样展开，从而避免函数调用过程。<br>但相比宏，inline 更安全，所以应尽量用 inline 代替宏。</p>
-</blockquote>
-<hr>
-<h1 id="✅-最后一句总结（建议记）"><a href="#✅-最后一句总结（建议记）" class="headerlink" title="✅ 最后一句总结（建议记）"></a>✅ 最后一句总结（建议记）</h1><p>👉 <strong>inline 是“带类型检查的宏替代方案”，用于减少小函数调用开销，但是否展开由编译器决定</strong></p>
-<h5 id="inline-需要在编译阶段展开，而编译是按文件独立进行的，所以函数体必须在当前文件可见，通常放在头文件中"><a href="#inline-需要在编译阶段展开，而编译是按文件独立进行的，所以函数体必须在当前文件可见，通常放在头文件中" class="headerlink" title="inline 需要在编译阶段展开，而编译是按文件独立进行的，所以函数体必须在当前文件可见，通常放在头文件中"></a>inline 需要在编译阶段展开，而编译是按文件独立进行的，所以函数体必须在当前文件可见，通常放在头文件中</h5><hr>
-<h2 id="4-Inline-的使用规则（考试重点）"><a href="#4-Inline-的使用规则（考试重点）" class="headerlink" title="4. Inline 的使用规则（考试重点）"></a>4. Inline 的使用规则（考试重点）</h2><h3 id="（1）定义必须在调用之前"><a href="#（1）定义必须在调用之前" class="headerlink" title="（1）定义必须在调用之前"></a>（1）定义必须在调用之前</h3><p>因为编译器需要看到函数体才能展开。</p>
-<hr>
-<h3 id="（2）适用于小函数"><a href="#（2）适用于小函数" class="headerlink" title="（2）适用于小函数"></a>（2）适用于小函数</h3><p>适合：</p>
-<ul>
-<li>简单计算函数</li>
-<li>getter&#x2F;setter</li>
-<li>短逻辑</li>
-</ul>
-<hr>
-<h3 id="（3）不适合的情况"><a href="#（3）不适合的情况" class="headerlink" title="（3）不适合的情况"></a>（3）不适合的情况</h3><p>一般不会被 inline：</p>
-<ul>
-<li>含循环（for &#x2F; while）</li>
-<li>含 switch</li>
-<li>含异常处理</li>
-<li>递归函数</li>
-<li>代码过大</li>
-</ul>
-<hr>
-<h2 id="5-Inline-在类中的使用"><a href="#5-Inline-在类中的使用" class="headerlink" title="5. Inline 在类中的使用"></a>5. Inline 在类中的使用</h2><h3 id="（1）类内定义（自动-inline）"><a href="#（1）类内定义（自动-inline）" class="headerlink" title="（1）类内定义（自动 inline）"></a>（1）类内定义（自动 inline）</h3><p>class Point {<br>public:<br>    void print() const {<br>        &#x2F;&#x2F; 自动 inline<br>    }<br>};</p>
-<p>👉 在类内部定义的函数默认 inline</p>
-<hr>
-<h3 id="（2）类外定义（需要显式-inline）"><a href="#（2）类外定义（需要显式-inline）" class="headerlink" title="（2）类外定义（需要显式 inline）"></a>（2）类外定义（需要显式 inline）</h3><p>class Point {<br>public:<br>    void print() const;<br>};  </p>
-<p>inline void Point::print() const {<br>    &#x2F;&#x2F; 需要 inline 关键字<br>}</p>
-<p>👉 原因：<br>类外定义默认不是 inline，需要手动声明</p>
-<hr>
-<h2 id="6-Inline-vs-宏的典型代码对比"><a href="#6-Inline-vs-宏的典型代码对比" class="headerlink" title="6. Inline vs 宏的典型代码对比"></a>6. Inline vs 宏的典型代码对比</h2><h3 id="宏："><a href="#宏：" class="headerlink" title="宏："></a>宏：</h3><p>#define f(x) x<em>x<br>f(x+1) → x+1</em>x+1 → 错误</p>
-<h3 id="Inline："><a href="#Inline：" class="headerlink" title="Inline："></a>Inline：</h3><p>inline int f(int x) {<br>    return x<em>x;<br>}<br>f(x+1) → (x+1)</em>(x+1) → 正确</p>
-<p>👉 本质区别：</p>
-<ul>
-<li>宏：文本替换</li>
-<li>inline：语法级函数展开</li>
-</ul>
-<hr>
-<h2 id="7-Inline-的限制（重要）"><a href="#7-Inline-的限制（重要）" class="headerlink" title="7. Inline 的限制（重要）"></a>7. Inline 的限制（重要）</h2><ol>
-<li>代码过大 → 编译器不会展开</li>
-<li>取函数地址 → 无法 inline</li>
-<li>复杂控制流 → 无法 inline</li>
-</ol>
-<hr>
-<h2 id="8-Inline-的使用建议（总结）"><a href="#8-Inline-的使用建议（总结）" class="headerlink" title="8. Inline 的使用建议（总结）"></a>8. Inline 的使用建议（总结）</h2><ul>
-<li>小函数 + 高频调用 → 用 inline</li>
-<li>复杂逻辑 → 普通函数</li>
-<li>不要用宏替代函数</li>
-</ul>
-<hr>
-<h1 id="第二部分：易错点总结"><a href="#第二部分：易错点总结" class="headerlink" title="第二部分：易错点总结"></a>第二部分：易错点总结</h1><h2 id="1-宏优先级陷阱（最常考）"><a href="#1-宏优先级陷阱（最常考）" class="headerlink" title="1. 宏优先级陷阱（最常考）"></a>1. 宏优先级陷阱（最常考）</h2><p>错误：</p>
-<p>#define MAX(a, b) a &gt; b ? a : b<br>MAX(a, b) + 2</p>
-<p>正确写法（但仍不推荐）：</p>
-<p>#define MAX(a, b) ((a) &gt; (b) ? (a) : (b))</p>
-<p>👉 但本质解决方案：用 inline</p>
-<hr>
-<h2 id="2-误以为-inline-一定会展开"><a href="#2-误以为-inline-一定会展开" class="headerlink" title="2. 误以为 inline 一定会展开"></a>2. 误以为 inline 一定会展开</h2><p>错误理解：</p>
-<blockquote>
-<p>写了 inline 就一定内联</p>
-</blockquote>
-<p>实际：</p>
-<ul>
-<li>编译器可以拒绝</li>
-<li>只是建议，不是强制</li>
-</ul>
-<hr>
-<h2 id="3-忘记“定义必须在调用之前”"><a href="#3-忘记“定义必须在调用之前”" class="headerlink" title="3. 忘记“定义必须在调用之前”"></a>3. 忘记“定义必须在调用之前”</h2><p>错误：</p>
-<p>int main() {<br>    max(1,2); &#x2F;&#x2F; 此时未看到定义<br>}<br>inline int max(int a, int b) {…}</p>
-<p>👉 inline 必须在调用前定义</p>
-<hr>
-<h2 id="4-类外定义忘记-inline"><a href="#4-类外定义忘记-inline" class="headerlink" title="4. 类外定义忘记 inline"></a>4. 类外定义忘记 inline</h2><p>错误：</p>
-<p>void Point::print() const { }</p>
-<p>👉 会变成普通函数</p>
-<p>正确：</p>
-<p>inline void Point::print() const { }</p>
-<hr>
-<h2 id="5-误用-inline-处理复杂函数"><a href="#5-误用-inline-处理复杂函数" class="headerlink" title="5. 误用 inline 处理复杂函数"></a>5. 误用 inline 处理复杂函数</h2><p>错误：</p>
-<ul>
-<li>循环</li>
-<li>递归</li>
-<li>大量逻辑</li>
-</ul>
-<p>👉 编译器直接忽略 inline</p>
-<hr>
-<h2 id="6-宏与函数混淆"><a href="#6-宏与函数混淆" class="headerlink" title="6. 宏与函数混淆"></a>6. 宏与函数混淆</h2><p>典型误解：</p>
-<ul>
-<li>宏 &#x3D; 函数（错误）</li>
-<li>宏没有类型、没有作用域</li>
-</ul>
-<hr>
-<h2 id="7-inline-与-const、引用等混用不理解"><a href="#7-inline-与-const、引用等混用不理解" class="headerlink" title="7. inline 与 const、引用等混用不理解"></a>7. inline 与 const、引用等混用不理解</h2><p>例如：</p>
-<p>void print(const string&amp; msg)</p>
-<p>👉 这里重点是：</p>
-<ul>
-<li>const 防止修改</li>
-<li>引用避免拷贝</li>
-<li>和 inline 是不同层面的优化</li>
-</ul>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/tags/review/page/0/">上一页</a></div><div class="pagination-next"><a href="/tags/review/page/2/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/tags/review/">1</a></li><li><a class="pagination-link" href="/tags/review/page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">26</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">8</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">20</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/mmkg-note/"><span class="level-start"><span class="level-item">mmkg note</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数字逻辑笔记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数据库笔记</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-20T11:00:00.000Z">2026-04-20</time></p><p class="title"><a href="/2026/04/20/oopnote/15--Polymorphism%20&amp;%20%20Virtual%20Functions/">oop15</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-15T14:00:00.000Z">2026-04-15</time></p><p class="title"><a href="/2026/04/15/oopnote/14--Inheritance%20&amp;%20Composition/">oop14</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-15T12:00:00.000Z">2026-04-15</time></p><p class="title"><a href="/2026/04/15/oopnote/13--Dynamic%20Object%20Creation/">oop13</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-07T02:00:00.000Z">2026-04-07</time></p><p class="title"><a href="/2026/04/07/digitallogic%201/">digitallogic1</a></p><p class="categories"><a href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/">数字逻辑笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-04T01:00:00.000Z">2026-04-04</time></p><p class="title"><a href="/2026/04/04/oopnote/12--Operator%20Overloading/">oop12</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/database/"><span class="tag">database</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/digitallogic/"><span class="tag">digitallogic</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mmkg/"><span class="tag">mmkg</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">15</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/tags/review/page/0/">上一页</a></div><div class="pagination-next"><a href="/tags/review/page/2/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/tags/review/">1</a></li><li><a class="pagination-link" href="/tags/review/page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">27</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">8</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">20</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/mmkg-note/"><span class="level-start"><span class="level-item">mmkg note</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数字逻辑笔记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数据库笔记</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-22T11:00:00.000Z">2026-04-22</time></p><p class="title"><a href="/2026/04/22/oopnote/16---Introduction%20to%20%20Templates/">oop16</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-20T11:00:00.000Z">2026-04-20</time></p><p class="title"><a href="/2026/04/20/oopnote/15--Polymorphism%20&amp;%20%20Virtual%20Functions/">oop15</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-15T14:00:00.000Z">2026-04-15</time></p><p class="title"><a href="/2026/04/15/oopnote/14--Inheritance%20&amp;%20Composition/">oop14</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-15T12:00:00.000Z">2026-04-15</time></p><p class="title"><a href="/2026/04/15/oopnote/13--Dynamic%20Object%20Creation/">oop13</a></p><p class="categories"><a href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-07T02:00:00.000Z">2026-04-07</time></p><p class="title"><a href="/2026/04/07/digitallogic%201/">digitallogic1</a></p><p class="categories"><a href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/">数字逻辑笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/database/"><span class="tag">database</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/digitallogic/"><span class="tag">digitallogic</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mmkg/"><span class="tag">mmkg</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">16</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
