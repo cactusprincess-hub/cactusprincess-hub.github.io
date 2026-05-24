@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>分布式缓存 - CactusPrincess&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="CactusPrincess&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="CactusPrincess&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="[[#1. 实际业务场景问题|1. 实际业务场景问题]] [[#2. CDN 核心概念|2. CDN 核心概念]] [[#3. 分布式缓存 产生原因|3. 分布式缓存 产生原因]] [[#二、基础方案：普通哈希分片|二、基础方案：普通哈希分片]] [[#二、基础方案：普通哈希分片#1. 实现步骤|1. 实现步骤]] [[#二、基础方案：普通哈希分片#2. 优点|2. 优点]] [[#二、基础方案"><meta property="og:type" content="blog"><meta property="og:title" content="分布式缓存"><meta property="og:url" content="https://cactusprincess-hub.github.io/2026/05/23/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/1-%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C/"><meta property="og:site_name" content="CactusPrincess&#039;s Blog"><meta property="og:description" content="[[#1. 实际业务场景问题|1. 实际业务场景问题]] [[#2. CDN 核心概念|2. CDN 核心概念]] [[#3. 分布式缓存 产生原因|3. 分布式缓存 产生原因]] [[#二、基础方案：普通哈希分片|二、基础方案：普通哈希分片]] [[#二、基础方案：普通哈希分片#1. 实现步骤|1. 实现步骤]] [[#二、基础方案：普通哈希分片#2. 优点|2. 优点]] [[#二、基础方案"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://cactusprincess-hub.github.io/img/og_image.png"><meta property="article:published_time" content="2026-05-23T02:00:00.000Z"><meta property="article:modified_time" content="2026-05-24T10:04:32.421Z"><meta property="article:author" content="cactusprincess"><meta property="article:tag" content="review"><meta property="article:tag" content="note"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://cactusprincess-hub.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://cactusprincess-hub.github.io/2026/05/23/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/1-%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C/"},"headline":"分布式缓存","image":["https://cactusprincess-hub.github.io/img/og_image.png"],"datePublished":"2026-05-23T02:00:00.000Z","dateModified":"2026-05-24T10:04:32.421Z","author":{"@type":"Person","name":"cactusprincess"},"publisher":{"@type":"Organization","name":"CactusPrincess's Blog","logo":{"@type":"ImageObject","url":"https://cactusprincess-hub.github.io/img/logo.svg"}},"description":"[[#1. 实际业务场景问题|1. 实际业务场景问题]] [[#2. CDN 核心概念|2. CDN 核心概念]] [[#3. 分布式缓存 产生原因|3. 分布式缓存 产生原因]] [[#二、基础方案：普通哈希分片|二、基础方案：普通哈希分片]] [[#二、基础方案：普通哈希分片#1. 实现步骤|1. 实现步骤]] [[#二、基础方案：普通哈希分片#2. 优点|2. 优点]] [[#二、基础方案"}</script><link rel="canonical" href="https://cactusprincess-hub.github.io/2026/05/23/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/1-%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-05-23T02:00:00.000Z" title="5/23/2026, 10:00:00 AM">2026-05-23</time>发表</span><span class="level-item"><time dateTime="2026-05-24T10:04:32.421Z" title="5/24/2026, 6:04:32 PM">2026-05-24</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><span class="level-item">19 分钟读完 (大约2813个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">分布式缓存</h1><div class="content"><ul>
+<li>[[#1. 实际业务场景问题|1. 实际业务场景问题]]</li>
+<li>[[#2. CDN 核心概念|2. CDN 核心概念]]</li>
+<li>[[#3. 分布式缓存 产生原因|3. 分布式缓存 产生原因]]</li>
+<li>[[#二、基础方案：普通哈希分片|二、基础方案：普通哈希分片]]</li>
+<li>[[#二、基础方案：普通哈希分片#1. 实现步骤|1. 实现步骤]]</li>
+<li>[[#二、基础方案：普通哈希分片#2. 优点|2. 优点]]</li>
+<li>[[#二、基础方案：普通哈希分片#3. 致命缺陷（核心考点）|3. 致命缺陷（核心考点）]]</li>
+<li>[[#三、一致性哈希 核心原理|三、一致性哈希 核心原理]]</li>
+<li>[[#三、一致性哈希 核心原理#1. 解决目标|1. 解决目标]]</li>
+<li>[[#三、一致性哈希 核心原理#2. 哈希环构造|2. 哈希环构造]]</li>
+<li>[[#三、一致性哈希 核心原理#3. 核心优势|3. 核心优势]]</li>
+<li>[[#四、关键数学推导：机器新增时文件迁移比例|四、关键数学推导：机器新增时文件迁移比例]]</li>
+<li>[[#四、关键数学推导：机器新增时文件迁移比例#1. 结论|1. 结论]]</li>
+<li>[[#四、关键数学推导：机器新增时文件迁移比例#2. 完整推导步骤|2. 完整推导步骤]]</li>
+<li>[[#四、关键数学推导：机器新增时文件迁移比例#3.简单证明|3.简单证明]]</li>
+<li>[[#五、一致性哈希 概率渐近分析|五、一致性哈希 概率渐近分析]]</li>
+<li>[[#六、生日悖论 关联应用|六、生日悖论 关联应用]]</li>
+<li>[[#七、一致性哈希 负载均衡优化|七、一致性哈希 负载均衡优化]]</li>
+<li>[[#七、一致性哈希 负载均衡优化#1. 原生一致性哈希缺点|1. 原生一致性哈希缺点]]</li>
+<li>[[#七、一致性哈希 负载均衡优化#2. 优化方案：虚拟节点|2. 优化方案：虚拟节点]]</li>
+<li>[[#八、一致性哈希 发展历史与工程落地|八、一致性哈希 发展历史与工程落地]]</li>
+<li>[[#九、进阶：带负载边界的一致性哈希|九、进阶：带负载边界的一致性哈希]]</li>
+<li>[[#九、进阶：带负载边界的一致性哈希#1. 传统一致性哈希两大短板|1. 传统一致性哈希两大短板]]</li>
+<li>[[#九、进阶：带负载边界的一致性哈希#2. 容量配额设计|2. 容量配额设计]]</li>
+<li>[[#九、进阶：带负载边界的一致性哈希#3. 写入分配逻辑|3. 写入分配逻辑]]</li>
+<li>[[#九、进阶：带负载边界的一致性哈希#4. 读取定位逻辑|4. 读取定位逻辑]]</li>
+<li>[[#九、进阶：带负载边界的一致性哈希#5. 核心性质：向回迁移|5. 核心性质：向回迁移]]</li>
+</ul>
+<h2 id="一、CDN-与分布式缓存-背景"><a href="#一、CDN-与分布式缓存-背景" class="headerlink" title="一、CDN 与分布式缓存 背景"></a>一、CDN 与分布式缓存 背景</h2><h3 id="1-实际业务场景问题"><a href="#1-实际业务场景问题" class="headerlink" title="1. 实际业务场景问题"></a>1. 实际业务场景问题</h3><p>为什么需要 CDN 和分布式缓存？</p>
+<ul>
+<li>同样视频网站，<strong>不同地区加载速度不一样</strong></li>
+<li>同一个视频网站，<strong>热门视频和普通视频加载速度不一样</strong></li>
+</ul>
+<h3 id="2-CDN-核心概念"><a href="#2-CDN-核心概念" class="headerlink" title="2. CDN 核心概念"></a>2. CDN 核心概念</h3><p><strong>CDN：内容分发网络</strong><br>核心思路：<br>把网站视频、图片等静态热点资源，<strong>提前部署到全国 &#x2F; 全球各地边缘缓存服务器</strong>。<br>用户访问时<strong>就近获取资源</strong>，不用跨上万公里传输，大幅降低时延。</p>
+<p>类比：京东物流多级仓库</p>
+<ul>
+<li><p>下级前置仓 → 本地优先发货</p>
+</li>
+<li><p>下级无货 → 向上级仓库查找</p>
+<p>  CDN 缓存服务器也是<strong>多层级架构</strong>：下级缓存没有，再向上级节点请求。</p>
+</li>
+</ul>
+<h3 id="3-分布式缓存-产生原因"><a href="#3-分布式缓存-产生原因" class="headerlink" title="3. 分布式缓存 产生原因"></a>3. 分布式缓存 产生原因</h3><p>单台服务器存不下全网海量资源，必须用<strong>多台机器集群做分布式缓存</strong>。</p>
+<p>核心难题（考试必问）：</p>
+<p>给定一个文件 &#x2F; URL，<strong>如何快速确定它缓存在哪一台机器？</strong><br>不能遍历所有机器逐个查找，效率太低。</p>
+<hr>
+<h2 id="二、基础方案：普通哈希分片"><a href="#二、基础方案：普通哈希分片" class="headerlink" title="二、基础方案：普通哈希分片"></a>二、基础方案：普通哈希分片</h2><h3 id="1-实现步骤"><a href="#1-实现步骤" class="headerlink" title="1. 实现步骤"></a>1. 实现步骤</h3><ol>
+<li>选哈希函数（如 <strong>MD5</strong>），对文件 &#x2F; URL 计算哈希值</li>
+<li>机器编号：0,1,2,…,n−1</li>
+<li>映射规则：<br> 机器编号&#x3D;h(x)modn<br>示例：<br>输入 URL → MD5 算出 32 位 16 进制哈希值 → 对机器数 n 取余 → 分到对应机器。<br>MD5 本质是：一个复杂数学函数<br> 输入：字符串<br> 输出：128位二进制数<br>为了方便显示写成：32位16进制，<br> 优点：均匀分担存储任务</li>
+</ol>
+<h3 id="2-优点"><a href="#2-优点" class="headerlink" title="2. 优点"></a>2. 优点</h3><p>哈希映射均匀，文件能相对均衡分散在各台机器。</p>
+<h3 id="3-致命缺陷（核心考点）"><a href="#3-致命缺陷（核心考点）" class="headerlink" title="3. 致命缺陷（核心考点）"></a>3. 致命缺陷（核心考点）</h3><p>当机器数量<strong>动态变化（扩容 &#x2F; 缩容）</strong>：</p>
+<p>原来机器数 n1​，后来变成 n2​<br>h(x)modn1不等于h(x)modn2​<br><strong>几乎所有文件的映射位置都会改变</strong>，需要大规模迁移数据，开销极大、服务不稳定。</p>
+<h2 id="三、一致性哈希-核心原理"><a href="#三、一致性哈希-核心原理" class="headerlink" title="三、一致性哈希 核心原理"></a>三、一致性哈希 核心原理</h2><h3 id="1-解决目标"><a href="#1-解决目标" class="headerlink" title="1. 解决目标"></a>1. 解决目标</h3><p>解决<strong>机器增减时全量迁移</strong>的问题，做到：<br>机器新增 &#x2F; 下线，<strong>只迁移极少部分文件</strong>。<br>	解决思路：为每⼀台机器也计算⼀个哈希值</p>
+<h3 id="2-哈希环构造"><a href="#2-哈希环构造" class="headerlink" title="2. 哈希环构造"></a>2. 哈希环构造</h3><ol>
+<li>把哈希值域 0∼232−1 首尾相连，形成<strong>环形哈希空间</strong></li>
+<li><strong>机器也做哈希</strong>：对每台机器 IP &#x2F; 域名计算哈希，映射到哈希环固定位置</li>
+<li><strong>文件映射规则</strong><br> 对文件计算哈希值，落在环上某位置；<br> <strong>从该位置顺时针往下，找到第一台遇到的机器</strong>，文件就存在这台机器上。</li>
+</ol>
+<h3 id="3-核心优势"><a href="#3-核心优势" class="headerlink" title="3. 核心优势"></a>3. 核心优势</h3><ol>
+<li>机器增减，只影响<strong>相邻一小段环区间</strong>，只需迁移少量数据</li>
+<li>天然保证数据在集群中分布均匀</li>
+<li>当机器数⽬从n-1增加到n时，平均需要移动的⽂件数是总⽂件数的1&#x2F;n</li>
+</ol>
+<hr>
+<h2 id="四、关键数学推导：机器新增时文件迁移比例"><a href="#四、关键数学推导：机器新增时文件迁移比例" class="headerlink" title="四、关键数学推导：机器新增时文件迁移比例"></a>四、关键数学推导：机器新增时文件迁移比例</h2><h3 id="1-结论"><a href="#1-结论" class="headerlink" title="1. 结论"></a>1. 结论</h3><p>机器从 n−1 台增加到 n 台时：</p>
+<p><strong>期望迁移文件比例 &#x3D; n1​</strong></p>
+<h3 id="2-完整推导步骤"><a href="#2-完整推导步骤" class="headerlink" title="2. 完整推导步骤"></a>2. 完整推导步骤</h3><ol>
+<li>把哈希环<strong>归一化</strong>为区间 [0,1) 圆周</li>
+<li>利用圆周对称性，把<strong>新增机器固定放在位置 0</strong></li>
+<li>设迁移文件比例为随机变量 X</li>
+<li>事件 X&gt;t：迁移区间长度大于 t，说明 (−t,0) 弧内<strong>没有旧机器</strong><br> P(X&gt;t)&#x3D;(1−t)n−1</li>
+<li>累积分布函数<br> FX​(t)&#x3D;P(X≤t)&#x3D;1−(1−t)n−1</li>
+<li>概率密度函数（求导）<br> fX​(t)&#x3D;(n−1)(1−t)n−2</li>
+<li>用<strong>尾积分求期望</strong><br> E[X]&#x3D;∫01​P(X&gt;t)dt&#x3D;∫01​(1−t)n−1dt<br> 令 u&#x3D;1−t：<br> E[X]&#x3D;∫01​un−1du&#x3D;n1​</li>
+</ol>
+<h3 id="3-简单证明"><a href="#3-简单证明" class="headerlink" title="3.简单证明"></a>3.简单证明</h3><p>一致性哈希中，机器随机均匀分布在哈希环上。<br>当机器数从n−1增加到n时：<br>新增机器仅会接管其顺时针前驱机器的一部分区间。<br>由于哈希均匀性，新增后每台机器平均负责1&#x2F;n的哈希空间。<br>因此新增机器平均需要接管1&#x2F;n的数据。<br>故平均迁移文件比例为：1&#x2F;n</p>
+<h2 id="五、一致性哈希-概率渐近分析"><a href="#五、一致性哈希-概率渐近分析" class="headerlink" title="五、一致性哈希 概率渐近分析"></a>五、一致性哈希 概率渐近分析</h2><pre><code>性质一：一致性哈希中，机器随机均匀分布在单位圆上。平均区间长度为 1/n，但由于随机波动，会存在较大的空隙。概率分析表明，以高概率，最大空隙长度不会超过O(log⁡n/n)
+因此任何机器负责的数据比例都不会过大，从而保证了一致性哈希具有较好的负载均衡性。
+性质二：以较⼤的概率，⾄少⼀个机器在“圆圈”上占据的区间⽐例⼩于1/n
+</code></pre>
+<p>证明见平板</p>
+<h2 id="六、生日悖论-关联应用"><a href="#六、生日悖论-关联应用" class="headerlink" title="六、生日悖论 关联应用"></a>六、生日悖论 关联应用</h2><ol>
+<li><p>生日悖论：23 人中生日重复概率超 50%</p>
+</li>
+<li><p>数学模型：m 个样本放入 n 个位置，计算碰撞概率</p>
+<p> mnm(m−1)⋯(m−n+1)​</p>
+</li>
+<li><p>在一致性哈希中：用于分析<strong>哈希冲突、机器区间碰撞概率</strong>。</p>
+</li>
+</ol>
+<hr>
+<h2 id="七、一致性哈希-负载均衡优化"><a href="#七、一致性哈希-负载均衡优化" class="headerlink" title="七、一致性哈希 负载均衡优化"></a>七、一致性哈希 负载均衡优化</h2><h3 id="1-原生一致性哈希缺点"><a href="#1-原生一致性哈希缺点" class="headerlink" title="1. 原生一致性哈希缺点"></a>1. 原生一致性哈希缺点</h3><p>虽然概率均匀，但实际会出现：</p>
+<ul>
+<li>哈希偏斜：部分机器负载远高于平均</li>
+<li>负载方差大</li>
+</ul>
+<h3 id="2-优化方案：虚拟节点"><a href="#2-优化方案：虚拟节点" class="headerlink" title="2. 优化方案：虚拟节点"></a>2. 优化方案：虚拟节点</h3><p>利用多个不同的哈希函数，给<strong>一台物理机器生成多个不同哈希值</strong>，映射到哈希环多个位置。<br>作用：</p>
+<ol>
+<li>进一步抹平负载差异</li>
+<li>减少哈希偏斜，工程上 Redis、Kafka 全部采用虚拟节点版一致性哈希。</li>
+</ol>
+<hr>
+<h2 id="八、一致性哈希-发展历史与工程落地"><a href="#八、一致性哈希-发展历史与工程落地" class="headerlink" title="八、一致性哈希 发展历史与工程落地"></a>八、一致性哈希 发展历史与工程落地</h2><ol>
+<li>1997 年：MIT 学者在<strong>STOC</strong>（计算机理论顶会）发表一致性哈希论文</li>
+<li>1998 年：基于该技术创办 <strong>Akamai</strong>（全球顶级 CDN 服务商）</li>
+<li>1999 年：星球大战预告片上线，海量流量冲击下，只有 Akamai 服务器稳定承载，一战成名</li>
+<li>1999 年 4 月：乔布斯曾致电 Akamai，因愚人节被总裁误以为玩笑</li>
+<li>2001 年：Akamai 创始人 Danny Lewin 在 911 事件中遇难</li>
+<li>2001 年后：一致性哈希广泛用于 <strong>P2P 网络、Chord 协议、BitTorrent</strong> 等分布式系统</li>
+</ol>
+<h2 id="九、进阶：带负载边界的一致性哈希"><a href="#九、进阶：带负载边界的一致性哈希" class="headerlink" title="九、进阶：带负载边界的一致性哈希"></a>九、进阶：带负载边界的一致性哈希</h2><h3 id="1-传统一致性哈希两大短板"><a href="#1-传统一致性哈希两大短板" class="headerlink" title="1. 传统一致性哈希两大短板"></a>1. 传统一致性哈希两大短板</h3><ol>
+<li><strong>哈希偏斜</strong>：随机分配导致部分机器负载过高</li>
+<li><strong>热点数据</strong>：爆款 Key 访问量极大，映射单节点容易过载</li>
+</ol>
+<h3 id="2-容量配额设计"><a href="#2-容量配额设计" class="headerlink" title="2. 容量配额设计"></a>2. 容量配额设计</h3><p>设定每台机器负载上限：</p>
+<p>Cj​&#x3D;(1+ϵ)⋅NM​</p>
+<ul>
+<li>M：总请求 &#x2F; 文件数</li>
+<li>N：机器数</li>
+<li>ϵ：负载冗余系数（如 0.1 允许超 10%）</li>
+</ul>
+<h3 id="3-写入分配逻辑"><a href="#3-写入分配逻辑" class="headerlink" title="3. 写入分配逻辑"></a>3. 写入分配逻辑</h3><ol>
+<li>先计算 Key 最理想节点 h(x)</li>
+<li>若该节点负载 &lt; 上限：直接存入</li>
+<li>若已满：<strong>沿哈希环顺时针依次找下一个节点</strong>，找到未满为止</li>
+</ol>
+<h3 id="4-读取定位逻辑"><a href="#4-读取定位逻辑" class="headerlink" title="4. 读取定位逻辑"></a>4. 读取定位逻辑</h3><p>严格和写入<strong>同一条探测路径</strong>：</p>
+<p>先查理想节点，满载则顺次往后找，一定能定位到数据。</p>
+<h3 id="5-核心性质：向回迁移"><a href="#5-核心性质：向回迁移" class="headerlink" title="5. 核心性质：向回迁移"></a>5. 核心性质：向回迁移</h3><p>新增机器后，之前因节点满载被 “挤到远处” 的数据，</p>
+<p>会自动向<strong>更近的新空闲节点</strong>回迁。</p>
+<p>既保留一致性哈希<strong>少迁移</strong>优点，又限制单节点负载上限，解决偏斜和热点问题。</p>
+<hr>
+<h1 id="考试必背简答清单"><a href="#考试必背简答清单" class="headerlink" title="考试必背简答清单"></a>考试必背简答清单</h1><ol>
+<li>普通哈希分片原理 + 致命缺点</li>
+<li>一致性哈希哈希环工作原理</li>
+<li>证明机器扩容时迁移比例为 1&#x2F;n</li>
+<li>一致性哈希为什么能均衡负载？虚拟节点作用是什么？</li>
+<li>CDN 的作用、和分布式缓存的关系</li>
+<li>布尔不等式公式与渐近结论</li>
+<li>带负载边界一致性哈希的设计思想、读写规则、向回迁移含义</li>
+</ol>
+</div><div class="article-licensing box"><div class="licensing-title"><p>分布式缓存</p><p><a href="https://cactusprincess-hub.github.io/2026/05/23/数据科学数据基础/1-一致性哈希/">https://cactusprincess-hub.github.io/2026/05/23/数据科学数据基础/1-一致性哈希/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>cactusprincess</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2026-05-23</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2026-05-24</p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/review/">review</a><a class="link-muted mr-2" rel="tag" href="/tags/note/">note</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/3-CM-sketch%E6%96%B9%E6%B3%95/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">最高频元素寻找问题</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2026/04/23/database/4-SQL-1+SQL-2/"><span class="level-item">database4</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><script src="https://giscus.app/client.js" repo="cactusprincess-hub/cactusprincess-hub.github.io" data-repo="cactusprincess-hub/cactusprincess-hub.github.io" data-repo-id="R_kgDORDU9CA" data-category-id="DIC_kwDORDU9CM4C1i3p" data-category="Announcements" data-mapping="pathnamehexo g" data-strict="1" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="zh-CN" crossorigin="anonymous" async></script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">31</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">8</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">20</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/mmkg-note/"><span class="level-start"><span class="level-item">mmkg note</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数字逻辑笔记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数据库笔记</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">12</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-24T13:00:00.000Z">2026-05-24</time></p><p class="title"><a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/4-%E6%9C%80%E5%B0%8F%E5%93%88%E5%B8%8C/">最高频元素寻找问题</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-24T02:00:00.000Z">2026-05-24</time></p><p class="title"><a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/2-%20%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/">从属问题</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-24T02:00:00.000Z">2026-05-24</time></p><p class="title"><a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/3-CM-sketch%E6%96%B9%E6%B3%95/">最高频元素寻找问题</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-23T02:00:00.000Z">2026-05-23</time></p><p class="title"><a href="/2026/05/23/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/1-%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C/">分布式缓存</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-23T02:00:00.000Z">2026-04-23</time></p><p class="title"><a href="/2026/04/23/database/4-SQL-1+SQL-2/">database4</a></p><p class="categories"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/05/"><span class="level-start"><span class="level-item">五月 2026</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/database/"><span class="tag">database</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/digitallogic/"><span class="tag">digitallogic</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mmkg/"><span class="tag">mmkg</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">20</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
