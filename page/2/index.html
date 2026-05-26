@@ -29,7 +29,427 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-07T02:00:00.000Z" title="4/7/2026, 10:00:00 AM">2026-04-07</time>发表</span><span class="level-item"><time dateTime="2026-04-07T16:12:41.090Z" title="4/8/2026, 12:12:41 AM">2026-04-08</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/">数字逻辑笔记</a></span><span class="level-item">10 分钟读完 (大约1551个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/07/digital%20logic/digitallogic%201/">digitallogic1</a></p><div class="content"><h2 id="一、数字系统"><a href="#一、数字系统" class="headerlink" title="一、数字系统"></a>一、数字系统</h2><ol>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-15T14:00:00.000Z" title="4/15/2026, 10:00:00 PM">2026-04-15</time>发表</span><span class="level-item"><time dateTime="2026-05-08T15:53:46.783Z" title="5/8/2026, 11:53:46 PM">2026-05-08</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">1 小时读完 (大约6692个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/15/oopnote/14--Inheritance%20&amp;%20Composition/">oop14</a></p><div class="content"><ul>
+<li>[[#一、本章知识框架|一、本章知识框架]]</li>
+<li>[[#二、本章核心规则|二、本章核心规则]]</li>
+<li>[[#三、本章常考题型|三、本章常考题型]]<ul>
+<li>[[#三、本章常考题型#1. 组合还是继承|1. 组合还是继承]]</li>
+<li>[[#三、本章常考题型#2. 构造初始化顺序|2. 构造初始化顺序]]</li>
+<li>[[#三、本章常考题型#3. 名字隐藏|3. 名字隐藏]]</li>
+<li>[[#三、本章常考题型#4. 访问控制|4. 访问控制]]</li>
+<li>[[#三、本章常考题型#5. 多继承二义性|5. 多继承二义性]]</li>
+<li>[[#三、本章常考题型#6. 虚基类|6. 虚基类]]</li>
+<li>[[#三、本章常考题型#7. 向上转型|7. 向上转型]]</li>
+</ul>
+</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）|四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）]]<ul>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#1. Composition：组合|1. Composition：组合]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#2. Inheritance：继承|2. Inheritance：继承]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#3. 基类必须先定义，才能被继承|3. 基类必须先定义，才能被继承]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#4. 构造初始化列表：组合与继承都要用|4. 构造初始化列表：组合与继承都要用]]<ul>
+<li>[[#4. 构造初始化列表：组合与继承都要用#组合中的写法|组合中的写法]]</li>
+<li>[[#4. 构造初始化列表：组合与继承都要用#继承中的写法|继承中的写法]]</li>
+</ul>
+</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#5. 子对象构造顺序|5. 子对象构造顺序]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#6. 组合 + 继承一起出现|6. 组合 + 继承一起出现]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#7. Name hiding：名字隐藏|7. Name hiding：名字隐藏]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#8. 重定义时，返回类型或参数变了，也会触发隐藏|8. 重定义时，返回类型或参数变了，也会触发隐藏]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#9. 不是自动继承的成员|9. 不是自动继承的成员]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#10. static 成员函数在继承中的表现|10. static 成员函数在继承中的表现]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#11. 选择 composition 还是 inheritance|11. 选择 composition 还是 inheritance]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#12. 访问控制：public &#x2F; protected &#x2F; private 继承|12. 访问控制：public &#x2F; protected &#x2F; private 继承]]<ul>
+<li>[[#12. 访问控制：public &#x2F; protected &#x2F; private 继承#public 继承|public 继承]]</li>
+<li>[[#12. 访问控制：public &#x2F; protected &#x2F; private 继承#protected 继承|protected 继承]]</li>
+<li>[[#12. 访问控制：public &#x2F; protected &#x2F; private 继承#private 继承|private 继承]]</li>
+</ul>
+</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#13. 一个直接派生类不能访问基类 private|13. 一个直接派生类不能访问基类 private]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#14. 继承方式改变可见性|14. 继承方式改变可见性]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#15. 组合与继承在子类访问上的差别|15. 组合与继承在子类访问上的差别]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#16. 运算符重载与继承|16. 运算符重载与继承]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#17. 多重继承|17. 多重继承]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#18. 二义性：同名函数冲突|18. 二义性：同名函数冲突]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#19. 虚基类与虚继承|19. 虚基类与虚继承]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#20. 虚基类构造规则|20. 虚基类构造规则]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#21. 解决虚继承时构造参数传递|21. 解决虚继承时构造参数传递]]</li>
+<li>[[#四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）#22. 向上转型（Upcasting）|22. 向上转型（Upcasting）]]</li>
+</ul>
+</li>
+<li>[[#五、本章重点回忆版|五、本章重点回忆版]]</li>
+</ul>
+<h2 id="一、本章知识框架"><a href="#一、本章知识框架" class="headerlink" title="一、本章知识框架"></a>一、本章知识框架</h2><ol>
+<li><p>代码复用：composition 与 inheritance</p>
+</li>
+<li><p>composition 的语法与含义</p>
+</li>
+<li><p>inheritance 的语法与含义</p>
+</li>
+<li><p>子对象与构造初始化列表</p>
+</li>
+<li><p>组合与继承混用</p>
+</li>
+<li><p>名字隐藏（name hiding）</p>
+</li>
+<li><p>不是自动继承的成员</p>
+</li>
+<li><p>static 成员函数在继承中的表现</p>
+</li>
+<li><p>组合 vs 继承的选择</p>
+</li>
+<li><p>访问控制：public &#x2F; protected &#x2F; private 继承</p>
+</li>
+<li><p>运算符重载与继承</p>
+</li>
+<li><p>多重继承</p>
+</li>
+<li><p>二义性与消歧</p>
+</li>
+<li><p>虚基类与虚继承</p>
+</li>
+<li><p>向上转型（upcasting）。</p>
+</li>
+</ol>
+<hr>
+<h2 id="二、本章核心规则"><a href="#二、本章核心规则" class="headerlink" title="二、本章核心规则"></a>二、本章核心规则</h2><ul>
+<li>C++ 的一个重要特性是代码复用，类之间的关系通常通过 <strong>composition</strong> 和 <strong>inheritance</strong> 来表达。composition 是 <strong>has-a</strong>，inheritance 是 <strong>is-a</strong>。</li>
+<li>组合和继承都会让新类里包含子对象，只是来源不同：组合是把成员对象放进去，继承是把基类子对象放进去。</li>
+<li>派生类对象创建时，先构造基类子对象，再构造成员子对象，最后构造派生类自己。析构顺序相反。</li>
+<li>构造函数初始化列表可以显式调用成员对象或基类构造函数。</li>
+<li>如果派生类里重新定义了某个函数名，基类里同名的其他重载版本会被自动隐藏。</li>
+<li>构造函数、析构函数、赋值运算符不会自动继承。</li>
+<li>继承中的 static 成员函数会被继承，但它们没有 <code>this</code>，只能访问 static 成员，也不能是 virtual。</li>
+<li><code>public / protected / private</code> 继承会改变基类成员在派生类中的可见性；派生类成员函数仍可访问基类的 public 和 protected 成员，但对象能不能访问，要看继承方式。</li>
+<li>除赋值运算符外，运算符通常会自动继承到派生类。</li>
+<li>多重继承可能带来同名成员函数歧义；虚基类可以解决“基类被继承两次”的问题。</li>
+<li>派生类对象可以通过指针或引用被当作基类对象使用，这叫向上转型。<br><strong>经验句：</strong><br><strong>这章就记四件事：谁包含谁、谁先构造、谁会隐藏、谁会歧义。</strong></li>
+</ul>
+<hr>
+<h2 id="三、本章常考题型"><a href="#三、本章常考题型" class="headerlink" title="三、本章常考题型"></a>三、本章常考题型</h2><h3 id="1-组合还是继承"><a href="#1-组合还是继承" class="headerlink" title="1. 组合还是继承"></a>1. 组合还是继承</h3><p>考你某个设计是 <strong>has-a</strong> 还是 <strong>is-a</strong>。<br>记住：需要“拥有一个功能对象”时常用组合；需要“完全像基类那样工作”时常用继承。</p>
+<h3 id="2-构造初始化顺序"><a href="#2-构造初始化顺序" class="headerlink" title="2. 构造初始化顺序"></a>2. 构造初始化顺序</h3><p>考你成员对象和基类对象到底谁先构造。<br>记住：先基类，再成员，最后派生类本体。</p>
+<h3 id="3-名字隐藏"><a href="#3-名字隐藏" class="headerlink" title="3. 名字隐藏"></a>3. 名字隐藏</h3><p>考你派生类改了一个函数名后，基类的重载版本是否还能直接调用。<br>记住：同名就可能把整组版本藏起来。</p>
+<h3 id="4-访问控制"><a href="#4-访问控制" class="headerlink" title="4. 访问控制"></a>4. 访问控制</h3><p>考你 public &#x2F; protected &#x2F; private 继承后，派生类对象和派生类成员函数分别能访问什么。</p>
+<h3 id="5-多继承二义性"><a href="#5-多继承二义性" class="headerlink" title="5. 多继承二义性"></a>5. 多继承二义性</h3><p>考你同名函数从两个基类都继承来时怎么消歧。</p>
+<h3 id="6-虚基类"><a href="#6-虚基类" class="headerlink" title="6. 虚基类"></a>6. 虚基类</h3><p>考你为什么要 virtual 继承，构造函数怎么写，A 只构造一次还是多次。</p>
+<h3 id="7-向上转型"><a href="#7-向上转型" class="headerlink" title="7. 向上转型"></a>7. 向上转型</h3><p>考你派生类对象能否传给基类引用或指针参数。</p>
+<hr>
+<h2 id="四、逐块整理（含正确代码-错误代码-经验句）"><a href="#四、逐块整理（含正确代码-错误代码-经验句）" class="headerlink" title="四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）"></a>四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）</h2><h3 id="1-Composition：组合"><a href="#1-Composition：组合" class="headerlink" title="1. Composition：组合"></a>1. Composition：组合</h3><p>组合的意思是：在新类里放一个已有类的对象作为成员，也就是 <strong>has-a</strong>。<br>PDF 里 <code>Y</code> 里嵌了一个 <code>X x;</code>，说明 <code>Y</code> 直接拥有一个 <code>X</code> 子对象，这个对象有名字。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">X</span> &#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">X</span>() &#123; i = <span class="number">0</span>; &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">set</span><span class="params">(<span class="type">int</span> ii)</span> </span>&#123; i = ii; &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">read</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> i; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Y</span> &#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    X x;   <span class="comment">// 组合：Y 里面有一个 X   </span></span><br><span class="line">    <span class="built_in">Y</span>() &#123; i = <span class="number">0</span>; &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> ii)</span> </span>&#123; i = ii; &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">g</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> i; &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误理解：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以为 x 是“继承来的接口”</span></span><br><span class="line"><span class="comment">// 错，组合里 x 只是普通成员对象</span></span><br><span class="line"><span class="comment">//调用要使用</span></span><br><span class="line">Y y; y.<span class="built_in">f</span>(<span class="number">47</span>); y.x.<span class="built_in">set</span>(<span class="number">37</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>组合就是“我里面有你”，不是“我就是你”。</strong></p>
+<hr>
+<h3 id="2-Inheritance：继承"><a href="#2-Inheritance：继承" class="headerlink" title="2. Inheritance：继承"></a>2. Inheritance：继承</h3><p>继承表示 <strong>is-a</strong>：新类是已有类的一种类型。<br>写法：<code>class Y : public X</code><br>表示 <code>Y</code> 从 <code>X</code> 派生而来，<code>Y</code> 里会包含一个 <code>X</code> 的子对象。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">X</span> &#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">X</span>() &#123; i = <span class="number">1</span>; &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">set</span><span class="params">(<span class="type">int</span> ii)</span> </span>&#123; i = ii; &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">read</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> i; &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">permute</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> i = i * <span class="number">47</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Y</span> : <span class="keyword">public</span> X &#123;</span><br><span class="line">    <span class="type">int</span> i;   <span class="comment">// 这是 Y 自己的 i，不是 X 的 i</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Y</span>() &#123; i = <span class="number">2</span>; &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">change</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        i = <span class="built_in">permute</span>();   <span class="comment">// 调的是继承来的 X::permute()</span></span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">set</span><span class="params">(<span class="type">int</span> ii)</span> </span>&#123;</span><br><span class="line">        i = ii;          <span class="comment">// 改的是 Y::i</span></span><br><span class="line">        X::<span class="built_in">set</span>(ii);      <span class="comment">// 显式改 X::i</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Y 里有两个 i：父类X::i + 自己Y::i<br>函数子类没有 → 用父类，操作父类 i<br>代码在哪个类里 → 默认用哪个类的 i<br>permute() 子类没写 → 绝对是父类的，改父类 i<br><strong>错误理解：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以为 Y 里只有一个 i</span></span><br><span class="line"><span class="comment">// 错，Y 自己的 i 和 X 的 i 是两份不同的存储</span></span><br></pre></td></tr></table></figure>
+<p><strong>经验句：</strong><br><strong>继承不是复制代码，而是“带着一个基类子对象出生”。</strong></p>
+<hr>
+<h3 id="3-基类必须先定义，才能被继承"><a href="#3-基类必须先定义，才能被继承" class="headerlink" title="3. 基类必须先定义，才能被继承"></a>3. 基类必须先定义，才能被继承</h3><p>PDF 指出：把类当作基类，就等于在派生类里放了一个“未命名的该类对象”；因此基类必须先完整定义，不能只有声明。必须先把基类完整定义，才能继承</p>
+<p><strong>错误代码：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">X</span>;          <span class="comment">// 只有声明，没有定义</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Y</span> : <span class="keyword">public</span> X &#123;   <span class="comment">// 错</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误原因：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// X 还没定义完整，不能拿来当基类</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>继承前先把基类“做完整”。</strong></p>
+<hr>
+<h3 id="4-构造初始化列表：组合与继承都要用"><a href="#4-构造初始化列表：组合与继承都要用" class="headerlink" title="4. 构造初始化列表：组合与继承都要用"></a>4. 构造初始化列表：组合与继承都要用</h3><p>不管是组合还是继承，新类里面都藏着一个子对象<br>组合：成员对象（如 Y 里的 X x）→ 成员子对象<br>继承：基类（如 Y 继承 X）→ 基类子对象<br>构造函数、析构函数、operator&#x3D; 绝对不继承<br>新类访问不了子对象的私有成员<br>PDF 强调：无论是组合还是继承，都要保证子对象正确初始化。派生类不能直接访问基类或成员对象的私有数据，因此应该在构造初始化列表里调用它们的构造函数。<br>先执行初始化列表，在进入构造函数。</p>
+<h4 id="组合中的写法：直接用起的名字"><a href="#组合中的写法：直接用起的名字" class="headerlink" title="组合中的写法：直接用起的名字"></a>组合中的写法：直接用起的名字</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">X</span> &#123;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">X</span>(<span class="type">int</span> i) : <span class="built_in">a</span>(i) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Constructor X:&quot;</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Y</span> &#123;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    X x;</span><br><span class="line">    <span class="built_in">Y</span>(<span class="type">int</span> i, <span class="type">int</span> j) : <span class="built_in">b</span>(i), <span class="built_in">x</span>(j) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Constructor Y:&quot;</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Constructor X:<span class="number">2</span></span><br><span class="line">Constructor Y:<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>成员对象不是进函数体以后才构造，而是在初始化列表里先构造。初始化列表的顺序按照定义顺序出现</strong></p>
+<h4 id="继承中的写法：用类的名字"><a href="#继承中的写法：用类的名字" class="headerlink" title="继承中的写法：用类的名字"></a>继承中的写法：用类的名字</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">X</span> &#123;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">X</span>(<span class="type">int</span> i) : <span class="built_in">a</span>(i) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Constructor X:&quot;</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Y</span> : <span class="keyword">public</span> X &#123;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Y</span>(<span class="type">int</span> i, <span class="type">int</span> j) : <span class="built_in">b</span>(i), <span class="built_in">X</span>(j) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Constructor Y:&quot;</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>**输出：**这里要大写X。因为没有显示起名字</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Constructor X:<span class="number">2</span></span><br><span class="line">Constructor Y:<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>基类子对象也必须在初始化列表里先养好。</strong></p>
+<hr>
+<h3 id="5-子对象构造顺序"><a href="#5-子对象构造顺序" class="headerlink" title="5. 子对象构造顺序"></a>5. 子对象构造顺序</h3><p>PDF 明确写了：创建派生类对象时，先构造基类，再构造成员对象，最后构造派生类自己。并且基类或成员的构造顺序按它们在类中声明的顺序，而不是按初始化列表写的顺序。</p>
+<p>第一步：先初始化基类子对象（继承的父类）<br>	不管初始化列表把 X(n) 写在第几个，永远第一个执行<br>	只和「继承」有关，和列表顺序无关<br>第二步：再初始化成员对象（类里声明的类类型对象）<br>	只看类内声明的先后顺序，完全不看初始化列表怎么写<br>	普通变量（int b）不属于成员对象，不参与这一步<br>第三步：最后执行子类自己的构造函数体（大括号里的代码）<br>	前面所有初始化完成，才跑你写的 cout&#x2F; 赋值逻辑<br>补充 2 个关键（你刚理清的重点）<br>	初始化列表的作用：只是给基类、成员对象传参调用构造，不决定执行顺序<br>	普通成员（int b）：在列表里赋值即可，无构造，不影响顺序</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">X</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">X</span>(<span class="type">int</span> i = <span class="number">0</span>) &#123; cout &lt;&lt; <span class="string">&quot;Constructor X:&quot;</span> &lt;&lt; i &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Y</span> : <span class="keyword">public</span> X &#123;</span><br><span class="line">    <span class="type">int</span> b;<span class="comment">//类内成员</span></span><br><span class="line">    X x1, x2;<span class="comment">//成员对象</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Y</span>(<span class="type">int</span> i, <span class="type">int</span> j, <span class="type">int</span> m, <span class="type">int</span> n)</span><br><span class="line">        : <span class="built_in">b</span>(i), <span class="built_in">x2</span>(j), <span class="built_in">x1</span>(m), <span class="built_in">X</span>(n) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Constructor Y:&quot;</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>实际输出：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Constructor X:<span class="number">4</span></span><br><span class="line">Constructor X:<span class="number">3</span></span><br><span class="line">Constructor X:<span class="number">2</span></span><br><span class="line">Constructor Y:<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>错误理解：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以为会按初始化列表顺序 b, x2, x1, X</span></span><br><span class="line"><span class="comment">// 错，真正顺序受声明顺序控制</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>构造顺序看声明，不看你在初始化列表里怎么写。</strong></p>
+<hr>
+<h3 id="6-组合-继承一起出现"><a href="#6-组合-继承一起出现" class="headerlink" title="6. 组合 + 继承一起出现"></a>6. 组合 + 继承一起出现</h3><p>PDF 这一页的重点是：一个派生类里，可能同时有基类子对象，也有自己的成员对象。构造时依然先基类，再成员，最后自己。</p>
+<p><strong>经验句：</strong><br><strong>只要类里有“基类 + 成员”，构造顺序就永远先上后下。</strong></p>
+<hr>
+<h3 id="7-Name-hiding：名字隐藏"><a href="#7-Name-hiding：名字隐藏" class="headerlink" title="7. Name hiding：名字隐藏"></a>7. Name hiding：名字隐藏</h3><p>PDF 把三件事区分开：</p>
+<ul>
+<li><strong>Overloading</strong>：同一作用域里同名不同参</li>
+<li><strong>Redefining</strong>：继承中普通成员函数的重定义—只要同函数名父类就被藏</li>
+<li><strong>Overriding</strong>：虚函数重写。</li>
+<li>重载（Overloading）<br>  只在一个类里，函数名一样，参数不一样，和继承没关系。<br>  例：f()、f(string) 都在 Base 类里 → 重载。<br>重定义（Redefining）<br>  子类写了和父类名字一样的普通函数（不带 virtual），会触发名字隐藏。<br>重写（Overriding）<br>  子类重写父类的虚函数（带 virtual），是多态，不隐藏，和重定义完全不同。<br>关键点是：<strong>派生类里只要重新定义了某个函数名，基类同名的其他重载版本会被隐藏。</strong><br><strong>正确代码：</strong></li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> <span class="number">1</span>; &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(string)</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> <span class="number">1</span>; &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">g</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived2</span> : <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> <span class="number">2</span>; &#125;   <span class="comment">// 重新定义 f</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>结果：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Derived2 d2;</span><br><span class="line"><span class="comment">// d2.f(s);  // 错：string 版本被隐藏</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>错误理解：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以为只要基类里有 f(string)，派生类就一定能直接用</span></span><br><span class="line"><span class="comment">// 错，只要名字被重新定义，整组重载可能都被藏掉</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>派生类一旦重定义了同名函数，基类同名重载组可能一起失联。</strong></p>
+<hr>
+<h3 id="8-重定义时，返回类型或参数变了，也会触发隐藏"><a href="#8-重定义时，返回类型或参数变了，也会触发隐藏" class="headerlink" title="8. 重定义时，返回类型或参数变了，也会触发隐藏"></a>8. 重定义时，返回类型或参数变了，也会触发隐藏</h3><p>PDF 用 <code>Derived3</code> 和 <code>Derived4</code> 说明，只<strong>要派生类里出现了同名函数</strong>，不管你是改返回类型还是改参数列表，基类那组同名函数都可能<strong>被</strong>隐藏。</p>
+<p><strong>经验句：</strong><br><strong>别只盯着参数，名字一样，隐藏就可能发生。</strong></p>
+<hr>
+<h3 id="9-不是自动继承的成员"><a href="#9-不是自动继承的成员" class="headerlink" title="9. 不是自动继承的成员"></a>9. 不是自动继承的成员</h3><p>PDF 明确列出：构造函数、析构函数、赋值运算符不会自动继承。<br><strong>经验句：</strong><br><strong>构造、析构、赋值这三件事，派生类都得自己想办法。</strong></p>
+<hr>
+<h3 id="10-static-成员函数在继承中的表现"><a href="#10-static-成员函数在继承中的表现" class="headerlink" title="10. static 成员函数在继承中的表现"></a>10. static 成员函数在继承中的表现</h3><p>PDF 说得很清楚：和普通函数一样，static 成员函数会继承；如果你重新定义了某个 static 成员函数，其他同名重载版本也会被隐藏。static 成员函数只能访问 static 数据成员，没有 <code>this</code>，（因为静态函数是公有，不属于某个类的成员）也不能是 virtual虚函数。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">void</span> <span class="title">s</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误理解：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以为 static 成员函数能访问普通成员</span></span><br><span class="line"><span class="comment">// 错，它没有 this</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>static 函数没有 this，所以它只认 static。</strong></p>
+<hr>
+<h3 id="11-选择-composition-还是-inheritance"><a href="#11-选择-composition-还是-inheritance" class="headerlink" title="11. 选择 composition 还是 inheritance"></a>11. 选择 composition 还是 inheritance</h3><p>PDF 给出的判断标准非常实用：</p>
+<ul>
+<li>你想把一个已有类的功能“作为数据成员拿来用”，但不想暴露它的接口，选 <strong>composition</strong>，通过类里的类调用接口</li>
+<li>你想让新类拥有和已有类几乎一样的接口，选 <strong>inheritance</strong>。直接类–接口，这个东西新子类就叫派生类<br><strong>经验句：</strong><br><strong>想“有一个”就组合，想“就是一个”就继承。</strong></li>
+</ul>
+<hr>
+<h3 id="12-访问控制：public-protected-private-继承"><a href="#12-访问控制：public-protected-private-继承" class="headerlink" title="12. 访问控制：public &#x2F; protected &#x2F; private 继承"></a>12. 访问控制：public &#x2F; protected &#x2F; private 继承</h3><p>PDF 的表格核心意思是：继承访问方式会改变基类成员在派生类里的可见性。派生类成员函数通常能访问基类的 public 和 protected；对象能不能访问，要看继承方式。</p>
+<h4 id="public-继承记住这俩就行，然后成员权限和继承来源取交集一下"><a href="#public-继承记住这俩就行，然后成员权限和继承来源取交集一下" class="headerlink" title="public 继承记住这俩就行，然后成员权限和继承来源取交集一下"></a>public 继承记住这俩就行，然后成员权限和继承来源取交集一下</h4><ul>
+<li>派生类成员函数：能访问基类 public 和 protected</li>
+<li>派生类对象：只能访问基类 public。因为是对象外部</li>
+<li>在这基础上和继承方式去交集，就是继承过来的基类成员，在派生类里对外表现的 “新身份”。<br><strong>例子：</strong></li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">employee</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="type">short</span> number;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    string name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">manager</span> : <span class="keyword">public</span> employee &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">meeting</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        number = n;   <span class="comment">// 对：派生类成员可访问 protected</span></span><br><span class="line">        name = <span class="string">&quot;Jh&quot;</span>;  <span class="comment">// 错：private 不可访问</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>对象侧：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">employee E;</span><br><span class="line">E.<span class="built_in">print</span>();      <span class="comment">// 对</span></span><br><span class="line">E.number = <span class="number">3</span>;   <span class="comment">// 错</span></span><br><span class="line"></span><br><span class="line">manager M;</span><br><span class="line">M.<span class="built_in">print</span>();      <span class="comment">// 对</span></span><br><span class="line">M.<span class="built_in">meeting</span>(<span class="number">1</span>);   <span class="comment">// 对</span></span><br><span class="line">M.number = <span class="number">3</span>;   <span class="comment">// 错</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br>**public 继承下，派生类对象只看得到基类的 public。此处我们只考虑通过函数和通过类访问父类成员。<br>派生类的成员函数可访问基类的public和protected成员；<br>– 派生类对象可访问基类的public成员。</p>
+<h4 id="protected-继承"><a href="#protected-继承" class="headerlink" title="protected 继承"></a>protected 继承</h4><ul>
+<li>派生类成员函数：仍可访问基类 public 和 protected</li>
+<li>派生类对象：不能访问基类任何成员。</li>
+</ul>
+<h4 id="private-继承–降级成派生类私有成员"><a href="#private-继承–降级成派生类私有成员" class="headerlink" title="private 继承–降级成派生类私有成员"></a>private 继承–降级成<strong>派生类私有成员</strong></h4><ul>
+<li>派生类成员函数：仍可访问基类 public 和 protected（访问自己的私有</li>
+<li>派生类对象：不能访问基类任何成员。<br><strong>经验句：</strong><br><strong>继承方式越“私”，对象越看不见基类接口。</strong></li>
+</ul>
+<hr>
+<h3 id="13-一个直接派生类不能访问基类-private"><a href="#13-一个直接派生类不能访问基类-private" class="headerlink" title="13. 一个直接派生类不能访问基类 private"></a>13. 一个直接派生类不能访问基类 private</h3><p>PDF 强调：基类 private 成员只能被它自己的成员函数和友元访问；直接派生类无论如何继承不能访问 private，但可以访问 public 和 protected。</p>
+<p><strong>经验句：</strong><br><strong>private 是“只给自己用”的。</strong></p>
+<hr>
+<h3 id="14-继承方式改变可见性"><a href="#14-继承方式改变可见性" class="headerlink" title="14. 继承方式改变可见性"></a>14. 继承方式改变可见性</h3><p>PDF 的表格可记成一句话：</p>
+<ul>
+<li>public 继承：基类 public 仍是 public，protected 仍是 protected</li>
+<li>protected 继承：基类 public&#x2F;protected 变成 protected</li>
+<li>private 继承：基类 public&#x2F;protected 都变成 private。</li>
+</ul>
+<p><strong>经验句：</strong><br><strong>继承方式像“权限压缩器”，越往后越收紧。</strong></p>
+<hr>
+<h3 id="15-组合与继承在子类访问上的差别"><a href="#15-组合与继承在子类访问上的差别" class="headerlink" title="15. 组合与继承在子类访问上的差别"></a>15. 组合与继承在子类访问上的差别</h3><p>PDF 的 <code>Rectangle</code> 例子说明：如果 <code>Rectangle : public Location</code>，那么 <code>Rectangle</code> 的对象还能直接访问 <code>Location</code> 的 public 成员；如果改成 <code>private Location</code>，那么这些接口就不能再被对象直接使用，需要在 <code>Rectangle</code> 里重新包装。</p>
+<p><strong>错误场景：</strong><br>这里是在类外通过对象 点 方式访问  所以不行 只有pub可以</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Rectangle</span> : <span class="keyword">private</span> Location &#123;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Rectangle rect;</span><br><span class="line">rect.<span class="built_in">Move</span>(<span class="number">3</span>, <span class="number">2</span>);   <span class="comment">// 错：private 继承后，基类接口不再对外公开</span></span><br></pre></td></tr></table></figure>
+<p><strong>修正思路：</strong><br>在子类重新定义 由于这里是类内 所以可以访问私有 相当于自己访问自己</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Rectangle</span> : <span class="keyword">private</span> Location &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">Move</span><span class="params">(<span class="type">int</span> xOff, <span class="type">int</span> yOff)</span> </span>&#123;</span><br><span class="line">        Location::<span class="built_in">Move</span>(xOff, yOff);   <span class="comment">// 在内部转调</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">GetX</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> Location::<span class="built_in">GetX</span>(); &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">GetY</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> Location::<span class="built_in">GetY</span>(); &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>经验句：</strong><br><strong>private 继承不是“不能用基类”，而是“不能直接把基类接口露出去”。</strong></p>
+<hr>
+<h3 id="16-运算符重载与继承"><a href="#16-运算符重载与继承" class="headerlink" title="16. 运算符重载与继承"></a>16. 运算符重载与继承</h3><p>PDF 指出：除赋值运算符外，运算符通常会自动继承进派生类。<br><strong>经验句：</strong><br><strong>一般运算符能跟着继承走，<code>=</code> 例外。</strong></p>
+<hr>
+<h3 id="17-多重继承"><a href="#17-多重继承" class="headerlink" title="17. 多重继承"></a>17. 多重继承</h3><p>PDF 定义了多重继承：一个派生类有多个直接基类。构造顺序仍然要考虑各基类、成员对象和派生类本身。<br><strong>例子：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> : <span class="keyword">public</span> B1, <span class="keyword">public</span> B2 &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">A</span>(<span class="type">int</span> i, <span class="type">int</span> j, <span class="type">int</span> k, <span class="type">int</span> l)</span><br><span class="line">        : <span class="built_in">a</span>(l), <span class="built_in">bb</span>(k), <span class="built_in">B2</span>(j), <span class="built_in">B1</span>(i) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Constructor A: &quot;</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    B3 bb;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出顺序说明：</strong></p>
+<ul>
+<li>基类构造按声明顺序–继承时候写的顺序进行，不按初始化列表顺序</li>
+<li>成员对象也按声明顺序–类内声明顺序进行。<br> 最后执行大括号子类自己真正的构造逻辑<br><strong>经验句：</strong><br><strong>多继承里，初始化列表写法不是最终执行顺序。</strong></li>
+</ul>
+<hr>
+<h3 id="18-二义性：同名函数冲突"><a href="#18-二义性：同名函数冲突" class="headerlink" title="18. 二义性：同名函数冲突"></a>18. 二义性：同名函数冲突</h3><p>PDF 给了两个典型歧义场景：</p>
+<ol>
+<li>两个基类都有同名成员函数</li>
+<li>一个类通过不同路径从同一个祖先继承了两份同名函数。<br><strong>错误代码：</strong></li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> : <span class="keyword">public</span> A, <span class="keyword">public</span> B &#123;&#125;;</span><br><span class="line"></span><br><span class="line">C c;</span><br><span class="line">c.<span class="built_in">f</span>();   <span class="comment">// 错：二义性</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>消歧方法 1：作用域限定</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.A::<span class="built_in">f</span>();   <span class="comment">// 对</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>消歧方法 2：在派生类里重新定义，相当于再封装一层</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> : <span class="keyword">public</span> A, <span class="keyword">public</span> B &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; A::<span class="built_in">f</span>(); &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>同名冲突时，要么点名调用，要么自己封装一层。</strong></p>
+<hr>
+<h3 id="19-虚基类与虚继承"><a href="#19-虚基类与虚继承" class="headerlink" title="19. 虚基类与虚继承"></a>19. 虚基类与虚继承</h3><p>PDF 说，若两个派生路径都继承自同一个祖先类，就可能出现“同一个基类被带进来两次”的问题。解决办法是把祖先类设成虚基类（有多个继承）。此时上面两种消岐方法失效<br><strong>经验句：</strong><br><strong>virtual 继承的目标只有一个：让祖先类只出现一次，不复制两次。</strong></p>
+<hr>
+<h3 id="20-虚基类构造规则"><a href="#20-虚基类构造规则" class="headerlink" title="20. 虚基类构造规则"></a>20. 虚基类构造规则</h3><p>PDF 这里是考试重点：虚基类构造只调用一次；它出现在所有相关派生类构造函数的初始化列表里；若省略则调用默认构造；它在非虚基类之前构造；并且由“最派生类”负责实际初始化。<br><strong>正确写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> : <span class="keyword">virtual</span> <span class="keyword">public</span> A &#123;&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> : <span class="keyword">virtual</span> <span class="keyword">public</span> A &#123;&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">D</span> : <span class="keyword">public</span> B, <span class="keyword">public</span> C &#123;&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">E</span> : <span class="keyword">public</span> D &#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这样 <code>D</code> 里只有一份 <code>A</code> 子对象。<br>此时的初始化规则：<br>先初始化虚基类 A（E 是最派生类，用 E 的A(…)初始化）<br>再初始化直接基类 D（调用 D 的构造）<br>D 的构造里，初始化它的直接基类 B 和 C（调用 B 和 C 的构造，跳过它们的 A 初始化部分）<br>初始化 E 自己的成员变量<br>执行 E 构造函数的{}里的代码<br><strong>经验句：</strong><br><strong>虚基类谁来管？最顶层那个最派生类来管。</strong></p>
+<hr>
+<h3 id="21-解决虚继承时构造参数传递"><a href="#21-解决虚继承时构造参数传递" class="headerlink" title="21. 解决虚继承时构造参数传递"></a>21. 解决虚继承时构造参数传递</h3><p>PDF 的例子里，<code>D</code> 作为最派生类，会负责虚基类 <code>A</code> 的构造；<code>B</code> 和 <code>C</code> 里写了 <code>A(s1)</code>，但真正生效的是 <code>D</code> 初始化列表中的 <code>A(s1)</code>。这正是虚基类“只构造一次”的体现。</p>
+<p><strong>经验句：</strong><br><strong>虚基类的初始化权，最终落在最派生类手里。</strong></p>
+<hr>
+<h3 id="22-向上转型（Upcasting）"><a href="#22-向上转型（Upcasting）" class="headerlink" title="22. 向上转型（Upcasting）"></a>22. 向上转型（Upcasting）</h3><p>PDF 说，继承最重要的不只是“新类拿到了父类函数”，而是“新类和基类之间形成了类型关系”。因此，派生类对象可以通过&#x3D;&#x3D;指针或引用&#x3D;&#x3D;当成基类对象使用，这叫向上转型。</p>
+<p>1.父类引用 &#x2F; 父类指针，只能 “看到” 子类里的父类部分，本身应该接受父类对象，但是接受子类的<br>2.同一个函数，可以接收所有子类对象<br><strong>正确代码：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Instrument</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">play</span><span class="params">()</span> <span class="type">const</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Wind</span> : <span class="keyword">public</span> Instrument &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tune</span><span class="params">(Instrument&amp; i)</span> </span>&#123;</span><br><span class="line">    i.<span class="built_in">play</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Wind flute;</span><br><span class="line">    <span class="built_in">tune</span>(flute);          <span class="comment">// 向上转型</span></span><br><span class="line">    Instrument* p = &amp;flute;</span><br><span class="line">    Instrument&amp; r = flute;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>传 flute 进去，flute 还是子类对象，没变<br>Instrument&amp; i 只是给它套了个父类视角<br>这个视角下，只能调用父类的 public 成员（比如 play）<br>父类 private 完全碰不到，子类新增的东西也看不到,子类同名函数也看不到<br>这个 “把子类当父类用” 的动作，就叫向上转型<br><strong>经验句：</strong><br><strong>向上转型本质是：派生类对象可以按基类接口来用。</strong></p>
+<hr>
+<h2 id="五、本章重点回忆版"><a href="#五、本章重点回忆版" class="headerlink" title="五、本章重点回忆版"></a>五、本章重点回忆版</h2><ul>
+<li>组合：类里放另一个类对象。</li>
+<li>继承：新类是旧类的一种。</li>
+<li>构造顺序：基类 → 成员对象 → 派生类本体。</li>
+<li>初始化列表：用来初始化基类和成员对象。</li>
+<li>名字隐藏：派生类重定义同名函数后，基类同名重载可能一起被藏掉。</li>
+<li>自动继承不了的：构造函数、析构函数、赋值运算符。</li>
+<li>static 函数没有 <code>this</code>，不能访问普通成员，也不能虚函数化。</li>
+<li>public &#x2F; protected &#x2F; private 继承会改变对外可见性。</li>
+<li>多继承容易歧义，必要时用作用域限定或虚基类。</li>
+<li>向上转型：派生类对象可当基类引用&#x2F;指针用。</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-15T12:00:00.000Z" title="4/15/2026, 8:00:00 PM">2026-04-15</time>发表</span><span class="level-item"><time dateTime="2026-04-20T12:05:32.329Z" title="4/20/2026, 8:05:32 PM">2026-04-20</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">12 分钟读完 (大约1842个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/15/oopnote/13--Dynamic%20Object%20Creation/">oop13</a></p><div class="content"><ul>
+<li>[[#一、本章知识框架|一、本章知识框架]]</li>
+<li>[[#二、本章核心规则|二、本章核心规则]]</li>
+<li>[[#三、本章常考题型|三、本章常考题型]]<ul>
+<li>[[#三、本章常考题型#1. 单个对象创建与销毁|1. 单个对象创建与销毁]]</li>
+<li>[[#三、本章常考题型#2. 数组对象创建与销毁|2. 数组对象创建与销毁]]</li>
+<li>[[#三、本章常考题型#3. 构造函数调用次数|3. 构造函数调用次数]]</li>
+<li>[[#三、本章常考题型#4. <code>delete</code> 和 <code>delete[]</code> 混用|4. <code>delete</code> 和 <code>delete[]</code> 混用]]</li>
+</ul>
+</li>
+<li>[[#四、逐块整理（含代码、错误代码、经验句）|四、逐块整理（含代码、错误代码、经验句）]]<ul>
+<li>[[#四、逐块整理（含代码、错误代码、经验句）#1. 对象创建时发生什么|1. 对象创建时发生什么]]</li>
+<li>[[#四、逐块整理（含代码、错误代码、经验句）#2. 单个对象的 <code>new/delete</code>|2. 单个对象的 <code>new/delete</code>]]</li>
+<li>[[#四、逐块整理（含代码、错误代码、经验句）#3. 数组对象的 <code>new[]/delete[]</code>|3. 数组对象的 <code>new[]/delete[]</code>]]</li>
+<li>[[#四、逐块整理（含代码、错误代码、经验句）#4. <code>new</code> &#x2F; <code>new[]</code> 返回什么|4. <code>new</code> &#x2F; <code>new[]</code> 返回什么]]</li>
+<li>[[#四、逐块整理（含代码、错误代码、经验句）#5. 一个对象只能释放一次|5. 一个对象只能释放一次]]</li>
+</ul>
+</li>
+<li>[[#五、本章重点记忆总结|五、本章重点记忆总结]]</li>
+</ul>
+<h1 id="第13章-Dynamic-Object-Creation-复习笔记"><a href="#第13章-Dynamic-Object-Creation-复习笔记" class="headerlink" title="第13章 Dynamic Object Creation 复习笔记"></a>第13章 Dynamic Object Creation 复习笔记</h1><h2 id="一、本章知识框架"><a href="#一、本章知识框架" class="headerlink" title="一、本章知识框架"></a>一、本章知识框架</h2><ol>
+<li><p>动态对象创建的概念</p>
+</li>
+<li><p>对象创建时发生的两件事</p>
+</li>
+<li><p>单个对象的 <code>new/delete</code></p>
+</li>
+<li><p>数组对象的 <code>new[]/delete[]</code></p>
+</li>
+<li><p><code>new</code> 返回值与对象生命周期</p>
+</li>
+<li><p><code>delete</code> 和 <code>delete[]</code> 的匹配规则</p>
+</li>
+<li><p>本章总结。</p>
+</li>
+</ol>
+<hr>
+<h2 id="二、本章核心规则"><a href="#二、本章核心规则" class="headerlink" title="二、本章核心规则"></a>二、本章核心规则</h2><ul>
+<li><p>C++ 对象在创建时，通常会发生两件事：先分配存储空间，再调用构造函数初始化。</p>
+</li>
+<li><p>对象的存储区域可以来自静态存储区、栈或堆；动态对象创建对应的是堆上的动态内存分配。</p>
+</li>
+<li><p><code>new type(initializer)</code> 用来创建动态对象，<code>delete pointername</code> 用来销毁动态对象。</p>
+</li>
+<li><p><code>new</code> &#x2F; <code>new[]</code> 返回的是指向对象的指针。</p>
+</li>
+<li><p>通过 <code>new</code> 创建的对象必须用 <code>delete</code> 销毁；通过 <code>new[]</code> 创建的对象数组必须用 <code>delete[]</code> 销毁。</p>
+</li>
+<li><p>一个指针只能被 <code>delete</code> &#x2F; <code>delete[]</code> 释放一次。</p>
+</li>
+</ul>
+<p><strong>经验句：</strong><br><strong>先分配空间，再调用构造；<code>new</code> 配 <code>delete</code>，<code>new[]</code> 配 <code>delete[]</code>。</strong></p>
+<hr>
+<h2 id="三、本章常考题型"><a href="#三、本章常考题型" class="headerlink" title="三、本章常考题型"></a>三、本章常考题型</h2><h3 id="1-单个对象创建与销毁"><a href="#1-单个对象创建与销毁" class="headerlink" title="1. 单个对象创建与销毁"></a>1. 单个对象创建与销毁</h3><p>考你 <code>new Tree(40)</code> 和 <code>delete t</code> 的含义。<br>记住：这是堆上创建一个对象，用完后手动释放。</p>
+<h3 id="2-数组对象创建与销毁"><a href="#2-数组对象创建与销毁" class="headerlink" title="2. 数组对象创建与销毁"></a>2. 数组对象创建与销毁</h3><p>考你 <code>new Tree[3]</code> 和 <code>delete[] t</code> 的配对。<br>记住：数组版必须成对使用 <code>[]</code>。</p>
+<h3 id="3-构造函数调用次数"><a href="#3-构造函数调用次数" class="headerlink" title="3. 构造函数调用次数"></a>3. 构造函数调用次数</h3><p>考你 <code>new Tree[3]</code> 时构造函数会调用几次。<br>记住：数组里有几个元素，构造通常就会调用几次。</p>
+<h3 id="4-delete-和-delete-混用"><a href="#4-delete-和-delete-混用" class="headerlink" title="4. delete 和 delete[] 混用"></a>4. <code>delete</code> 和 <code>delete[]</code> 混用</h3><p>考你如果把数组对象用错释放方式会怎样。<br>记住：这是高频错误点。</p>
+<hr>
+<h2 id="四、逐块整理（含代码、错误代码、经验句）"><a href="#四、逐块整理（含代码、错误代码、经验句）" class="headerlink" title="四、逐块整理（含代码、错误代码、经验句）"></a>四、逐块整理（含代码、错误代码、经验句）</h2><h3 id="1-对象创建时发生什么"><a href="#1-对象创建时发生什么" class="headerlink" title="1. 对象创建时发生什么"></a>1. 对象创建时发生什么</h3><p>new 干的两件事<br>—在堆上给对象分配内存<br>—自动调用构造函数，初始化对象<br>delete 干的两件事<br>—自动调用析构函数，清理对象<br>—释放堆上的内存，还给系统</p>
+<p>PDF 先说明：一个 C++ 对象被创建时，先分配存储空间，再调用构造函数初始化这块空间。空间来源可以是静态存储区、栈或堆。动态对象创建对应的是堆上的内存分配。</p>
+<p><strong>正确理解：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对象创建 = 分配空间 + 调用构造函数</span></span><br><span class="line"><span class="function">Tree <span class="title">t</span><span class="params">(<span class="number">40</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误理解：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以为“只有构造函数在起作用”</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">错。</span></span><br><span class="line"><span class="comment">构造函数只负责初始化，</span></span><br><span class="line"><span class="comment">前面还有“分配存储空间”这一步。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>对象不是“凭空出现”的，先有空间，后有初始化。</strong></p>
+<hr>
+<h3 id="2-单个对象的-new-delete"><a href="#2-单个对象的-new-delete" class="headerlink" title="2. 单个对象的 new/delete"></a>2. 单个对象的 <code>new/delete</code></h3><p>PDF 给出的基本写法是：<br>创建单个动态对象<br>类名 *指针名 &#x3D; new 类名(构造函数参数);<br>销毁单个动态对象<br>delete 指针名;</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MyType* fp = <span class="keyword">new</span> <span class="built_in">MyType</span>(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">MyType* fp = <span class="keyword">new</span> MyType;</span><br><span class="line"><span class="keyword">delete</span> fp;</span><br></pre></td></tr></table></figure>
+
+<p>也就是：<code>new type(initializer)</code> 创建动态对象，<code>delete pointername</code> 销毁动态对象。</p>
+<p><strong>PDF 示例：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Tree</span> &#123;</span><br><span class="line">    <span class="type">int</span> height;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Tree</span>(<span class="type">int</span> treeHeight = <span class="number">0</span>) : <span class="built_in">height</span>(treeHeight) &#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123; cout &lt;&lt; height &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Tree* t = <span class="keyword">new</span> <span class="built_in">Tree</span>(<span class="number">40</span>);  <span class="comment">// 堆上创建单个对象</span></span><br><span class="line">    t-&gt;<span class="built_in">print</span>();              <span class="comment">// 输出 40</span></span><br><span class="line">    <span class="keyword">delete</span> t;                <span class="comment">// 手动释放</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误代码：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 错误思路：创建了却不释放</span></span><br><span class="line">Tree* t = <span class="keyword">new</span> <span class="built_in">Tree</span>(<span class="number">40</span>);</span><br><span class="line"><span class="comment">// 没有 delete t;   // 内存泄漏风险</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong><code>new</code> 出来的对象不是自动回收的，必须自己 <code>delete</code>。</strong></p>
+<hr>
+<h3 id="3-数组对象的-new-delete"><a href="#3-数组对象的-new-delete" class="headerlink" title="3. 数组对象的 new[]/delete[]"></a>3. 数组对象的 <code>new[]/delete[]</code></h3><p>PDF 明确给出数组版写法：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MyType* fp = <span class="keyword">new</span> MyType[<span class="number">100</span>];</span><br><span class="line"><span class="keyword">delete</span>[] fp;</span><br></pre></td></tr></table></figure>
+
+<p>也就是：<code>new type[size]</code> 创建对象数组，<code>delete[] pointername</code> 销毁对象数组。<br><strong>PDF 示例：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Tree</span> &#123;</span><br><span class="line">    <span class="type">int</span> height;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Tree</span>(<span class="type">int</span> treeHeight = <span class="number">0</span>) : <span class="built_in">height</span>(treeHeight) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Constructor:&quot;</span> &lt;&lt; height &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123; cout &lt;&lt; height &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Tree* t = <span class="keyword">new</span> Tree[<span class="number">3</span>];   <span class="comment">// 创建 3 个对象</span></span><br><span class="line">    t[<span class="number">2</span>] = <span class="built_in">Tree</span>(<span class="number">40</span>);</span><br><span class="line">    t[<span class="number">2</span>].<span class="built_in">print</span>();            <span class="comment">// 输出 40</span></span><br><span class="line">    <span class="keyword">delete</span>[] t;              <span class="comment">// 必须用 delete[]</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>PDF 输出结果：</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Constructor:0</span><br><span class="line">Constructor:0</span><br><span class="line">Constructor:0</span><br><span class="line">Constructor:40</span><br><span class="line">40</span><br></pre></td></tr></table></figure>
+
+<p>这说明 <code>new Tree[3]</code> 会依次构造 3 个对象。这里的例子也反映出：数组创建时需要元素能被构造出来，PDF 示例中 <code>Tree</code> 提供了默认参数，因此三个元素都能默认构造成功。</p>
+<p><strong>错误代码：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Tree* t = <span class="keyword">new</span> Tree[<span class="number">3</span>];</span><br><span class="line"><span class="keyword">delete</span> t;      <span class="comment">// 错：数组必须用 delete[]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>问题注释：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 错在释放方式不匹配</span></span><br><span class="line"><span class="comment">// new[] 必须配 delete[]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>数组版创建和释放一定要成对：<code>new[]</code> 对 <code>delete[]</code>。</strong></p>
+<hr>
+<h3 id="4-new-new-返回什么"><a href="#4-new-new-返回什么" class="headerlink" title="4. new &#x2F; new[] 返回什么"></a>4. <code>new</code> &#x2F; <code>new[]</code> 返回什么</h3><p>PDF 直接写明：<code>new/new[]</code> 会返回一个指向对象的指针。</p>
+<p><strong>正确理解：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Tree* t = <span class="keyword">new</span> <span class="built_in">Tree</span>(<span class="number">40</span>);   <span class="comment">// t 是指针</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>错误理解：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Tree t = <span class="keyword">new</span> <span class="built_in">Tree</span>(<span class="number">40</span>);    <span class="comment">// 错，new 返回的是指针，不是对象本身</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong><code>new</code> 的结果先看成“指针”，不是对象本体。</strong></p>
+<hr>
+<h3 id="5-一个对象只能释放一次"><a href="#5-一个对象只能释放一次" class="headerlink" title="5. 一个对象只能释放一次"></a>5. 一个对象只能释放一次</h3><p>PDF 最后特别强调：一个通过 <code>new</code> 创建出来的对象，只能被 <code>delete</code> 一次；一个通过 <code>new[]</code> 创建出来的数组，只能被 <code>delete[]</code> 一次。</p>
+<p><strong>错误代码：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Tree* t = <span class="keyword">new</span> <span class="built_in">Tree</span>(<span class="number">40</span>);</span><br><span class="line"><span class="keyword">delete</span> t;</span><br><span class="line"><span class="keyword">delete</span> t;   <span class="comment">// 错：重复释放</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>问题注释：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 同一块内存不能重复释放</span></span><br><span class="line"><span class="comment">// 这是典型的危险错误</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>释放过一次的指针，不要再拿来释放第二次。</strong></p>
+<hr>
+<h2 id="五、本章重点记忆总结"><a href="#五、本章重点记忆总结" class="headerlink" title="五、本章重点记忆总结"></a>五、本章重点记忆总结</h2><ul>
+<li><p>动态对象创建就是把对象放到堆上。</p>
+</li>
+<li><p>对象创建时先分配空间，再调用构造函数。</p>
+</li>
+<li><p><code>new</code> 创建单个对象，<code>new[]</code> 创建数组对象。</p>
+</li>
+<li><p><code>delete</code> 释放单个对象，<code>delete[]</code> 释放数组对象。</p>
+</li>
+<li><p><code>new</code> 返回指针；创建后必须手动销毁。</p>
+</li>
+<li><p>数组创建会对每个元素分别进行构造。</p>
+</li>
+<li><p>一个指针只能释放一次。</p>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-07T02:00:00.000Z" title="4/7/2026, 10:00:00 AM">2026-04-07</time>发表</span><span class="level-item"><time dateTime="2026-04-07T16:12:41.090Z" title="4/8/2026, 12:12:41 AM">2026-04-08</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/">数字逻辑笔记</a></span><span class="level-item">10 分钟读完 (大约1551个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/07/digital%20logic/digitallogic%201/">digitallogic1</a></p><div class="content"><h2 id="一、数字系统"><a href="#一、数字系统" class="headerlink" title="一、数字系统"></a>一、数字系统</h2><ol>
 <li><strong>定义</strong><br> 数字系统是<strong>离散信息处理系统</strong>，以一组离散信息为输入，以离散内部信息为系统状态，最终输出离散形式的结果。</li>
 <li><strong>分类</strong></li>
 </ol>
@@ -2301,462 +2721,7 @@
 </ol>
 <hr>
 <h2 id="一句话总纲（考试用）"><a href="#一句话总纲（考试用）" class="headerlink" title="一句话总纲（考试用）"></a>一句话总纲（考试用）</h2><p>E-R 负责建模语义，关系模型负责结构实现，而完整性约束负责保证数据正确性。</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-25T14:00:00.000Z" title="3/25/2026, 10:00:00 PM">2026-03-25</time>发表</span><span class="level-item"><time dateTime="2026-03-30T03:45:14.999Z" title="3/30/2026, 11:45:14 AM">2026-03-30</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">10 分钟读完 (大约1518个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/25/oopnote/8--Constants/">oop8</a></p><div class="content"><h1 id="第一部分：知识点整理（普通文本）"><a href="#第一部分：知识点整理（普通文本）" class="headerlink" title="第一部分：知识点整理（普通文本）"></a>第一部分：知识点整理（普通文本）</h1><h2 id="1-const-的核心作用"><a href="#1-const-的核心作用" class="headerlink" title="1. const 的核心作用"></a>1. const 的核心作用</h2><ul>
-<li>const 用于区分“可变”和“不可变”</li>
-<li>提供：<ul>
-<li>类型安全（比 #define 更强）</li>
-<li>编译期检查</li>
-<li>程序稳定性</li>
-</ul>
-</li>
-</ul>
-<h3 id="与-define-的区别"><a href="#与-define-的区别" class="headerlink" title="与 #define 的区别"></a>与 #define 的区别</h3><ul>
-<li>#define：纯文本替换，无类型检查</li>
-<li>const：<ul>
-<li>有类型</li>
-<li>编译器可检查错误</li>
-<li>更安全</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="2-const-基本规则"><a href="#2-const-基本规则" class="headerlink" title="2. const 基本规则"></a>2. const 基本规则</h2><ul>
-<li>const 变量必须初始化</li>
-<li>一旦初始化，不能修改</li>
-</ul>
-<p>示例：</p>
-<ul>
-<li>const int x &#x3D; 10; ✔</li>
-<li>const int x; ✘（未初始化）</li>
-<li>x &#x3D; 20; ✘（不可修改）</li>
-</ul>
-<p>数组：</p>
-<ul>
-<li>const int a[] &#x3D; {1,2,3}<ul>
-<li>每个元素都不可修改</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="3-const-与指针（重点）"><a href="#3-const-与指针（重点）" class="headerlink" title="3. const 与指针（重点）"></a>3. const 与指针（重点）</h2><h3 id="判定原则"><a href="#判定原则" class="headerlink" title="判定原则"></a>判定原则</h3><p>👉 const 修饰“离它最近的对象”</p>
-<hr>
-<h3 id="3-1-指向常量的指针（pointer-to-const）"><a href="#3-1-指向常量的指针（pointer-to-const）" class="headerlink" title="3.1 指向常量的指针（pointer to const）"></a>3.1 指向常量的指针（pointer to const）</h3><p>定义：</p>
-<ul>
-<li>const int* p</li>
-<li>int const* p</li>
-</ul>
-<p>特点：</p>
-<ul>
-<li>可以改指针指向</li>
-<li>不能改指针指向的值</li>
-</ul>
-<p>示例：</p>
-<ul>
-<li>p &#x3D; &amp;x ✔</li>
-<li>*p &#x3D; 10 ✘</li>
-</ul>
-<hr>
-<h3 id="3-2-常量指针（const-pointer）"><a href="#3-2-常量指针（const-pointer）" class="headerlink" title="3.2 常量指针（const pointer）"></a>3.2 常量指针（const pointer）</h3><p>定义：</p>
-<ul>
-<li>int* const p</li>
-</ul>
-<p>特点：</p>
-<ul>
-<li>不能改变指针指向</li>
-<li>可以修改值</li>
-</ul>
-<p>示例：</p>
-<ul>
-<li>p &#x3D; &amp;y ✘</li>
-<li>*p &#x3D; 10 ✔</li>
-</ul>
-<hr>
-<h3 id="3-3-指向常量的常量指针"><a href="#3-3-指向常量的常量指针" class="headerlink" title="3.3 指向常量的常量指针"></a>3.3 指向常量的常量指针</h3><p>定义：</p>
-<ul>
-<li>const int* const p</li>
-</ul>
-<p>特点：</p>
-<ul>
-<li>不能改指向</li>
-<li>不能改值</li>
-</ul>
-<p>总结<br>在 C&#x2F;C++ 中，<strong>权限本质指的是“是否可以通过某个指针修改数据”</strong>。所谓“权限缩小”，就是把原本“可以修改”的对象，通过 <code>const</code> 限制为“不可修改”，这种行为是安全的，因此允许，例如 <code>const int *p</code> 指向变量，本质是“我选择不通过 p 修改它”；<br>因此指向常量的指针以及指向常量的常量型指针可以指向变量</p>
-<p>而“权限放大”则是试图通过指针获得本不具备的修改能力（如用 <code>int *</code> 指向 <code>const int</code>），这会破坏数据的只读性，因此被禁止。</p>
-<p>所有指针与常量的规则，本质都遵循一句话：👉 <strong>只能减少修改权限，不能增加修改权限</strong>；同时 <code>const</code> 只限制“指针的使用方式”，不会改变变量本身的属性，因此“指向常量的指针”“常量指针”“双 const 指针”本质都是在约束“能不能改值”和“能不能改指向”，而是否允许绑定某个对象，取决于是否违反了“不能放大权限”的原则。</p>
-<ul>
-<li>能改”的指针 ❌ 不能指向 const</li>
-<li>“不改”的指针 ✅ 可以指向任何</li>
-</ul>
-<hr>
-<h2 id="4-const-与函数"><a href="#4-const-与函数" class="headerlink" title="4. const 与函数"></a>4. const 与函数</h2><h3 id="4-1-参数中的-const"><a href="#4-1-参数中的-const" class="headerlink" title="4.1 参数中的 const"></a>4.1 参数中的 const</h3><p>目的：<br>👉 防止函数修改外部数据</p>
-<p>示例：</p>
-<ul>
-<li>void f(const int* p)<ul>
-<li>*p 不可修改</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="4-2-返回值中的-const"><a href="#4-2-返回值中的-const" class="headerlink" title="4.2 返回值中的 const"></a>4.2 返回值中的 const</h3><p>目的：<br>👉 防止调用者修改返回对象</p>
-<p>示例：</p>
-<ul>
-<li>const char* func()</li>
-</ul>
-<p>int* const w();</p>
-<p>int main() {<br>    int* p &#x3D; w();<br>    p &#x3D; nullptr;<br>}<br>合法 因为虽然p被复制了一个限制地址的指针 但本质是复制 失效。所以可以被重新修改地址</p>
-<ul>
-<li><code>int* const w();</code> 里的 <code>const</code> 限制的只是函数内部的那份指针</li>
-<li>函数返回时，你拿到的是<strong>拷贝</strong>，所以外部的变量 <code>p</code> 不再受原来的 <code>const</code> 限制</li>
-<li>也就是 <strong>“指针本身的 const 在返回值上失效”</strong></li>
-</ul>
-<hr>
-<h3 id="4-3-规则总结"><a href="#4-3-规则总结" class="headerlink" title="4.3 规则总结"></a>4.3 规则总结</h3><ul>
-<li>const 参数：保护输入</li>
-<li>const 返回：保护输出</li>
-</ul>
-<hr>
-<h2 id="5-临时对象（Temporaries）"><a href="#5-临时对象（Temporaries）" class="headerlink" title="5. 临时对象（Temporaries）"></a>5. 临时对象（Temporaries）</h2><ul>
-<li><p>编译器生成的临时对象默认是 const<br>因为临时对象生命周期很短，C++不希望你去修改一个马上就要消失的东西<br>意义：</p>
-</li>
-<li><p>防止对临时对象进行非法修改</p>
-</li>
-<li><p>提高安全性</p>
-</li>
-<li><p>临时对象 &#x3D; 没有变量名接收的对象表达式结果</p>
-</li>
-</ul>
-<hr>
-<h2 id="6-类中的-const（重点大题区）"><a href="#6-类中的-const（重点大题区）" class="headerlink" title="6. 类中的 const（重点大题区）"></a>6. 类中的 const（重点大题区）</h2><hr>
-<h3 id="6-1-static-成员变量"><a href="#6-1-static-成员变量" class="headerlink" title="6.1 static 成员变量"></a>6.1 static 成员变量</h3><p>特点：</p>
-<ul>
-<li>所有对象共享</li>
-<li>必须在类外初始化</li>
-</ul>
-<p>格式：</p>
-<ul>
-<li>int Class::var &#x3D; value;</li>
-</ul>
-<hr>
-<h3 id="6-2-const-成员变量"><a href="#6-2-const-成员变量" class="headerlink" title="6.2 const 成员变量"></a>6.2 const 成员变量</h3><p>特点：</p>
-<ul>
-<li>必须初始化</li>
-<li>只能在构造函数初始化列表中初始化</li>
-</ul>
-<p>原因：</p>
-<ul>
-<li>const 不能先声明再赋值</li>
-</ul>
-<hr>
-<h3 id="6-3-初始化列表"><a href="#6-3-初始化列表" class="headerlink" title="6.3 初始化列表"></a>6.3 初始化列表</h3><p>作用：</p>
-<ul>
-<li>初始化 const 成员</li>
-<li>初始化引用成员</li>
-</ul>
-<p>示例：</p>
-<ul>
-<li>A::A(int i) : a(i) {}</li>
-</ul>
-<hr>
-<h3 id="6-4-初始化顺序（超级重要）"><a href="#6-4-初始化顺序（超级重要）" class="headerlink" title="6.4 初始化顺序（超级重要）"></a>6.4 初始化顺序（超级重要）</h3><p>👉 按“声明顺序”，不是初始化列表顺序</p>
-<p>错误来源：</p>
-<ul>
-<li>写顺序 ≠ 执行顺序</li>
-</ul>
-<hr>
-<h3 id="6-5-const-成员函数"><a href="#6-5-const-成员函数" class="headerlink" title="6.5 const 成员函数"></a>6.5 const 成员函数</h3><p>定义：</p>
-<ul>
-<li>函数后加 const</li>
-</ul>
-<p>特点：</p>
-<ul>
-<li>不能修改成员变量</li>
-</ul>
-<p>示例：</p>
-<ul>
-<li>int get() const</li>
-</ul>
-<p>错误：</p>
-<ul>
-<li>return x++ ✘</li>
-</ul>
-<hr>
-<h3 id="6-6-const-对象"><a href="#6-6-const-对象" class="headerlink" title="6.6 const 对象"></a>6.6 const 对象</h3><p>规则：</p>
-<table>
-<thead>
-<tr>
-<th>对象类型</th>
-<th>可调用函数</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>const对象</td>
-<td>只能调用 const函数</td>
-</tr>
-<tr>
-<td>非const对象</td>
-<td>可调用所有函数</td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="6-7-mutable（非常重要考点）"><a href="#6-7-mutable（非常重要考点）" class="headerlink" title="6.7 mutable（非常重要考点）"></a>6.7 mutable（非常重要考点）</h3><p>作用：<br>👉 允许在 const 函数中修改变量</p>
-<p>示例：</p>
-<ul>
-<li>mutable int x;</li>
-</ul>
-<p>意义：</p>
-<ul>
-<li>逻辑常量 vs 物理常量</li>
-</ul>
-<hr>
-<h2 id="7-总结核心思想"><a href="#7-总结核心思想" class="headerlink" title="7. 总结核心思想"></a>7. 总结核心思想</h2><ul>
-<li>const 是“类型系统的一部分”</li>
-<li>用于：<ul>
-<li>限制修改</li>
-<li>提高安全</li>
-<li>强化接口设计</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h1 id="第二部分：易错点总结（普通文本）"><a href="#第二部分：易错点总结（普通文本）" class="headerlink" title="第二部分：易错点总结（普通文本）"></a>第二部分：易错点总结（普通文本）</h1><h2 id="1-const-未初始化"><a href="#1-const-未初始化" class="headerlink" title="1. const 未初始化"></a>1. const 未初始化</h2><ul>
-<li>const int x; ✘<br>  👉 必须初始化</li>
-</ul>
-<hr>
-<h2 id="2-const-指针混淆（最常错）"><a href="#2-const-指针混淆（最常错）" class="headerlink" title="2. const 指针混淆（最常错）"></a>2. const 指针混淆（最常错）</h2><p>常见误解：</p>
-<ul>
-<li>const int* p ≠ int* const p</li>
-</ul>
-<p>记忆方法：<br>👉 “看 const 靠谁近”</p>
-<hr>
-<h2 id="3-函数参数错误"><a href="#3-函数参数错误" class="headerlink" title="3. 函数参数错误"></a>3. 函数参数错误</h2><ul>
-<li>不能把 const 指针传给非 const 参数</li>
-</ul>
-<p>示例：</p>
-<ul>
-<li>void f(int* p)</li>
-<li>const int* cp</li>
-<li>f(cp) ✘</li>
-</ul>
-<hr>
-<h2 id="4-返回值错误"><a href="#4-返回值错误" class="headerlink" title="4. 返回值错误"></a>4. 返回值错误</h2><ul>
-<li>const 返回值不能赋给非 const 指针</li>
-</ul>
-<hr>
-<h2 id="5-const-成员变量初始化错误"><a href="#5-const-成员变量初始化错误" class="headerlink" title="5. const 成员变量初始化错误"></a>5. const 成员变量初始化错误</h2><p>错误写法：</p>
-<ul>
-<li>在构造函数体内赋值</li>
-</ul>
-<p>正确：</p>
-<ul>
-<li>用初始化列表</li>
-</ul>
-<hr>
-<h2 id="6-初始化顺序错误（高频考点）"><a href="#6-初始化顺序错误（高频考点）" class="headerlink" title="6. 初始化顺序错误（高频考点）"></a>6. 初始化顺序错误（高频考点）</h2><ul>
-<li>顺序由“声明顺序”决定</li>
-<li>与初始化列表顺序无关</li>
-</ul>
-<hr>
-<h2 id="7-const-成员函数违规修改数据"><a href="#7-const-成员函数违规修改数据" class="headerlink" title="7. const 成员函数违规修改数据"></a>7. const 成员函数违规修改数据</h2><ul>
-<li>修改成员变量会报错</li>
-</ul>
-<hr>
-<h2 id="8-const-对象调用非-const-函数"><a href="#8-const-对象调用非-const-函数" class="headerlink" title="8. const 对象调用非 const 函数"></a>8. const 对象调用非 const 函数</h2><ul>
-<li>会编译错误</li>
-</ul>
-<hr>
-<h2 id="9-mutable-误用"><a href="#9-mutable-误用" class="headerlink" title="9. mutable 误用"></a>9. mutable 误用</h2><ul>
-<li>只用于“逻辑不变但需要修改”的变量</li>
-<li>不要滥用</li>
-</ul>
-<hr>
-<h2 id="10-临时对象修改错误"><a href="#10-临时对象修改错误" class="headerlink" title="10. 临时对象修改错误"></a>10. 临时对象修改错误</h2><ul>
-<li>临时对象是 const</li>
-<li>不能修改</li>
-</ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-24T04:00:00.000Z" title="3/24/2026, 12:00:00 PM">2026-03-24</time>发表</span><span class="level-item"><time dateTime="2026-03-25T13:55:18.668Z" title="3/25/2026, 9:55:18 PM">2026-03-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/oop%E7%AC%94%E8%AE%B0/">oop笔记</a></span><span class="level-item">9 分钟读完 (大约1387个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/24/oopnote/7--Initialization%20Cleanup/">oop7</a></p><div class="content"><h1 id="第一部分：知识点（普通文本）"><a href="#第一部分：知识点（普通文本）" class="headerlink" title="第一部分：知识点（普通文本）"></a>第一部分：知识点（普通文本）</h1><h2 id="一、构造函数（Constructor）"><a href="#一、构造函数（Constructor）" class="headerlink" title="一、构造函数（Constructor）"></a>一、构造函数（Constructor）</h2><h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h3><ul>
-<li>构造函数是在对象创建时自动调用的函数，用于初始化对象。</li>
-<li>特点：<ul>
-<li>函数名与类名相同</li>
-<li>没有返回值（连 void 都没有）</li>
-<li>在对象定义时自动调用</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-调用机制"><a href="#2-调用机制" class="headerlink" title="2. 调用机制"></a>2. 调用机制</h3><ul>
-<li>对象创建时自动调用构造函数</li>
-<li>编译器隐式传入 this 指针（指向当前对象）</li>
-</ul>
-<h3 id="3-带参数构造函数"><a href="#3-带参数构造函数" class="headerlink" title="3. 带参数构造函数"></a>3. 带参数构造函数</h3><ul>
-<li>构造函数可以有参数</li>
-<li>可以用于初始化成员变量</li>
-</ul>
-<p>示例思想：</p>
-<ul>
-<li>将传入参数赋值给成员变量</li>
-<li>实现对象初始化的灵活性</li>
-</ul>
-<h3 id="4-构造函数重载"><a href="#4-构造函数重载" class="headerlink" title="4. 构造函数重载"></a>4. 构造函数重载</h3><ul>
-<li>一个类可以有多个构造函数（参数不同）</li>
-<li>编译器根据参数匹配调用对应构造函数</li>
-</ul>
-<p>例如：</p>
-<ul>
-<li>Student(int id)</li>
-<li>Student(int year, int order)</li>
-</ul>
-<hr>
-<h2 id="二、默认构造函数（Default-Constructor）"><a href="#二、默认构造函数（Default-Constructor）" class="headerlink" title="二、默认构造函数（Default Constructor）"></a>二、默认构造函数（Default Constructor）</h2><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h3><ul>
-<li>可以无参数调用的构造函数</li>
-</ul>
-<h3 id="2-形式"><a href="#2-形式" class="headerlink" title="2. 形式"></a>2. 形式</h3><ul>
-<li>显式定义：A() {}</li>
-<li>或使用默认参数实现：A(int x &#x3D; 0)   就可以实现额外传几个就改几个。其余的仍为默认值</li>
-</ul>
-<h3 id="3-注意事项"><a href="#3-注意事项" class="headerlink" title="3. 注意事项"></a>3. 注意事项</h3><ul>
-<li>如果定义了带参数构造函数，而没有默认构造函数：<ul>
-<li>编译器不会自动生成默认构造函数</li>
-<li>会导致无法无参创建对象</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-成员对象影响"><a href="#4-成员对象影响" class="headerlink" title="4. 成员对象影响"></a>4. 成员对象影响</h3><ul>
-<li>类成员对象会先调用其构造函数</li>
-<li>若成员类没有默认构造函数，会导致错误</li>
-</ul>
-<hr>
-<h2 id="三、析构函数（Destructor）"><a href="#三、析构函数（Destructor）" class="headerlink" title="三、析构函数（Destructor）"></a>三、析构函数（Destructor）</h2><h3 id="1-基本概念-1"><a href="#1-基本概念-1" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h3><ul>
-<li>用于对象销毁时释放资源</li>
-</ul>
-<h3 id="2-特点"><a href="#2-特点" class="headerlink" title="2. 特点"></a>2. 特点</h3><ul>
-<li>函数名：~类名</li>
-<li>无参数</li>
-<li>不能重载</li>
-<li>无返回值</li>
-</ul>
-<h3 id="3-调用时机"><a href="#3-调用时机" class="headerlink" title="3. 调用时机"></a>3. 调用时机</h3><ul>
-<li>对象生命周期结束时自动调用：<ul>
-<li>作用域结束</li>
-<li>函数结束</li>
-<li>delete（动态对象）</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-调用顺序"><a href="#4-调用顺序" class="headerlink" title="4. 调用顺序"></a>4. 调用顺序</h3><ul>
-<li>构造：先成员 → 后自身</li>
-<li>析构：先自身 → 后成员（逆序）</li>
-<li></li>
-</ul>
-<hr>
-<h2 id="四、构造与析构的执行过程"><a href="#四、构造与析构的执行过程" class="headerlink" title="四、构造与析构的执行过程"></a>四、构造与析构的执行过程</h2><h3 id="1-局部对象"><a href="#1-局部对象" class="headerlink" title="1. 局部对象"></a>1. 局部对象</h3><ul>
-<li>进入作用域：构造</li>
-<li>离开作用域：析构</li>
-</ul>
-<h3 id="2-嵌套调用"><a href="#2-嵌套调用" class="headerlink" title="2. 嵌套调用"></a>2. 嵌套调用</h3><ul>
-<li>函数中创建对象：<ul>
-<li>函数结束立即析构</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-示例核心逻辑"><a href="#3-示例核心逻辑" class="headerlink" title="3. 示例核心逻辑"></a>3. 示例核心逻辑</h3><ul>
-<li>对象按栈顺序创建</li>
-<li>按逆序销毁（类似栈）</li>
-</ul>
-<ol>
-<li><p>有没有 new？<br>有 → 堆对象</p>
-</li>
-<li><p>在不在函数里？<br>在 → 局部对象（栈）。作用域与函数的生命周期绑定</p>
-</li>
-<li><p>在类里面？<br>是 → 成员对象。 和这个类的周期绑定。</p>
-</li>
-<li><p>在函数外？<br>是 → 全局对象。和程序的运行周期绑定</p>
-</li>
-<li><p>有 static？<br>是 → 静态对象<br>对象什么时候死，不看它写在哪个文件，<br>只看它在哪个作用域里被“创建”。</p>
-</li>
-</ol>
-<h3 id="对于局部对象"><a href="#对于局部对象" class="headerlink" title="对于局部对象"></a>对于局部对象</h3><p>真的是栈（物理结构）</p>
-<h3 id="对于其他对象"><a href="#对于其他对象" class="headerlink" title="对于其他对象"></a>对于其他对象</h3><h2 id="不是栈，但遵循“栈式规则”"><a href="#不是栈，但遵循“栈式规则”" class="headerlink" title=" 不是栈，但遵循“栈式规则”"></a> <strong>不是栈，但遵循“栈式规则”</strong></h2><h2 id="五、资源管理思想（重要）"><a href="#五、资源管理思想（重要）" class="headerlink" title="五、资源管理思想（重要）"></a>五、资源管理思想（重要）</h2><h3 id="1-初始化与清理"><a href="#1-初始化与清理" class="headerlink" title="1. 初始化与清理"></a>1. 初始化与清理</h3><ul>
-<li>构造函数：负责资源申请</li>
-<li>析构函数：负责资源释放</li>
-</ul>
-<h3 id="2-典型资源"><a href="#2-典型资源" class="headerlink" title="2. 典型资源"></a>2. 典型资源</h3><ul>
-<li>动态内存（new）</li>
-<li>文件</li>
-<li>网络连接</li>
-</ul>
-<hr>
-<h2 id="六、数组初始化"><a href="#六、数组初始化" class="headerlink" title="六、数组初始化"></a>六、数组初始化</h2><h3 id="1-基本类型数组"><a href="#1-基本类型数组" class="headerlink" title="1. 基本类型数组"></a>1. 基本类型数组</h3><ul>
-<li>int a[5] &#x3D; {1,2,3,4,5}</li>
-<li>int b[6] &#x3D; {2} → 其余为 0</li>
-<li>int c[] &#x3D; {1,2,3}</li>
-</ul>
-<h3 id="2-数组大小计算"><a href="#2-数组大小计算" class="headerlink" title="2. 数组大小计算"></a>2. 数组大小计算</h3><ul>
-<li>sizeof(c) &#x2F; sizeof(c[0])</li>
-</ul>
-<hr>
-<h2 id="七、对象数组初始化"><a href="#七、对象数组初始化" class="headerlink" title="七、对象数组初始化"></a>七、对象数组初始化</h2><h3 id="1-初始化方式"><a href="#1-初始化方式" class="headerlink" title="1. 初始化方式"></a>1. 初始化方式</h3><ul>
-<li>直接初始化：<ul>
-<li>Date d[2] &#x3D; {Date(…), Date(…)}</li>
-</ul>
-</li>
-<li>先创建再赋值：<ul>
-<li>d[0] &#x3D; Date(…)</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-默认构造函数的重要性"><a href="#2-默认构造函数的重要性" class="headerlink" title="2. 默认构造函数的重要性"></a>2. 默认构造函数的重要性</h3><ul>
-<li>如果数组未完全初始化：<ul>
-<li>剩余元素调用默认构造函数</li>
-<li>因为数组初始化 &#x3D; 对每个元素逐个构造，有没有“初始化值” → 决定是否需要默认构造</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="八、代码设计思想总结"><a href="#八、代码设计思想总结" class="headerlink" title="八、代码设计思想总结"></a>八、代码设计思想总结</h2><h3 id="1-封装-自动管理"><a href="#1-封装-自动管理" class="headerlink" title="1. 封装 + 自动管理"></a>1. 封装 + 自动管理</h3><ul>
-<li>构造函数保证初始化</li>
-<li>析构函数保证清理</li>
-</ul>
-<h3 id="2-RAII-思想（核心）"><a href="#2-RAII-思想（核心）" class="headerlink" title="2. RAII 思想（核心）"></a>2. RAII 思想（核心）</h3><ul>
-<li>Resource Acquisition Is Initialization</li>
-<li>资源与对象生命周期绑定</li>
-</ul>
-<h3 id="3-安全性提升"><a href="#3-安全性提升" class="headerlink" title="3. 安全性提升"></a>3. 安全性提升</h3><ul>
-<li>避免未初始化变量</li>
-<li>避免资源泄漏</li>
-</ul>
-<hr>
-<h1 id="第二部分：易错点（普通文本）"><a href="#第二部分：易错点（普通文本）" class="headerlink" title="第二部分：易错点（普通文本）"></a>第二部分：易错点（普通文本）</h1><h2 id="一、构造函数相关"><a href="#一、构造函数相关" class="headerlink" title="一、构造函数相关"></a>一、构造函数相关</h2><ol>
-<li>写了带参构造函数但忘记写默认构造函数<br> → 导致无法创建无参对象</li>
-<li>误以为构造函数有返回值<br> → 实际没有任何返回类型</li>
-<li>构造函数不会自动执行逻辑以外代码<br> → 必须手动初始化成员变量</li>
-<li>构造函数重载冲突<br> → 参数不明确可能导致二义性</li>
-</ol>
-<hr>
-<h2 id="二、默认构造函数陷阱"><a href="#二、默认构造函数陷阱" class="headerlink" title="二、默认构造函数陷阱"></a>二、默认构造函数陷阱</h2><ol>
-<li>一旦定义了有参构造函数，默认构造函数不会自动生成</li>
-<li>类成员对象没有默认构造函数<br> → 当前类构造失败</li>
-</ol>
-<hr>
-<h2 id="三、析构函数相关"><a href="#三、析构函数相关" class="headerlink" title="三、析构函数相关"></a>三、析构函数相关</h2><ol>
-<li>析构函数不能带参数、不能重载</li>
-<li>忘记释放动态内存<br> → 内存泄漏</li>
-<li>错误理解析构顺序<br> → 实际是“后构造先析构”</li>
-</ol>
-<hr>
-<h2 id="四、对象生命周期错误"><a href="#四、对象生命周期错误" class="headerlink" title="四、对象生命周期错误"></a>四、对象生命周期错误</h2><ol>
-<li>误以为函数结束对象还存在  但注意是函数先结束然后再释放对象<br> → 实际已析构</li>
-<li>临时对象生命周期极短<br> → 容易产生悬空引用</li>
-</ol>
-<hr>
-<h2 id="五、数组相关"><a href="#五、数组相关" class="headerlink" title="五、数组相关"></a>五、数组相关</h2><ol>
-<li>对象数组必须有默认构造函数（除非完全初始化）</li>
-<li>未初始化元素会调用默认构造函数<br> → 若不存在则编译错误</li>
-</ol>
-<hr>
-<h2 id="六、资源管理错误"><a href="#六、资源管理错误" class="headerlink" title="六、资源管理错误"></a>六、资源管理错误</h2><ol>
-<li>在构造函数中申请资源但析构函数未释放</li>
-<li>使用裸指针但未管理生命周期</li>
-</ol>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/">上一页</a></div><div class="pagination-next"><a href="/page/3/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link is-current" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li><li><a class="pagination-link" href="/page/4/">4</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">31</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">8</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">20</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/mmkg-note/"><span class="level-start"><span class="level-item">mmkg note</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数字逻辑笔记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数据库笔记</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">12</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-24T13:00:00.000Z">2026-05-24</time></p><p class="title"><a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/4-%E6%9C%80%E5%B0%8F%E5%93%88%E5%B8%8C/">最高频元素寻找问题</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-24T02:00:00.000Z">2026-05-24</time></p><p class="title"><a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/2-%20%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/">从属问题</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-24T02:00:00.000Z">2026-05-24</time></p><p class="title"><a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/3-CM-sketch%E6%96%B9%E6%B3%95/">最高频元素寻找问题</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-23T02:00:00.000Z">2026-05-23</time></p><p class="title"><a href="/2026/05/23/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/1-%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C/">分布式缓存</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-23T02:00:00.000Z">2026-04-23</time></p><p class="title"><a href="/2026/04/23/database/4-SQL-1+SQL-2/">database4</a></p><p class="categories"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/05/"><span class="level-start"><span class="level-item">五月 2026</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/database/"><span class="tag">database</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/digitallogic/"><span class="tag">digitallogic</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mmkg/"><span class="tag">mmkg</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">20</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/">上一页</a></div><div class="pagination-next"><a href="/page/3/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link is-current" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li><li><a class="pagination-link" href="/page/4/">4</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">33</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">8</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">20</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/mmkg-note/"><span class="level-start"><span class="level-item">mmkg note</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数字逻辑笔记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数据库笔记</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">14</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-26T09:00:00.000Z">2026-05-26</time></p><p class="title"><a href="/2026/05/26/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/6-Jaccard%E7%9B%B8%E4%BC%BC%E5%BA%A6%E4%B8%8B%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%90%9C%E7%B4%A2/">相似搜索：Jaccard相似度</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-24T13:00:00.000Z">2026-05-24</time></p><p class="title"><a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/4-%E6%9C%80%E5%B0%8F%E5%93%88%E5%B8%8C/">数据流：不同元素统计问题</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-24T13:00:00.000Z">2026-05-24</time></p><p class="title"><a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/5-%E6%AC%A7%E6%B0%8F%E8%B7%9D%E7%A6%BB%E4%B8%8B%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%90%9C%E7%B4%A2/">相似搜索：不同元素统计问题</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-24T02:00:00.000Z">2026-05-24</time></p><p class="title"><a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/3-CM-sketch%E6%96%B9%E6%B3%95/">数据流：最高频元素寻找问题</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-24T02:00:00.000Z">2026-05-24</time></p><p class="title"><a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/2-%20%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/">数据流：从属问题</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/05/"><span class="level-start"><span class="level-item">五月 2026</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/database/"><span class="tag">database</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/digitallogic/"><span class="tag">digitallogic</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mmkg/"><span class="tag">mmkg</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">22</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
