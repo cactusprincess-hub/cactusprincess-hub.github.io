@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>谱分析方法 - CactusPrincess&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="CactusPrincess&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="CactusPrincess&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="一、本讲课程框架三大模块 谱分析进阶：低秩矩阵近似、SVD求解、PCA等价关系  SVD经典应用：矩阵补全、潜在语义分析LSA  前沿拓展：LoRA大模型低秩适配（低秩思想工程落地）  二、低秩矩阵近似（Low-Rank Matrix Approximation）1. 数学优化定义给定 $m\times n$ 矩阵 $\boldsymbol{A}$、正整数 $k$，求解： $$\min_{B \i"><meta property="og:type" content="blog"><meta property="og:title" content="谱分析方法"><meta property="og:url" content="https://cactusprincess-hub.github.io/2026/05/31/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/10-%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3/"><meta property="og:site_name" content="CactusPrincess&#039;s Blog"><meta property="og:description" content="一、本讲课程框架三大模块 谱分析进阶：低秩矩阵近似、SVD求解、PCA等价关系  SVD经典应用：矩阵补全、潜在语义分析LSA  前沿拓展：LoRA大模型低秩适配（低秩思想工程落地）  二、低秩矩阵近似（Low-Rank Matrix Approximation）1. 数学优化定义给定 $m\times n$ 矩阵 $\boldsymbol{A}$、正整数 $k$，求解： $$\min_{B \i"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://cactusprincess-hub.github.io/img/og_image.png"><meta property="article:published_time" content="2026-05-31T09:00:00.000Z"><meta property="article:modified_time" content="2026-06-01T09:02:09.973Z"><meta property="article:author" content="cactusprincess"><meta property="article:tag" content="review"><meta property="article:tag" content="note"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://cactusprincess-hub.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://cactusprincess-hub.github.io/2026/05/31/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/10-%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3/"},"headline":"谱分析方法","image":["https://cactusprincess-hub.github.io/img/og_image.png"],"datePublished":"2026-05-31T09:00:00.000Z","dateModified":"2026-06-01T09:02:09.973Z","author":{"@type":"Person","name":"cactusprincess"},"publisher":{"@type":"Organization","name":"CactusPrincess's Blog","logo":{"@type":"ImageObject","url":"https://cactusprincess-hub.github.io/img/logo.svg"}},"description":"一、本讲课程框架三大模块 谱分析进阶：低秩矩阵近似、SVD求解、PCA等价关系  SVD经典应用：矩阵补全、潜在语义分析LSA  前沿拓展：LoRA大模型低秩适配（低秩思想工程落地）  二、低秩矩阵近似（Low-Rank Matrix Approximation）1. 数学优化定义给定 $m\\times n$ 矩阵 $\\boldsymbol{A}$、正整数 $k$，求解： $$\\min_{B \\i"}</script><link rel="canonical" href="https://cactusprincess-hub.github.io/2026/05/31/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/10-%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-05-31T09:00:00.000Z" title="5/31/2026, 5:00:00 PM">2026-05-31</time>发表</span><span class="level-item"><time dateTime="2026-06-01T09:02:09.973Z" title="6/1/2026, 5:02:09 PM">2026-06-01</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></span><span class="level-item">11 分钟读完 (大约1711个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">谱分析方法</h1><div class="content"><h2 id="一、本讲课程框架"><a href="#一、本讲课程框架" class="headerlink" title="一、本讲课程框架"></a>一、本讲课程框架</h2><h3 id="三大模块"><a href="#三大模块" class="headerlink" title="三大模块"></a>三大模块</h3><ol>
+<li>谱分析进阶：<strong>低秩矩阵近似</strong>、SVD求解、PCA等价关系 </li>
+<li>SVD经典应用：<strong>矩阵补全</strong>、<strong>潜在语义分析LSA</strong> </li>
+<li>前沿拓展：<strong>LoRA大模型低秩适配</strong>（低秩思想工程落地）</li>
+</ol>
+<h2 id="二、低秩矩阵近似（Low-Rank-Matrix-Approximation）"><a href="#二、低秩矩阵近似（Low-Rank-Matrix-Approximation）" class="headerlink" title="二、低秩矩阵近似（Low-Rank Matrix Approximation）"></a>二、低秩矩阵近似（Low-Rank Matrix Approximation）</h2><h3 id="1-数学优化定义"><a href="#1-数学优化定义" class="headerlink" title="1. 数学优化定义"></a>1. 数学优化定义</h3><p>给定 $m\times n$ 矩阵 $\boldsymbol{A}$、正整数 $k$，求解： $$\min_{B \in \mathbb{R}^{m \times n}}| A-B| _{F}$$ $$s.t. \ \ rank(B) \leq k$$<br>白话：<strong>找一个秩不超过 $k$ 的矩阵 $B$，让它和原矩阵 $A$ 差距最小</strong>。 </p>
+<h3 id="2-F-范数（Frobenius范数）"><a href="#2-F-范数（Frobenius范数）" class="headerlink" title="2. F-范数（Frobenius范数）"></a>2. F-范数（Frobenius范数）</h3><p>定义 $$|A|<em>{F}&#x3D;\sqrt{\sum</em>{i&#x3D;1}^{m} \sum_{j&#x3D;1}^{n} A_{i j}^{2}}$$<br>含义：把矩阵<strong>所有元素平方求和再开根号</strong>； $|A-B|_F$ 越小，说明矩阵 $B$ 越贴近 $A$。 </p>
+<h3 id="3-低秩近似核心价值："><a href="#3-低秩近似核心价值：" class="headerlink" title="3. 低秩近似核心价值："></a>3. 低秩近似核心价值：</h3><p>数据压缩 </p>
+<ul>
+<li>原始 $m\times n$ 矩阵：需存储 <strong>$mn$ 个数值</strong> </li>
+<li>秩为 $k$ 的矩阵：可拆分为 $m\times k$ 矩阵 $\times$ $k\times n$ 矩阵 仅需存储 <strong>$(m+n)k$ 个数值</strong> </li>
+<li>当 $k\ll m,n$ 时，存储量大幅降低</li>
+</ul>
+<h3 id="4-秩分解示例（PPT例题）"><a href="#4-秩分解示例（PPT例题）" class="headerlink" title="4. 秩分解示例（PPT例题）"></a>4. 秩分解示例（PPT例题）</h3><p>$$B&#x3D;\left[\begin{array}{rccr}1 &amp;{2}&amp;{-1}&amp;{2}\ 2&amp;{4}&amp;{1}&amp;{1}\ {-1}&amp;{-2}&amp;{-2}&amp;{1}\end{array} \right] &#x3D; \left[\begin{array}{cc}{1}&amp;{-1}\ {2}&amp;{1}\ {-1}&amp;{-2}\end{array} \right] \left[\begin{array}{llll}{1}&amp;{2}&amp;{0}&amp;{1}\ {0}&amp;{0}&amp;{1}&amp;{-1}\end{array} \right]$$ </p>
+<ul>
+<li>原矩阵 $3\times4$，秩 $&#x3D;2$ - 拆成 $3\times2$ 和 $2\times4$ 两个小矩阵，验证低秩可拆分压缩</li>
+</ul>
+<h3 id="关键结论"><a href="#关键结论" class="headerlink" title="关键结论"></a>关键结论</h3><p>任意秩为 $r$ 的矩阵，都能拆成 $m\times r$ 与 $r\times n$ 矩阵相乘，<strong>不能用 $r-1$ 维拆分</strong>。 </p>
+<h2 id="三、用SVD求解低秩矩阵近似"><a href="#三、用SVD求解低秩矩阵近似" class="headerlink" title="三、用SVD求解低秩矩阵近似"></a>三、用SVD求解低秩矩阵近似</h2><h3 id="1-S等价形式回顾"><a href="#1-S等价形式回顾" class="headerlink" title="1. S等价形式回顾"></a>1. S等价形式回顾</h3><p>$$A&#x3D;U S V^{T}&#x3D;\sum_{i&#x3D;1}^{\min{m,n}} s_{i} \cdot u_{i} v_{i}^{\top}$$<br>约定：奇异值从大到小排序 $s_1\ge s_2\ge\cdots\ge0$ </p>
+<h3 id="2-最优低秩矩阵构造"><a href="#2-最优低秩矩阵构造" class="headerlink" title="2. 最优低秩矩阵构造"></a>2. 最优低秩矩阵构造</h3><p>取前 $k$ 项截断求和： $$B^{*}&#x3D;\sum_{i&#x3D;1}^{k} s_{i} u_{i} v_{i}^{T}$$<br>等价操作：保留 $S$ 前 $k$ 个对角元，其余置0，再计算 $USV^T$。 </p>
+<h3 id="3-为什么-rank-B-le-k-？"><a href="#3-为什么-rank-B-le-k-？" class="headerlink" title="3. 为什么 $rank(B^*)\le k$？"></a>3. 为什么 $rank(B^*)\le k$？</h3><p>$B^*$ 的所有行列，都由前 $k$ 组 $u_i,v_i$ 线性组合生成，<strong>最多只有 $k$ 个独立维度</strong>，秩必然不超过 $k$。 </p>
+<h3 id="4-近似误差公式-A-B-F-sqrt-sum-i-k-1-min-m-n-s-i-2"><a href="#4-近似误差公式-A-B-F-sqrt-sum-i-k-1-min-m-n-s-i-2" class="headerlink" title="4. 近似误差公式 $$| A-B| {F}&#x3D;\sqrt{\sum{i&#x3D;k+1}^{\min {m, n}} s_{i}^{2}}$$"></a>4. 近似误差公式 $$| A-B| <em>{F}&#x3D;\sqrt{\sum</em>{i&#x3D;k+1}^{\min {m, n}} s_{i}^{2}}$$</h3><p>原理：矩阵F范数 &#x3D; 所有奇异值平方和开根号；去掉前 $k$ 个大奇异值，剩下平方和就是误差。 </p>
+<h3 id="5-最优性定理（Eckart-Young）"><a href="#5-最优性定理（Eckart-Young）" class="headerlink" title="5. 最优性定理（Eckart-Young）"></a>5. 最优性定理（Eckart-Young）</h3><p>SVD截断得到的 $B^*$，是<strong>所有秩$\le k$矩阵中，和A误差最小</strong>的唯一最优解。 </p>
+<h3 id="6-实际选择k的方法"><a href="#6-实际选择k的方法" class="headerlink" title="6. 实际选择k的方法"></a>6. 实际选择k的方法</h3><p>保留奇异值能量占比： $$\frac{\sum_{i&#x3D;1}^{k} s_{i}}{\sum_{i&#x3D;1}^{\min{m, n}} s_{i}} \ge 阈值$$ 常用阈值90%&#x2F;95%。 </p>
+<h3 id="7-图像压缩实验-图像-像素数值矩阵"><a href="#7-图像压缩实验-图像-像素数值矩阵" class="headerlink" title="7. 图像压缩实验 图像 &#x3D; 像素数值矩阵"></a>7. 图像压缩实验 图像 &#x3D; 像素数值矩阵</h3><ul>
+<li>取 $k&#x3D;50&#x2F;100$ 做SVD低秩近似 </li>
+<li>肉眼几乎无差别，数据量大幅压缩 </li>
+<li>奇异值衰减越快，压缩效果越好</li>
+</ul>
+<h2 id="四、PCA-与-低秩矩阵近似-完全等价"><a href="#四、PCA-与-低秩矩阵近似-完全等价" class="headerlink" title="四、PCA 与 低秩矩阵近似 完全等价"></a>四、PCA 与 低秩矩阵近似 完全等价</h2><h3 id="1-PCA原始目标"><a href="#1-PCA原始目标" class="headerlink" title="1. PCA原始目标"></a>1. PCA原始目标</h3><p>找 $k$ 个标准正交主成分，最大化数据方差，用 $k$ 维近似高维样本。 </p>
+<h3 id="2-两种求解方式"><a href="#2-两种求解方式" class="headerlink" title="2. 两种求解方式"></a>2. 两种求解方式</h3><ol>
+<li>幂迭代法：逐个求主成分（适合 $k$ 很小） </li>
+<li>SVD法：对数据矩阵 $X$ 做SVD，取 $V$ 前 $k$ 列直接作为主成分</li>
+</ol>
+<h3 id="3-数学等价推导"><a href="#3-数学等价推导" class="headerlink" title="3. 数学等价推导"></a>3. 数学等价推导</h3><p>由 $X&#x3D;USV^T$ 得： $$X^T X&#x3D;V S^T S V^T$$ 说明：<strong>$V$ 的列就是 $X^TX$ 的特征向量 &#x3D; PCA主成分</strong> </p>
+<h3 id="4-PCA改写为低秩优化-min-V-in-mathbb-R-n-×k-left-X-X-V-V-T-right-F-s-t-V-text-列向量标准正交"><a href="#4-PCA改写为低秩优化-min-V-in-mathbb-R-n-×k-left-X-X-V-V-T-right-F-s-t-V-text-列向量标准正交" class="headerlink" title="4. PCA改写为低秩优化 $$\min_{V \in \mathbb{R}^{n ×k}}\left|X-X V V^{T}\right|_{F}$$ $$s.t. \ V\text{列向量标准正交}$$"></a>4. PCA改写为低秩优化 $$\min_{V \in \mathbb{R}^{n ×k}}\left|X-X V V^{T}\right|_{F}$$ $$s.t. \ V\text{列向量标准正交}$$</h3><p>白话：PCA降维，本质就是<strong>对数据矩阵做k秩低秩近似</strong>。</p>
+<h3 id="5-核心等价结论"><a href="#5-核心等价结论" class="headerlink" title="5. 核心等价结论"></a>5. 核心等价结论</h3><p>PCA找主成分 $\iff$ SVD做低秩矩阵近似，二者是同一个优化问题。 </p>
+<h2 id="五、应用1：矩阵补全（Low-Rank-Matrix-Completion）"><a href="#五、应用1：矩阵补全（Low-Rank-Matrix-Completion）" class="headerlink" title="五、应用1：矩阵补全（Low-Rank Matrix Completion）"></a>五、应用1：矩阵补全（Low-Rank Matrix Completion）</h2><h3 id="1-问题定义"><a href="#1-问题定义" class="headerlink" title="1. 问题定义"></a>1. 问题定义</h3><p>矩阵<strong>部分元素已知、部分缺失</strong>，假设矩阵天然低秩，补全未知元素。<br>优化定义： $$\min \sum_{(i,j)观测}(A_{ij}-C_{ij})^2$$ $$s.t. \ rank(C)&#x3D;k$$ </p>
+<h3 id="2-经典案例：Netflix大赛"><a href="#2-经典案例：Netflix大赛" class="headerlink" title="2. 经典案例：Netflix大赛"></a>2. 经典案例：Netflix大赛</h3><ul>
+<li>场景：观众-电影评分矩阵，<strong>99%元素缺失</strong> </li>
+<li>规模：48万观众、1.7万部电影、1亿条已知评分 </li>
+<li>目标：补全缺失评分，预测用户喜好，做电影推荐 </li>
+<li>赛果：利用<strong>低秩矩阵补全+集成学习</strong>，把RMSE误差降到0.855左右</li>
+</ul>
+<h3 id="3-低秩假设原理"><a href="#3-低秩假设原理" class="headerlink" title="3. 低秩假设原理"></a>3. 低秩假设原理</h3><p>用户喜好、电影风格只有少数几类，评分矩阵天然低秩，可用低秩矩阵拟合空缺值。</p>
+<h3 id="4-求解思路"><a href="#4-求解思路" class="headerlink" title="4. 求解思路"></a>4. 求解思路</h3><p>迭代填充：补缺失值→SVD低秩近似→更新缺失值，反复迭代收敛。 </p>
+<h2 id="六、应用2：潜在语义分析-LSA"><a href="#六、应用2：潜在语义分析-LSA" class="headerlink" title="六、应用2：潜在语义分析 LSA"></a>六、应用2：潜在语义分析 LSA</h2><h3 id="1-作用"><a href="#1-作用" class="headerlink" title="1. 作用"></a>1. 作用</h3><p>文本挖掘、信息检索；<strong>解决字面匹配不准，挖掘隐藏语义关联</strong>。 </p>
+<h3 id="2-建模方式"><a href="#2-建模方式" class="headerlink" title="2. 建模方式"></a>2. 建模方式</h3><p>构造<strong>词-文档矩阵</strong>： </p>
+<ul>
+<li>行：词语 </li>
+<li>列：文档 </li>
+<li>元素：词频&#x2F;是否出现</li>
+</ul>
+<h3 id="3-LSA流程"><a href="#3-LSA流程" class="headerlink" title="3. LSA流程"></a>3. LSA流程</h3><ol>
+<li>构建词-文档矩阵 $A$ </li>
+<li>对 $A$ 做SVD </li>
+<li>保留前 $k$ 个奇异值，做低秩近似 </li>
+<li>将文档、词语映射到 $k$ 维<strong>语义空间</strong></li>
+</ol>
+<h3 id="4-课堂案例"><a href="#4-课堂案例" class="headerlink" title="4. 课堂案例"></a>4. 课堂案例</h3><p>5篇英文文本，构造8×5词频矩阵： </p>
+<ul>
+<li>字面不相关的文本，在低维语义空间距离很近 </li>
+<li>可按语义相似度排序检索结果 </li>
+<li>实现「同义词、相关词自动聚类」</li>
+</ul>
+<h2 id="七、拓展：LoRA-大模型低秩适配"><a href="#七、拓展：LoRA-大模型低秩适配" class="headerlink" title="七、拓展：LoRA 大模型低秩适配"></a>七、拓展：LoRA 大模型低秩适配</h2><h3 id="1-背景"><a href="#1-背景" class="headerlink" title="1. 背景"></a>1. 背景</h3><p>GPT等大模型参数量万亿级，<strong>全量微调算力成本极高</strong>。 </p>
+<h3 id="2-核心低秩思想"><a href="#2-核心低秩思想" class="headerlink" title="2. 核心低秩思想"></a>2. 核心低秩思想</h3><p>预训练模型权重矩阵 $W$ 本身近似低秩，微调的权重变化 $\Delta W$ 也可<strong>用低秩矩阵近似</strong>。 </p>
+<h3 id="3-数学表达"><a href="#3-数学表达" class="headerlink" title="3. 数学表达"></a>3. 数学表达</h3><p>模型单层输出：$h&#x3D;W_0 x$<br>微调后权重：$W&#x3D;W_0+\Delta W$<br>低秩近似：$\boldsymbol{\Delta W &#x3D; BA}$ </p>
+<ul>
+<li>$B \in \mathbb{R}^{d\times r}$ </li>
+<li>$A \in \mathbb{R}^{r\times k}$ - $r\ll d,k$（秩远小于原维度）</li>
+</ul>
+<h3 id="4-优势"><a href="#4-优势" class="headerlink" title="4. 优势"></a>4. 优势</h3><p>冻结主干模型，<strong>只训练小矩阵A、B</strong>，训练参数仅为原模型0.01%，极大节省算力。 </p>
+<h3 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h3><p>完全继承SVD低秩近似思想：<strong>高维矩阵的变化，总能用极低秩的小矩阵拟合</strong>。 </p>
+<h2 id="八、本讲核心总结"><a href="#八、本讲核心总结" class="headerlink" title="八、本讲核心总结"></a>八、本讲核心总结</h2><ol>
+<li>低秩近似：在秩约束下最小F范数误差，<strong>SVD截断是全局最优解</strong>； </li>
+<li>PCA和低秩矩阵近似数学等价，SVD可直接求解主成分； </li>
+<li>矩阵补全：靠低秩假设填充缺失值，推荐系统核心算法； </li>
+<li>LSA：SVD降维挖掘文本隐藏语义，解决检索字面匹配问题； </li>
+<li>LoRA：低秩思想落地大模型微调，工业界经典应用。</li>
+</ol>
+</div><div class="article-licensing box"><div class="licensing-title"><p>谱分析方法</p><p><a href="https://cactusprincess-hub.github.io/2026/05/31/数据科学数据基础/10-奇异值分解/">https://cactusprincess-hub.github.io/2026/05/31/数据科学数据基础/10-奇异值分解/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>cactusprincess</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2026-05-31</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2026-06-01</p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/review/">review</a><a class="link-muted mr-2" rel="tag" href="/tags/note/">note</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2026/05/31/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/9-%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89/"><span class="level-item">谱分析方法</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><script src="https://giscus.app/client.js" repo="cactusprincess-hub/cactusprincess-hub.github.io" data-repo="cactusprincess-hub/cactusprincess-hub.github.io" data-repo-id="R_kgDORDU9CA" data-category-id="DIC_kwDORDU9CM4C1i3p" data-category="Announcements" data-mapping="pathnamehexo g" data-strict="1" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="zh-CN" crossorigin="anonymous" async></script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">37</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">20</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/mmkg-note/"><span class="level-start"><span class="level-item">mmkg note</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">大数据笔记</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数字逻辑笔记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数据库笔记</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-31T09:00:00.000Z">2026-05-31</time></p><p class="title"><a href="/2026/05/31/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/10-%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3/">谱分析方法</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-31T09:00:00.000Z">2026-05-31</time></p><p class="title"><a href="/2026/05/31/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/9-%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89/">谱分析方法</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-26T09:00:00.000Z">2026-05-26</time></p><p class="title"><a href="/2026/05/26/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/7-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%EF%BC%88%E4%B8%80%EF%BC%89/">谱分析方法</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-26T09:00:00.000Z">2026-05-26</time></p><p class="title"><a href="/2026/05/26/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/6-%E5%B1%80%E9%83%A8%E6%95%8F%E6%84%9F%E5%93%88%E5%B8%8C/">Jaccard相似度下的相似搜索</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-26T09:00:00.000Z">2026-05-26</time></p><p class="title"><a href="/2026/05/26/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/8-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%EF%BC%88%E4%BA%8C%EF%BC%89/">谱分析方法</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/05/"><span class="level-start"><span class="level-item">五月 2026</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/database/"><span class="tag">database</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/digitallogic/"><span class="tag">digitallogic</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mmkg/"><span class="tag">mmkg</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">15</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">26</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

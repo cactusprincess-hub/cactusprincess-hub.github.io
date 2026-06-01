@@ -29,7 +29,1370 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">note</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-10T13:04:00.000Z" title="3/10/2026, 9:04:00 PM">2026-03-10</time>发表</span><span class="level-item"><time dateTime="2026-03-10T13:05:23.737Z" title="3/10/2026, 9:05:23 PM">2026-03-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><span class="level-item">8 分钟读完 (大约1180个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/10/database/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库阶段性学习指南索引</a></p><div class="content"><h1 id="一、数据库领域核心概念思维导图（18个核心概念）"><a href="#一、数据库领域核心概念思维导图（18个核心概念）" class="headerlink" title="一、数据库领域核心概念思维导图（18个核心概念）"></a>一、数据库领域核心概念思维导图（18个核心概念）</h1><p>可以把数据库理解成 <strong>三层结构：数据设计 → 数据操作 → 数据系统运行机制</strong>。</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">note</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-23T02:00:00.000Z" title="4/23/2026, 10:00:00 AM">2026-04-23</time>发表</span><span class="level-item"><time dateTime="2026-04-26T13:48:13.279Z" title="4/26/2026, 9:48:13 PM">2026-04-26</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></span><span class="level-item">30 分钟读完 (大约4438个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/23/database/4-SQL-1+SQL-2/">database4</a></p><div class="content"><h1 id="第4章-SQL-复习笔记"><a href="#第4章-SQL-复习笔记" class="headerlink" title="第4章 SQL 复习笔记"></a>第4章 SQL 复习笔记</h1><h2 id="一、本章知识框架"><a href="#一、本章知识框架" class="headerlink" title="一、本章知识框架"></a>一、本章知识框架</h2><ol>
+<li>SQL 的基本概念与特点</li>
+<li>SQL 的三级模式结构</li>
+<li>数据定义 DDL<ul>
+<li>模式</li>
+<li>基本表</li>
+<li>索引</li>
+</ul>
+</li>
+<li>数据操纵 DML<ul>
+<li>查询</li>
+<li>插入</li>
+<li>修改</li>
+<li>删除</li>
+</ul>
+</li>
+<li>视图<ul>
+<li>建立</li>
+<li>视图操作</li>
+<li>更新限制</li>
+<li>优点</li>
+</ul>
+</li>
+<li>数据控制 DCL<ul>
+<li>GRANT</li>
+<li>REVOKE</li>
+</ul>
+</li>
+<li>嵌入式 SQL<ul>
+<li>预编译</li>
+<li>SQLCA</li>
+<li>主变量</li>
+<li>游标</li>
+<li>动态 SQL</li>
+</ul>
+</li>
+<li>小结与高频考点。</li>
+</ol>
+<hr>
+<h2 id="二、本章核心规则"><a href="#二、本章核心规则" class="headerlink" title="二、本章核心规则"></a>二、本章核心规则</h2><ul>
+<li>SQL 是关系数据库的标准语言，介于关系代数与关系演算之间，集查询、操纵、定义和控制于一体。</li>
+<li>SQL 的特点是：综合统一、高度非过程化、面向集合、语法统一且简洁易学。</li>
+<li>SQL 支持三级模式结构：基本表对应模式，视图对应外模式，存储文件对应内模式。</li>
+<li>基本表是独立存在的真实表；视图是从一个或多个基本表导出的虚表，不实际存储数据。</li>
+<li>DDL 包括 <code>CREATE / DROP / ALTER</code>；DML 包括 <code>SELECT / INSERT / UPDATE / DELETE</code>；DCL 包括 <code>GRANT / REVOKE</code>。</li>
+<li>定义表时，主键、外键、唯一性、非空和检查约束是高频考点。</li>
+<li>索引能加快查询，但会占空间、增加维护成本；<code>PRIMARY KEY</code> 和 <code>UNIQUE</code> 常会自动建索引。</li>
+<li><code>SELECT</code> 的核心顺序是：<code>FROM</code> 确定对象，<code>WHERE</code> 选行，<code>GROUP BY</code> 分组，<code>HAVING</code> 过滤组，<code>ORDER BY</code> 排序。</li>
+<li><code>WHERE</code> 负责行筛选，<code>HAVING</code> 负责组筛选；<code>WHERE</code> 不能直接用聚集函数。</li>
+<li>视图的更新很复杂，有些视图可更新，有些不可更新；<code>WITH CHECK OPTION</code> 用来限制通过视图修改时不能破坏视图条件。</li>
+<li>嵌入式 SQL 需要预编译、主变量、SQLCA 和游标来协调“集合操作”和“过程式处理”的差异。<br><strong>经验句：</strong><br><strong>SQL 先记四件事：建什么、查什么、改什么、谁能改。</strong></li>
+</ul>
+<hr>
+<h2 id="三、本章常考题型"><a href="#三、本章常考题型" class="headerlink" title="三、本章常考题型"></a>三、本章常考题型</h2><h3 id="1-写-DDL"><a href="#1-写-DDL" class="headerlink" title="1. 写 DDL"></a>1. 写 DDL</h3><p>考 <code>CREATE TABLE</code>、<code>ALTER TABLE</code>、<code>DROP TABLE</code>、<code>CREATE VIEW</code>、<code>CREATE INDEX</code>。</p>
+<h3 id="2-写单表查询"><a href="#2-写单表查询" class="headerlink" title="2. 写单表查询"></a>2. 写单表查询</h3><p>考 <code>SELECT ... FROM ... WHERE ... ORDER BY ...</code>，以及 <code>BETWEEN / IN / LIKE / IS NULL</code>。</p>
+<h3 id="3-聚集与分组"><a href="#3-聚集与分组" class="headerlink" title="3. 聚集与分组"></a>3. 聚集与分组</h3><p>考 <code>COUNT / AVG / MAX / MIN / GROUP BY / HAVING</code>。</p>
+<h3 id="4-连接查询"><a href="#4-连接查询" class="headerlink" title="4. 连接查询"></a>4. 连接查询</h3><p>考等值连接、自然连接、自身连接、外连接的基本写法和歧义处理。</p>
+<h3 id="5-插入、修改、删除"><a href="#5-插入、修改、删除" class="headerlink" title="5. 插入、修改、删除"></a>5. 插入、修改、删除</h3><p>考单元组插入、子查询插入、带条件更新、带子查询删除。</p>
+<h3 id="6-视图更新是否允许"><a href="#6-视图更新是否允许" class="headerlink" title="6. 视图更新是否允许"></a>6. 视图更新是否允许</h3><p>考哪些视图可更新，哪些不行，为什么。</p>
+<h3 id="7-授权与回收"><a href="#7-授权与回收" class="headerlink" title="7. 授权与回收"></a>7. 授权与回收</h3><p>考 <code>GRANT</code>、<code>REVOKE</code>、<code>WITH GRANT OPTION</code>、<code>CASCADE / RESTRICT</code>。</p>
+<h3 id="8-嵌入式-SQL"><a href="#8-嵌入式-SQL" class="headerlink" title="8. 嵌入式 SQL"></a>8. 嵌入式 SQL</h3><p>考 <code>EXEC SQL</code>、<code>SQLCA</code>、主变量、游标、动态 SQL。</p>
+<hr>
+<h2 id="四、逐块整理（含正确代码-错误代码-经验句）"><a href="#四、逐块整理（含正确代码-错误代码-经验句）" class="headerlink" title="四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）"></a>四、逐块整理（含正确代码 &#x2F; 错误代码 &#x2F; 经验句）</h2><h3 id="1-SQL-的特点"><a href="#1-SQL-的特点" class="headerlink" title="1. SQL 的特点"></a>1. SQL 的特点</h3><p>SQL 是关系数据库标准语言，集数据定义、数据操纵、数据控制于一体，使用时只需要说“做什么”，而不必说“怎么做”。它既可交互式使用，也可嵌入高级语言。<br><strong>正确理解：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Sno, Sname</span><br><span class="line"><span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">WHERE</span> Sdept <span class="operator">=</span> <span class="string">&#x27;计算机&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Sno;</span><br></pre></td></tr></table></figure>
+<p><strong>错误理解：</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 以为 SQL 要像过程式语言一样一步步写执行细节</span><br><span class="line">-- 错，SQL 重在声明目标</span><br></pre></td></tr></table></figure>
+<p><strong>经验句：</strong><br><strong>SQL 不是命令机器怎么干，而是告诉数据库你要什么。</strong></p>
+<hr>
+<h3 id="2-SQL-的三级模式结构"><a href="#2-SQL-的三级模式结构" class="headerlink" title="2. SQL 的三级模式结构"></a>2. SQL 的三级模式结构</h3><p>PDF 指出：SQL 中基本表对应模式，视图对应外模式，存储文件对应内模式。基本表是真实存在的表，一个关系对应一个基本表。视图是逻辑表，不实际存数据。视图可以更新，导出供用户使用。<br><strong>正确理解：</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">基本表 → 模式</span><br><span class="line">视图   → 外模式</span><br><span class="line">文件   → 内模式</span><br></pre></td></tr></table></figure>
+<p><strong>错误理解：</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 以为视图就是一张真正存数据的表</span><br><span class="line">-- 错，视图本质上是定义，不是实体数据</span><br></pre></td></tr></table></figure>
+<h2 id="经验句：表管数据，视图管看法。"><a href="#经验句：表管数据，视图管看法。" class="headerlink" title="经验句：表管数据，视图管看法。"></a><strong>经验句：</strong><br><strong>表管数据，视图管看法。</strong><br><img src="/source/img/Pasted%20image%2020260423104904.png"></h2><h3 id="3-模式-Schema-的定义与删除"><a href="#3-模式-Schema-的定义与删除" class="headerlink" title="3. 模式 Schema 的定义与删除"></a>3. 模式 Schema 的定义与删除</h3><p>PDF 里说明：模式由模式名、权限标识符和元素描述符组成；定义模式时可以只写模式名和授权用户名，后续再继续往模式里放表、视图、索引等。删除模式时可用 <code>CASCADE</code> 或 <code>RESTRICT</code>。<br>	CREATE SCHEMA [&lt;模式名&gt;] AUTHORIZATION &lt;用户名&gt;; 方括号可省略<br>创建模式的同时在模式定义中进一步创建基本表、视图、定义授权：<br>	CREATE SCHEMA &lt;模式名&gt; AUTHORIZATION &lt;用户名&gt;[&lt;表定义子句&gt;｜&lt;视图定义子句&gt;｜&lt;授权定义子句&gt;];<br>	<br><strong>示例创建</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> SCHEMA SST <span class="keyword">AUTHORIZATION</span> SDBA;</span><br><span class="line"><span class="keyword">CREATE</span> SCHEMA  <span class="keyword">AUTHORIZATION</span> SDBA;<span class="comment">--可以没有模式名就隐含为用户名SDBA</span></span><br><span class="line"><span class="keyword">CREATE</span> SCHEMAAUTHORIZATION ross</span><br><span class="line">	<span class="keyword">CREATE TABLE</span> t1 (c1 <span class="type">INT</span> <span class="keyword">PRIMARY KEY</span>,</span><br><span class="line">		c2 <span class="type">INT</span> <span class="keyword">REFERENCES</span> t2(c1))</span><br><span class="line">	<span class="keyword">CREATE TABLE</span> t2 (c1 <span class="type">INT</span> <span class="keyword">PRIMARY KEY</span>,</span><br><span class="line">		c2 <span class="type">INT</span> <span class="keyword">REFERENCES</span> t1(c1));</span><br></pre></td></tr></table></figure>
+<p><strong>示例删除</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> SCHEMA SST CASCADE;</span><br><span class="line"><span class="keyword">DROP</span> SCHEMA SST RESTRICT;</span><br><span class="line"><span class="comment">--不写默认RESTRICT</span></span><br><span class="line"><span class="comment">-- 如果模式里已有对象，会被拒绝</span></span><br><span class="line"><span class="comment">--如果文件夹里还有任何文件（表、视图等），就不让删</span></span><br></pre></td></tr></table></figure>
+<p> 尖括号内容必选 方括号必选<br><strong>经验句：</strong><br><strong>CASCADE 是“全删”，RESTRICT 是“有依赖就不删”。</strong></p>
+<hr>
+<h3 id="4-定义基本表-CREATE-TABLE"><a href="#4-定义基本表-CREATE-TABLE" class="headerlink" title="4. 定义基本表 CREATE TABLE"></a>4. 定义基本表 CREATE TABLE</h3><p>PDF 给出的格式包含列名、数据类型、列级约束、表级约束。<code>PRIMARY KEY</code>、<code>FOREIGN KEY</code>、<code>CHECK</code>、<code>UNIQUE</code>、<code>NOT NULL</code> 都是重点。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> 表名 ( 列名 数据类型 [列级约束], 列名 数据类型 [列级约束], [表级约束] );</span><br><span class="line"><span class="keyword">CREATE TABLE</span> Student (</span><br><span class="line">    Sno   <span class="type">CHAR</span>(<span class="number">6</span>) <span class="keyword">NOT NULL</span> <span class="keyword">UNIQUE</span>,</span><br><span class="line">    Sname <span class="type">CHAR</span>(<span class="number">8</span>),</span><br><span class="line">    Sage  <span class="type">INT</span>,</span><br><span class="line">    Ssex  <span class="type">CHAR</span>(<span class="number">2</span>),</span><br><span class="line">    Sdept <span class="type">CHAR</span>(<span class="number">12</span>),</span><br><span class="line">    <span class="keyword">CONSTRAINT</span> C1 <span class="keyword">CHECK</span> (Ssex <span class="keyword">IN</span> (<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;女&#x27;</span>)),</span><br><span class="line">    <span class="keyword">CONSTRAINT</span> S_PK <span class="keyword">PRIMARY KEY</span> (Sno)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>CONSTRAINT子句定义列级或表级约束，其格式为<br>CONSTRAINT &lt;约束名&gt; &lt;约束&gt;<br><strong>错误理解：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 以为主键和唯一性是同一件事</span></span><br><span class="line"><span class="comment">-- 错，主键是标识元组的核心约束，唯一性只是“不能重复”</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>主键管身份，外键管关系，检查管范围。</strong></p>
+<hr>
+<h3 id="5-CREATE-DOMAIN（域）"><a href="#5-CREATE-DOMAIN（域）" class="headerlink" title="5. CREATE DOMAIN（域）"></a>5. CREATE DOMAIN（域）</h3><p>PDF 提到 SQL2 增加了域定义，可以让多个列共享同一种类型定义，后续修改域就能统一影响相关属性。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DOMAIN Sdept_TYPE <span class="type">CHAR</span>(<span class="number">12</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>域就是“给类型起名字”，方便统一修改。</strong></p>
+<hr>
+<h3 id="6-表的修改-ALTER-TABLE"><a href="#6-表的修改-ALTER-TABLE" class="headerlink" title="6. 表的修改 ALTER TABLE"></a>6. 表的修改 ALTER TABLE</h3><p>PDF 给出 <code>ADD / DROP / ALTER</code> 三种修改方式。新增列时新数据为空值；修改列宽可能破坏已有数据；删除列时可用 <code>CASCADE / RESTRICT</code>。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> Student</span><br><span class="line"><span class="keyword">ADD</span> Class <span class="type">CHAR</span>(<span class="number">8</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER TABLE</span> Student</span><br><span class="line"><span class="keyword">ALTER</span> Sname <span class="type">CHAR</span>(<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误理解：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 以为加列后旧记录会自动填默认值</span></span><br><span class="line"><span class="comment">-- 错，默认是空值</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>加列不补历史数据，改列可能伤旧数据。</strong></p>
+<hr>
+<h3 id="7-删除基本表-DROP-TABLE"><a href="#7-删除基本表-DROP-TABLE" class="headerlink" title="7. 删除基本表 DROP TABLE"></a>7. 删除基本表 DROP TABLE</h3><p>PDF 指出：<code>RESTRICT</code> 下若表被外键、视图、触发器、存储过程等引用，就不能删；<code>CASCADE</code> 则会连带删除相关依赖对象。默认是 <code>RESTRICT</code>。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> SC RESTRICT;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> SC CASCADE;</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>删表前先看有没有人依赖它。</strong></p>
+<hr>
+<h3 id="8-索引：建立、删除、选择"><a href="#8-索引：建立、删除、选择" class="headerlink" title="8. 索引：建立、删除、选择"></a>8. 索引：建立、删除、选择</h3><p>PDF 说明索引能提高查询速度，但会增加空间和维护成本；数据库系统会自动决定是否使用索引，用户不必也不能手动指定。索引就是表中某一列的「查找目录」，专门给列建，用来快速定位数据，不用逐行扫描。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> INDEX S_SNO</span><br><span class="line"><span class="keyword">ON</span> Student(Sno);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> INDEX SCLASS_AGE</span><br><span class="line"><span class="keyword">ON</span> Student (Class <span class="keyword">DESC</span>, Sage <span class="keyword">ASC</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> INDEX S_SNO;</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误理解：</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 以为索引越多越好</span><br><span class="line">-- 错，索引有维护成本，插删改会变慢</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>索引是拿空间换速度。</strong></p>
+<hr>
+<h3 id="9-SELECT-查询的基本结构"><a href="#9-SELECT-查询的基本结构" class="headerlink" title="9. SELECT 查询的基本结构"></a>9. SELECT 查询的基本结构</h3><p>PDF 给出的查询框架是：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ...</span><br><span class="line"><span class="keyword">FROM</span> ...</span><br><span class="line"><span class="keyword">WHERE</span> ...</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> ...</span><br><span class="line"><span class="keyword">HAVING</span> ...</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ...</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>SELECT</code> 决定显示什么，<code>FROM</code> 决定查谁，<code>WHERE</code> 决定筛谁，<code>GROUP BY</code> 决定如何分组，<code>HAVING</code> 决定保留哪些组，<code>ORDER BY</code> 决定排序方式。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Sno, Sname</span><br><span class="line"><span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">WHERE</span> Sdept <span class="operator">=</span> <span class="string">&#x27;CS&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Sno;</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>先定表，再挑行，再分组，再排序。</strong></p>
+<hr>
+<h3 id="10-DISTINCT-的作用"><a href="#10-DISTINCT-的作用" class="headerlink" title="10. DISTINCT 的作用"></a>10. DISTINCT 的作用</h3><p>PDF 强调：<code>DISTINCT</code> 的作用范围是所有目标列，不是单独某一列。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> Sno</span><br><span class="line"><span class="keyword">FROM</span> SC;</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> Cno, <span class="keyword">DISTINCT</span> Grade</span><br><span class="line"><span class="keyword">FROM</span> SC;</span><br><span class="line"><span class="comment">-- 错，DISTINCT 不能写在每个列前面</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>DISTINCT 是对整行去重，不是对某一列单独去重。</strong></p>
+<hr>
+<h3 id="11-WHERE-常用条件"><a href="#11-WHERE-常用条件" class="headerlink" title="11. WHERE 常用条件"></a>11. WHERE 常用条件</h3><p>PDF 列出了最常考的条件：比较、范围、集合、字符串匹配、空值、多重条件组合。包括 <code>BETWEEN</code>、<code>IN</code>、<code>LIKE</code>、<code>IS NULL</code>、<code>AND/OR/NOT</code> 等。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Sname, Sage</span><br><span class="line"><span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">WHERE</span> Sage <span class="keyword">BETWEEN</span> <span class="number">20</span> <span class="keyword">AND</span> <span class="number">23</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> Sname, Ssex</span><br><span class="line"><span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">WHERE</span> Sdept <span class="keyword">IN</span> (<span class="string">&#x27;IS&#x27;</span>,<span class="string">&#x27;MA&#x27;</span>,<span class="string">&#x27;CS&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> Sname, Sno, Ssex</span><br><span class="line"><span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">WHERE</span> Sname <span class="keyword">LIKE</span> <span class="string">&#x27;刘%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> Sno, Cno</span><br><span class="line"><span class="keyword">FROM</span> SC</span><br><span class="line"><span class="keyword">WHERE</span> Grade <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误理解：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WHERE</span> Grade <span class="operator">=</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="comment">-- 错，空值要用 IS NULL</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>NULL 不能拿等号比。</strong></p>
+<hr>
+<h3 id="12-ORDER-BY-排序"><a href="#12-ORDER-BY-排序" class="headerlink" title="12. ORDER BY 排序"></a>12. ORDER BY 排序</h3><p>PDF 指出：排序可以按一个或多个属性列进行，默认升序；空值在升序和降序下的排序位置不同。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Sno, Grade</span><br><span class="line"><span class="keyword">FROM</span> SC</span><br><span class="line"><span class="keyword">WHERE</span> Cno <span class="operator">=</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Grade <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>ORDER BY 只管结果集，不管表里原来的物理顺序。</strong></p>
+<hr>
+<h3 id="13-聚集函数与分组"><a href="#13-聚集函数与分组" class="headerlink" title="13. 聚集函数与分组"></a>13. 聚集函数与分组</h3><p>PDF 给出 <code>COUNT / SUM / AVG / MAX / MIN</code>，并说明分组后聚集函数作用于每个组。<code>HAVING</code> 用来筛组，<code>WHERE</code> 用来筛行。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> Student;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> Sno) <span class="keyword">FROM</span> SC;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> Cno, <span class="built_in">COUNT</span>(Sno)</span><br><span class="line"><span class="keyword">FROM</span> SC</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Cno;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> Sno</span><br><span class="line"><span class="keyword">FROM</span> SC</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Sno</span><br><span class="line"><span class="keyword">HAVING</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="operator">&gt;</span> <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误理解：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Sno</span><br><span class="line"><span class="keyword">FROM</span> SC</span><br><span class="line"><span class="keyword">WHERE</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="operator">&gt;</span> <span class="number">3</span>;</span><br><span class="line"><span class="comment">-- 错，WHERE 不能直接用聚集函数</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>WHERE 先筛行，HAVING 后筛组。</strong></p>
+<hr>
+<h3 id="14-连接查询"><a href="#14-连接查询" class="headerlink" title="14. 连接查询"></a>14. 连接查询</h3><p>PDF 把连接分成广义笛卡尔积、等值连接&#x2F;自然连接、非等值连接、自身连接、外连接、复合条件连接。连接时，同名属性要加表名前缀。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Student.<span class="operator">*</span>, SC.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> Student, SC</span><br><span class="line"><span class="keyword">WHERE</span> Student.Sno <span class="operator">=</span> SC.Sno;</span><br></pre></td></tr></table></figure>
+
+<p><strong>自然连接写法：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Student.Sno, Sname, Ssex, Sage, Sdept, Cno, Grade</span><br><span class="line"><span class="keyword">FROM</span> Student, SC</span><br><span class="line"><span class="keyword">WHERE</span> Student.Sno <span class="operator">=</span> SC.Sno;</span><br></pre></td></tr></table></figure>
+
+<p><strong>自身连接：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> FIRST.Cno, SECOND.Cpno</span><br><span class="line"><span class="keyword">FROM</span> Course <span class="keyword">FIRST</span>, Course <span class="keyword">SECOND</span></span><br><span class="line"><span class="keyword">WHERE</span> FIRST.Cpno <span class="operator">=</span> SECOND.Cno;</span><br></pre></td></tr></table></figure>
+<p>等值连接</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Student.<span class="operator">*</span>, SC.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> Student, SC</span><br><span class="line"><span class="keyword">WHERE</span> Student.Sno <span class="operator">=</span> SC.Sno;</span><br></pre></td></tr></table></figure>
+<p><strong>广义笛卡尔积写法：一般不写</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Student.<span class="operator">*</span>, SC. <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> Student, SC;</span><br></pre></td></tr></table></figure>
+<p><strong>经验句：</strong><br><strong>多表连接先想：谁和谁连，连什么字段，字段名会不会冲突。</strong></p>
+<hr>
+<h3 id="15-插入数据-INSERT"><a href="#15-插入数据-INSERT" class="headerlink" title="15. 插入数据 INSERT"></a>15. 插入数据 INSERT</h3><p>PDF 给出两类插入：插入单个元组，或插入子查询结果。若只指定部分列，其余列取空值。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> Student</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">&#x27;101215&#x27;</span>, <span class="string">&#x27;李斌&#x27;</span>, <span class="string">&#x27;男&#x27;</span>, <span class="number">19</span>, <span class="string">&#x27;CS&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT INTO</span> SC(Sno, Cno)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">&#x27;101253&#x27;</span>, <span class="string">&#x27;2&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>子查询插入：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> Dept_age(Sdept, Avg_age)</span><br><span class="line"><span class="keyword">SELECT</span> Sdept, <span class="built_in">AVG</span>(Sage)</span><br><span class="line"><span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Sdept;</span><br></pre></td></tr></table></figure>
+
+<p><strong>错误理解：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> SC(Sno, Cno)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">&#x27;101253&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="keyword">NULL</span>);</span><br><span class="line"><span class="comment">-- 列数和值数不匹配</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>插入时，列和值必须一一对应。</strong></p>
+<hr>
+<h3 id="16-修改数据-UPDATE"><a href="#16-修改数据-UPDATE" class="headerlink" title="16. 修改数据 UPDATE"></a>16. 修改数据 UPDATE</h3><p>PDF 的重点是三种修改：改一条、改多条、带子查询修改。修改时要注意完整性约束检查。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> Student</span><br><span class="line"><span class="keyword">SET</span> Sage <span class="operator">=</span> <span class="number">22</span></span><br><span class="line"><span class="keyword">WHERE</span> Sno <span class="operator">=</span> <span class="string">&#x27;101215&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> Student</span><br><span class="line"><span class="keyword">SET</span> Sage <span class="operator">=</span> Sage <span class="operator">+</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">WHERE</span> Sdept <span class="operator">=</span> <span class="string">&#x27;IS&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> SC</span><br><span class="line"><span class="keyword">SET</span> Grade <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="string">&#x27;CS&#x27;</span> <span class="operator">=</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> Sdept</span><br><span class="line">    <span class="keyword">FROM</span> Student</span><br><span class="line">    <span class="keyword">WHERE</span> Student.Sno <span class="operator">=</span> SC.Sno</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>UPDATE 先定位，再改值；不写 WHERE 就是全表改。</strong></p>
+<hr>
+<h3 id="17-删除数据-DELETE"><a href="#17-删除数据-DELETE" class="headerlink" title="17. 删除数据 DELETE"></a>17. 删除数据 DELETE</h3><p>PDF 给出单条删除、多条删除、带子查询删除。若不写 <code>WHERE</code>，就是删全表。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">WHERE</span> Sno <span class="operator">=</span> <span class="string">&#x27;201225&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> SC</span><br><span class="line"><span class="keyword">WHERE</span> Cno <span class="operator">=</span> <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> SC</span><br><span class="line"><span class="keyword">WHERE</span> <span class="string">&#x27;CS&#x27;</span> <span class="operator">=</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> Sdept</span><br><span class="line">    <span class="keyword">FROM</span> Student</span><br><span class="line">    <span class="keyword">WHERE</span> Student.Sno <span class="operator">=</span> SC.Sno</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>DELETE 不写 WHERE，比 UPDATE 不写 WHERE 更危险。</strong></p>
+<hr>
+<h3 id="18-更新数据的一致性问题"><a href="#18-更新数据的一致性问题" class="headerlink" title="18. 更新数据的一致性问题"></a>18. 更新数据的一致性问题</h3><p>PDF 特别提醒：如果增删改分步执行，中途出故障，容易造成数据库不一致，所以需要事务和原子性；同时主表和子表之间的完整性检查要靠系统保证。</p>
+<p><strong>经验句：</strong><br><strong>数据库操作不是“做一半”，要么一起成功，要么一起回滚。</strong></p>
+<hr>
+<h3 id="19-视图的定义"><a href="#19-视图的定义" class="headerlink" title="19. 视图的定义"></a>19. 视图的定义</h3><p>PDF 说视图是虚表，只存定义，不存数据；基表变了，视图查出来的结果也会变。<code>CREATE VIEW</code> 可以带列名和 <code>WITH CHECK OPTION</code>。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> Sage_23</span><br><span class="line"><span class="keyword">AS</span> <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">WHERE</span> Sage <span class="operator">&lt;</span> <span class="number">23</span></span><br><span class="line"><span class="keyword">WITH</span> <span class="keyword">CHECK</span> OPTION;</span><br></pre></td></tr></table></figure>
+
+<p><strong>带分组表达式的视图：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> D_Sage(Sdept, Avgage)</span><br><span class="line"><span class="keyword">AS</span> <span class="keyword">SELECT</span> Sdept, <span class="built_in">AVG</span>(Sage)</span><br><span class="line"><span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Sdept;</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>视图不是数据本体，是数据的一个窗口。</strong></p>
+<hr>
+<h3 id="20-视图更新与限制"><a href="#20-视图更新与限制" class="headerlink" title="20. 视图更新与限制"></a>20. 视图更新与限制</h3><p>PDF 说明视图的插入、删除、修改最终会转成对基表的操作，但并不是所有视图都能更新。<code>WITH CHECK OPTION</code> 可以防止更新后数据跑出视图范围。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> Sage_23</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">&#x27;20041&#x27;</span>, <span class="string">&#x27;刘敏&#x27;</span>, <span class="number">21</span>, <span class="string">&#x27;女&#x27;</span>, <span class="string">&#x27;MA&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>转成基表操作：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> Student</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">&#x27;20041&#x27;</span>, <span class="string">&#x27;刘敏&#x27;</span>, <span class="number">21</span>, <span class="string">&#x27;女&#x27;</span>, <span class="string">&#x27;MA&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>不可更新例子：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> D_Sage <span class="keyword">VALUES</span> (<span class="string">&#x27;CS&#x27;</span>, <span class="number">21</span>);</span><br><span class="line"><span class="comment">-- 因为平均年龄视图无法唯一映射回某一条 Student 记录</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>能不能更新视图，关键看能不能唯一地转回基表。</strong></p>
+<hr>
+<h3 id="21-视图消解法"><a href="#21-视图消解法" class="headerlink" title="21. 视图消解法"></a>21. 视图消解法</h3><p>PDF 里给出视图查询的两种实现思路：实体化视图和视图消解。视图消解就是把视图定义与用户查询合并，最后转成对基本表的查询。</p>
+<p><strong>正确理解：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Sage_23</span><br><span class="line"><span class="keyword">WHERE</span> Sdept <span class="operator">=</span> <span class="string">&#x27;CS&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>等价于：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">WHERE</span> Sdept <span class="operator">=</span> <span class="string">&#x27;CS&#x27;</span> <span class="keyword">AND</span> Sage <span class="operator">&lt;</span> <span class="number">23</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>查视图，本质上还是在查基表。</strong></p>
+<hr>
+<h3 id="22-视图的优点"><a href="#22-视图的优点" class="headerlink" title="22. 视图的优点"></a>22. 视图的优点</h3><p>PDF 总结了四个优点：逻辑独立性、简化用户视图、不同角度看同一数据、安全保护。</p>
+<p><strong>经验句：</strong><br><strong>视图是“简化、隔离、保护”的工具。</strong></p>
+<hr>
+<h3 id="23-授权-GRANT"><a href="#23-授权-GRANT" class="headerlink" title="23. 授权 GRANT"></a>23. 授权 GRANT</h3><p>PDF 说明授权是把自己拥有的权限授给别人；<code>WITH GRANT OPTION</code> 允许被授权者再转授；<code>PUBLIC</code> 代表所有用户。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span>, <span class="keyword">DELETE</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> Student</span><br><span class="line"><span class="keyword">TO</span> User2</span><br><span class="line"><span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>GRANT 是“给权限”，GRANT OPTION 是“还能继续发权限”。</strong></p>
+<hr>
+<h3 id="24-回收-REVOKE"><a href="#24-回收-REVOKE" class="headerlink" title="24. 回收 REVOKE"></a>24. 回收 REVOKE</h3><p>PDF 说明回收可以用 <code>CASCADE</code> 或 <code>RESTRICT</code>。<code>CASCADE</code> 会把转授出去的权限一起回收；<code>RESTRICT</code> 在用户已经转授时会拒绝。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REVOKE</span> <span class="keyword">SELECT</span>, <span class="keyword">DELETE</span></span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">TABLE</span> Student</span><br><span class="line"><span class="keyword">FROM</span> User2</span><br><span class="line">CASCADE;</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>REVOKE 不是只收回一个人，CASCADE 可能一路收回去。</strong></p>
+<hr>
+<h3 id="25-嵌入式-SQL-为什么需要"><a href="#25-嵌入式-SQL-为什么需要" class="headerlink" title="25. 嵌入式 SQL 为什么需要"></a>25. 嵌入式 SQL 为什么需要</h3><p>PDF 说明：SQL 是面向集合的、非过程性的，而很多应用是过程性的，所以需要把 SQL 嵌入高级语言，让高级语言补足流程控制能力。</p>
+<p><strong>经验句：</strong><br><strong>嵌入式 SQL 是“SQL 负责查改数据，主语言负责流程控制”。</strong></p>
+<hr>
+<h3 id="26-预编译、SQLCA、主变量"><a href="#26-预编译、SQLCA、主变量" class="headerlink" title="26. 预编译、SQLCA、主变量"></a>26. 预编译、SQLCA、主变量</h3><p>PDF 提到：嵌入式 SQL 采用预编译；SQL 语句要加 <code>EXEC SQL</code>；执行结果通过 SQLCA 中的 <code>SQLCODE</code> 反馈；程序变量叫主变量或宿主变量。</p>
+<p><strong>正确代码：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">EXEC SQL BEGIN DECLARE SECTION;</span><br><span class="line">CHAR <span class="title function_">Sno</span><span class="params">(<span class="number">6</span>)</span>;</span><br><span class="line">CHAR <span class="title function_">Sname</span><span class="params">(<span class="number">8</span>)</span>;</span><br><span class="line">EXEC SQL END DECLARE SECTION;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果放主变量：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">EXEC SQL SELECT Sname, Cno, Grade</span><br><span class="line">INTO :Hsname, :Hcno, :Hgrade</span><br><span class="line">FROM Student, SC</span><br><span class="line">WHERE Student.Sno = :Hsno AND Cno = <span class="string">&#x27;2&#x27;</span></span><br><span class="line">AND Student.Sno = SC.Sno;</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>SQLCA 管结果，主变量管数据交换。</strong></p>
+<hr>
+<h3 id="27-游标-Cursor"><a href="#27-游标-Cursor" class="headerlink" title="27. 游标 Cursor"></a>27. 游标 Cursor</h3><p>PDF 说明：当查询结果是多条记录、需要逐条处理时，就要用游标。步骤是：声明、打开、取记录、关闭。</p>
+<p><strong>正确流程：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">EXEC SQL DECLARE tnames_cursor CURSOR</span><br><span class="line">FOR SELECT name, xh FROM xjb WHERE xb=<span class="string">&#x27;男&#x27;</span> ORDER BY xh;</span><br><span class="line"></span><br><span class="line">EXEC SQL OPEN tnames_cursor;</span><br><span class="line">EXEC SQL FETCH tnames_cursor INTO :PNAME, :PXH;</span><br><span class="line">EXEC SQL CLOSE tnames_cursor;</span><br></pre></td></tr></table></figure>
+
+<p><strong>经验句：</strong><br><strong>游标就是“把集合结果拆成一条一条处理”。</strong></p>
+<hr>
+<h3 id="28-CURRENT-形式-UPDATE-DELETE"><a href="#28-CURRENT-形式-UPDATE-DELETE" class="headerlink" title="28. CURRENT 形式 UPDATE &#x2F; DELETE"></a>28. CURRENT 形式 UPDATE &#x2F; DELETE</h3><p>PDF 说明：如果只想改或删满足条件中的某一条记录，常需要游标配合 CURRENT 形式的 UPDATE &#x2F; DELETE。</p>
+<p><strong>经验句：</strong><br><strong>想逐条处理，就别只靠普通 UPDATE &#x2F; DELETE。</strong></p>
+<hr>
+<h3 id="29-动态-SQL"><a href="#29-动态-SQL" class="headerlink" title="29. 动态 SQL"></a>29. 动态 SQL</h3><p>PDF 说明：静态嵌入式 SQL 在编译时语句已确定，但灵活性有限；动态 SQL 在运行期间临时组装语句，更通用。</p>
+<p><strong>经验句：</strong><br><strong>静态 SQL 是“先写死再运行”，动态 SQL 是“运行时再拼”。</strong></p>
+<hr>
+<h2 id="五、本章重点回忆版"><a href="#五、本章重点回忆版" class="headerlink" title="五、本章重点回忆版"></a>五、本章重点回忆版</h2><ul>
+<li><p>SQL 是标准关系数据库语言，兼具 DDL、DML、DCL。</p>
+</li>
+<li><p>三级模式结构：基本表、视图、存储文件分别对应模式、外模式、内模式。</p>
+</li>
+<li><p><code>CREATE TABLE / ALTER TABLE / DROP TABLE</code> 是 DDL 核心。</p>
+</li>
+<li><p><code>SELECT</code> 重点记 <code>WHERE / GROUP BY / HAVING / ORDER BY / DISTINCT</code>。</p>
+</li>
+<li><p>连接查询要分清等值、自然、自身、外连接。</p>
+</li>
+<li><p><code>INSERT / UPDATE / DELETE</code> 都要注意完整性与事务一致性。</p>
+</li>
+<li><p>视图是虚表；可更新视图和不可更新视图要区分。</p>
+</li>
+<li><p><code>GRANT / REVOKE</code> 是权限控制核心。</p>
+</li>
+<li><p>嵌入式 SQL 重点记 <code>EXEC SQL</code>、主变量、SQLCA、游标。</p>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-07T02:00:00.000Z" title="4/7/2026, 10:00:00 AM">2026-04-07</time>发表</span><span class="level-item"><time dateTime="2026-04-07T16:12:41.090Z" title="4/8/2026, 12:12:41 AM">2026-04-08</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/">数字逻辑笔记</a></span><span class="level-item">10 分钟读完 (大约1551个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/07/digital%20logic/digitallogic%201/">digitallogic1</a></p><div class="content"><h2 id="一、数字系统"><a href="#一、数字系统" class="headerlink" title="一、数字系统"></a>一、数字系统</h2><ol>
+<li><strong>定义</strong><br> 数字系统是<strong>离散信息处理系统</strong>，以一组离散信息为输入，以离散内部信息为系统状态，最终输出离散形式的结果。</li>
+<li><strong>分类</strong></li>
+</ol>
+<ul>
+<li>组合逻辑系统：无状态记忆功能，输出值仅由<strong>当前输入</strong>决定，公式：output &#x3D; f (input)</li>
+<li>时序逻辑系统：具备状态记忆功能，输出值由<strong>当前输入 + 系统状态</strong>共同决定，公式：output &#x3D; f (state, input)<ul>
+<li>同步时序系统：在<strong>离散时间点</strong>更新状态</li>
+<li>异步时序系统：在<strong>任意时间点</strong>更新状态</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><strong>典型系统</strong><br> 数字计数器、数字计算机、嵌入式系统、手机、相机、汽车电子、GPS、复印机、洗碗机等。</li>
+</ol>
+<h2 id="二、信息表示"><a href="#二、信息表示" class="headerlink" title="二、信息表示"></a>二、信息表示</h2><ol>
+<li><strong>核心概念</strong></li>
+</ol>
+<ul>
+<li>信息：对物质世界与人类社会现象的表示，可消除不确定性，用信息熵衡量。</li>
+<li>信号：信息的物理载体，分为<strong>模拟信号（连续物理量）<strong>和</strong>数字信号（离散物理量）</strong>。</li>
+</ul>
+<ol start="2">
+<li><p><strong>二进制表示</strong></p>
+<p> 数字系统广泛采用二进制，用 0 和 1 表示，也可对应真 &#x2F; 假、高 &#x2F; 低、开 &#x2F; 关；可通过电压、磁场方向、电荷量等物理量实现二进制。</p>
+</li>
+</ol>
+<h2 id="三、数制"><a href="#三、数制" class="headerlink" title="三、数制"></a>三、数制</h2><ol>
+<li><strong>基础定义</strong></li>
+</ol>
+<ul>
+<li>数制：数的表示规则。</li>
+<li>基底 r：数制包含的数字符号个数。</li>
+<li>权 r^i：数字符号位置对应的值，数值 &#x3D; 各位数字值 × 对应权值之和。</li>
+</ul>
+<ol start="2">
+<li><strong>常用数制</strong></li>
+</ol>
+<ul>
+<li>二进制（B&#x2F;2）：0、1</li>
+<li>八进制（O&#x2F;8）：0~7</li>
+<li>十进制（D&#x2F;10）：0~9</li>
+<li>十六进制（H&#x2F;16）：0<del>9、A</del>F</li>
+</ul>
+<ol start="3">
+<li><p><strong>二进制单位</strong></p>
+<p> 2^10&#x3D;1K、2^20&#x3D;1M、2^30&#x3D;1G、2^40&#x3D;1T</p>
+</li>
+<li><p><strong>数制运算</strong></p>
+<p> 二进制、八进制、十六进制加减乘规则同十进制，按位计算，逢基底 r 进 1。</p>
+</li>
+<li><p><strong>数制转换</strong></p>
+</li>
+</ol>
+<ul>
+<li>非十进制→十进制：<strong>按权展开求和</strong></li>
+<li>十进制→非十进制：整数部分<strong>除 r 取余</strong>（余数倒序），小数部分<strong>乘 r 取整</strong>（整数正序）</li>
+<li>二 &#x2F; 八 &#x2F; 十六互转：1 位八进制 &#x3D; 3 位二进制，1 位十六进制 &#x3D; 4 位二进制，以小数点为界分组转换</li>
+</ul>
+<h2 id="四、编码"><a href="#四、编码" class="headerlink" title="四、编码"></a>四、编码</h2><ol>
+<li><p><strong>二进制编码</strong></p>
+<p> n 位二进制编码可表示 2^n 个数据；表达 M 个数据需要⌈log₂(M)⌉位；分数值型（可算术运算）、非数值型（无需算术运算）。</p>
+</li>
+<li><p><strong>BCD 码</strong></p>
+<p> 用 4 位二进制表示 0<del>9 的十进制编码，8421 码最常用（加权码，权值 8、4、2、1），1010</del>1111 为无效码；<strong>进制转换≠编码</strong>，如十进制 13，二进制是 1101，BCD 码是 0001 0011。</p>
+</li>
+<li><p><strong>格雷码</strong></p>
+</li>
+</ol>
+<ul>
+<li>核心特点：计数时相邻编码<strong>仅 1 位不同</strong>，位翻转少、功耗低、抗干扰，可避免编码错误。</li>
+<li>编制方法：(n+1) 位格雷码 &#x3D; n 位格雷码（顺序 + 前缀 0）+ n 位格雷码（逆序 + 前缀 1）。</li>
+</ul>
+<ol start="4">
+<li><strong>字符编码</strong></li>
+</ol>
+<ul>
+<li>ASCII 码：7 位二进制，共 128 个字符（94 个可打印 + 34 个控制符）；数字 0<del>9、大写 A</del>Z、小写 a~z 编码连续，大小写转换翻转 B6 位即可。</li>
+<li>Unicode：统一码，覆盖全球语言字符；UTF-8 兼容 ASCII，1~4 字节可变长编码。</li>
+</ul>
+<ol start="5">
+<li><strong>校验位</strong></li>
+</ol>
+<ul>
+<li>作用：检测数据传输错误，增加 1 位校验码。</li>
+<li>偶校验：编码中 1 的个数为偶数，校验位填 0。</li>
+<li>奇校验：编码中 1 的个数为奇数，校验位填 0。</li>
+<li>局限：无法定位错误位，无法检测偶数个位出错。</li>
+</ul>
+<h1 id="数字逻辑-第一章-数字系统-完整易错点总结"><a href="#数字逻辑-第一章-数字系统-完整易错点总结" class="headerlink" title="数字逻辑 第一章 数字系统 完整易错点总结"></a>数字逻辑 第一章 数字系统 完整易错点总结</h1><ol>
+<li>组合逻辑与时序逻辑混淆：组合逻辑无状态、输出只看当前输入；时序逻辑有记忆、输出依赖输入 + 历史状态，二者判断易出错。</li>
+<li>十进制转非十进制顺序错误：整数部分除 r 取余需<strong>倒序排列</strong>，小数部分乘 r 取整需<strong>正序排列</strong>，极易写反。</li>
+<li>二 &#x2F; 八 &#x2F; 十六进制转换补零错误：以小数点为界分组时，整数左侧、小数右侧易漏补 0，导致转换结果错误。</li>
+<li>BCD 码与二进制转换混淆：将十进制数直接转为二进制当作 BCD 码，忽略 BCD 码按十进制位拆分编码的规则。</li>
+<li>格雷码核心特性误解：误以为格雷码是二进制逐位加 1，忽略<strong>相邻仅 1 位变化</strong>的关键特点。</li>
+<li>校验位功能认知错误：认为奇偶校验能纠正错误、检测所有错误，忽略其无法定位错误、无法检测偶数位错误的局限。</li>
+<li>进制后缀标识错误：B（二）、O（八）、D（十）、H（十六）混用，导致数制识别错误。</li>
+<li>二进制单位计算错误：混淆二进制 1K&#x3D;1024 与十进制 1K&#x3D;1000，单位换算出错。</li>
+<li>数制按权展开计算错误：小数点左右侧权值符号搞反（左侧正次幂、右侧负次幂），求和结果错误。</li>
+<li>ASCII 码大小写转换错误：记错翻转位，或混淆数字、字母的编码区间。</li>
+<li><table>
+<thead>
+<tr>
+<th>编码</th>
+<th>长度</th>
+<th>存储方式</th>
+<th>兼容 ASCII</th>
+<th>常用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UTF-32</td>
+<td>固定 4 字节</td>
+<td>直接填码点</td>
+<td>不兼容</td>
+<td>极少用</td>
+</tr>
+<tr>
+<td>UTF-16</td>
+<td>2&#x2F;4 字节</td>
+<td>常用字 2 字节，生僻字 4 字节</td>
+<td>不兼容</td>
+<td>Windows 内部</td>
+</tr>
+<tr>
+<td>UTF-8</td>
+<td>1~4 字节</td>
+<td>按码点大小自动选长度</td>
+<td><strong>完全兼容</strong></td>
+<td>网页 &#x2F; 文件 &#x2F; 全球通用</td>
+</tr>
+<tr>
+<td>Unicode &#x3D; 字符的身份证号（数字）</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>UTF-8&#x2F;16&#x2F;32 &#x3D; 把身份证号存进电脑的三种打包方式</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>能存进来的原因：数字可以用任意二进制格式打包</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>日常只用记：UTF-8 是通用标准，中文占 3 字节，英文占 1 字节</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-02T11:00:00.000Z" title="4/2/2026, 7:00:00 PM">2026-04-02</time>发表</span><span class="level-item"><time dateTime="2026-04-02T11:50:06.509Z" title="4/2/2026, 7:50:06 PM">2026-04-02</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></span><span class="level-item">1 小时读完 (大约7142个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/02/database/3-%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93/">database3</a></p><div class="content"><h1 id="第3章-关系数据库-复习整理"><a href="#第3章-关系数据库-复习整理" class="headerlink" title="第3章 关系数据库 复习整理"></a>第3章 关系数据库 复习整理</h1><h2 id="一、本章主线"><a href="#一、本章主线" class="headerlink" title="一、本章主线"></a>一、本章主线</h2><p>关系数据库系统是支持关系模型的数据库系统。关系模型以集合论中的“关系”为基础，运用数学方法研究数据库的结构以及对数据的操作。本章围绕数据模型的三要素展开：数据结构、数据操作、完整性约束；并进一步学习关系模型的基本概念、关系代数、元组关系演算和域关系演算。</p>
+<hr>
+<h2 id="二、关系模型的基本概念"><a href="#二、关系模型的基本概念" class="headerlink" title="二、关系模型的基本概念"></a>二、关系模型的基本概念</h2><h3 id="2-1-域（Domain）"><a href="#2-1-域（Domain）" class="headerlink" title="2.1 域（Domain）"></a>2.1 域（Domain）</h3><p>域是一组具有相同数据类型的值的集合。它表示属性的取值范围。比如自然数、整数、{男，女}、{0，1} 都可以看作域；在教师关系中，姓名、性别、年龄也都可以分别对应一个域。</p>
+<h3 id="2-2-笛卡尔积（Cartesian-Product）"><a href="#2-2-笛卡尔积（Cartesian-Product）" class="headerlink" title="2.2 笛卡尔积（Cartesian Product）"></a>2.2 笛卡尔积（Cartesian Product）</h3><p>给定若干集合 D1, D2, …, Dn，它们的笛卡尔积是所有分量组合形成的集合：<br>D1×D2×…×Dn &#x3D; {(d1,d2,…,dn) | di∈Di}。<br>它的本质是“所有域的所有值的组合”，并且这些组合不重复。PDF 用“导师—专业—研究生”给出了三域笛卡尔积的完整例子。</p>
+<h3 id="2-3-元组（Tuple）与分量（Component）"><a href="#2-3-元组（Tuple）与分量（Component）" class="headerlink" title="2.3 元组（Tuple）与分量（Component）"></a>2.3 元组（Tuple）与分量（Component）</h3><p>笛卡尔积中的每一个元素称为一个元组；元组中的每一个值称为一个分量。比如 (张清玫, 计算机专业, 李勇) 是一个三元组，而“张清玫”“计算机专业”“李勇”分别是分量。</p>
+<h3 id="2-4-关系（Relation）"><a href="#2-4-关系（Relation）" class="headerlink" title="2.4 关系（Relation）"></a>2.4 关系（Relation）</h3><p>关系是笛卡尔积的任意一个子集。n 叫做关系的目或度。关系中的每一行对应一个元组，每一列对应一个属性。严格说，关系数据库中的关系必须是有限集合。</p>
+<p>PDF 还特别强调：由于笛卡尔积本身不满足交换律，关系模型通过“属性名”来取消元组的有序性，因此在关系中列的顺序本质上是无关的。</p>
+<h3 id="2-5-规范化关系应满足的性质"><a href="#2-5-规范化关系应满足的性质" class="headerlink" title="2.5 规范化关系应满足的性质"></a>2.5 规范化关系应满足的性质</h3><p>规范化的关系有几个重要性质：<br>第一，列是同质的，即同一列的数据来自同一个域；第二，不同的列可以来自同一个域，但必须用不同属性名区分；第三，列的顺序无所谓；第四，元组不能重复；第五，行的顺序无所谓；第六，每个分量必须是原子值，不能再分。<br>其中“分量必须取原子值”是最基本、最重要的规范条件。PDF 还举了“职工工资”嵌套结构不符合关系模型要求的例子。</p>
+<h3 id="2-6-一元关系、二元关系"><a href="#2-6-一元关系、二元关系" class="headerlink" title="2.6 一元关系、二元关系"></a>2.6 一元关系、二元关系</h3><p>当 n&#x3D;1 时称为一元关系；当 n&#x3D;2 时称为二元关系。这个定义本身是关系理论中的基础概念，后面讲查询语言和运算时都会用到。</p>
+<hr>
+<h2 id="三、关系模式与关系数据库"><a href="#三、关系模式与关系数据库" class="headerlink" title="三、关系模式与关系数据库"></a>三、关系模式与关系数据库</h2><h3 id="3-1-关系模式（Relation-Schema）"><a href="#3-1-关系模式（Relation-Schema）" class="headerlink" title="3.1 关系模式（Relation Schema）"></a>3.1 关系模式（Relation Schema）</h3><p>关系模式是对关系的描述，通常包括关系名、属性名、属性类型、长度以及属性间固有的数据联系。简记形式通常写作 R(A1, A2, …, An)。例如，图书关系模式可以写成：图书(书号, 书名, 作者, 单价, 出版社)。</p>
+<h3 id="3-2-关系的值"><a href="#3-2-关系的值" class="headerlink" title="3.2 关系的值"></a>3.2 关系的值</h3><p>关系的值是元组的集合。一个关系模式在某一时刻对应的实际内容，就是该关系的值。PDF 强调，关系是现实世界某一时刻状态的反映，因此关系的值会随时间变化。</p>
+<h3 id="3-3-关系数据库与关系数据库模式"><a href="#3-3-关系数据库与关系数据库模式" class="headerlink" title="3.3 关系数据库与关系数据库模式"></a>3.3 关系数据库与关系数据库模式</h3><p>关系模式的集合称为关系数据库模式，通常写作 R&#x3D;{R1, R2, …, Rp}。每个关系模式上对应的关系集合，构成完整的关系数据库。</p>
+<hr>
+<h2 id="四、键（Key）"><a href="#四、键（Key）" class="headerlink" title="四、键（Key）"></a>四、键（Key）</h2><p>为了区分不同元组，需要用一个或多个属性值唯一标识元组，这样的属性或属性组称为关系的键。能够起标识作用而其子集不能起标识作用的键称为候选键；在多个候选键中选定一个作为主键；若键由多个属性组成，则称为联合键；若关系的所有属性都构成键，则称为全键。</p>
+<p>这一部分的核心是：键的作用不是“好看”，而是“唯一标识元组”。后面的实体完整性、参照完整性，都建立在键的基础上。</p>
+<hr>
+<h2 id="五、完整性约束"><a href="#五、完整性约束" class="headerlink" title="五、完整性约束"></a>五、完整性约束</h2><p>关系模型中的完整性规则是对关系的约束条件。为了保证数据库中的数据与现实世界一致，关系数据库的插入、删除和修改操作必须受到约束。关系模型的三类完整性约束是：实体完整性、参照完整性、用户定义完整性。通常前两类由系统自动支持，用户定义完整性则反映具体应用的语义要求。</p>
+<h3 id="5-1-实体完整性—主键"><a href="#5-1-实体完整性—主键" class="headerlink" title="5.1 实体完整性—主键"></a>5.1 实体完整性—主键</h3><p>实体完整性要求主键的值不能为空或部分为空。换句话说，若属性 A 是基本关系 R 的主属性，则 A 不能取空值。原因是：如果键为空或部分为空，该元组就不可标识，也就不能表示任何实体。</p>
+<p>PDF 进一步解释了实体完整性为什么成立：基本表通常对应一个实体集或多对多联系；现实世界中的实体是可区分的，关系模型用主键作为唯一标识，因此主键不能为空，否则就会出现不可区分的实体，这与实体可区分的现实相矛盾。</p>
+<h3 id="5-2-参照完整性—外键"><a href="#5-2-参照完整性—外键" class="headerlink" title="5.2 参照完整性—外键"></a>5.2 参照完整性—外键</h3><p>关系模型中实体及其联系都用关系表示，因此关系与关系之间自然存在引用。若关系 R1 中的属性 A 引用了关系 R2 的主键，则 R1 中 A 的值要么为空，要么必须等于 R2 中某个元组的主键值。</p>
+<p>PDF 的学生—专业例子非常典型：学生关系中的“专业号”必须来自专业关系中真实存在的专业号，不能引用不存在的专业。这个规则就是参照完整性。</p>
+<h3 id="5-3-外键（Foreign-Key）"><a href="#5-3-外键（Foreign-Key）" class="headerlink" title="5.3 外键（Foreign Key）"></a>5.3 外键（Foreign Key）</h3><p>若 F 是基本关系 R 的一个或一组属性，但不是 R 的键；并且 F 对应于基本关系 S 的主键 Ks，则称 F 为 R 的外键。R 是参照关系，S 是被参照关系或目标关系。R 和 S 不一定是不同的关系；外键与主键也不一定同名，但必须定义在同一个或一组域上。</p>
+<p>PDF 还给出了“学生实体及其内部领导联系”的例子：学生关系中的“班长”属性值，如果非空，则必须是本关系中某个元组的学号值；这说明参照完整性不仅可以发生在不同关系之间，也可以发生在同一关系内部。</p>
+<h3 id="5-4-用户定义完整性"><a href="#5-4-用户定义完整性" class="headerlink" title="5.4 用户定义完整性"></a>5.4 用户定义完整性</h3><p>用户定义完整性是针对具体数据库的特殊约束，反映某一应用领域的语义要求。PDF 举例：选课关系中成绩不能为负数，或者某些数据输入格式需要满足特定限制。关系模型应提供统一的机制来定义和检验这类约束，而不应完全交给应用程序。</p>
+<hr>
+<h2 id="六、关系代数"><a href="#六、关系代数" class="headerlink" title="六、关系代数"></a>六、关系代数</h2><h3 id="6-1-关系代数是什么"><a href="#6-1-关系代数是什么" class="headerlink" title="6.1 关系代数是什么"></a>6.1 关系代数是什么</h3><p>关系代数是一种抽象查询语言，用对关系的运算来表达查询要求。它的三个要素是：运算对象是关系，运算结果也是关系，运算由一组运算符构成。关系代数是关系数据库系统中实现关系操作的重要基础。</p>
+<h3 id="6-2-关系代数的分类"><a href="#6-2-关系代数的分类" class="headerlink" title="6.2 关系代数的分类"></a>6.2 关系代数的分类</h3><p>关系代数分为三类：<br>第一，传统集合运算，包括并、差、交、广义笛卡尔积；<br>第二，专门的关系运算，包括选择、投影、连接、除法；<br>第三，扩充的关系运算，包括属性重命名、外连接。</p>
+<p>关系操作的特点是“集合操作方式”，即操作对象和结果都是集合，属于“一次一集合”；而非关系数据模型通常是“一次一记录”。这是关系模型与传统记录式数据模型的根本区别之一。</p>
+<hr>
+<h2 id="七、传统集合运算"><a href="#七、传统集合运算" class="headerlink" title="七、传统集合运算"></a>七、传统集合运算</h2><h3 id="7-1-并（Union）"><a href="#7-1-并（Union）" class="headerlink" title="7.1 并（Union）"></a>7.1 并（Union）</h3><p>R∪S 仍为 n 目关系，由属于 R 或属于 S 的元组组成。前提是 R 和 S 具有相同的目数，并且对应属性来自同一个域。</p>
+<h3 id="7-2-差（Difference）"><a href="#7-2-差（Difference）" class="headerlink" title="7.2 差（Difference）"></a>7.2 差（Difference）</h3><p>R-S 由属于 R 而不属于 S 的元组组成。同样要求两者具有相同目数和相应域匹配。</p>
+<h3 id="7-3-交（Intersection）"><a href="#7-3-交（Intersection）" class="headerlink" title="7.3 交（Intersection）"></a>7.3 交（Intersection）</h3><p>R∩S 由同时属于 R 和 S 的元组组成，也可表示为 R-(R-S)。</p>
+<h3 id="7-4-广义笛卡尔积"><a href="#7-4-广义笛卡尔积" class="headerlink" title="7.4 广义笛卡尔积"></a>7.4 广义笛卡尔积</h3><p>若 R 是 n 目关系，S 是 m 目关系，则 R×S 是一个 n+m 目关系，行数等于两者元组数的乘积。其本质是把 R 中每个元组与 S 中每个元组拼接。</p>
+<hr>
+<h2 id="八、专门的关系运算"><a href="#八、专门的关系运算" class="headerlink" title="八、专门的关系运算"></a>八、专门的关系运算</h2><h3 id="8-1-选择（Selection）"><a href="#8-1-选择（Selection）" class="headerlink" title="8.1 选择（Selection）"></a>8.1 选择（Selection）</h3><p>选择是从关系中选择满足条件的元组子集，记作 σF(R)。F 是由逻辑连接词和比较表达式组成的布尔条件。选择从“行”的角度进行运算。</p>
+<p>典型例子：<br>查询信息系学生：σSdept&#x3D;’IS’(Student)<br>查询年龄小于 20 的学生：σSage&lt;20(Student)。</p>
+<h3 id="8-2-投影（Projection）"><a href="#8-2-投影（Projection）" class="headerlink" title="8.2 投影（Projection）"></a>8.2 投影（Projection）</h3><p>投影是从关系中选出若干属性列组成新关系，记作 πA(R)。投影从“列”的角度进行运算，但它不仅会删除某些列，也可能删除重复元组。</p>
+<p>例子：查询学生姓名和所在系，即 πSname,Sdept(Student)。</p>
+<h3 id="8-3-连接（Join）"><a href="#8-3-连接（Join）" class="headerlink" title="8.3 连接（Join）"></a>8.3 连接（Join）</h3><p>连接是按条件把两个关系中的元组拼接起来形成新关系。最常见的是条件连接和自然连接。条件连接可写成 R ⋈AθB S，其中 A 和 B 为同域属性。等值连接是 θ 为“&#x3D;”的情况。</p>
+<p>自然连接是一种特殊的等值连接，要求被比较的分量是相同的属性组，并且结果中去掉重复属性列。PDF 强调，自然连接既涉及行，也涉及列。</p>
+<h3 id="8-4-除（Division）"><a href="#8-4-除（Division）" class="headerlink" title="8.4 除（Division）"></a>8.4 除（Division）</h3><p>除运算是一个二元运算，用符号 ÷ 表示。若 R(X,Y) 与 S(Y) 相关，则 R÷S 产生一个新关系 R’(X)，其含义是：找出那些在 X 上取值 x，使得 x 对应的“象集”包含了 S 在 Y 上的投影。直观上可以理解为“满足所有条件的那些对象”。</p>
+<p>PDF 给了两个很经典的例子：</p>
+<ol>
+<li><p>同时选修了 C2 和 C3 的所有学生；</p>
+</li>
+<li><p>选修了全部课程的学生号码和姓名。<br> 这类题几乎都是除法运算的标准应用场景。</p>
+</li>
+</ol>
+<h3 id="8-5-属性重命名"><a href="#8-5-属性重命名" class="headerlink" title="8.5 属性重命名"></a>8.5 属性重命名</h3><p>属性重命名用来改变属性名，但不改变数据本身。它不仅可以对单个属性重命名，也可以对一组属性同时操作。其作用之一是便于同一关系做自然连接或笛卡尔积，也能把等值连接方便地表示为自然连接。</p>
+<h3 id="8-6-外连接"><a href="#8-6-外连接" class="headerlink" title="8.6 外连接"></a>8.6 外连接</h3><p>外连接是对自然连接的扩展，结果中除了满足连接条件的元组外，还包含没有被连接上的元组。左外连接保留左侧关系中未匹配的元组，右外连接保留右侧关系中未匹配的元组，完全外连接则是左右外连接的并。未匹配处通常用 NULL 填充。</p>
+<hr>
+<h2 id="九、关系代数中的典型例子"><a href="#九、关系代数中的典型例子" class="headerlink" title="九、关系代数中的典型例子"></a>九、关系代数中的典型例子</h2><h3 id="9-1-查询计算机系学生的学号和姓名"><a href="#9-1-查询计算机系学生的学号和姓名" class="headerlink" title="9.1 查询计算机系学生的学号和姓名"></a>9.1 查询计算机系学生的学号和姓名</h3><p>先选出计算机系学生，再投影学号和姓名：<br>πSno,Sname(σSdept&#x3D;’计算机’(Student))。</p>
+<h3 id="9-2-查询选修了-2-号课程的学生学号"><a href="#9-2-查询选修了-2-号课程的学生学号" class="headerlink" title="9.2 查询选修了 2 号课程的学生学号"></a>9.2 查询选修了 2 号课程的学生学号</h3><p>先在选课关系中选择 Cno&#x3D;’2’，再投影 Sno：<br>πSno(σCno&#x3D;’2’(SC))。</p>
+<h3 id="9-3-查询选修了-1-号课程的学生姓名"><a href="#9-3-查询选修了-1-号课程的学生姓名" class="headerlink" title="9.3 查询选修了 1 号课程的学生姓名"></a>9.3 查询选修了 1 号课程的学生姓名</h3><p>思路是：先连接 Student 和 SC，再筛选 Cno&#x3D;’1’，最后投影 Sname。<br>这类题的关键不是直接背表达式，而是先问自己三件事：从哪里取数据、筛什么条件、最后保留哪些列。PDF 在这个例题里就是这样一步步展开的。</p>
+<h3 id="9-4-查询不选-1-号课的学生信息"><a href="#9-4-查询不选-1-号课的学生信息" class="headerlink" title="9.4 查询不选 1 号课的学生信息"></a>9.4 查询不选 1 号课的学生信息</h3><p>先从 SC 中找出选了 1 号课的学号，再与 Student 做差集或差相关表达式，得到不选 1 号课的学生。这个例子用于训练“先找集合，再做差”的思路。</p>
+<h3 id="9-5-查询学生“刘明亮”选修的全部课程名"><a href="#9-5-查询学生“刘明亮”选修的全部课程名" class="headerlink" title="9.5 查询学生“刘明亮”选修的全部课程名"></a>9.5 查询学生“刘明亮”选修的全部课程名</h3><p>先连接 Student、SC、Course，再筛选 Sname&#x3D;’刘明亮’，最后投影 Cname。PDF 还展示了利用属性重命名后做自然连接的写法，这个例子特别适合理解“为什么要先重命名”。</p>
+<h3 id="9-6-查询至少选修了其直接先行课为-5-号课的课程的学生姓名"><a href="#9-6-查询至少选修了其直接先行课为-5-号课的课程的学生姓名" class="headerlink" title="9.6 查询至少选修了其直接先行课为 5 号课的课程的学生姓名"></a>9.6 查询至少选修了其直接先行课为 5 号课的课程的学生姓名</h3><p>这道题的关键是先从 Course 中筛出 Cpno&#x3D;’5’ 的课程，再与 SC 和 Student 关联，最后投影学生姓名。PDF 还展示了通过中间关系再改写的等价形式，这说明复杂查询通常要拆成多个中间步骤。</p>
+<h3 id="9-7-查询选修全部课程的学生号码和姓名"><a href="#9-7-查询选修全部课程的学生号码和姓名" class="headerlink" title="9.7 查询选修全部课程的学生号码和姓名"></a>9.7 查询选修全部课程的学生号码和姓名</h3><p>这是除法运算的经典应用。思路是先用 πSno,Cno(SC) 除以 πCno(Course)，得到“选修了所有课程”的学生学号，再与 Student 连接取姓名。</p>
+<h3 id="9-8-插入、删除示例"><a href="#9-8-插入、删除示例" class="headerlink" title="9.8 插入、删除示例"></a>9.8 插入、删除示例</h3><p>插入示例是把学号 200504 的学生选修 4 号课、成绩 88 的记录加入 SC。删除示例则是删除学生“刘明亮”选修的英语课，并且要先考虑参照完整性，必要时先处理相关依赖记录。PDF 用这些例子说明：关系代数不仅可用于查询，也可用于更新表达。</p>
+<h3 id="9-9-利用重命名查询“与李勇在同一个系的学生”"><a href="#9-9-利用重命名查询“与李勇在同一个系的学生”" class="headerlink" title="9.9 利用重命名查询“与李勇在同一个系的学生”"></a>9.9 利用重命名查询“与李勇在同一个系的学生”</h3><p>PDF 的做法是先将 Student 自连接前重命名部分属性，然后做自然连接，再筛选李勇所在系，最后投影学号和姓名。这个例子非常适合理解重命名的必要性：如果不改名，自连接时属性名冲突会导致语义混乱。</p>
+<hr>
+<h2 id="十、关系代数的基本结论"><a href="#十、关系代数的基本结论" class="headerlink" title="十、关系代数的基本结论"></a>十、关系代数的基本结论</h2><p>关系代数可以用来完成查询、插入和删除等操作，其中查询是最重要的部分。关系代数中，并、差、笛卡尔积、选择、投影是基本运算；交、连接、除都可以由这些基本运算表示，因此引入它们并不增加语言能力，但可以简化表达。</p>
+<hr>
+<h2 id="十一、关系演算"><a href="#十一、关系演算" class="headerlink" title="十一、关系演算"></a>十一、关系演算</h2><h3 id="11-1-关系代数语言与关系演算语言"><a href="#11-1-关系代数语言与关系演算语言" class="headerlink" title="11.1 关系代数语言与关系演算语言"></a>11.1 关系代数语言与关系演算语言</h3><p>关系代数语言用对关系的运算来表达查询要求，典型代表是 ISBL。关系演算语言则用谓词来表达查询要求，按谓词变元的基本对象不同，分为元组关系演算和域关系演算。</p>
+<h3 id="11-2-元组关系演算"><a href="#11-2-元组关系演算" class="headerlink" title="11.2 元组关系演算"></a>11.2 元组关系演算</h3><p>元组关系演算语言以元组变量为基本对象。PDF 介绍了 ALPHA 和 QUEL，ALPHA 是由 Codd 提出的，QUEL 是 INGRES 所用语言，参考 ALPHA 研制，但并没有实际实现。</p>
+<p>ALPHA 的基本格式是：<br>操作语句 &lt;工作空间名&gt;(表达式)：操作条件。<br>其中表达式可以是关系名或属性名，操作条件是一个逻辑表达式，可为空，还能附加排序要求、定额要求等。</p>
+<p>ALPHA 的 GET 语句用于检索，例如：<br>GET W (SC.Cno)<br>GET W (Student)<br>GET W (Student.Sno, Student.Sage): Student.Sdept&#x3D;’IS’ ∧ Student.Sage&lt;20。</p>
+<p>ALPHA 的更新语句包括 PUT、HOLD、UPDATE、DELETE、DROP。修改的标准步骤是：先用 HOLD 把元组读入工作空间，再用宿主语言修改，最后用 UPDATE 写回数据库。插入通常先在工作空间中构造新元组，再用 PUT 存入指定关系；删除则先 HOLD 再 DELETE。PDF 还给出了学生转系、插入课程、删除学生等完整例子。</p>
+<h3 id="11-3-域关系演算"><a href="#11-3-域关系演算" class="headerlink" title="11.3 域关系演算"></a>11.3 域关系演算</h3><p>典型的域关系演算语言是 QBE（Query By Example），由 M. M. Zloof 提出，并在 1978 年于 IBM 370 上实现。QBE 是基于屏幕表格的查询语言，通过填写表格构造查询，用示例元素表示结果可能情况，最终以表格形式输出结果。</p>
+<p>QBE 的操作框架是：用户提出要求，系统显示空白表格，用户输入关系名，系统显示属性名，用户构造查询条件，最后显示结果。PDF 还给出了 QBE 的修改、插入、删除示例，如把 95001 学生年龄改为 18、把学生信息插入数据库、删除学生 95089 以及其选课记录等。</p>
+<hr>
+<h2 id="十二、关系数据语言的分类与特点"><a href="#十二、关系数据语言的分类与特点" class="headerlink" title="十二、关系数据语言的分类与特点"></a>十二、关系数据语言的分类与特点</h2><p>关系数据语言分为三类：关系代数语言、关系演算语言，以及同时具有关系代数和关系演算双重特点的语言。典型代表是 SQL。SQL 集 Query、DDL、DML、DCL 于一体，是关系数据库的标准语言。</p>
+<p>关系数据语言的特点是高度非过程化，存取路径由 DBMS 优化机制决定，用户不必用循环结构完成操作，而且可以嵌入高级语言中使用。另一方面，关系代数、元组关系演算和域关系演算三者在表达能力上完全等价。</p>
+<hr>
+<h2 id="十三、关系运算的安全限制"><a href="#十三、关系运算的安全限制" class="headerlink" title="十三、关系运算的安全限制"></a>十三、关系运算的安全限制</h2><p>由于集合论中的关系可以是无限的，而数据库中的关系必须是有限的，因此需要“安全限制”。不产生无限关系的关系表达式称为安全运算表达式。关系代数是安全的，只要输入关系有限，结果就有限；而关系演算不一定安全，因此需要加以限制。加上安全限制后，三种关系运算在表达能力上等价。</p>
+<hr>
+<h2 id="十四、概念结构与逻辑结构的对应"><a href="#十四、概念结构与逻辑结构的对应" class="headerlink" title="十四、概念结构与逻辑结构的对应"></a>十四、概念结构与逻辑结构的对应</h2><p>PDF 还给出了 E-R 模型与关系数据模型之间的对应关系：实体集对应关系表，实体集属性对应表的列，联系集与属性对应表和列，实体实例对应行，主键&#x2F;候选键对应关系表中的主键&#x2F;候选键。数据操作层面对应 SQL 语句、关系代数、关系演算；约束层面对应联系类型约束、键约束、完全参与约束以及关系模型中的三类完整性约束。</p>
+<hr>
+<h2 id="十五、本章最重要的专有名词清单"><a href="#十五、本章最重要的专有名词清单" class="headerlink" title="十五、本章最重要的专有名词清单"></a>十五、本章最重要的专有名词清单</h2><ol>
+<li><p>域：同类型值的集合。</p>
+</li>
+<li><p>笛卡尔积：多个域所有值组合形成的集合。</p>
+</li>
+<li><p>元组：关系中的一行。</p>
+</li>
+<li><p>分量：元组中的一个值。</p>
+</li>
+<li><p>关系：笛卡尔积的子集。</p>
+</li>
+<li><p>关系模式：关系的结构描述。</p>
+</li>
+<li><p>关系数据库模式：多个关系模式的集合。</p>
+</li>
+<li><p>键：能唯一标识元组的属性或属性组。</p>
+</li>
+<li><p>候选键、主键、联合键、全键。</p>
+</li>
+<li><p>实体完整性、参照完整性、用户定义完整性。</p>
+</li>
+<li><p>外键：引用其他关系主键的属性组。</p>
+</li>
+<li><p>选择、投影、连接、除、重命名、外连接。</p>
+</li>
+<li><p>元组关系演算、域关系演算。</p>
+</li>
+<li><p>ALPHA、QUEL、QBE、SQL。</p>
+</li>
+</ol>
+<hr>
+<h2 id="十六、最容易混淆的点"><a href="#十六、最容易混淆的点" class="headerlink" title="十六、最容易混淆的点"></a>十六、最容易混淆的点</h2><p>第一，关系、关系模式、关系数据库模式不是一回事：关系是值，关系模式是结构描述，关系数据库模式是一组关系模式。</p>
+<p>第二，主键和外键的作用不同：主键负责唯一标识元组，外键负责引用别的关系的主键。</p>
+<p>第三，选择和投影一个看“行”，一个看“列”；连接是把两个关系按条件拼起来；除法通常对应“所有都满足”的语义。</p>
+<p>第四，三种关系数据语言在表达能力上等价，但风格不同：关系代数偏运算，关系演算偏谓词，SQL 则兼具两者特点。</p>
+<p>第五，关系演算要注意安全性，否则可能出现无限结果；关系代数天然安全。</p>
+<h1 id="一、基础概念层易错点（最容易混淆）"><a href="#一、基础概念层易错点（最容易混淆）" class="headerlink" title="一、基础概念层易错点（最容易混淆）"></a>一、基础概念层易错点（最容易混淆）</h1><h2 id="1-关系-vs-关系模式-vs-关系数据库模式"><a href="#1-关系-vs-关系模式-vs-关系数据库模式" class="headerlink" title="1. 关系 vs 关系模式 vs 关系数据库模式"></a>1. 关系 vs 关系模式 vs 关系数据库模式</h2><p>❌ 常见错误</p>
+<ul>
+<li><p>把“关系”和“关系模式”当成一回事</p>
+</li>
+<li><p>认为表结构和表数据没有区别</p>
+</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li><p><strong>关系（Relation）</strong>：某一时刻的数据（表的内容）</p>
+</li>
+<li><p><strong>关系模式（Schema）</strong>：表结构（列定义）</p>
+</li>
+<li><p><strong>数据库模式</strong>：多个关系模式的集合</p>
+</li>
+</ul>
+<p>👉 一句话记忆：<br><strong>模式是“定义”，关系是“数据”</strong></p>
+<hr>
+<h2 id="2-域-vs-属性-vs-分量"><a href="#2-域-vs-属性-vs-分量" class="headerlink" title="2. 域 vs 属性 vs 分量"></a>2. 域 vs 属性 vs 分量</h2><p>❌ 常见错误</p>
+<ul>
+<li><p>把“域”当成列</p>
+</li>
+<li><p>把“分量”和“属性”混用</p>
+</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li><p>域：取值范围（类型空间）</p>
+</li>
+<li><p>属性：列名</p>
+</li>
+<li><p>分量：某一行中的具体值</p>
+</li>
+</ul>
+<p>👉 举例：<br>学生(学号, 年龄)</p>
+<ul>
+<li><p>年龄 → 属性</p>
+</li>
+<li><p>“20” → 分量</p>
+</li>
+<li><p>“整数集合” → 域</p>
+</li>
+</ul>
+<hr>
+<h2 id="3-笛卡尔积-vs-关系"><a href="#3-笛卡尔积-vs-关系" class="headerlink" title="3. 笛卡尔积 vs 关系"></a>3. 笛卡尔积 vs 关系</h2><p>❌ 常见错误</p>
+<ul>
+<li>认为关系 &#x3D; 笛卡尔积</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li><p>笛卡尔积：所有组合</p>
+</li>
+<li><p>关系：合法组合的子集</p>
+</li>
+</ul>
+<p>👉 关键点：<br>关系 &#x3D; <strong>筛选后的笛卡尔积</strong></p>
+<hr>
+<h1 id="二、关系结构层易错点（考试高频）"><a href="#二、关系结构层易错点（考试高频）" class="headerlink" title="二、关系结构层易错点（考试高频）"></a>二、关系结构层易错点（考试高频）</h1><h2 id="4-“关系是集合”这一点被忽略"><a href="#4-“关系是集合”这一点被忽略" class="headerlink" title="4. “关系是集合”这一点被忽略"></a>4. “关系是集合”这一点被忽略</h2><p>❌ 常见错误</p>
+<ul>
+<li>认为表中可以有重复行</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li>关系是集合 → <strong>元组不能重复</strong></li>
+</ul>
+<hr>
+<h2 id="5-列顺序-行顺序问题"><a href="#5-列顺序-行顺序问题" class="headerlink" title="5. 列顺序 &#x2F; 行顺序问题"></a>5. 列顺序 &#x2F; 行顺序问题</h2><p>❌ 常见错误</p>
+<ul>
+<li><p>认为列顺序有意义</p>
+</li>
+<li><p>认为行顺序有意义</p>
+</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li><p>列顺序无关（靠属性名）</p>
+</li>
+<li><p>行顺序无关（集合）</p>
+</li>
+</ul>
+<hr>
+<h2 id="6-原子性（最容易被忽视）"><a href="#6-原子性（最容易被忽视）" class="headerlink" title="6. 原子性（最容易被忽视）"></a>6. 原子性（最容易被忽视）</h2><p>❌ 常见错误</p>
+<ul>
+<li><p>一个字段存多个值</p>
+</li>
+<li><p>嵌套结构（工资&#x3D;基本+奖金+补贴）</p>
+</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li>每个属性必须是<strong>不可再分的原子值</strong></li>
+</ul>
+<p>👉 这是关系模型<strong>最基本约束</strong></p>
+<hr>
+<h1 id="三、键与约束层易错点（重点）"><a href="#三、键与约束层易错点（重点）" class="headerlink" title="三、键与约束层易错点（重点）"></a>三、键与约束层易错点（重点）</h1><h2 id="7-主键可以为空（严重错误）"><a href="#7-主键可以为空（严重错误）" class="headerlink" title="7. 主键可以为空（严重错误）"></a>7. 主键可以为空（严重错误）</h2><p>❌ 常见错误</p>
+<ul>
+<li>主键允许 NULL</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li><p>主键必须：</p>
+<ul>
+<li><p>唯一</p>
+</li>
+<li><p>非空</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>👉 原因：<br>否则实体无法区分</p>
+<hr>
+<h2 id="8-候选键-vs-主键"><a href="#8-候选键-vs-主键" class="headerlink" title="8. 候选键 vs 主键"></a>8. 候选键 vs 主键</h2><p>❌ 常见错误</p>
+<ul>
+<li><p>认为只有一个键</p>
+</li>
+<li><p>或认为候选键就是主键</p>
+</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li><p>候选键：所有可能唯一标识的属性组</p>
+</li>
+<li><p>主键：选出来的一个</p>
+</li>
+</ul>
+<hr>
+<h2 id="9-外键理解错误（非常常考）"><a href="#9-外键理解错误（非常常考）" class="headerlink" title="9. 外键理解错误（非常常考）"></a>9. 外键理解错误（非常常考）</h2><p>❌ 常见错误</p>
+<ul>
+<li><p>外键必须等于某个值</p>
+</li>
+<li><p>外键不能为 NULL</p>
+</li>
+</ul>
+<p>✔ 正确认知<br>外键取值：</p>
+<ul>
+<li><p>可以为空</p>
+</li>
+<li><p>或必须在被参照表中存在</p>
+</li>
+</ul>
+<p>👉 条件：<br><strong>非空时必须匹配主键</strong></p>
+<hr>
+<h2 id="10-参照完整性方向搞反"><a href="#10-参照完整性方向搞反" class="headerlink" title="10. 参照完整性方向搞反"></a>10. 参照完整性方向搞反</h2><p>❌ 常见错误</p>
+<ul>
+<li>分不清谁参照谁</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li><p>外键所在表 &#x3D; 参照关系</p>
+</li>
+<li><p>主键所在表 &#x3D; 被参照关系</p>
+</li>
+</ul>
+<hr>
+<h2 id="11-忽略“同一表内部的参照完整性”"><a href="#11-忽略“同一表内部的参照完整性”" class="headerlink" title="11. 忽略“同一表内部的参照完整性”"></a>11. 忽略“同一表内部的参照完整性”</h2><p>❌ 常见错误</p>
+<ul>
+<li>认为外键只能跨表</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li>同一表也可以外键</li>
+</ul>
+<p>👉 例子（PDF）：<br>学生(学号, 班长)<br>班长必须是某个学生学号</p>
+<hr>
+<h2 id="12-用户定义完整性被忽略"><a href="#12-用户定义完整性被忽略" class="headerlink" title="12. 用户定义完整性被忽略"></a>12. 用户定义完整性被忽略</h2><p>❌ 常见错误</p>
+<ul>
+<li>只记前两个约束</li>
+</ul>
+<p>✔ 正确认知<br>第三类同样重要：</p>
+<ul>
+<li><p>成绩 ≥ 0</p>
+</li>
+<li><p>年龄合理范围</p>
+</li>
+</ul>
+<hr>
+<h1 id="四、关系代数层易错点（核心难点）"><a href="#四、关系代数层易错点（核心难点）" class="headerlink" title="四、关系代数层易错点（核心难点）"></a>四、关系代数层易错点（核心难点）</h1><h2 id="13-选择-vs-投影混淆"><a href="#13-选择-vs-投影混淆" class="headerlink" title="13. 选择 vs 投影混淆"></a>13. 选择 vs 投影混淆</h2><p>❌ 常见错误</p>
+<ul>
+<li><p>选择当成“选列”</p>
+</li>
+<li><p>投影当成“选行”</p>
+</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li><p>选择 σ → 行筛选</p>
+</li>
+<li><p>投影 π → 列选择</p>
+</li>
+</ul>
+<hr>
+<h2 id="14-投影不会去重（错误）"><a href="#14-投影不会去重（错误）" class="headerlink" title="14. 投影不会去重（错误）"></a>14. 投影不会去重（错误）</h2><p>❌ 常见错误</p>
+<ul>
+<li>认为投影只是删列</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li>投影 <strong>会去重</strong></li>
+</ul>
+<hr>
+<h2 id="15-并-差-交的前提忽略"><a href="#15-并-差-交的前提忽略" class="headerlink" title="15. 并&#x2F;差&#x2F;交的前提忽略"></a>15. 并&#x2F;差&#x2F;交的前提忽略</h2><p>❌ 常见错误</p>
+<ul>
+<li>不检查是否“可并”</li>
+</ul>
+<p>✔ 正确认知<br>必须满足：</p>
+<ul>
+<li><p>属性数相同</p>
+</li>
+<li><p>对应域一致</p>
+</li>
+</ul>
+<hr>
+<h2 id="16-笛卡尔积误解"><a href="#16-笛卡尔积误解" class="headerlink" title="16. 笛卡尔积误解"></a>16. 笛卡尔积误解</h2><p>❌ 常见错误</p>
+<ul>
+<li>当成连接</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li><p>笛卡尔积 &#x3D; 全组合</p>
+</li>
+<li><p>连接 &#x3D; 有条件筛选</p>
+</li>
+</ul>
+<hr>
+<h2 id="17-连接-vs-自然连接"><a href="#17-连接-vs-自然连接" class="headerlink" title="17. 连接 vs 自然连接"></a>17. 连接 vs 自然连接</h2><p>❌ 常见错误</p>
+<ul>
+<li>认为自然连接就是普通连接</li>
+</ul>
+<p>✔ 正确认知<br>自然连接：</p>
+<ul>
+<li><p>自动匹配同名属性</p>
+</li>
+<li><p>去掉重复列</p>
+</li>
+</ul>
+<hr>
+<h2 id="18-忘记连接前要“重命名”"><a href="#18-忘记连接前要“重命名”" class="headerlink" title="18. 忘记连接前要“重命名”"></a>18. 忘记连接前要“重命名”</h2><p>❌ 常见错误</p>
+<ul>
+<li>自连接直接做</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li>必须先改名</li>
+</ul>
+<p>👉 否则属性冲突</p>
+<hr>
+<h2 id="19-除法运算不会用（重点难点）"><a href="#19-除法运算不会用（重点难点）" class="headerlink" title="19. 除法运算不会用（重点难点）"></a>19. 除法运算不会用（重点难点）</h2><p>❌ 常见错误</p>
+<ul>
+<li>不会识别场景</li>
+</ul>
+<p>✔ 正确认知<br>除法用于：</p>
+<p>👉 “满足所有条件”</p>
+<p>例：</p>
+<ul>
+<li>选修<strong>所有课程</strong>的学生</li>
+</ul>
+<hr>
+<h2 id="20-查询思路错误（非常关键）"><a href="#20-查询思路错误（非常关键）" class="headerlink" title="20. 查询思路错误（非常关键）"></a>20. 查询思路错误（非常关键）</h2><p>❌ 常见错误<br>直接写表达式</p>
+<p>✔ 正确步骤</p>
+<ol>
+<li><p>从哪张表取数据</p>
+</li>
+<li><p>筛选条件</p>
+</li>
+<li><p>需要哪些列</p>
+</li>
+</ol>
+<hr>
+<h1 id="五、更新操作易错点"><a href="#五、更新操作易错点" class="headerlink" title="五、更新操作易错点"></a>五、更新操作易错点</h1><h2 id="21-删除操作不考虑约束"><a href="#21-删除操作不考虑约束" class="headerlink" title="21. 删除操作不考虑约束"></a>21. 删除操作不考虑约束</h2><p>❌ 常见错误</p>
+<ul>
+<li>直接删除主表</li>
+</ul>
+<p>✔ 正确认知<br>必须考虑：</p>
+<ul>
+<li>是否被外键引用</li>
+</ul>
+<hr>
+<h2 id="22-插入数据违反完整性"><a href="#22-插入数据违反完整性" class="headerlink" title="22. 插入数据违反完整性"></a>22. 插入数据违反完整性</h2><p>❌ 常见错误</p>
+<ul>
+<li>插入不存在的外键</li>
+</ul>
+<p>✔ 正确认知<br>必须满足：</p>
+<ul>
+<li><p>实体完整性</p>
+</li>
+<li><p>参照完整性</p>
+</li>
+</ul>
+<hr>
+<h1 id="六、关系演算层易错点"><a href="#六、关系演算层易错点" class="headerlink" title="六、关系演算层易错点"></a>六、关系演算层易错点</h1><h2 id="23-关系代数-vs-关系演算"><a href="#23-关系代数-vs-关系演算" class="headerlink" title="23. 关系代数 vs 关系演算"></a>23. 关系代数 vs 关系演算</h2><p>❌ 常见错误</p>
+<ul>
+<li>认为是两种不同能力</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li>表达能力完全等价</li>
+</ul>
+<hr>
+<h2 id="24-“非过程化”理解错误"><a href="#24-“非过程化”理解错误" class="headerlink" title="24. “非过程化”理解错误"></a>24. “非过程化”理解错误</h2><p>❌ 常见错误</p>
+<ul>
+<li>认为没有过程</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li><p>用户不写过程</p>
+</li>
+<li><p>系统自动优化</p>
+</li>
+</ul>
+<hr>
+<h2 id="25-安全性问题被忽略（容易考）"><a href="#25-安全性问题被忽略（容易考）" class="headerlink" title="25. 安全性问题被忽略（容易考）"></a>25. 安全性问题被忽略（容易考）</h2><p>❌ 常见错误</p>
+<ul>
+<li>忘记关系必须有限</li>
+</ul>
+<p>✔ 正确认知</p>
+<ul>
+<li><p>不安全表达式 → 无限结果</p>
+</li>
+<li><p>关系代数 → 天然安全</p>
+</li>
+</ul>
+<hr>
+<h1 id="七、最关键的5个高频错点（必须重点记）"><a href="#七、最关键的5个高频错点（必须重点记）" class="headerlink" title="七、最关键的5个高频错点（必须重点记）"></a>七、最关键的5个高频错点（必须重点记）</h1><ol>
+<li><p>主键不能为空</p>
+</li>
+<li><p>投影会去重</p>
+</li>
+<li><p>三种语言表达能力相同</p>
+</li>
+<li><p>除法 &#x3D; “全部满足”</p>
+</li>
+<li><p>外键可以为空但必须合法</p>
+</li>
+</ol>
+<hr>
+<h1 id="八、一句话总结（考试用）"><a href="#八、一句话总结（考试用）" class="headerlink" title="八、一句话总结（考试用）"></a>八、一句话总结（考试用）</h1><p>关系数据库最容易错的本质在于三点：</p>
+<ul>
+<li><p>把“集合”当“表”（忽略无序、无重复）</p>
+</li>
+<li><p>把“约束”当“可选”（忽略完整性）</p>
+</li>
+<li><p>把“运算”当“语法”（不理解语义）</p>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-30T02:00:00.000Z" title="3/30/2026, 10:00:00 AM">2026-03-30</time>发表</span><span class="level-item"><time dateTime="2026-03-30T02:27:03.547Z" title="3/30/2026, 10:27:03 AM">2026-03-30</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></span><span class="level-item">1 小时读完 (大约7411个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/30/database/2-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">database2</a></p><div class="content"><h1 id="一、数据模型总论"><a href="#一、数据模型总论" class="headerlink" title="一、数据模型总论"></a>一、数据模型总论</h1><ol>
+<li><p>数据模型的定义<br> 数据模型是用来抽象、表示和处理现实世界中的数据和信息的工具，本质上是对现实世界数据特征的抽象。它是数据库研究中的核心问题之一。</p>
+</li>
+<li><p>数据模型的两层含义<br> 广义上，数据模型是数据库研究的核心；狭义上，每个 DBMS 都建立在某种具体的数据模型之上。PDF 指出，常见的传统数据模型包括层次模型、网状模型和关系模型。</p>
+</li>
+<li><p>数据模型的分类<br> 数据模型按应用目的可分为两类：<br> （1）概念模型，也称信息模型，按用户观点对数据和信息建模，主要用于数据库设计。<br> （2）数据模型，按计算机系统观点对数据逻辑结构建模，主要用于 DBMS 实现。其下又可分为逻辑数据模型和物理数据模型。逻辑数据模型包括层次模型、网状模型、关系模型、面向对象模型、对象关系模型等；物理数据模型描述数据在系统内部的表示方式和存取方法。</p>
+</li>
+<li><p>数据模型的三个要素<br> 数据模型通常由数据结构、数据操作、完整性约束三个要素组成。<br> （1）数据结构：描述数据库的组成对象及对象之间的联系，是刻画数据模型性质最重要的方面。<br> （2）数据操作：描述对数据库对象实例允许执行的操作集合，包括检索、插入、删除、修改等，同时要定义操作的含义、符号、规则及语言。<br> （3）完整性约束条件：一组完整性规则，用于限定符合数据模型的数据库状态及状态变化，保证数据正确、有效、相容。</p>
+</li>
+<li><p>静态与动态特性<br> 数据结构描述系统静态特性；数据操作描述系统动态特性。完整性约束则是保证系统状态合法的规则体系。</p>
+</li>
+</ol>
+<h1 id="二、E-R-概念模型"><a href="#二、E-R-概念模型" class="headerlink" title="二、E-R 概念模型"></a>二、E-R 概念模型</h1><ol>
+<li><p>概念模型的作用<br> 概念模型用于信息世界建模，是现实世界到机器世界之间的中间层次，也是数据库设计的有力工具和数据库设计人员与用户之间交流的语言。它的要求是语义表达能力强，同时简单、清晰、易于理解。E-R 模型是最著名的概念模型。</p>
+</li>
+<li><p>E-R 模型的三大基本概念<br> （1）实体（Entity）：客观存在并可相互区别的事物，可以是具体对象，也可以是抽象概念。<br> （2）属性（Attribute）：实体具有的某一特征，用来刻画实体。属性有“型”和“值”之分，属性名是型，具体内容是值。<br> （3）联系（Relationship）：现实世界中事物内部以及事物之间的联系，在信息世界中抽象为实体内部的联系和实体之间的联系。</p>
+</li>
+<li><p>联系的基本类型<br> （1）一对一联系（1:1）：实体集 A 中一个实体至多对应实体集 B 中一个实体，反之亦然。例子是“班级与班长”，一个班级只有一个正班长，一个班长只在一个班中任职。<br> （2）一对多联系（1:n）：实体集 A 中一个实体对应实体集 B 中的多个实体，反过来一个 B 中实体至多对应一个 A 中实体。例子是“班级与学生”，一个班级中有若干学生，一个学生只在一个班级中学习。<br> （3）多对多联系（m:n）：实体集 A 中一个实体对应实体集 B 中多个实体，反之亦然。例子是“课程与学生”，一门课程有若干学生选修，一个学生也可选修多门课程。</p>
+</li>
+<li><p>多元联系<br> 两个以上实体集之间也可以存在联系，称为多元联系。PDF 以“供应商—零件—工程”为例，说明三者之间存在 m:n:p 的联系，表达的是“某个供应商供应某种零件给某个工程”。</p>
+</li>
+<li><p>三元联系与二元联系的区别<br> 这是本章非常关键的细节。PDF 明确指出，三个实体集两两之间的多对多联系，只能表示“一个工程需要哪些零件”“这些零件可以由哪些供应商供应”，却不能表示“一个工程所用的零件具体由哪个供应商供应”以及“一个供应商具体供应哪种零件给哪个工程”。因此，三元联系不能简单拆成三个二元联系，否则会丢失语义。</p>
+</li>
+<li><p>同一实体集内部的联系<br> PDF 还强调，联系不只存在于不同实体集之间，同一实体集内部也可以有联系。典型例子是职工实体集内部的“领导与被领导”关系：某一职工可以领导若干职工，而一个职工仅被另一个职工直接领导，这是同一实体型内部的一对多联系。PDF 也提到，同一实体集内部还可能存在一对一联系和多对多联系。</p>
+</li>
+<li><p>E-R 图的表示方法<br> E-R 图有三个基本成分：实体、属性和联系。<br> （1）实体用矩形表示，矩形框内写实体名。<br> （2）属性用椭圆表示，并用无向边与对应实体连接。<br> （3）联系用菱形表示，菱形框内写联系名，再用连线把关联实体连接起来，并在连线旁标明联系类型 1:1、1:n 或 m:n。</p>
+</li>
+<li><p>联系的属性<br> 联系本身也可以有属性。PDF 的“选课”例子中，成绩是联系“选课”的属性，而不是学生实体或课程实体的属性，因为成绩描述的是“学生选修某门课程”这个联系。</p>
+</li>
+<li><p>弱实体<br> 弱实体是一类特殊实体，它的存在依赖于其他实体而存在。与弱实体相对应，所依赖的实体称为强实体。弱实体在 E-R 模型中用双框矩形表示，与菱形联系间用双线连接，以表示全部参与。PDF 举例说，在学生管理信息中，家长实体依赖学生实体存在，因此家长可视为弱实体。</p>
+</li>
+<li><p>子类实体<br>扩展 E-R 模型中增加了子类和超类概念，使模型更有语义表达能力。一个实体集中的个体可以根据不同特性划分为多个子集。PDF 的例子是学校一个系的职工可分为教师、实验人员和机关工作人员，它们共享姓名、年龄、性别等共同属性，同时又有各自的特殊属性。</p>
+</li>
+<li><p>E-R 模型的用途与特点<br>E-R 模型广泛用于数据库概念模型设计。它只表示现实世界中的信息结构及信息之间的关系，不涉及信息在计算机中的表示；只要用户需求不变，E-R 模型是稳定的，并且可以方便地转换成具体 DBMS 支持的数据模型。</p>
+</li>
+<li><p>PDF 中的综合建模例子<br>工厂物资管理模型是本章最完整的例子之一。它涉及五类实体：仓库、零件、供应商、项目、职工。<br>（1）仓库：仓库号、面积、电话号码。<br>（2）零件：零件号、名称、规格、单价、描述。<br>（3）供应商：供应商号、姓名、地址、电话号码、账号。<br>（4）项目：项目号、预算、开工日期。<br>（5）职工：职工号、姓名、年龄、职称。<br>这些实体之间的联系包括：仓库和零件是 m:n 联系，联系属性为库存量；仓库和职工是 1:n 联系；职工内部存在领导与被领导的一对多联系；供应商、项目和零件三者之间存在多对多的三元联系。这个例子综合体现了本章几乎所有 E-R 概念。</p>
+</li>
+</ol>
+<h1 id="三、层次数据模型"><a href="#三、层次数据模型" class="headerlink" title="三、层次数据模型"></a>三、层次数据模型</h1><ol>
+<li><p>层次模型的定义<br> 层次模型是数据库系统中最早出现的数据模型，典型代表是 IBM 的 IMS。它用树型结构表示各类实体及实体间联系。现实世界中许多关系具有天然层次性，例如家族关系和行政机构。</p>
+</li>
+<li><p>层次模型的结构条件<br> 满足下面两个条件的基本层次联系集合构成层次模型：<br> （1）有且只有一个结点没有双亲结点，该结点称为根结点。<br> （2）根以外的其他结点有且只有一个双亲结点。</p>
+</li>
+<li><p>层次结构中的术语<br> 根结点位于最上层；其他结点的上一级结点称为双亲结点；同一双亲结点的子女结点称为兄弟结点；没有子女的结点称为叶结点。双亲结点到子女结点之间表示记录间的一对多联系。</p>
+</li>
+<li><p>层次模型的优点<br> 结构简单清晰；查询效率高；提供较好的数据完整性支持。</p>
+</li>
+<li><p>层次模型的缺点<br> 不能直接表示两个以上实体型间的复杂联系和实体型间的多对多联系，通常要通过引入冗余数据或虚拟结点来解决，容易产生不一致性；插入和删除操作限制较多；查询子女结点必须通过双亲结点；由于结构严密，层次命令趋于程序化。</p>
+</li>
+</ol>
+<h1 id="四、网状数据模型"><a href="#四、网状数据模型" class="headerlink" title="四、网状数据模型"></a>四、网状数据模型</h1><ol>
+<li><p>网状模型的定义<br> 网状模型用有向图表示实体及实体间的联系，是对层次模型局限性的突破。现实世界中的许多事物之间是非层次关系，因此网状模型比层次模型更接近实际。</p>
+</li>
+<li><p>网状模型的结构条件<br> 基本网状模型满足两个条件：<br> （1）允许一个以上的结点没有双亲。<br> （2）一个结点可以有多于一个的双亲。</p>
+</li>
+<li><p>网状模型与层次模型的关系<br> PDF 明确指出，层次模型实际上是网状模型的特例。两者从结构上看，层次模型是树，网状模型是图；当多个结点都可以有多个双亲时，有向树就变成了有向图。</p>
+</li>
+<li><p>网状模型的优点<br> 能更直接地描述现实世界，例如一个结点可以有多个双亲；性能较好，存取效率较高。</p>
+</li>
+<li><p>网状模型的缺点<br> 结构复杂，随着应用环境扩大，数据库结构会越来越复杂，不利于最终用户掌握；DDL、DML 语言复杂，用户不容易使用；访问数据时必须自行选择存取路径，增加程序编写负担。</p>
+</li>
+<li><p>网状模型如何表示多对多联系<br> PDF 提到，网状模型可以间接表示多对多联系，方法是将多对多联系分解成一对多联系，并用联结记录来处理。</p>
+</li>
+</ol>
+<h1 id="五、关系数据模型"><a href="#五、关系数据模型" class="headerlink" title="五、关系数据模型"></a>五、关系数据模型</h1><ol>
+<li><p>关系模型的重要地位<br> 关系模型是最重要的数据模型。E.F. Codd 于 1970 年系统而严格地提出关系数据模型，并随后提出关系代数、关系演算以及关系范式理论，奠定了现代数据库的理论基础，1981 年因此获得图灵奖。</p>
+</li>
+<li><p>关系数据库的发展<br> PDF 提到，1977 年 IBM 的 System R 开始运行，后来出现了基于 System R 的 SQL&#x2F;DB。20 世纪 80 年代以来，几乎所有数据库管理系统都支持关系模型，非关系系统也增加了关系接口；当前数据库研究工作也以关系方法为基础，关系数据库成为最广泛应用的数据库系统。</p>
+</li>
+<li><p>关系模型的基本结构<br> 关系模型中，基本数据结构被限制为二维表，一张二维表称为一个关系。一个关系可用于描述一个实体集。</p>
+</li>
+<li><p>关系模型中的基本术语<br> （1）关系（relation）：二维表，由行和列组成。<br> （2）属性（attribute）：关系中的一列。<br> （3）域（domain）：某属性的取值集合，即属性的取值范围。<br> （4）元组（tuple）：关系中的一行，表示实体集中的一个个体。<br> （5）键（key）：一个或多个属性组成，能够唯一标识一个元组。一个关系中可能有多个键，其中选定一个为主键，其余为候选键。</p>
+</li>
+<li><p>关系模式<br> 对关系结构的描述称为关系模式，形式通常写作“关系名(属性名1, 属性名2, …, 属性名n)”。例如学生关系可表示为“学生(学号, 姓名, 出生年月, 性别, 入学年份, 班级)”。关系数据库模式是一组关系模式的集合，而这些关系模式对应的关系集合构成关系数据库。</p>
+</li>
+<li><p>关系模型中实体与联系的表示<br> 关系模型中，基本数据结构是单一的关系，现实世界中的实体以及实体间的联系都用关系表示。E-R 模型中的联系在关系模式中也可以用表表示，例如“选课”联系可用“选课(学号, 课程号, 成绩)”表示，其中成绩是联系自身的描述属性。</p>
+</li>
+<li><p>关系模型的规范化要求<br> 关系必须规范化，最基本的规范条件是：关系的每一个分量必须是一个不可分的数据项。PDF 用“职工工资”表说明，如果一个属性中又包含“基本工资、工龄、职务、房租、水电”等嵌套成分，就不符合关系模型要求。</p>
+</li>
+<li><p>关系模型的数据完整性约束<br> 为维护数据库与现实世界的一致性，需要对数据施加约束条件。关系模型中主要有三类完整性约束：实体完整性、参照完整性、用户自定义完整性。</p>
+</li>
+<li><p>关系模型的数据操纵<br> 关系模型中的数据操作包括查询、插入、删除和修改。关系数据库系统中对数据的全部操作都可以归结为关系运算；关系运算结果形成一个新关系；关系运算分为关系代数和关系演算。</p>
+</li>
+<li><p>关系模型的优点<br>PDF 归纳的关系模型优点包括：数据结构简单；一体化的数据子语言；数据独立性高；面向集合的存取方式；理论基础坚实；有利于开展其他应用。</p>
+</li>
+<li><p>概念模型与关系数据模型的对应<br>PDF 给出了一组非常重要的对应关系：<br>（1）E-R 模型中的实体集对应关系表。<br>（2）实体集属性对应表的列。<br>（3）联系集及其属性也可对应表和列。<br>（4）实体的实例对应表中的各行。<br>（5）主键或候选键对应关系表中的主键或候选键。<br>（6）数据操作在实现层面对应 SQL 语句，在理论层面对应关系代数和关系演算。<br>（7）联系类型约束、键约束、完全参与约束在关系模型中分别对应实体完整性、参照完整性和用户自定义完整性。</p>
+</li>
+</ol>
+<h1 id="六、面向对象数据模型"><a href="#六、面向对象数据模型" class="headerlink" title="六、面向对象数据模型"></a>六、面向对象数据模型</h1><ol>
+<li><p>面向对象数据库系统的两条路线<br> PDF 指出，对象关系数据库系统 ORDBS 是面向对象数据模型和关系数据模型结合的产物。研究路线有两条：一是建立新的面向对象数据库系统 OODB，直接支持 OO 数据模型；二是以关系数据库和 SQL 为基础，把面向对象技术融入数据库系统，形成 ORDBS。</p>
+</li>
+<li><p>对象的定义<br> 对象是由一组数据结构和在这组数据结构上的操作程序代码封装起来的基本单位。对象由属性集合和方法集合构成：属性描述状态、组成和特性，方法描述行为特性。</p>
+</li>
+<li><p>OID<br> OID 是对象标识符，即每个对象都有一个唯一且不变的标识。它具有永久持久性、独立于值、系统全局唯一等特点。</p>
+</li>
+<li><p>封装<br> 封装是对象的外部界面与内部实现之间实行清晰隔离的一种抽象，外部与对象的通信只能通过消息。对象封装后，查询属性值必须通过调用方法。</p>
+</li>
+<li><p>类<br> 类是共享同样属性和方法集的所有对象构成的集合。对象是某一类的实例，在 OODB 中，类是“型”，对象是某一类的“值”。</p>
+</li>
+<li><p>类层次结构<br> PDF 以“教员、行政人员、工人继承教职员工类和人的属性与方法”为例，说明面向对象模型中存在类层次结构；子类在逻辑上继承父类的所有属性和方法，同时还拥有自身特有的属性和方法。</p>
+</li>
+<li><p>关系模型与 OO 模型的比较<br> PDF 从多个角度对比两者：关系模型的基本数据结构是二维表，OO 模型是类；关系模型使用码作为标识，OO 模型使用 OID；关系模型的动态行为用关系操作描述，OO 模型用方法描述；OO 模型支持抽象数据类型和封装，而关系模型没有；关系模型主要依赖主外码联系和数据依赖，OO 模型则强调继承和组合；OO 模型的模式演化能力较强。</p>
+</li>
+<li><p>面向对象数据库研究中的问题<br> PDF 指出，OO 数据库研究中存在缺乏通用数据模型、缺乏理论基础、缺乏友好的用户界面与工具环境、缺乏有力的查询优化、商业上没有建立坚实基础等问题。</p>
+</li>
+</ol>
+<h1 id="七、概念模型与数据库系统支持的数据模型的关系"><a href="#七、概念模型与数据库系统支持的数据模型的关系" class="headerlink" title="七、概念模型与数据库系统支持的数据模型的关系"></a>七、概念模型与数据库系统支持的数据模型的关系</h1><ol>
+<li><p>两类数据模型<br> 一类是概念模型，用于表示信息结构，不涉及信息在计算机中的表示，典型代表是 E-R 模型；另一类是数据库系统支持的数据模型，包括层次数据模型、网状数据模型、关系数据模型、面向对象数据模型等。</p>
+</li>
+<li><p>从概念到实现的路径<br> 数据库设计通常先把现实世界抽象为概念模型，再把概念模型转换为某种具体的数据模型。这说明概念模型是设计起点，而关系模型、层次模型、网状模型等是实现层面的表达方式。</p>
+</li>
+<li><p>本章的核心逻辑<br> 本章实际上是在讲三件事：<br> （1）怎样用 E-R 模型描述现实世界；<br> （2）怎样理解不同逻辑数据模型的结构差异；<br> （3）怎样把概念模型转换成关系模型并用约束保证正确性。</p>
+</li>
+</ol>
+<h1 id="八、小结"><a href="#八、小结" class="headerlink" title="八、小结"></a>八、小结</h1><ol>
+<li><p>本章最重要的结论<br> 数据模型分为概念模型和数据库系统支持的数据模型；概念模型中最重要的是 E-R 模型；数据库系统支持的数据模型中，层次模型、网状模型、关系模型、面向对象模型各有特点，但目前应用最广泛的是关系模型。</p>
+</li>
+<li><p>E-R 模型的核心<br> 关键不是只会画图，而是要能准确识别实体、属性、联系，区分 1:1、1:n、m:n，理解实体内部联系、三元联系、弱实体、子类实体，并能将联系属性正确放到联系上。</p>
+</li>
+<li><p>关系模型的核心<br> 关系模型把现实世界统一映射为二维表，强调原子性、完整性约束和关系运算，是当前数据库系统的主流基础。</p>
+</li>
+<li><p>层次模型、网状模型、关系模型的关系<br> 层次模型是树，网状模型是图，关系模型是表；层次模型结构最简单但表达能力弱，网状模型表达能力更强但复杂，关系模型在表达能力、理论基础和使用便利性之间取得了最好平衡。</p>
+</li>
+</ol>
+<hr>
+<h1 id="一、数据模型总论（-易错点）"><a href="#一、数据模型总论（-易错点）" class="headerlink" title="一、数据模型总论（+ 易错点）"></a>一、数据模型总论（+ 易错点）</h1><h2 id="核心结构回顾"><a href="#核心结构回顾" class="headerlink" title="核心结构回顾"></a>核心结构回顾</h2><ol>
+<li><p>数据模型 &#x3D; 对现实世界数据特征的抽象</p>
+</li>
+<li><p>分类：</p>
+<ul>
+<li><p>概念模型（E-R）</p>
+</li>
+<li><p>逻辑模型（层次 &#x2F; 网状 &#x2F; 关系 &#x2F; OO）</p>
+</li>
+<li><p>物理模型</p>
+</li>
+</ul>
+</li>
+<li><p>三要素：</p>
+<ul>
+<li><p>数据结构（静态）</p>
+</li>
+<li><p>数据操作（动态）</p>
+</li>
+<li><p>完整性约束（规则）</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析"><a href="#易错点与分析" class="headerlink" title="易错点与分析"></a>易错点与分析</h2><h3 id="易错点1：混淆“概念模型”和“数据模型”"><a href="#易错点1：混淆“概念模型”和“数据模型”" class="headerlink" title="易错点1：混淆“概念模型”和“数据模型”"></a>易错点1：混淆“概念模型”和“数据模型”</h3><ul>
+<li><p>错误理解：E-R模型也是DBMS直接使用的模型</p>
+</li>
+<li><p>本质原因：没有区分“设计阶段”和“实现阶段”</p>
+</li>
+</ul>
+<p>✔ 正确理解：</p>
+<ul>
+<li><p>E-R模型 → 用来“画世界”（设计）</p>
+</li>
+<li><p>关系模型 → 用来“落地”（实现）</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点2：三要素记不清-混淆"><a href="#易错点2：三要素记不清-混淆" class="headerlink" title="易错点2：三要素记不清 &#x2F; 混淆"></a>易错点2：三要素记不清 &#x2F; 混淆</h3><ul>
+<li><p>常见错误：</p>
+<ul>
+<li><p>把“完整性约束”当成数据操作</p>
+</li>
+<li><p>忘记“数据结构是核心”</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>✔ 正确记忆：</p>
+<ul>
+<li><p>静态：数据结构</p>
+</li>
+<li><p>动态：数据操作</p>
+</li>
+<li><p>规则：完整性约束</p>
+</li>
+</ul>
+<hr>
+<h1 id="二、E-R-概念模型（-易错点重点）"><a href="#二、E-R-概念模型（-易错点重点）" class="headerlink" title="二、E-R 概念模型（+ 易错点重点）"></a>二、E-R 概念模型（+ 易错点重点）</h1><h2 id="核心结构回顾-1"><a href="#核心结构回顾-1" class="headerlink" title="核心结构回顾"></a>核心结构回顾</h2><ol>
+<li><p>基本概念：</p>
+<ul>
+<li><p>实体</p>
+</li>
+<li><p>属性（型 + 值）</p>
+</li>
+<li><p>联系（实体间 &#x2F; 实体内部）</p>
+</li>
+</ul>
+</li>
+<li><p>联系分类：</p>
+<ul>
+<li><p>按数量：1:1 &#x2F; 1:n &#x2F; m:n</p>
+</li>
+<li><p>按实体数：二元 &#x2F; 多元</p>
+</li>
+<li><p>按范围：实体间 &#x2F; 实体内部</p>
+</li>
+</ul>
+</li>
+<li><p>扩展：</p>
+<ul>
+<li><p>弱实体</p>
+</li>
+<li><p>子类实体</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析（这一章最重要部分）"><a href="#易错点与分析（这一章最重要部分）" class="headerlink" title="易错点与分析（这一章最重要部分）"></a>易错点与分析（这一章最重要部分）</h2><h3 id="易错点1：把“联系属性”放到实体里"><a href="#易错点1：把“联系属性”放到实体里" class="headerlink" title="易错点1：把“联系属性”放到实体里"></a>易错点1：把“联系属性”放到实体里</h3><p>例子：成绩</p>
+<p>❌ 错误：</p>
+<ul>
+<li><p>学生表加“成绩”</p>
+</li>
+<li><p>课程表加“成绩”</p>
+</li>
+</ul>
+<p>✔ 正确：</p>
+<ul>
+<li>成绩属于“选课联系”</li>
+</ul>
+<p>👉 原因分析：<br>成绩依赖两个实体（学生+课程），不是单个实体属性</p>
+<p>👉 判断口诀：<br><strong>“属性是否依赖多个实体？” → 是 → 放联系</strong></p>
+<hr>
+<h3 id="易错点2：m-n-不建表"><a href="#易错点2：m-n-不建表" class="headerlink" title="易错点2：m:n 不建表"></a>易错点2：m:n 不建表</h3><p>❌ 错误：</p>
+<ul>
+<li>直接用外键表示多对多</li>
+</ul>
+<p>✔ 正确：</p>
+<ul>
+<li>必须建中间表（联系表）</li>
+</ul>
+<p>👉 原因：<br>关系模型无法直接表达 m:n</p>
+<hr>
+<h3 id="易错点3：三元联系拆错（高频考点）"><a href="#易错点3：三元联系拆错（高频考点）" class="headerlink" title="易错点3：三元联系拆错（高频考点）"></a>易错点3：三元联系拆错（高频考点）</h3><p>❌ 错误：<br>把“供应商-零件-工程”拆成三个两两关系</p>
+<p>✔ 正确：<br>必须保留三元联系</p>
+<p>👉 本质原因：<br>两两关系只能表达：</p>
+<ul>
+<li>谁和谁有关</li>
+</ul>
+<p>但表达不了：</p>
+<ul>
+<li>谁 给 谁 提供 什么</li>
+</ul>
+<p>👉 关键结论：<br><strong>三元联系 &#x3D; 信息更完整</strong></p>
+<hr>
+<h3 id="易错点4：不会识别“实体内联系”"><a href="#易错点4：不会识别“实体内联系”" class="headerlink" title="易错点4：不会识别“实体内联系”"></a>易错点4：不会识别“实体内联系”</h3><p>❌ 常见忽略：<br>只会画不同实体之间关系</p>
+<p>✔ 正确：<br>同一实体内部也有联系</p>
+<p>例：</p>
+<ul>
+<li>职工 → 领导关系（1:n）</li>
+</ul>
+<hr>
+<h3 id="易错点5：弱实体判断错误"><a href="#易错点5：弱实体判断错误" class="headerlink" title="易错点5：弱实体判断错误"></a>易错点5：弱实体判断错误</h3><p>❌ 错误理解：<br>“有外键就是弱实体”</p>
+<p>✔ 正确判断：<br>弱实体必须满足：</p>
+<ol>
+<li><p>不能独立存在</p>
+</li>
+<li><p>依赖强实体标识</p>
+</li>
+</ol>
+<p>例：</p>
+<ul>
+<li><p>家长依赖学生 ✔</p>
+</li>
+<li><p>订单依赖用户 ✔（典型）</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点6：子类实体理解不清"><a href="#易错点6：子类实体理解不清" class="headerlink" title="易错点6：子类实体理解不清"></a>易错点6：子类实体理解不清</h3><p>❌ 错误：<br>把子类当普通实体</p>
+<p>✔ 正确：<br>子类 &#x3D; 继承结构</p>
+<p>👉 特点：</p>
+<ul>
+<li><p>共享父类属性</p>
+</li>
+<li><p>有自己特有属性</p>
+</li>
+</ul>
+<hr>
+<h1 id="三、层次模型（-易错点）"><a href="#三、层次模型（-易错点）" class="headerlink" title="三、层次模型（+ 易错点）"></a>三、层次模型（+ 易错点）</h1><h2 id="核心回顾"><a href="#核心回顾" class="headerlink" title="核心回顾"></a>核心回顾</h2><ol>
+<li><p>树结构</p>
+</li>
+<li><p>一个根节点</p>
+</li>
+<li><p>每个节点只有一个父节点</p>
+</li>
+<li><p>只能表达 1:n</p>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析-1"><a href="#易错点与分析-1" class="headerlink" title="易错点与分析"></a>易错点与分析</h2><h3 id="易错点1：认为可以表示-m-n"><a href="#易错点1：认为可以表示-m-n" class="headerlink" title="易错点1：认为可以表示 m:n"></a>易错点1：认为可以表示 m:n</h3><p>❌ 错误：<br>觉得树可以扩展表达多对多</p>
+<p>✔ 正确：<br>不能，必须靠冗余或虚拟节点</p>
+<hr>
+<h3 id="易错点2：忽略访问路径限制"><a href="#易错点2：忽略访问路径限制" class="headerlink" title="易错点2：忽略访问路径限制"></a>易错点2：忽略访问路径限制</h3><p>✔ 正确认知：<br>必须从根访问</p>
+<p>👉 本质：<br>不是“表查询”，而是“路径访问”</p>
+<hr>
+<h1 id="四、网状模型（-易错点）"><a href="#四、网状模型（-易错点）" class="headerlink" title="四、网状模型（+ 易错点）"></a>四、网状模型（+ 易错点）</h1><h2 id="核心回顾-1"><a href="#核心回顾-1" class="headerlink" title="核心回顾"></a>核心回顾</h2><ol>
+<li><p>图结构</p>
+</li>
+<li><p>一个节点可以有多个父节点</p>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析-2"><a href="#易错点与分析-2" class="headerlink" title="易错点与分析"></a>易错点与分析</h2><h3 id="易错点1：认为“更高级”"><a href="#易错点1：认为“更高级”" class="headerlink" title="易错点1：认为“更高级”"></a>易错点1：认为“更高级”</h3><p>❌ 错误：<br>网状模型 &gt; 关系模型</p>
+<p>✔ 正确：<br>只是更复杂，不更优</p>
+<hr>
+<h3 id="易错点2：忽略“路径依赖”"><a href="#易错点2：忽略“路径依赖”" class="headerlink" title="易错点2：忽略“路径依赖”"></a>易错点2：忽略“路径依赖”</h3><p>✔ 正确理解：<br>查询需要手动指定路径</p>
+<p>👉 这是它难用的根本原因</p>
+<hr>
+<h1 id="五、关系模型（-易错点重点）"><a href="#五、关系模型（-易错点重点）" class="headerlink" title="五、关系模型（+ 易错点重点）"></a>五、关系模型（+ 易错点重点）</h1><h2 id="核心结构回顾-2"><a href="#核心结构回顾-2" class="headerlink" title="核心结构回顾"></a>核心结构回顾</h2><ol>
+<li><p>关系 &#x3D; 表</p>
+</li>
+<li><p>元组 &#x3D; 行</p>
+</li>
+<li><p>属性 &#x3D; 列</p>
+</li>
+<li><p>域 &#x3D; 取值范围</p>
+</li>
+<li><p>键 &#x3D; 唯一标识</p>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析（考试重点）"><a href="#易错点与分析（考试重点）" class="headerlink" title="易错点与分析（考试重点）"></a>易错点与分析（考试重点）</h2><h3 id="易错点1：属性不原子（最常考）"><a href="#易错点1：属性不原子（最常考）" class="headerlink" title="易错点1：属性不原子（最常考）"></a>易错点1：属性不原子（最常考）</h3><p>❌ 错误：<br>一个字段存多个值</p>
+<p>例：</p>
+<ul>
+<li>工资 &#x3D; (基本+奖金+补贴)</li>
+</ul>
+<p>✔ 正确：<br>必须拆开</p>
+<p>👉 原因：<br>关系模型要求“不可分”</p>
+<hr>
+<h3 id="易错点2：主键理解错误"><a href="#易错点2：主键理解错误" class="headerlink" title="易错点2：主键理解错误"></a>易错点2：主键理解错误</h3><p>❌ 错误：</p>
+<ul>
+<li><p>主键可以重复</p>
+</li>
+<li><p>主键可以为空</p>
+</li>
+</ul>
+<p>✔ 正确：</p>
+<ul>
+<li>唯一 + 非空</li>
+</ul>
+<hr>
+<h3 id="易错点3：候选键-vs-主键"><a href="#易错点3：候选键-vs-主键" class="headerlink" title="易错点3：候选键 vs 主键"></a>易错点3：候选键 vs 主键</h3><p>❌ 混淆：<br>认为只有一个键</p>
+<p>✔ 正确：</p>
+<ul>
+<li><p>候选键：可能的主键</p>
+</li>
+<li><p>主键：选定的一个</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点4：联系不转表"><a href="#易错点4：联系不转表" class="headerlink" title="易错点4：联系不转表"></a>易错点4：联系不转表</h3><p>❌ 错误：<br>E-R 有联系，但关系模型不建表</p>
+<p>✔ 正确：</p>
+<ul>
+<li><p>m:n → 必建表</p>
+</li>
+<li><p>1:n → 可用外键</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点5：完整性约束混乱"><a href="#易错点5：完整性约束混乱" class="headerlink" title="易错点5：完整性约束混乱"></a>易错点5：完整性约束混乱</h3><p>❌ 错误：<br>分不清三种约束</p>
+<p>✔ 正确：</p>
+<ul>
+<li><p>实体完整性：主键</p>
+</li>
+<li><p>参照完整性：外键</p>
+</li>
+<li><p>用户定义：业务规则</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点6：关系运算理解错误"><a href="#易错点6：关系运算理解错误" class="headerlink" title="易错点6：关系运算理解错误"></a>易错点6：关系运算理解错误</h3><p>❌ 错误：<br>SQL &#x3D; 随便写</p>
+<p>✔ 正确：<br>SQL 背后是：</p>
+<ul>
+<li><p>关系代数</p>
+</li>
+<li><p>关系演算</p>
+</li>
+</ul>
+<hr>
+<h1 id="六、面向对象数据模型（-易错点）"><a href="#六、面向对象数据模型（-易错点）" class="headerlink" title="六、面向对象数据模型（+ 易错点）"></a>六、面向对象数据模型（+ 易错点）</h1><h2 id="核心回顾-2"><a href="#核心回顾-2" class="headerlink" title="核心回顾"></a>核心回顾</h2><ol>
+<li><p>对象 &#x3D; 数据 + 方法</p>
+</li>
+<li><p>OID 唯一标识</p>
+</li>
+<li><p>封装</p>
+</li>
+<li><p>类</p>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析-3"><a href="#易错点与分析-3" class="headerlink" title="易错点与分析"></a>易错点与分析</h2><h3 id="易错点1：把-OID-当普通字段"><a href="#易错点1：把-OID-当普通字段" class="headerlink" title="易错点1：把 OID 当普通字段"></a>易错点1：把 OID 当普通字段</h3><p>✔ 正确：<br>OID 是系统级唯一标识，不是用户字段</p>
+<hr>
+<h3 id="易错点2：忽略“方法”"><a href="#易错点2：忽略“方法”" class="headerlink" title="易错点2：忽略“方法”"></a>易错点2：忽略“方法”</h3><p>✔ 正确：<br>对象不仅有数据，还有行为</p>
+<hr>
+<h3 id="易错点3：封装理解错误"><a href="#易错点3：封装理解错误" class="headerlink" title="易错点3：封装理解错误"></a>易错点3：封装理解错误</h3><p>✔ 正确：<br>不能直接访问属性，要通过方法</p>
+<hr>
+<h1 id="七、概念模型-→-关系模型（转换）（-易错点）"><a href="#七、概念模型-→-关系模型（转换）（-易错点）" class="headerlink" title="七、概念模型 → 关系模型（转换）（+ 易错点）"></a>七、概念模型 → 关系模型（转换）（+ 易错点）</h1><h2 id="核心规则"><a href="#核心规则" class="headerlink" title="核心规则"></a>核心规则</h2><ol>
+<li><p>实体 → 表</p>
+</li>
+<li><p>属性 → 列</p>
+</li>
+<li><p>实体实例 → 行</p>
+</li>
+<li><p>联系 → 表或外键</p>
+</li>
+</ol>
+<hr>
+<h2 id="易错点与分析-4"><a href="#易错点与分析-4" class="headerlink" title="易错点与分析"></a>易错点与分析</h2><h3 id="易错点1：所有联系都建表"><a href="#易错点1：所有联系都建表" class="headerlink" title="易错点1：所有联系都建表"></a>易错点1：所有联系都建表</h3><p>❌ 错误：<br>1:n 也建表</p>
+<p>✔ 正确：</p>
+<ul>
+<li><p>m:n → 建表</p>
+</li>
+<li><p>1:n → 外键即可</p>
+</li>
+</ul>
+<hr>
+<h3 id="易错点2：忽略联系属性"><a href="#易错点2：忽略联系属性" class="headerlink" title="易错点2：忽略联系属性"></a>易错点2：忽略联系属性</h3><p>✔ 正确：<br>联系属性必须进入关系表</p>
+<hr>
+<h3 id="易错点3：主键设计错误"><a href="#易错点3：主键设计错误" class="headerlink" title="易错点3：主键设计错误"></a>易错点3：主键设计错误</h3><p>✔ 正确：<br>联系表主键通常是：</p>
+<ul>
+<li>外键组合</li>
+</ul>
+<hr>
+<h1 id="八、小结（-易错点终极总结）"><a href="#八、小结（-易错点终极总结）" class="headerlink" title="八、小结（+ 易错点终极总结）"></a>八、小结（+ 易错点终极总结）</h1><h2 id="本章核心逻辑"><a href="#本章核心逻辑" class="headerlink" title="本章核心逻辑"></a>本章核心逻辑</h2><ol>
+<li><p>用 E-R 模型描述现实世界</p>
+</li>
+<li><p>用关系模型实现</p>
+</li>
+<li><p>用约束保证正确</p>
+</li>
+</ol>
+<hr>
+<h2 id="最容易丢分的-5-个点（强烈建议背）"><a href="#最容易丢分的-5-个点（强烈建议背）" class="headerlink" title="最容易丢分的 5 个点（强烈建议背）"></a>最容易丢分的 5 个点（强烈建议背）</h2><ol>
+<li><p>成绩属于联系，不属于实体</p>
+</li>
+<li><p>m:n 必须建中间表</p>
+</li>
+<li><p>三元联系不能拆</p>
+</li>
+<li><p>属性必须原子化</p>
+</li>
+<li><p>主键必须唯一且非空</p>
+</li>
+</ol>
+<hr>
+<h2 id="一句话总纲（考试用）"><a href="#一句话总纲（考试用）" class="headerlink" title="一句话总纲（考试用）"></a>一句话总纲（考试用）</h2><p>E-R 负责建模语义，关系模型负责结构实现，而完整性约束负责保证数据正确性。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-10T13:04:00.000Z" title="3/10/2026, 9:04:00 PM">2026-03-10</time>发表</span><span class="level-item"><time dateTime="2026-03-10T13:05:23.737Z" title="3/10/2026, 9:05:23 PM">2026-03-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span><span class="level-item">8 分钟读完 (大约1180个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/10/database/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库阶段性学习指南索引</a></p><div class="content"><h1 id="一、数据库领域核心概念思维导图（18个核心概念）"><a href="#一、数据库领域核心概念思维导图（18个核心概念）" class="headerlink" title="一、数据库领域核心概念思维导图（18个核心概念）"></a>一、数据库领域核心概念思维导图（18个核心概念）</h1><p>可以把数据库理解成 <strong>三层结构：数据设计 → 数据操作 → 数据系统运行机制</strong>。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">数据库 (Database Systems)</span><br><span class="line">│</span><br><span class="line">├── 1 数据建模 (Data Modeling)</span><br><span class="line">│   ├── 实体 Entity</span><br><span class="line">│   ├── 属性 Attribute</span><br><span class="line">│   ├── 关系 Relationship</span><br><span class="line">│   ├── ER模型 (Entity-Relationship Model)</span><br><span class="line">│   └── 数据规范化 (Normalization)</span><br><span class="line">│</span><br><span class="line">├── 2 关系数据库结构 (Relational Model)</span><br><span class="line">│   ├── 表 Table</span><br><span class="line">│   ├── 行 Row / Tuple</span><br><span class="line">│   ├── 列 Column / Attribute</span><br><span class="line">│   ├── 主键 Primary Key</span><br><span class="line">│   └── 外键 Foreign Key</span><br><span class="line">│</span><br><span class="line">├── 3 SQL语言 (Structured Query Language)</span><br><span class="line">│   ├── DDL 数据定义</span><br><span class="line">│   │     └── CREATE / ALTER / DROP</span><br><span class="line">│   ├── DML 数据操作</span><br><span class="line">│   │     └── INSERT / UPDATE / DELETE</span><br><span class="line">│   ├── 查询语言</span><br><span class="line">│   │     └── SELECT</span><br><span class="line">│   └── 聚合函数</span><br><span class="line">│         └── COUNT / SUM / AVG / GROUP BY</span><br><span class="line">│</span><br><span class="line">├── 4 查询处理 (Query Processing)</span><br><span class="line">│   ├── 查询计划 (Query Plan)</span><br><span class="line">│   ├── 查询优化 (Query Optimization)</span><br><span class="line">│   └── 执行引擎</span><br><span class="line">│</span><br><span class="line">├── 5 存储与索引 (Storage &amp; Index)</span><br><span class="line">│   ├── 索引 Index</span><br><span class="line">│   ├── B+ Tree</span><br><span class="line">│   ├── Hash Index</span><br><span class="line">│   └── 数据页 Data Page</span><br><span class="line">│</span><br><span class="line">├── 6 事务管理 (Transaction)</span><br><span class="line">│   ├── ACID原则</span><br><span class="line">│   │     ├── Atomicity</span><br><span class="line">│   │     ├── Consistency</span><br><span class="line">│   │     ├── Isolation</span><br><span class="line">│   │     └── Durability</span><br><span class="line">│   └── 隔离级别</span><br><span class="line">│</span><br><span class="line">├── 7 并发控制 (Concurrency Control)</span><br><span class="line">│   ├── 锁机制 Lock</span><br><span class="line">│   ├── 死锁 Deadlock</span><br><span class="line">│   └── MVCC</span><br><span class="line">│</span><br><span class="line">└── 8 恢复与容错 (Recovery)</span><br><span class="line">    ├── 日志 Log</span><br><span class="line">    ├── Checkpoint</span><br><span class="line">    └── 崩溃恢复</span><br></pre></td></tr></table></figure>
 
 <p>理解关系：</p>
@@ -166,7 +1529,7 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SQL</span><br><span class="line">↓</span><br><span class="line">Parser</span><br><span class="line">↓</span><br><span class="line">Query Optimizer</span><br><span class="line">↓</span><br><span class="line">Execution Engine</span><br><span class="line">↓</span><br><span class="line">Storage Engine</span><br><span class="line">↓</span><br><span class="line">Disk</span><br></pre></td></tr></table></figure>
 
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/tags/note/">上一页</a></div><div class="pagination-next is-invisible is-hidden-mobile"><a href="/tags/note/page/3/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/tags/note/">1</a></li><li><a class="pagination-link is-current" href="/tags/note/page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">33</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">8</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">20</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/mmkg-note/"><span class="level-start"><span class="level-item">mmkg note</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数字逻辑笔记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数据库笔记</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">14</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-26T09:00:00.000Z">2026-05-26</time></p><p class="title"><a href="/2026/05/26/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/6-%E5%B1%80%E9%83%A8%E6%95%8F%E6%84%9F%E5%93%88%E5%B8%8C/">Jaccard相似度下的相似搜索</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-24T13:00:00.000Z">2026-05-24</time></p><p class="title"><a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/4-%E6%9C%80%E5%B0%8F%E5%93%88%E5%B8%8C/">数据流：不同元素统计问题</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-24T13:00:00.000Z">2026-05-24</time></p><p class="title"><a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/5-%E6%AC%A7%E6%B0%8F%E8%B7%9D%E7%A6%BB%E4%B8%8B%E7%9A%84%E7%9B%B8%E4%BC%BC%E6%90%9C%E7%B4%A2/">相似搜索：不同元素统计问题</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-24T02:00:00.000Z">2026-05-24</time></p><p class="title"><a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/2-%20%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/">数据流：从属问题</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-24T02:00:00.000Z">2026-05-24</time></p><p class="title"><a href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/3-CM-sketch%E6%96%B9%E6%B3%95/">数据流：最高频元素寻找问题</a></p><p class="categories"><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/05/"><span class="level-start"><span class="level-item">五月 2026</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/database/"><span class="tag">database</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/digitallogic/"><span class="tag">digitallogic</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mmkg/"><span class="tag">mmkg</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">22</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/tags/note/">上一页</a></div><div class="pagination-next is-invisible is-hidden-mobile"><a href="/tags/note/page/3/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/tags/note/">1</a></li><li><a class="pagination-link is-current" href="/tags/note/page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">37</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">20</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/mmkg-note/"><span class="level-start"><span class="level-item">mmkg note</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">大数据笔记</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数字逻辑笔记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数据库笔记</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-31T09:00:00.000Z">2026-05-31</time></p><p class="title"><a href="/2026/05/31/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/10-%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3/">谱分析方法</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-31T09:00:00.000Z">2026-05-31</time></p><p class="title"><a href="/2026/05/31/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/9-%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89/">谱分析方法</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-26T09:00:00.000Z">2026-05-26</time></p><p class="title"><a href="/2026/05/26/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/7-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%EF%BC%88%E4%B8%80%EF%BC%89/">谱分析方法</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-26T09:00:00.000Z">2026-05-26</time></p><p class="title"><a href="/2026/05/26/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/6-%E5%B1%80%E9%83%A8%E6%95%8F%E6%84%9F%E5%93%88%E5%B8%8C/">Jaccard相似度下的相似搜索</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-26T09:00:00.000Z">2026-05-26</time></p><p class="title"><a href="/2026/05/26/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/8-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%EF%BC%88%E4%BA%8C%EF%BC%89/">谱分析方法</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/05/"><span class="level-start"><span class="level-item">五月 2026</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/database/"><span class="tag">database</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/digitallogic/"><span class="tag">digitallogic</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mmkg/"><span class="tag">mmkg</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">15</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">26</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,

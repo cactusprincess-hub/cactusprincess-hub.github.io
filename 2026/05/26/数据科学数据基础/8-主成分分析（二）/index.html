@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>谱分析方法 - CactusPrincess&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="CactusPrincess&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="CactusPrincess&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="整体课程框架延续前三模块：   Part1 随机化方法（同第七讲）  Part2 谱分析方法：PCA代数推导、实对称矩阵对角化、幂迭代法  Part3 最优化方法（压缩感知预留）  一、PCA 目标函数代数改写1.1 PCA 原始优化定义给定 $m$ 个 $n$ 维样本 $\boldsymbol{x}_1,\boldsymbol{x}_2,\dots,\boldsymbol{x}_m\in\mat"><meta property="og:type" content="blog"><meta property="og:title" content="谱分析方法"><meta property="og:url" content="https://cactusprincess-hub.github.io/2026/05/26/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/8-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%EF%BC%88%E4%BA%8C%EF%BC%89/"><meta property="og:site_name" content="CactusPrincess&#039;s Blog"><meta property="og:description" content="整体课程框架延续前三模块：   Part1 随机化方法（同第七讲）  Part2 谱分析方法：PCA代数推导、实对称矩阵对角化、幂迭代法  Part3 最优化方法（压缩感知预留）  一、PCA 目标函数代数改写1.1 PCA 原始优化定义给定 $m$ 个 $n$ 维样本 $\boldsymbol{x}_1,\boldsymbol{x}_2,\dots,\boldsymbol{x}_m\in\mat"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://cactusprincess-hub.github.io/img/og_image.png"><meta property="article:published_time" content="2026-05-26T09:00:00.000Z"><meta property="article:modified_time" content="2026-06-01T09:02:33.450Z"><meta property="article:author" content="cactusprincess"><meta property="article:tag" content="review"><meta property="article:tag" content="note"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://cactusprincess-hub.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://cactusprincess-hub.github.io/2026/05/26/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/8-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%EF%BC%88%E4%BA%8C%EF%BC%89/"},"headline":"谱分析方法","image":["https://cactusprincess-hub.github.io/img/og_image.png"],"datePublished":"2026-05-26T09:00:00.000Z","dateModified":"2026-06-01T09:02:33.450Z","author":{"@type":"Person","name":"cactusprincess"},"publisher":{"@type":"Organization","name":"CactusPrincess's Blog","logo":{"@type":"ImageObject","url":"https://cactusprincess-hub.github.io/img/logo.svg"}},"description":"整体课程框架延续前三模块：   Part1 随机化方法（同第七讲）  Part2 谱分析方法：PCA代数推导、实对称矩阵对角化、幂迭代法  Part3 最优化方法（压缩感知预留）  一、PCA 目标函数代数改写1.1 PCA 原始优化定义给定 $m$ 个 $n$ 维样本 $\\boldsymbol{x}_1,\\boldsymbol{x}_2,\\dots,\\boldsymbol{x}_m\\in\\mat"}</script><link rel="canonical" href="https://cactusprincess-hub.github.io/2026/05/26/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/8-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%EF%BC%88%E4%BA%8C%EF%BC%89/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-05-26T09:00:00.000Z" title="5/26/2026, 5:00:00 PM">2026-05-26</time>发表</span><span class="level-item"><time dateTime="2026-06-01T09:02:33.450Z" title="6/1/2026, 5:02:33 PM">2026-06-01</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></span><span class="level-item">14 分钟读完 (大约2106个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">谱分析方法</h1><div class="content"><h2 id="整体课程框架"><a href="#整体课程框架" class="headerlink" title="整体课程框架"></a>整体课程框架</h2><p>延续前三模块： </p>
+<ol>
+<li>Part1 随机化方法（同第七讲） </li>
+<li>Part2 谱分析方法：<strong>PCA代数推导、实对称矩阵对角化、幂迭代法</strong> </li>
+<li>Part3 最优化方法（压缩感知预留）</li>
+</ol>
+<h1 id="一、PCA-目标函数代数改写"><a href="#一、PCA-目标函数代数改写" class="headerlink" title="一、PCA 目标函数代数改写"></a>一、PCA 目标函数代数改写</h1><h2 id="1-1-PCA-原始优化定义"><a href="#1-1-PCA-原始优化定义" class="headerlink" title="1.1 PCA 原始优化定义"></a>1.1 PCA 原始优化定义</h2><p>给定 $m$ 个 $n$ 维样本 $\boldsymbol{x}_1,\boldsymbol{x}_2,\dots,\boldsymbol{x}_m\in\mathbb{R}^n$，寻找标准正交向量组 $\boldsymbol{v}_1,\dots,\boldsymbol{v}<em>k$，最大化： $$ \frac{1}{m}\sum</em>{i&#x3D;1}^m\Big(\langle \boldsymbol{x}_i,\boldsymbol{v}_1\rangle^2+\langle \boldsymbol{x}_i,\boldsymbol{v}_2\rangle^2+\dots+\langle \boldsymbol{x}_i,\boldsymbol{v}_k\rangle^2\Big) $$ </p>
+<h2 id="1-2-单主成分-k-1-代数转化"><a href="#1-2-单主成分-k-1-代数转化" class="headerlink" title="1.2 单主成分 $k&#x3D;1$ 代数转化"></a>1.2 单主成分 $k&#x3D;1$ 代数转化</h2><ol>
+<li>构造样本矩阵：设 $m\times n$ 矩阵 $\boldsymbol{X}$，每行对应一个样本 $\boldsymbol{x}_i^T$ </li>
+<li>内积平方和矩阵形式： $$ \sum_{i&#x3D;1}^m \langle \boldsymbol{x}_i,\boldsymbol{v}\rangle^2 &#x3D; (\boldsymbol{X}\boldsymbol{v})^T(\boldsymbol{X}\boldsymbol{v}) &#x3D; \boldsymbol{v}^T\boldsymbol{X}^T\boldsymbol{X}\boldsymbol{v} $$ </li>
+<li>忽略常数 $\dfrac{1}{m}$，$k&#x3D;1$ 优化问题等价于：<br>$$ \max_{|\boldsymbol{v}|&#x3D;1}\ \boldsymbol{v}^T \boldsymbol{A} \boldsymbol{v},\quad \boldsymbol{A}&#x3D;\boldsymbol{X}^T\boldsymbol{X} $$<br>特别的 如果A为对角矩阵，解为𝒗∗&#x3D; 1,0, … , 0 或 −1,0, … , 0</li>
+</ol>
+<h2 id="1-3-协方差矩阵-boldsymbol-A-boldsymbol-X-T-boldsymbol-X-含义"><a href="#1-3-协方差矩阵-boldsymbol-A-boldsymbol-X-T-boldsymbol-X-含义" class="headerlink" title="1.3 协方差矩阵 $\boldsymbol{A}&#x3D;\boldsymbol{X}^T\boldsymbol{X}$ 含义"></a>1.3 协方差矩阵 $\boldsymbol{A}&#x3D;\boldsymbol{X}^T\boldsymbol{X}$ 含义</h2><ol>
+<li>矩阵性质：$\boldsymbol{A}$ 为 <strong>$n$ 阶实对称矩阵</strong> $$ \boldsymbol{A}^T &#x3D; (\boldsymbol{X}^T\boldsymbol{X})^T &#x3D; \boldsymbol{X}^T\boldsymbol{X} &#x3D; \boldsymbol{A} $$ </li>
+<li>业务含义：若行是文档、列是词条，$\boldsymbol{A}(l,h)$ 表示第 $l$ 个词与第 $h$ 个词<strong>共现次数</strong>。</li>
+</ol>
+<h1 id="二、正交矩阵基础性质"><a href="#二、正交矩阵基础性质" class="headerlink" title="二、正交矩阵基础性质"></a>二、正交矩阵基础性质</h1><p>若 $\boldsymbol{Q}$ 为 $n$ 阶<strong>正交矩阵</strong>（列向量构成标准正交组）： </p>
+<ol>
+<li>核心等式：$\boldsymbol{Q}^T\boldsymbol{Q}&#x3D;\boldsymbol{Q}\boldsymbol{Q}^T&#x3D;\boldsymbol{I}$ </li>
+<li>行列式：$\det(\boldsymbol{Q})&#x3D;\pm1$ </li>
+<li>行列向量对偶：行向量也构成标准正交组，$\boldsymbol{Q}^T$ 仍是正交矩阵 </li>
+<li>保范数性：$\forall \boldsymbol{v}\in\mathbb{R}^n,\ |\boldsymbol{Q}\boldsymbol{v}|^2&#x3D;|\boldsymbol{v}|^2$</li>
+</ol>
+<h2 id="矩阵对角化示例"><a href="#矩阵对角化示例" class="headerlink" title="矩阵对角化示例"></a>矩阵对角化示例</h2><p>$$ \begin{bmatrix} \dfrac{3}{2} &amp; \dfrac{1}{2} \ \dfrac{1}{2} &amp; \dfrac{3}{2} \end{bmatrix} &#x3D; \begin{bmatrix} \dfrac{1}{\sqrt{2}} &amp; -\dfrac{1}{\sqrt{2}} \ \dfrac{1}{\sqrt{2}} &amp; \dfrac{1}{\sqrt{2}} \end{bmatrix} \begin{bmatrix} 2 &amp; 0 \ 0 &amp; 1 \end{bmatrix} \begin{bmatrix} \dfrac{1}{\sqrt{2}} &amp; \dfrac{1}{\sqrt{2}} \ -\dfrac{1}{\sqrt{2}} &amp; \dfrac{1}{\sqrt{2}} \end{bmatrix} $$ 满足 $\boldsymbol{A}&#x3D;\boldsymbol{Q}\boldsymbol{D}\boldsymbol{Q}^T$，$\boldsymbol{D}$ 为对角阵。 </p>
+<h1 id="三、实对称矩阵正交对角化"><a href="#三、实对称矩阵正交对角化" class="headerlink" title="三、实对称矩阵正交对角化"></a>三、实对称矩阵正交对角化</h1><h2 id="3-1-核心定理"><a href="#3-1-核心定理" class="headerlink" title="3.1 核心定理"></a>3.1 核心定理</h2><p>任意 <strong>$n$ 阶实对称矩阵 $\boldsymbol{A}$</strong>，必可分解为： $$ \boldsymbol{A} &#x3D; \boldsymbol{Q}\boldsymbol{D}\boldsymbol{Q}^T $$ </p>
+<ul>
+<li>$\boldsymbol{Q}$：正交矩阵，列向量为 $\boldsymbol{A}$ 的<strong>单位特征向量</strong> </li>
+<li>$\boldsymbol{D}$：对角矩阵，对角线为 $\boldsymbol{A}$ <strong>特征值</strong> $\lambda_1\ge\lambda_2\ge\dots\ge\lambda_n\ge0$</li>
+</ul>
+<h2 id="3-2-关键推论"><a href="#3-2-关键推论" class="headerlink" title="3.2 关键推论"></a>3.2 关键推论</h2><ol>
+<li>实对称矩阵<strong>不同特征值对应的特征向量相互正交</strong> </li>
+<li>$\boldsymbol{A}&#x3D;\boldsymbol{X}^T\boldsymbol{X}$ 是<strong>半正定矩阵</strong>，满足 $\forall \boldsymbol{u},\ \boldsymbol{u}^T\boldsymbol{X}^T\boldsymbol{X}\boldsymbol{u}\ge0$ </li>
+<li>半正定矩阵所有<strong>特征值非负</strong>：$\lambda_i\ge0$</li>
+</ol>
+<h2 id="3-3-k-1-最优解推导"><a href="#3-3-k-1-最优解推导" class="headerlink" title="3.3 $k&#x3D;1$ 最优解推导"></a>3.3 $k&#x3D;1$ 最优解推导</h2><p>将 $\boldsymbol{A}&#x3D;\boldsymbol{Q}\boldsymbol{D}\boldsymbol{Q}^T$ 代入目标函数： $$ \boldsymbol{v}^T\boldsymbol{A}\boldsymbol{v} &#x3D;\boldsymbol{v}^T\boldsymbol{Q}\boldsymbol{D}\boldsymbol{Q}^T\boldsymbol{v} &#x3D;\sum_{i&#x3D;1}^n \lambda_i \big(\boldsymbol{v}^T\boldsymbol{q}<em>i\big)^2 $$ 约束：$\displaystyle\sum</em>{i&#x3D;1}^n \big(\boldsymbol{v}^T\boldsymbol{q}_i\big)^2&#x3D;1$ 最大化结果：取最大特征值 $\lambda_1$ 对应的特征向量 $\boldsymbol{q}_1$，即 $$ \boldsymbol{v}^* &#x3D; \boldsymbol{q}_1 $$ </p>
+<h1 id="四、任意-k-维-PCA-最优解"><a href="#四、任意-k-维-PCA-最优解" class="headerlink" title="四、任意 $k$ 维 PCA 最优解"></a>四、任意 $k$ 维 PCA 最优解</h1><h2 id="4-1-k-2-情况"><a href="#4-1-k-2-情况" class="headerlink" title="4.1 $k&#x3D;2$ 情况"></a>4.1 $k&#x3D;2$ 情况</h2><p>优化目标： $$ \max_{\boldsymbol{v}_1,\boldsymbol{v}_2\text{标准正交}} \boldsymbol{v}_1^T\boldsymbol{A}\boldsymbol{v}_1 + \boldsymbol{v}_2^T\boldsymbol{A}\boldsymbol{v}_2 $$ 最优解：取<strong>前两大特征值</strong>对应的两个标准正交特征向量。 </p>
+<h2 id="4-2-通用结论"><a href="#4-2-通用结论" class="headerlink" title="4.2 通用结论"></a>4.2 通用结论</h2><p>对任意 $k\ge1$： </p>
+<blockquote>
+<p>PCA 的最优主成分 $\boldsymbol{v}_1^<em>,\boldsymbol{v}_2^</em>,\dots,\boldsymbol{v}_k^*$ </p>
+<blockquote>
+<p>是协方差矩阵 $\boldsymbol{X}^T\boldsymbol{X}$ <strong>前 $k$ 个最大特征值</strong>对应的<strong>单位标准正交特征向量</strong>。<br>注：特征值相等时，主成分不唯一。 </p>
+</blockquote>
+</blockquote>
+<h1 id="五、PCA-近似误差理论"><a href="#五、PCA-近似误差理论" class="headerlink" title="五、PCA 近似误差理论"></a>五、PCA 近似误差理论</h1><h2 id="5-1-误差定义"><a href="#5-1-误差定义" class="headerlink" title="5.1 误差定义"></a>5.1 误差定义</h2><p>PCA 近似误差 &#x3D; 所有样本到 $k$ 维主成分子空间距离平方均值： $$ \text{Error} &#x3D;\frac{1}{m}\sum_{i&#x3D;1}^m \text{dist}^2(\boldsymbol{x}_i,\text{span}{\boldsymbol{v}_1,\dots,\boldsymbol{v}_k}) $$ </p>
+<h2 id="5-2-误差矩阵推导"><a href="#5-2-误差矩阵推导" class="headerlink" title="5.2 误差矩阵推导"></a>5.2 误差矩阵推导</h2><p>利用向量范数与矩阵迹性质： $$ \sum_{i&#x3D;1}^m |\boldsymbol{x}_i|<em>2^2 &#x3D; \text{tr}(\boldsymbol{X}^T\boldsymbol{X}) $$ 方阵迹等于所有特征值之和：$\text{tr}(\boldsymbol{A})&#x3D;\displaystyle\sum</em>{i&#x3D;1}^n\lambda_i$ </p>
+<h2 id="5-3-最终误差公式"><a href="#5-3-最终误差公式" class="headerlink" title="5.3 最终误差公式"></a>5.3 最终误差公式</h2><p>$$ \text{Error} &#x3D; \frac{1}{m}\sum_{i&#x3D;k+1}^n \lambda_i $$<br><strong>核心结论</strong>： PCA 近似误差等于协方差矩阵<strong>最小 $n-k$ 个特征值的平均值</strong>；剩余特征值越小，降维损失越小。 </p>
+<h1 id="六、幂迭代法（求主成分数值算法）"><a href="#六、幂迭代法（求主成分数值算法）" class="headerlink" title="六、幂迭代法（求主成分数值算法）"></a>六、幂迭代法（求主成分数值算法）</h1><h2 id="6-1-用途"><a href="#6-1-用途" class="headerlink" title="6.1 用途"></a>6.1 用途</h2><ol>
+<li>求解 $\boldsymbol{A}&#x3D;\boldsymbol{X}^T\boldsymbol{X}$ 最大特征值及对应第一主成分 </li>
+<li>无需特征值分解，迭代求解、复杂度低</li>
+</ol>
+<h2 id="6-2-算法步骤"><a href="#6-2-算法步骤" class="headerlink" title="6.2 算法步骤"></a>6.2 算法步骤</h2><p>输入：矩阵 $\boldsymbol{A}\in\mathbb{R}^{n\times n}$ ，注意要先根据给出的X得到A</p>
+<ol>
+<li>随机取单位向量 $\boldsymbol{u}_0\in\mathbb{R}^n$ </li>
+<li>迭代更新： $$ \boldsymbol{u}<em>i &#x3D; \boldsymbol{A}\boldsymbol{u}</em>{i-1} $$ </li>
+<li>归一化：$\bar{\boldsymbol{u}}_i &#x3D; \dfrac{\boldsymbol{u}_i}{|\boldsymbol{u}_i|}$ </li>
+<li>收敛判定：若 $\bar{\boldsymbol{u}}<em>i\approx\bar{\boldsymbol{u}}</em>{i-1}$，输出即为<strong>第一主成分</strong></li>
+</ol>
+<h2 id="6-3-几何解释"><a href="#6-3-几何解释" class="headerlink" title="6.3 几何解释"></a>6.3 几何解释</h2><ol>
+<li>对角阵 repeatedly 拉伸最大特征值对应方向 </li>
+<li>一般矩阵可正交分解为「旋转+拉伸+逆旋转」，迭代后向量收敛到主特征方向</li>
+</ol>
+<h2 id="6-4-数学收敛证明"><a href="#6-4-数学收敛证明" class="headerlink" title="6.4 数学收敛证明"></a>6.4 数学收敛证明</h2><ol>
+<li>初始向量展开：$\boldsymbol{u}<em>0&#x3D;\displaystyle\sum</em>{j&#x3D;1}^n c_j \boldsymbol{q}_j$ </li>
+<li>迭代 $i$ 次：$\boldsymbol{A}^i\boldsymbol{u}<em>0&#x3D;\displaystyle\sum</em>{j&#x3D;1}^n c_j \lambda_j^i \boldsymbol{q}_j$ </li>
+<li>因 $\lambda_1&gt;\lambda_2\ge\dots$，$\left(\dfrac{\lambda_2}{\lambda_1}\right)^i\to0$ </li>
+<li>迭代无穷次后，向量趋近于最大特征值特征向量</li>
+</ol>
+<h2 id="6-5-求前-k-个主成分"><a href="#6-5-求前-k-个主成分" class="headerlink" title="6.5 求前 $k$ 个主成分"></a>6.5 求前 $k$ 个主成分</h2><ol>
+<li>用幂迭代求出第一主成分 $\boldsymbol{v}_1$ </li>
+<li>从原始数据中剔除 $\boldsymbol{v}_1$ 表征的差异： $$ \hat{\boldsymbol{x}}_i &#x3D; \boldsymbol{x}_i - \langle \boldsymbol{x}_i,\boldsymbol{v}_1\rangle\boldsymbol{v}_1 $$ </li>
+<li>对新数据再次幂迭代，依次求出第 $2,\dots,k$ 主成分<br>法2<br> 依然⽤最原始的数据矩阵，获得协⽅差矩阵。随机选择 𝒖，从中减去其在 𝒗1, … , 𝒗k的投影，<br>获得𝒖0。再⽤协⽅差矩阵反复左乘𝒖0<br> 可以证明和上述等价更简单一些</li>
+</ol>
+<h2 id="6-6-收敛速度影响因素"><a href="#6-6-收敛速度影响因素" class="headerlink" title="6.6 收敛速度影响因素"></a>6.6 收敛速度影响因素</h2><ul>
+<li>谱间距 $\lambda_1-\lambda_2$ 越大，收敛越快 - $\lambda_1\approx\lambda_2$ 时，收敛极慢、数值不稳定 </li>
+<li><h1 id="七、主成分个数-k-选取"><a href="#七、主成分个数-k-选取" class="headerlink" title="七、主成分个数 $k$ 选取"></a>七、主成分个数 $k$ 选取</h1></li>
+</ul>
+<ol>
+<li><strong>数据可视化</strong>：直接选 $k&#x3D;2$ 或 $k&#x3D;3$ </li>
+<li><strong>数据压缩</strong>：按特征值贡献率 $$ \frac{\sum_{i&#x3D;1}^k \lambda_i}{\sum_{i&#x3D;1}^n \lambda_i} \ge 1-\epsilon $$ $\epsilon$ 为允许误差，常用 0.05、0.1</li>
+</ol>
+<h1 id="八、拓展：在线增量-PCA（第一主成分动态更新）"><a href="#八、拓展：在线增量-PCA（第一主成分动态更新）" class="headerlink" title="八、拓展：在线增量 PCA（第一主成分动态更新）"></a>八、拓展：在线增量 PCA（第一主成分动态更新）</h1><h2 id="8-1-应用背景"><a href="#8-1-应用背景" class="headerlink" title="8.1 应用背景"></a>8.1 应用背景</h2><p>流式数据（物联网、传感器、推荐）实时流入，<strong>静态特征分解复杂度太高</strong>，需微小扰动下动态更新主成分。 </p>
+<h2 id="8-2-微分建模"><a href="#8-2-微分建模" class="headerlink" title="8.2 微分建模"></a>8.2 微分建模</h2><p>原始特征方程：$\boldsymbol{A}\boldsymbol{v}_1&#x3D;\lambda_1\boldsymbol{v}_1$ 新样本带来矩阵微扰 $d\boldsymbol{A}$，特征值、特征向量产生微扰 $d\lambda_1,d\boldsymbol{v}_1$ 全微分展开： $$ (d\boldsymbol{A})\boldsymbol{v}_1 + \boldsymbol{A}d\boldsymbol{v}_1 &#x3D; d\lambda_1 \boldsymbol{v}_1 + \lambda_1 d\boldsymbol{v}_1 $$ </p>
+<h2 id="8-3-推导核心结论"><a href="#8-3-推导核心结论" class="headerlink" title="8.3 推导核心结论"></a>8.3 推导核心结论</h2><ol>
+<li>单位向量约束推出：$d\boldsymbol{v}_1$ 在 $\boldsymbol{v}_1$ 方向无分量 </li>
+<li>利用特征向量正交性，解得偏转系数： $$ \alpha_j &#x3D; \frac{\boldsymbol{v}_j^T (d\boldsymbol{A}) \boldsymbol{v}_1}{\lambda_1-\lambda_j} $$ </li>
+<li>主成分微扰表达式： $$ d\boldsymbol{v}<em>1 \approx \frac{1}{n}\sum</em>{j&#x3D;2}^n \frac{(\boldsymbol{x}_{\text{new}}^T\boldsymbol{v}<em>1)(\boldsymbol{x}</em>{\text{new}}^T\boldsymbol{v}_j)}{\lambda_1-\lambda_j}\boldsymbol{v}_j $$</li>
+</ol>
+<h2 id="8-4-数值稳定性分析"><a href="#8-4-数值稳定性分析" class="headerlink" title="8.4 数值稳定性分析"></a>8.4 数值稳定性分析</h2><ol>
+<li><strong>$\lambda_1\gg\lambda_2$</strong>：谱间距大，微扰被抑制，主成分稳定、抗干扰强 </li>
+<li><strong>$\lambda_1\approx\lambda_2$</strong>：分母趋近于0，微小扰动引发主成分剧烈抖动，<strong>病态不稳定</strong></li>
+</ol>
+<h1 id="九、本讲小结"><a href="#九、本讲小结" class="headerlink" title="九、本讲小结"></a>九、本讲小结</h1><ol>
+<li>PCA 可完全转化为<strong>协方差矩阵 $\boldsymbol{X}^T\boldsymbol{X}$ 的特征值问题</strong>； </li>
+<li>实对称矩阵正交对角化是 PCA 数学根基，主成分即前 $k$ 大特征值对应的标准特征向量； </li>
+<li>PCA 近似误差由剩余特征值之和决定，可指导降维维度 $k$ 选择； </li>
+<li>幂迭代法是低成本求解主成分的数值算法，适合高维大数据； </li>
+<li>利用矩阵微分可实现<strong>流式在线 PCA</strong>，谱间距决定系统稳定性。</li>
+</ol>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li>Tim Roughgarden &amp; Gregory Valiant 《CS 168 - The Modern Algorithmic Toolbox》 </li>
+<li>Cameron Musco 《COMPSCI 514 - Algorithms for Data Science》</li>
+</ol>
+</div><div class="article-licensing box"><div class="licensing-title"><p>谱分析方法</p><p><a href="https://cactusprincess-hub.github.io/2026/05/26/数据科学数据基础/8-主成分分析（二）/">https://cactusprincess-hub.github.io/2026/05/26/数据科学数据基础/8-主成分分析（二）/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>cactusprincess</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2026-05-26</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2026-06-01</p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/review/">review</a><a class="link-muted mr-2" rel="tag" href="/tags/note/">note</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2026/05/26/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/6-%E5%B1%80%E9%83%A8%E6%95%8F%E6%84%9F%E5%93%88%E5%B8%8C/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Jaccard相似度下的相似搜索</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2026/05/24/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/4-%E6%9C%80%E5%B0%8F%E5%93%88%E5%B8%8C/"><span class="level-item">数据流：不同元素统计问题</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><script src="https://giscus.app/client.js" repo="cactusprincess-hub/cactusprincess-hub.github.io" data-repo="cactusprincess-hub/cactusprincess-hub.github.io" data-repo-id="R_kgDORDU9CA" data-category-id="DIC_kwDORDU9CM4C1i3p" data-category="Announcements" data-mapping="pathnamehexo g" data-strict="1" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="zh-CN" crossorigin="anonymous" async></script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/1.jpg" alt="cactusprincess"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">cactusprincess</p><p class="is-size-6 is-block">CS Student at BIT</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">37</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">20</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/cactusprincess-hub" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/cactusprincess-hub"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="/3858233918@qq.com"><i class="fas fa-envelope"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.bit.edu.cn/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BIT官网</span></span><span class="level-right"><span class="level-item tag">www.bit.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://github.com/cactusprincess-hub" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">我的GitHub</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/mmkg-note/"><span class="level-start"><span class="level-item">mmkg note</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/oop%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">oop笔记</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">大数据笔记</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数字逻辑笔记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">数据库笔记</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="level-start"><span class="level-item">日记</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">笔记</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">深度学习</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E9%A1%B9%E7%9B%AE/"><span class="level-start"><span class="level-item">项目</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-31T09:00:00.000Z">2026-05-31</time></p><p class="title"><a href="/2026/05/31/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/10-%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3/">谱分析方法</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-31T09:00:00.000Z">2026-05-31</time></p><p class="title"><a href="/2026/05/31/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/9-%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89/">谱分析方法</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-26T09:00:00.000Z">2026-05-26</time></p><p class="title"><a href="/2026/05/26/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/7-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%EF%BC%88%E4%B8%80%EF%BC%89/">谱分析方法</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-26T09:00:00.000Z">2026-05-26</time></p><p class="title"><a href="/2026/05/26/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/6-%E5%B1%80%E9%83%A8%E6%95%8F%E6%84%9F%E5%93%88%E5%B8%8C/">Jaccard相似度下的相似搜索</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-05-26T09:00:00.000Z">2026-05-26</time></p><p class="title"><a href="/2026/05/26/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/8-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%EF%BC%88%E4%BA%8C%EF%BC%89/">谱分析方法</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%AC%94%E8%AE%B0/">大数据笔记</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/05/"><span class="level-start"><span class="level-item">五月 2026</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/01/"><span class="level-start"><span class="level-item">一月 2026</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BitProject/"><span class="tag">BitProject</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Graph-Theory/"><span class="tag">Graph-Theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Intro/"><span class="tag">Intro</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LLM/"><span class="tag">LLM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Life/"><span class="tag">Life</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Math/"><span class="tag">Math</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PyTorch/"><span class="tag">PyTorch</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cpp/"><span class="tag">cpp</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/database/"><span class="tag">database</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/digitallogic/"><span class="tag">digitallogic</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mmkg/"><span class="tag">mmkg</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/note/"><span class="tag">note</span><span class="tag">15</span></a></div><div class="control"><a class="tags has-addons" href="/tags/review/"><span class="tag">review</span><span class="tag">26</span></a></div><div class="control"><a class="tags has-addons" href="/tags/sql/"><span class="tag">sql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CactusPrincess&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2026 cactusprincess</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
